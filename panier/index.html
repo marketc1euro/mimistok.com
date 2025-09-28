@@ -8,8 +8,8 @@
   transform: translateX(-50%) translateY(50px);
   width: 90%;
   max-width: 600px;
-  background: rgba(30, 30, 30, 0.7); /* gris foncé translucide */
-  backdrop-filter: blur(10px);        /* effet flou */
+  background: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(10px);
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
   display: flex;
@@ -30,8 +30,6 @@
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
-
-/* Texte (quantité + prix) */
 #panier-flottant .infos {
   flex: 1 1 auto;
   font-size: 16px;
@@ -39,13 +37,11 @@
   margin-right: 15px;
   white-space: nowrap; 
 }
-
-/* Bouton payer = gélule bleue */
 #panier-flottant .btn-payer-flottant {
   background: #007BFF;
   color: #fff;
   border: none;
-  padding: 12px 40px;
+  padding: 12px 28px; /* bouton moins large */
   border-radius: 999px;
   cursor: pointer;
   font-weight: bold;
@@ -58,8 +54,6 @@
   background: #0056d2;
   transform: scale(1.05);
 }
-
-/* Animation bouton produit */
 .pulse {
   animation: pulseAnim 0.3s;
 }
@@ -77,7 +71,8 @@ function jouerSonAjout() {
 }
 
 // --- AJOUT AU PANIER ---
-function ajouterAuPanier(bouton) {
+// maintenant, on passe bouton et quantité
+function ajouterAuPanier(bouton, quantite = 1) {
     const id = bouton.getAttribute('data-id');
     const nom = bouton.getAttribute('data-nom');
     const prix = parseFloat(bouton.getAttribute('data-prix'));
@@ -91,9 +86,9 @@ function ajouterAuPanier(bouton) {
     const produitExistant = panier.find(item => item.id === id);
 
     if (produitExistant) {
-        produitExistant.quantite += 1;
+        produitExistant.quantite += quantite; // ajoute exactement la quantité
     } else {
-        panier.push({ id, nom, prix, quantite: 1 });
+        panier.push({ id, nom, prix, quantite });
     }
 
     localStorage.setItem('panier', JSON.stringify(panier));
@@ -111,7 +106,6 @@ function mettreAJourPanierFlottant() {
     const totalElem = document.querySelector('#panier-flottant .total');
 
     if (quantiteElem && totalElem) {
-        // ✅ Mise à jour du texte sans réécrire innerHTML
         quantiteElem.textContent = `${totalItems} ${totalItems > 1 ? 'articles' : 'article'}`;
         totalElem.textContent = `€${totalPrix.toFixed(2)}`;
     }
@@ -126,13 +120,17 @@ function mettreAJourPanierFlottant() {
 document.addEventListener('DOMContentLoaded', function() {
     mettreAJourPanierFlottant();
 
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('ajouter-panier')) {
-            ajouterAuPanier(e.target);
-        }
-        if (e.target.classList.contains('btn-payer-flottant')) {
-            window.location.href = '/panier';
-        }
+    document.querySelectorAll('.ajouter-panier').forEach(bouton => {
+        bouton.addEventListener('click', function() {
+            const inputQte = document.querySelector(`#${this.dataset.inputId}`);
+            let quantite = 1;
+            if (inputQte) quantite = parseInt(inputQte.value) || 1;
+            ajouterAuPanier(this, quantite);
+        });
+    });
+
+    document.querySelectorAll('.btn-payer-flottant').forEach(btn => {
+        btn.addEventListener('click', () => window.location.href = '/panier');
     });
 });</script><div class="container container--nosidebar"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/stok7.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="salut"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>salut</span></a></li><li class="fff"><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="ok"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>ok</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/stok7.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main page"><article class="content"><div class="main__inner"><header class="content__header"><h1 class="content__title">panier</h1></header><div class="content__entry"><div id="page-panier"><h1>🛒 Votre Panier</h1><div id="contenu-panier"></div><h6 id="total-panier" style="font-size: 1.5em; margin: 20px 0;"><strong>Total : €<span id="montant-total">0.00</span></strong></h6><button id="btn-payer" style="display: none; padding: 15px 30px; background: #007cba; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1.2em;">💳 Payer maintenant</button><p id="panier-vide" style="display: none; font-size: 1.2em;">Votre panier est vide</p><div id="loading-paiement" style="display: none; text-align: center; padding: 20px;"><p>Connexion à Stripe en cours...</p></div></div><script>// Classe pour gérer le panier
 class PanierPage {
