@@ -1,10 +1,10 @@
 <!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Error 404 - mimistok</title><meta name="robots" content="noindex, follow"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="mimistok"><meta property="og:image" content="https://mimistok.com/media/website/MIMISTOK.svg"><meta property="og:image:width" content="1414"><meta property="og:image:height" content="1414"><meta property="og:site_name" content="mimistok"><meta property="og:description" content=""><meta property="og:url" content="https://mimistok.com/"><meta property="og:type" content="website"><link rel="preload" href="https://mimistok.com/assets/dynamic/fonts/urbanist/urbanist.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="https://mimistok.com/assets/dynamic/fonts/redhatmono/redhatmono.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=6cb5f2a17c11b9febda9a59e09eb276b"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"mimistok","logo":"https://mimistok.com/media/website/MIMISTOK.svg","url":"https://mimistok.com/"}</script><noscript><style>img[loading] {
                     opacity: 1;
-                }</style></noscript><script>// Gestion du panier multi-produits
+                }</style></noscript><script>// Code du panier AMÉLIORÉ
 class Panier {
     constructor() {
-        this.items = this.chargerPanier();
-        this.afficherNombrePanier();
+        this.items = JSON.parse(localStorage.getItem('panier')) || [];
+        this.mettreAJourBadge();
     }
 
     ajouterProduit(id, nom, prix, image) {
@@ -17,51 +17,42 @@ class Panier {
                 id: id,
                 nom: nom,
                 prix: parseFloat(prix),
-                image: image,
+                image: image || '',
                 quantite: 1
             });
         }
         
-        this.sauvegarderPanier();
-        this.afficherNombrePanier();
-        this.afficherMessageAjout(nom);
+        this.sauvegarder();
+        this.mettreAJourBadge();
+        
+        // REMPLACER L'ALERTE par une notification discrète
+        this.afficherNotification(nom);
+    }
+
+    modifierQuantite(id, changement) {
+        const produit = this.items.find(item => item.id === id);
+        if (produit) {
+            produit.quantite += changement;
+            if (produit.quantite <= 0) {
+                this.retirerProduit(id);
+            } else {
+                this.sauvegarder();
+                this.mettreAJourBadge();
+            }
+        }
     }
 
     retirerProduit(id) {
         this.items = this.items.filter(item => item.id !== id);
-        this.sauvegarderPanier();
-        this.afficherNombrePanier();
+        this.sauvegarder();
+        this.mettreAJourBadge();
     }
 
-    modifierQuantite(id, nouvelleQuantite) {
-        if (nouvelleQuantite <= 0) {
-            this.retirerProduit(id);
-            return;
-        }
-        
-        const produit = this.items.find(item => item.id === id);
-        if (produit) {
-            produit.quantite = nouvelleQuantite;
-            this.sauvegarderPanier();
-            this.afficherNombrePanier();
-        }
-    }
-
-    calculerTotal() {
-        return this.items.reduce((total, item) => {
-            return total + (item.prix * item.quantite);
-        }, 0);
-    }
-
-    sauvegarderPanier() {
+    sauvegarder() {
         localStorage.setItem('panier', JSON.stringify(this.items));
     }
 
-    chargerPanier() {
-        return JSON.parse(localStorage.getItem('panier')) || [];
-    }
-
-    afficherNombrePanier() {
+    mettreAJourBadge() {
         const totalItems = this.items.reduce((total, item) => total + item.quantite, 0);
         const badgePanier = document.getElementById('badge-panier');
         if (badgePanier) {
@@ -70,25 +61,57 @@ class Panier {
         }
     }
 
-    afficherMessageAjout(nomProduit) {
-        alert(`"${nomProduit}" a été ajouté au panier !`);
+    afficherNotification(nomProduit) {
+        // Créer une notification discrète au lieu d'une alerte
+        const notification = document.createElement('div');
+        notification.innerHTML = `✓ ${nomProduit} ajouté au panier`;
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 1000;
+            animation: fadeInOut 3s ease-in-out;
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Supprimer après 3 secondes
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
     }
 }
 
-// Initialiser le panier au chargement de la page
+// Style pour l'animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeInOut {
+        0% { opacity: 0; transform: translateY(-20px); }
+        10% { opacity: 1; transform: translateY(0); }
+        90% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-20px); }
+    }
+`;
+document.head.appendChild(style);
+
+// Au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
-    window.panier = new Panier();
+    window.monPanier = new Panier();
     
-    // Gérer les clics sur les boutons "Ajouter au panier"
+    // Écoute les clics sur "ajouter-panier"
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('ajouter-panier')) {
-            const button = e.target;
-            const id = button.getAttribute('data-id');
-            const nom = button.getAttribute('data-nom');
-            const prix = button.getAttribute('data-prix');
-            const image = button.getAttribute('data-image');
-            
-            window.panier.ajouterProduit(id, nom, prix, image);
+            const btn = e.target;
+            window.monPanier.ajouterProduit(
+                btn.getAttribute('data-id'),
+                btn.getAttribute('data-nom'), 
+                btn.getAttribute('data-prix'),
+                btn.getAttribute('data-image')
+            );
         }
     });
 });</script><style>.badge-panier {
