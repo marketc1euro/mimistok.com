@@ -8,8 +8,8 @@
   transform: translateX(-50%) translateY(50px);
   width: 90%;
   max-width: 600px;
-  background: rgba(30, 30, 30, 0.7); /* gris foncé translucide */
-  backdrop-filter: blur(10px);        /* effet flou */
+  background: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(10px);
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
   display: flex;
@@ -31,7 +31,6 @@
   transform: translateX(-50%) translateY(0);
 }
 
-/* Texte (quantité + prix) */
 #panier-flottant .infos {
   flex: 1 1 auto;
   font-size: 16px;
@@ -40,7 +39,6 @@
   white-space: nowrap; 
 }
 
-/* Bouton payer = gélule bleue */
 #panier-flottant .btn-payer-flottant {
   background: #007BFF;
   color: #fff;
@@ -59,7 +57,6 @@
   transform: scale(1.05);
 }
 
-/* Animation bouton produit */
 .pulse {
   animation: pulseAnim 0.3s;
 }
@@ -67,7 +64,8 @@
   0% { transform: scale(1); }
   50% { transform: scale(1.15); }
   100% { transform: scale(1); }
-}</style><script>// --- SON DE CONFIRMATION ---
+}</style><script>// --- FONCTIONS GLOBALES ---
+
 function jouerSonAjout() {
     const son = document.getElementById('son-ajout');
     if (son) {
@@ -76,19 +74,11 @@ function jouerSonAjout() {
     }
 }
 
-// --- AJOUT AU PANIER ---
-function ajouterAuPanier(bouton) {
-    const id = bouton.getAttribute('data-id');
-    const nom = bouton.getAttribute('data-nom');
-    const prix = parseFloat(bouton.getAttribute('data-prix'));
-    const quantite = parseInt(bouton.getAttribute('data-quantite')) || 1;
-
-    console.log('Ajout au panier:', { id, nom, prix, quantite }); // Debug
+// FONCTION MODIFIÉE : Prend maintenant l'ID, nom, prix et quantité en paramètres
+function ajouterProduitAuPanier(id, nom, prix, quantite) {
+    console.log('Ajout au panier:', { id, nom, prix, quantite });
 
     jouerSonAjout();
-
-    bouton.classList.add('pulse');
-    setTimeout(() => bouton.classList.remove('pulse'), 300);
 
     let panier = JSON.parse(localStorage.getItem('panier')) || [];
     const produitExistant = panier.find(item => item.id === id);
@@ -103,7 +93,6 @@ function ajouterAuPanier(bouton) {
     mettreAJourPanierFlottant();
 }
 
-// --- METTRE À JOUR L'AFFICHAGE DU PANIER ---
 function mettreAJourPanierFlottant() {
     const panier = JSON.parse(localStorage.getItem('panier')) || [];
     const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
@@ -128,10 +117,8 @@ function mettreAJourPanierFlottant() {
 document.addEventListener('DOMContentLoaded', function() {
     mettreAJourPanierFlottant();
 
+    // Écouteur pour le bouton payer
     document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('ajouter-panier')) {
-            ajouterAuPanier(e.target);
-        }
         if (e.target.classList.contains('btn-payer-flottant')) {
             window.location.href = '/panier';
         }
