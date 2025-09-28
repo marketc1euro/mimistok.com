@@ -13,7 +13,7 @@
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 14px 22px;
@@ -41,7 +41,7 @@
   background: #007BFF;
   color: #fff;
   border: none;
-  padding: 12px 28px; /* bouton moins large */
+  padding: 12px 40px;
   border-radius: 999px;
   cursor: pointer;
   font-weight: bold;
@@ -70,15 +70,13 @@ function jouerSonAjout() {
     }
 }
 
-// --- AJOUT AU PANIER ---
-// maintenant, on passe bouton et quantité
+// --- AJOUT AU PANIER GLOBAL (avec quantité personnalisée) ---
 function ajouterAuPanier(bouton, quantite = 1) {
     const id = bouton.getAttribute('data-id');
     const nom = bouton.getAttribute('data-nom');
     const prix = parseFloat(bouton.getAttribute('data-prix'));
 
     jouerSonAjout();
-
     bouton.classList.add('pulse');
     setTimeout(() => bouton.classList.remove('pulse'), 300);
 
@@ -86,7 +84,7 @@ function ajouterAuPanier(bouton, quantite = 1) {
     const produitExistant = panier.find(item => item.id === id);
 
     if (produitExistant) {
-        produitExistant.quantite += quantite; // ajoute exactement la quantité
+        produitExistant.quantite += quantite;
     } else {
         panier.push({ id, nom, prix, quantite });
     }
@@ -120,17 +118,19 @@ function mettreAJourPanierFlottant() {
 document.addEventListener('DOMContentLoaded', function() {
     mettreAJourPanierFlottant();
 
-    document.querySelectorAll('.ajouter-panier').forEach(bouton => {
-        bouton.addEventListener('click', function() {
-            const inputQte = document.querySelector(`#${this.dataset.inputId}`);
-            let quantite = 1;
-            if (inputQte) quantite = parseInt(inputQte.value) || 1;
-            ajouterAuPanier(this, quantite);
-        });
-    });
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('ajouter-panier')) {
+            // Récupérer la quantité de l'input de la fiche produit
+            const input = e.target.parentNode.querySelector('.input-quantite');
+            const quantite = parseInt(input ? input.value : 1) || 1;
+            ajouterAuPanier(e.target, quantite);
 
-    document.querySelectorAll('.btn-payer-flottant').forEach(btn => {
-        btn.addEventListener('click', () => window.location.href = '/panier');
+            // Remettre la quantité à 1 après ajout
+            if (input) input.value = 1;
+        }
+        if (e.target.classList.contains('btn-payer-flottant')) {
+            window.location.href = '/panier';
+        }
     });
 });</script><div class="container container--nosidebar"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/stok7.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="salut"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>salut</span></a></li><li class="fff"><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="ok"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>ok</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/stok7.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main page page--error"><div class="hero"><div class="main__inner"><h1>Explore, be curious.</h1><p>Discover stories, thinking, and expertise from writers on any topic.</p></div></div><div class="main__inner"><h1>404 Error</h1><p>The page you were looking for appears to have been moved, deleted or does not exist. You could go back to where you were or head straight to our home page.</p><p><a href="https://mimistok.com/" class="btn">Go Home</a></p></div></main></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
         for (var i = 0; i < images.length; i++) {
