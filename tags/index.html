@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>All tags - mimistok</title><meta name="robots" content="noindex, follow"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="mimistok"><meta property="og:image" content="https://mimistok.com/media/website/stok7.svg"><meta property="og:image:width" content="50"><meta property="og:image:height" content="50"><meta property="og:site_name" content="mimistok"><meta property="og:description" content=""><meta property="og:url" content="https://mimistok.com/tags/"><meta property="og:type" content="website"><link rel="preload" href="https://mimistok.com/assets/dynamic/fonts/publicsans/publicsans.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=0d70c1009dea48a35c13624e889d325e"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"mimistok","logo":"https://mimistok.com/media/website/stok7.svg","url":"https://mimistok.com/"}</script><noscript><style>img[loading] {
                     opacity: 1;
-                }</style></noscript><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="tags-template"><div id="panier-flottant"><div class="infos"><span class="quantite">0</span> article – <span class="total">€0.00</span></div><button class="btn-payer-flottant">Payer</button></div><audio id="son-ajout" preload="auto"><source src="mixkit-correct-answer-tone-2870.wav" type="audio/wav"></audio><style>/* Panier flottant */
+                }</style></noscript><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="tags-template"><div id="panier-flottant"><div class="infos"><span class="quantite">0</span> <span class="total">€0.00</span></div><button class="btn-payer-flottant">Payer</button></div><audio id="son-ajout" preload="auto"><source src="mixkit-correct-answer-tone-2870.wav" type="audio/wav"></audio><style>/* Panier flottant */
 #panier-flottant {
   position: fixed;
   bottom: 20px;
@@ -81,6 +81,7 @@ function ajouterAuPanier(bouton) {
     const id = bouton.getAttribute('data-id');
     const nom = bouton.getAttribute('data-nom');
     const prix = parseFloat(bouton.getAttribute('data-prix'));
+    const quantite = parseInt(bouton.getAttribute('data-quantite')) || 1;
 
     jouerSonAjout();
 
@@ -91,16 +92,16 @@ function ajouterAuPanier(bouton) {
     const produitExistant = panier.find(item => item.id === id);
 
     if (produitExistant) {
-        produitExistant.quantite += 1;
+        produitExistant.quantite += quantite;
     } else {
-        panier.push({ id, nom, prix, quantite: 1 });
+        panier.push({ id, nom, prix, quantite: quantite });
     }
 
     localStorage.setItem('panier', JSON.stringify(panier));
     mettreAJourPanierFlottant();
 }
 
-// --- METTRE À JOUR L’AFFICHAGE DU PANIER ---
+// --- METTRE À JOUR L'AFFICHAGE DU PANIER ---
 function mettreAJourPanierFlottant() {
     const panier = JSON.parse(localStorage.getItem('panier')) || [];
     const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
@@ -111,8 +112,7 @@ function mettreAJourPanierFlottant() {
     const totalElem = document.querySelector('#panier-flottant .total');
 
     if (quantiteElem && totalElem) {
-        // ✅ Mise à jour du texte sans réécrire innerHTML
-        quantiteElem.textContent = `${totalItems} ${totalItems > 1 ? 'articles' : 'article'}`;
+        quantiteElem.textContent = `${totalItems} ${totalItems > 1 ? 'articles' : 'article'} – `;
         totalElem.textContent = `€${totalPrix.toFixed(2)}`;
     }
 
