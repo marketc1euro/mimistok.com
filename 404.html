@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Error 404 - mimistok</title><meta name="robots" content="noindex, follow"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="mimistok"><meta property="og:image" content="https://mimistok.com/media/website/stok7.svg"><meta property="og:image:width" content="50"><meta property="og:image:height" content="50"><meta property="og:site_name" content="mimistok"><meta property="og:description" content=""><meta property="og:url" content="https://mimistok.com/"><meta property="og:type" content="website"><link rel="preload" href="https://mimistok.com/assets/dynamic/fonts/publicsans/publicsans.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=0d70c1009dea48a35c13624e889d325e"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"mimistok","logo":"https://mimistok.com/media/website/stok7.svg","url":"https://mimistok.com/"}</script><noscript><style>img[loading] {
                     opacity: 1;
-                }</style></noscript><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="error-template"><div id="panier-flottant"><div class="infos"><span class="quantite">0</span> article(s) - <span class="total">€0.00</span></div><button class="btn-payer-flottant">Payer</button></div><audio id="son-ajout" preload="auto"><source src="https://assets.mixkit.co/active_storage/sfx/221/221-preview.mp3" type="audio/mpeg"></audio><style>/* Panier flottant */
+                }</style></noscript><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="error-template"><div id="panier-flottant"><div class="infos"><span class="quantite">0</span> article – <span class="total">€0.00</span></div><button class="btn-payer-flottant">Payer</button></div><audio id="son-ajout" preload="auto"><source src="https://assets.mixkit.co/active_storage/sfx/221/221-preview.mp3" type="audio/mpeg"></audio><style>/* Panier flottant */
 #panier-flottant {
   position: fixed;
   bottom: 20px;
@@ -13,6 +13,7 @@
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
   display: flex;
+  flex-wrap: wrap; /* permet retour ligne si trop petit */
   justify-content: space-between;
   align-items: center;
   padding: 14px 22px;
@@ -30,9 +31,18 @@
   transform: translateX(-50%) translateY(0);
 }
 
-/* Bouton payer = gélule large bleue */
+/* Texte (quantité + prix) */
+#panier-flottant .infos {
+  flex: 1 1 auto;
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 15px;
+  white-space: nowrap; /* évite retour ligne forcé */
+}
+
+/* Bouton payer = gélule bleue */
 #panier-flottant .btn-payer-flottant {
-  background: #007BFF; /* bleu */
+  background: #007BFF;
   color: #fff;
   border: none;
   padding: 12px 40px;
@@ -42,24 +52,11 @@
   font-size: 16px;
   text-align: center;
   transition: transform 0.2s, background 0.3s;
+  flex-shrink: 0; /* bouton garde sa largeur */
 }
 #panier-flottant .btn-payer-flottant:hover {
   background: #0056d2;
   transform: scale(1.05);
-}
-
-/* Notification ajout */
-.notification-panier {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #4CAF50;
-  color: #fff;
-  padding: 10px 16px;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-  font-size: 14px;
-  z-index: 10000;
 }
 
 /* Animation bouton produit */
@@ -101,7 +98,6 @@ function ajouterAuPanier(bouton) {
 
     localStorage.setItem('panier', JSON.stringify(panier));
     mettreAJourPanierFlottant();
-    afficherNotification(nom);
 }
 
 // --- METTRE À JOUR L’AFFICHAGE DU PANIER ---
@@ -116,7 +112,8 @@ function mettreAJourPanierFlottant() {
 
     if (quantiteElem && totalElem) {
         quantiteElem.textContent = totalItems;
-        totalElem.textContent = `€${totalPrix.toFixed(2)}`;
+        quantiteElem.parentNode.innerHTML =
+          `${totalItems} ${totalItems > 1 ? 'articles' : 'article'} – <span class="total">€${totalPrix.toFixed(2)}</span>`;
     }
 
     if (flottant) {
@@ -126,19 +123,6 @@ function mettreAJourPanierFlottant() {
             flottant.classList.remove('visible');
         }
     }
-}
-
-// --- NOTIFICATION ---
-function afficherNotification(nomProduit) {
-    document.querySelectorAll('.notification-panier').forEach(n => n.remove());
-
-    const notification = document.createElement('div');
-    notification.className = 'notification-panier';
-    notification.innerHTML = `✓ ${nomProduit} ajouté au panier`;
-
-    document.body.appendChild(notification);
-
-    setTimeout(() => notification.remove(), 3000);
 }
 
 // --- INIT ---
