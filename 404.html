@@ -13,7 +13,7 @@
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
   display: flex;
-  flex-wrap: wrap; /* permet retour ligne si trop petit */
+  flex-wrap: wrap; 
   justify-content: space-between;
   align-items: center;
   padding: 14px 22px;
@@ -37,7 +37,7 @@
   font-size: 16px;
   font-weight: 500;
   margin-right: 15px;
-  white-space: nowrap; /* évite retour ligne forcé */
+  white-space: nowrap; 
 }
 
 /* Bouton payer = gélule bleue */
@@ -52,7 +52,7 @@
   font-size: 16px;
   text-align: center;
   transition: transform 0.2s, background 0.3s;
-  flex-shrink: 0; /* bouton garde sa largeur */
+  flex-shrink: 0;
 }
 #panier-flottant .btn-payer-flottant:hover {
   background: #0056d2;
@@ -111,17 +111,14 @@ function mettreAJourPanierFlottant() {
     const totalElem = document.querySelector('#panier-flottant .total');
 
     if (quantiteElem && totalElem) {
-        quantiteElem.textContent = totalItems;
-        quantiteElem.parentNode.innerHTML =
-          `${totalItems} ${totalItems > 1 ? 'articles' : 'article'} – <span class="total">€${totalPrix.toFixed(2)}</span>`;
+        // ✅ Mise à jour du texte sans réécrire innerHTML
+        quantiteElem.textContent = `${totalItems} ${totalItems > 1 ? 'articles' : 'article'}`;
+        totalElem.textContent = `€${totalPrix.toFixed(2)}`;
     }
 
     if (flottant) {
-        if (totalItems > 0) {
-            flottant.classList.add('visible');
-        } else {
-            flottant.classList.remove('visible');
-        }
+        if (totalItems > 0) flottant.classList.add('visible');
+        else flottant.classList.remove('visible');
     }
 }
 
