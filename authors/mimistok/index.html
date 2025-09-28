@@ -74,7 +74,7 @@ function jouerSonAjout() {
     }
 }
 
-// FONCTION MODIFIÉE : Prend maintenant l'ID, nom, prix, quantité ET image en paramètres
+// FONCTION MODIFIÉE : Prend l'image en paramètre
 function ajouterProduitAuPanier(id, nom, prix, quantite, image) {
     console.log('Ajout au panier:', { id, nom, prix, quantite, image });
 
@@ -91,7 +91,7 @@ function ajouterProduitAuPanier(id, nom, prix, quantite, image) {
             nom: nom, 
             prix: prix, 
             quantite: quantite,
-            image: image  // ⭐ Stocker l'image dans le panier
+            image: image  // ⭐ Stocker l'image
         });
     }
 
