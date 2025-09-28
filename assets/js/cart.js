@@ -11,14 +11,20 @@ function saveCart(cart) {
   updateCartBadge();
 }
 
-// Ajouter produit
-function addToCart(id, quantity = 1) {
+// Ajouter produit à partir d'un bouton
+function addProduct(button) {
+  const productEl = button.closest(".product");
+  const id = productEl.dataset.id;
+  const name = productEl.dataset.name;
+  const price = parseInt(productEl.dataset.price);
+  const currency = productEl.dataset.currency;
+
   let cart = loadCart();
   const existing = cart.find(item => item.id === id);
   if (existing) {
-    existing.quantity += quantity;
+    existing.quantity += 1;
   } else {
-    cart.push({ id, quantity });
+    cart.push({ id, name, price, currency, quantity: 1 });
   }
   saveCart(cart);
 
@@ -28,14 +34,13 @@ function addToCart(id, quantity = 1) {
     badge.classList.add("bounce");
     setTimeout(() => badge.classList.remove("bounce"), 300);
   }
+
+  alert(`${name} ajouté au panier !`);
 }
 
 // Afficher panier (sur page cart.html)
-async function renderCart() {
-  const res = await fetch("/media/files/products.json");
-  const products = await res.json();
+function renderCart() {
   const cart = loadCart();
-
   const container = document.getElementById("cart");
   container.innerHTML = "";
 
@@ -46,14 +51,11 @@ async function renderCart() {
 
   let total = 0;
   cart.forEach(item => {
-    const product = products.find(p => p.id === item.id);
-    if (product) {
-      total += product.price * item.quantity;
-      container.innerHTML += `
-        <div>
-          ${product.name} x ${item.quantity} — ${(product.price / 100).toFixed(2)} €
-        </div>`;
-    }
+    total += item.price * item.quantity;
+    container.innerHTML += `
+      <div>
+        ${item.name} x ${item.quantity} — ${(item.price / 100).toFixed(2)} €
+      </div>`;
   });
 
   container.innerHTML += `<p><strong>Total: ${(total / 100).toFixed(2)} €</strong></p>`;
