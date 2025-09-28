@@ -1,6 +1,70 @@
 <!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Error 404 - mimistok</title><meta name="robots" content="noindex, follow"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="mimistok"><meta property="og:image" content="https://mimistok.com/media/website/mimi.svg"><meta property="og:image:width" content="50"><meta property="og:image:height" content="50"><meta property="og:site_name" content="mimistok"><meta property="og:description" content=""><meta property="og:url" content="https://mimistok.com/"><meta property="og:type" content="website"><link rel="preload" href="https://mimistok.com/assets/dynamic/fonts/publicsans/publicsans.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=0d70c1009dea48a35c13624e889d325e"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"mimistok","logo":"https://mimistok.com/media/website/mimi.svg","url":"https://mimistok.com/"}</script><noscript><style>img[loading] {
                     opacity: 1;
-                }</style></noscript><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="error-template"><script>// --- FONCTIONS GLOBALES ---
+                }</style></noscript><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="error-template"><div id="panier-flottant"><div class="infos"><span class="quantite">0</span> <span class="total">€0.00</span></div><button class="btn-payer-flottant">Payer</button></div><audio id="son-ajout" preload="auto"><source src="mixkit-correct-answer-tone-2870.wav" type="audio/wav"></audio><style>/* Panier flottant */
+#panier-flottant {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(50px);
+  width: 90%;
+  max-width: 600px;
+  background: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 22px;
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  z-index: 9999;
+}
+#panier-flottant.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+#panier-flottant .infos {
+  flex: 1 1 auto;
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 15px;
+  white-space: nowrap; 
+}
+
+#panier-flottant .btn-payer-flottant {
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  transition: transform 0.2s, background 0.3s;
+  flex-shrink: 0;
+}
+#panier-flottant .btn-payer-flottant:hover {
+  background: #0056d2;
+  transform: scale(1.05);
+}
+
+.pulse {
+  animation: pulseAnim 0.3s;
+}
+@keyframes pulseAnim {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}</style><script>// --- FONCTIONS GLOBALES ---
 
 function jouerSonAjout() {
     const son = document.getElementById('son-ajout');
@@ -10,8 +74,10 @@ function jouerSonAjout() {
     }
 }
 
+// FONCTION MODIFIÉE : Utilise priceId au lieu de id
 function ajouterProduitAuPanier(priceId, nom, prix, quantite) {
     console.log('Ajout au panier:', { priceId, nom, prix, quantite });
+
     jouerSonAjout();
 
     let panier = JSON.parse(localStorage.getItem('panier')) || [];
@@ -21,10 +87,11 @@ function ajouterProduitAuPanier(priceId, nom, prix, quantite) {
         produitExistant.quantite += quantite;
     } else {
         panier.push({ 
-            priceId: priceId,
+            priceId: priceId,  // ← CHANGEMENT ICI : priceId au lieu de id
             nom: nom, 
             prix: prix, 
             quantite: quantite
+            // Plus besoin de stocker l'image
         });
     }
 
@@ -52,13 +119,7 @@ function mettreAJourPanierFlottant() {
     }
 }
 
-// --- INIT AVEC GESTION DES CONFLITS ---
-// Rendez les fonctions disponibles IMMÉDIATEMENT
-window.jouerSonAjout = jouerSonAjout;
-window.ajouterProduitAuPanier = ajouterProduitAuPanier;
-window.mettreAJourPanierFlottant = mettreAJourPanierFlottant;
-
-// Initialisation après chargement du DOM
+// --- INIT ---
 document.addEventListener('DOMContentLoaded', function() {
     mettreAJourPanierFlottant();
 
