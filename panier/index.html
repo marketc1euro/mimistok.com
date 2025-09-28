@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>panier - mimistok</title><meta name="description" content="Votre Panier Total : €0.00 Payer maintenant Votre panier est vide Continuer&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://mimistok.com/panier/"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="panier"><meta property="og:image" content="https://mimistok.com/media/website/mimi.svg"><meta property="og:image:width" content="50"><meta property="og:image:height" content="50"><meta property="og:site_name" content="mimistok"><meta property="og:description" content="Votre Panier Total : €0.00 Payer maintenant Votre panier est vide Continuer&hellip;"><meta property="og:url" content="https://mimistok.com/panier/"><meta property="og:type" content="article"><link rel="preload" href="https://mimistok.com/assets/dynamic/fonts/publicsans/publicsans.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=0d70c1009dea48a35c13624e889d325e"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://mimistok.com/panier/"},"headline":"panier","datePublished":"2025-09-28T09:01+02:00","dateModified":"2025-09-28T22:31+02:00","image":{"@type":"ImageObject","url":"https://mimistok.com/media/website/mimi.svg","height":50,"width":50},"description":"Votre Panier Total : €0.00 Payer maintenant Votre panier est vide Continuer&hellip;","author":{"@type":"Person","name":"mimistok","url":"https://mimistok.com/authors/mimistok/"},"publisher":{"@type":"Organization","name":"mimistok","logo":{"@type":"ImageObject","url":"https://mimistok.com/media/website/mimi.svg","height":50,"width":50}}}</script><noscript><style>img[loading] {
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>panier - mimistok</title><meta name="description" content="Votre Panier Total : €0.00 Payer maintenant Votre panier est vide Continuer&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://mimistok.com/panier/"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="panier"><meta property="og:image" content="https://mimistok.com/media/website/mimi.svg"><meta property="og:image:width" content="50"><meta property="og:image:height" content="50"><meta property="og:site_name" content="mimistok"><meta property="og:description" content="Votre Panier Total : €0.00 Payer maintenant Votre panier est vide Continuer&hellip;"><meta property="og:url" content="https://mimistok.com/panier/"><meta property="og:type" content="article"><link rel="preload" href="https://mimistok.com/assets/dynamic/fonts/publicsans/publicsans.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=0d70c1009dea48a35c13624e889d325e"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://mimistok.com/panier/"},"headline":"panier","datePublished":"2025-09-28T09:01+02:00","dateModified":"2025-09-28T22:40+02:00","image":{"@type":"ImageObject","url":"https://mimistok.com/media/website/mimi.svg","height":50,"width":50},"description":"Votre Panier Total : €0.00 Payer maintenant Votre panier est vide Continuer&hellip;","author":{"@type":"Person","name":"mimistok","url":"https://mimistok.com/authors/mimistok/"},"publisher":{"@type":"Organization","name":"mimistok","logo":{"@type":"ImageObject","url":"https://mimistok.com/media/website/mimi.svg","height":50,"width":50}}}</script><noscript><style>img[loading] {
                     opacity: 1;
                 }</style></noscript><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="page-template"><div id="panier-flottant"><div class="infos"><span class="quantite">0</span> <span class="total">€0.00</span></div><button class="btn-payer-flottant">Payer</button></div><audio id="son-ajout" preload="auto"><source src="mixkit-correct-answer-tone-2870.wav" type="audio/wav"></audio><style>/* Panier flottant */
 #panier-flottant {
@@ -74,9 +74,9 @@ function jouerSonAjout() {
     }
 }
 
-// FONCTION MODIFIÉE : Prend maintenant l'ID, nom, prix et quantité en paramètres
-function ajouterProduitAuPanier(id, nom, prix, quantite) {
-    console.log('Ajout au panier:', { id, nom, prix, quantite });
+// FONCTION MODIFIÉE : Prend maintenant l'ID, nom, prix, quantité ET image en paramètres
+function ajouterProduitAuPanier(id, nom, prix, quantite, image) {
+    console.log('Ajout au panier:', { id, nom, prix, quantite, image });
 
     jouerSonAjout();
 
@@ -86,7 +86,13 @@ function ajouterProduitAuPanier(id, nom, prix, quantite) {
     if (produitExistant) {
         produitExistant.quantite += quantite;
     } else {
-        panier.push({ id, nom, prix, quantite: quantite });
+        panier.push({ 
+            id: id, 
+            nom: nom, 
+            prix: prix, 
+            quantite: quantite,
+            image: image  // ⭐ Stocker l'image dans le panier
+        });
     }
 
     localStorage.setItem('panier', JSON.stringify(panier));
@@ -203,9 +209,8 @@ function afficherPanier() {
       border: 1px solid rgba(0,0,0,0.05);
     `;
 
-    // Récupérer l'image du produit depuis la configuration des produits
-    // Vous devrez adapter cette partie selon comment vous stockez les images
-    const imageProduit = getImageProduit(produit.id);
+    // ⭐ UTILISER l'image stockée dans le produit
+    const imageProduit = produit.image || '/media/image-par-defaut.jpg';
 
     produitHTML.innerHTML = `
       <div style="flex-shrink: 0; width: 80px; height: 80px;">
@@ -278,19 +283,6 @@ function afficherPanier() {
     this.style.background = '#007BFF';
     this.style.transform = 'scale(1)';
   });
-}
-
-// Fonction pour récupérer l'image du produit (à adapter selon votre structure)
-function getImageProduit(idProduit) {
-  // Vous devrez mapper les IDs de produits avec leurs images
-  // Pour l'instant, je retourne une image par défaut
-  const imagesProduits = {
-    'tshirt_001': 'file:///Users/doudi/Documents/Publii/sites/mimistok/input/media/posts/1/8e425b9ab16b24bdbef986717f2e.jpg',
-    // Ajoutez ici les autres produits avec leurs images
-    // 'id_produit': 'chemin/vers/image.jpg'
-  };
-  
-  return imagesProduits[idProduit] || '/media/image-par-defaut.jpg';
 }
 
 // Fonction paiement

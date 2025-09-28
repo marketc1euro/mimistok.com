@@ -74,9 +74,9 @@ function jouerSonAjout() {
     }
 }
 
-// FONCTION MODIFIÉE : Prend maintenant l'ID, nom, prix et quantité en paramètres
-function ajouterProduitAuPanier(id, nom, prix, quantite) {
-    console.log('Ajout au panier:', { id, nom, prix, quantite });
+// FONCTION MODIFIÉE : Prend maintenant l'ID, nom, prix, quantité ET image en paramètres
+function ajouterProduitAuPanier(id, nom, prix, quantite, image) {
+    console.log('Ajout au panier:', { id, nom, prix, quantite, image });
 
     jouerSonAjout();
 
@@ -86,7 +86,13 @@ function ajouterProduitAuPanier(id, nom, prix, quantite) {
     if (produitExistant) {
         produitExistant.quantite += quantite;
     } else {
-        panier.push({ id, nom, prix, quantite: quantite });
+        panier.push({ 
+            id: id, 
+            nom: nom, 
+            prix: prix, 
+            quantite: quantite,
+            image: image  // ⭐ Stocker l'image dans le panier
+        });
     }
 
     localStorage.setItem('panier', JSON.stringify(panier));
