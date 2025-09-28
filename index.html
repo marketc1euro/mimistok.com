@@ -17,7 +17,7 @@
               <link rel="preload" href="https://mimistok.com/assets/dynamic/fonts/urbanist/urbanist.woff2" as="font" type="font/woff2" crossorigin>
            <link rel="preload" href="https://mimistok.com/assets/dynamic/fonts/redhatmono/redhatmono.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=6cb5f2a17c11b9febda9a59e09eb276b">
-        <script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://mimistok.com/"},"headline":"Tout le meilleur de l'high-tech de Chine","datePublished":"2025-09-28T01:57+02:00","dateModified":"2025-09-28T12:40+02:00","image":{"@type":"ImageObject","url":"https://mimistok.com/media/website/MIMISTOK.svg","height":1414,"width":1414},"description":"🛒 0 T-shirt Logo Un joli T-shirt avec le logo de la&hellip;","author":{"@type":"Person","name":"mimistok","url":"https://mimistok.com/authors/mimistok/"},"publisher":{"@type":"Organization","name":"mimistok","logo":{"@type":"ImageObject","url":"https://mimistok.com/media/website/MIMISTOK.svg","height":1414,"width":1414}}}</script>      
+        <script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://mimistok.com/"},"headline":"Tout le meilleur de l'high-tech de Chine","datePublished":"2025-09-28T01:57+02:00","dateModified":"2025-09-28T14:06+02:00","image":{"@type":"ImageObject","url":"https://mimistok.com/media/website/MIMISTOK.svg","height":1414,"width":1414},"description":"🛒 0 T-shirt Logo Un joli T-shirt avec le logo de la&hellip;","author":{"@type":"Person","name":"mimistok","url":"https://mimistok.com/authors/mimistok/"},"publisher":{"@type":"Organization","name":"mimistok","logo":{"@type":"ImageObject","url":"https://mimistok.com/media/website/MIMISTOK.svg","height":1414,"width":1414}}}</script>      
         <noscript>
             <style>
                 img[loading] {
@@ -88,29 +88,60 @@
             </header>
 
             <div class="content__entry">
-               <!-- Badge panier flottant -->
+               <!-- Badge panier -->
 <div id="cart-badge" style="position: fixed; top: 20px; right: 20px; background: #ff6f00; color: #fff; padding: 10px 15px; border-radius: 25px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.2); z-index: 999;">🛒 0</div>
-<!-- Produit 1 -->
+<!-- Produit -->
 <div class="product" data-id="prod_tshirt" data-name="T-shirt Logo" data-price="2000" data-currency="eur">
 <h2>T-shirt Logo</h2>
 <p>Un joli T-shirt avec le logo de la boutique.</p>
 <p><strong>Prix : 20,00 €</strong></p>
 <button>Ajouter au panier</button></div>
-<!-- Produit 2 -->
-<div class="product" data-id="prod_casquette" data-name="Casquette" data-price="1500" data-currency="eur">
-<h2>Casquette</h2>
-<p>Une casquette stylée pour compléter votre tenue.</p>
-<p><strong>Prix : 15,00 €</strong></p>
-<button>Ajouter au panier</button></div>
-<!-- Produit 3 -->
-<div class="product" data-id="prod_mug" data-name="Mug" data-price="800" data-currency="eur">
-<h2>Mug</h2>
-<p>Un mug pratique et joli pour vos boissons chaudes.</p>
-<p><strong>Prix : 8,00 €</strong></p>
-<button>Ajouter au panier</button></div>
-<!-- Inclure le JS -->
+<!-- Ton script directement dans la page -->
 <p>
-<script src="{{ asset " js="" cart="" defer="defer"></script>
+<script>
+const CART_KEY = "publii_cart";
+
+function loadCart() {
+  return JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+}
+function saveCart(cart) {
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  updateCartBadge();
+}
+function addProduct(button) {
+  const productEl = button.closest(".product");
+  const id = productEl.dataset.id;
+  const name = productEl.dataset.name;
+  const price = parseInt(productEl.dataset.price, 10);
+
+  let cart = loadCart();
+  const existing = cart.find(item => item.id === id);
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({ id, name, price, quantity: 1 });
+  }
+  saveCart(cart);
+
+  const badge = document.getElementById("cart-badge");
+  if (badge) {
+    const totalItems = cart.reduce((s, it) => s + it.quantity, 0);
+    badge.textContent = `🛒 ${totalItems}`;
+    badge.classList.add("bounce");
+    setTimeout(() => badge.classList.remove("bounce"), 300);
+  }
+  alert(`${name} ajouté au panier !`);
+}
+function updateCartBadge() {
+  const cart = loadCart();
+  const badge = document.getElementById("cart-badge");
+  if (badge) {
+    const totalItems = cart.reduce((s, it) => s + it.quantity, 0);
+    badge.textContent = `🛒 ${totalItems}`;
+  }
+}
+document.addEventListener("DOMContentLoaded", updateCartBadge);
+</script>
 </p>
             </div>     
 
