@@ -83,6 +83,8 @@ function ajouterAuPanier(bouton) {
     const prix = parseFloat(bouton.getAttribute('data-prix'));
     const quantite = parseInt(bouton.getAttribute('data-quantite')) || 1;
 
+    console.log('Ajout au panier:', { id, nom, prix, quantite }); // Debug
+
     jouerSonAjout();
 
     bouton.classList.add('pulse');
