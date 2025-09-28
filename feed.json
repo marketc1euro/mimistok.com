@@ -5,6 +5,7 @@
     "home_page_url": "https://mimistok.com",
     "feed_url": "https://mimistok.com/feed.json",
     "user_comment": "",
+    "icon": "https://mimistok.com/media/website/stok7.svg",
     "author": {
         "name": "mimistok"
     },
