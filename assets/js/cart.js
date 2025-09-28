@@ -11,12 +11,12 @@ function saveCart(cart) {
   updateCartBadge();
 }
 
-// Ajouter produit à partir d'un bouton
+// Ajouter produit depuis bouton
 function addProduct(button) {
   const productEl = button.closest(".product");
   const id = productEl.dataset.id;
   const name = productEl.dataset.name;
-  const price = parseInt(productEl.dataset.price);
+  const price = parseInt(productEl.dataset.price, 10);
   const currency = productEl.dataset.currency;
 
   let cart = loadCart();
@@ -28,9 +28,11 @@ function addProduct(button) {
   }
   saveCart(cart);
 
-  // Animation badge
+  // Badge et animation
   const badge = document.getElementById("cart-badge");
   if (badge) {
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    badge.textContent = `🛒 ${totalItems}`;
     badge.classList.add("bounce");
     setTimeout(() => badge.classList.remove("bounce"), 300);
   }
@@ -38,7 +40,17 @@ function addProduct(button) {
   alert(`${name} ajouté au panier !`);
 }
 
-// Afficher panier (sur page cart.html)
+// Mettre à jour le badge panier
+function updateCartBadge() {
+  const cart = loadCart();
+  const badge = document.getElementById("cart-badge");
+  if (badge) {
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    badge.textContent = `🛒 ${totalItems}`;
+  }
+}
+
+// Afficher panier
 function renderCart() {
   const cart = loadCart();
   const container = document.getElementById("cart");
@@ -59,40 +71,11 @@ function renderCart() {
   });
 
   container.innerHTML += `<p><strong>Total: ${(total / 100).toFixed(2)} €</strong></p>`;
-  container.innerHTML += `
-    <form id="checkout-form" onsubmit="checkout(event)">
-      <input type="email" id="customer-email" placeholder="Votre email" required>
-      <button type="submit">Payer</button>
-    </form>`;
 }
 
-// Mettre à jour la gélule flottante
-function updateCartBadge() {
-  const cart = loadCart();
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const badge = document.getElementById("cart-badge");
-  if (badge) badge.textContent = `🛒 ${totalItems}`;
-}
-
-// Paiement → appel Worker
-async function checkout(event) {
-  if (event) event.preventDefault();
-
-  const cart = loadCart();
-  const email = document.getElementById("customer-email")?.value || "";
-
-  const res = await fetch("/api/create-checkout-session", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ cart, email })
-  });
-  const data = await res.json();
-  if (data.url) {
-    window.location.href = data.url;
-  } else {
-    alert("Erreur paiement");
-  }
-}
+// Exposer fonctions globalement
+window.addProduct = addProduct;
+window.renderCart = renderCart;
 
 // Initialisation
 document.addEventListener("DOMContentLoaded", () => {
