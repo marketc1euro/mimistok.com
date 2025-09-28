@@ -8,12 +8,12 @@
   transform: translateX(-50%) translateY(50px);
   width: 90%;
   max-width: 600px;
-  background: rgba(30, 30, 30, 0.7);
-  backdrop-filter: blur(10px);
+  background: rgba(30, 30, 30, 0.7); /* gris foncé translucide */
+  backdrop-filter: blur(10px);        /* effet flou */
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
   justify-content: space-between;
   align-items: center;
   padding: 14px 22px;
@@ -30,6 +30,8 @@
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
+
+/* Texte (quantité + prix) */
 #panier-flottant .infos {
   flex: 1 1 auto;
   font-size: 16px;
@@ -37,6 +39,8 @@
   margin-right: 15px;
   white-space: nowrap; 
 }
+
+/* Bouton payer = gélule bleue */
 #panier-flottant .btn-payer-flottant {
   background: #007BFF;
   color: #fff;
@@ -54,6 +58,8 @@
   background: #0056d2;
   transform: scale(1.05);
 }
+
+/* Animation bouton produit */
 .pulse {
   animation: pulseAnim 0.3s;
 }
@@ -70,13 +76,14 @@ function jouerSonAjout() {
     }
 }
 
-// --- AJOUT AU PANIER GLOBAL (avec quantité personnalisée) ---
-function ajouterAuPanier(bouton, quantite = 1) {
+// --- AJOUT AU PANIER ---
+function ajouterAuPanier(bouton) {
     const id = bouton.getAttribute('data-id');
     const nom = bouton.getAttribute('data-nom');
     const prix = parseFloat(bouton.getAttribute('data-prix'));
 
     jouerSonAjout();
+
     bouton.classList.add('pulse');
     setTimeout(() => bouton.classList.remove('pulse'), 300);
 
@@ -84,9 +91,9 @@ function ajouterAuPanier(bouton, quantite = 1) {
     const produitExistant = panier.find(item => item.id === id);
 
     if (produitExistant) {
-        produitExistant.quantite += quantite;
+        produitExistant.quantite += 1;
     } else {
-        panier.push({ id, nom, prix, quantite });
+        panier.push({ id, nom, prix, quantite: 1 });
     }
 
     localStorage.setItem('panier', JSON.stringify(panier));
@@ -104,6 +111,7 @@ function mettreAJourPanierFlottant() {
     const totalElem = document.querySelector('#panier-flottant .total');
 
     if (quantiteElem && totalElem) {
+        // ✅ Mise à jour du texte sans réécrire innerHTML
         quantiteElem.textContent = `${totalItems} ${totalItems > 1 ? 'articles' : 'article'}`;
         totalElem.textContent = `€${totalPrix.toFixed(2)}`;
     }
@@ -120,13 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('ajouter-panier')) {
-            // Récupérer la quantité de l'input de la fiche produit
-            const input = e.target.parentNode.querySelector('.input-quantite');
-            const quantite = parseInt(input ? input.value : 1) || 1;
-            ajouterAuPanier(e.target, quantite);
-
-            // Remettre la quantité à 1 après ajout
-            if (input) input.value = 1;
+            ajouterAuPanier(e.target);
         }
         if (e.target.classList.contains('btn-payer-flottant')) {
             window.location.href = '/panier';
