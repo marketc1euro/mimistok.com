@@ -1,74 +1,112 @@
 <!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tout le meilleur de l&#x27;high-tech de Chine - mimistok</title><meta name="description" content="Acheter un mail Pack 10 mails Recevez 10 mails premium. 5,00 €&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://mimistok.com/"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="Tout le meilleur de l'high-tech de Chine"><meta property="og:image" content="https://mimistok.com/media/website/MIMISTOK.svg"><meta property="og:image:width" content="1414"><meta property="og:image:height" content="1414"><meta property="og:site_name" content="mimistok"><meta property="og:description" content="Acheter un mail Pack 10 mails Recevez 10 mails premium. 5,00 €&hellip;"><meta property="og:url" content="https://mimistok.com/"><meta property="og:type" content="article"><link rel="preload" href="https://mimistok.com/assets/dynamic/fonts/urbanist/urbanist.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="https://mimistok.com/assets/dynamic/fonts/redhatmono/redhatmono.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=6cb5f2a17c11b9febda9a59e09eb276b"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://mimistok.com/"},"headline":"Tout le meilleur de l'high-tech de Chine","datePublished":"2025-09-28T01:57+02:00","dateModified":"2025-09-28T14:11+02:00","image":{"@type":"ImageObject","url":"https://mimistok.com/media/website/MIMISTOK.svg","height":1414,"width":1414},"description":"Acheter un mail Pack 10 mails Recevez 10 mails premium. 5,00 €&hellip;","author":{"@type":"Person","name":"mimistok","url":"https://mimistok.com/authors/mimistok/"},"publisher":{"@type":"Organization","name":"mimistok","logo":{"@type":"ImageObject","url":"https://mimistok.com/media/website/MIMISTOK.svg","height":1414,"width":1414}}}</script><noscript><style>img[loading] {
                     opacity: 1;
-                }</style></noscript><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="page-template"><div id="cart-badge" style="position:fixed;top:20px;right:20px;background:#ff6f00;color:#fff;padding:10px 15px;border-radius:25px;font-weight:bold;cursor:pointer;box-shadow:0 4px 6px rgba(0,0,0,0.2);z-index:999;">🛒 0</div><script>const CART_KEY = "publii_cart";
+                }</style></noscript><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="page-template"><script>(function(){
+  console.log('[publii-cart] init');
+  const CART_KEY = 'publii_cart';
 
-function loadCart() {
-  return JSON.parse(localStorage.getItem(CART_KEY) || "[]");
-}
-function saveCart(cart) {
-  localStorage.setItem(CART_KEY, JSON.stringify(cart));
-  updateCartBadge();
-}
-function addProduct(button) {
-  const productEl = button.closest(".product");
-  const id = productEl.dataset.id;
-  const name = productEl.dataset.name;
-  const price = parseInt(productEl.dataset.price, 10);
-
-  let cart = loadCart();
-  const existing = cart.find(item => item.id === id);
-  if (existing) {
-    existing.quantity += 1;
-  } else {
-    cart.push({ id, name, price, quantity: 1 });
+  function loadCart(){
+    try { return JSON.parse(localStorage.getItem(CART_KEY) || '[]'); }
+    catch(e){ console.error('[publii-cart] load error', e); return []; }
   }
-  saveCart(cart);
-
-  const badge = document.getElementById("cart-badge");
-  if (badge) {
-    const totalItems = cart.reduce((s, it) => s + it.quantity, 0);
-    badge.textContent = `🛒 ${totalItems}`;
-    badge.classList.add("bounce");
-    setTimeout(() => badge.classList.remove("bounce"), 300);
-  }
-  alert(`${name} ajouté au panier !`);
-}
-function updateCartBadge() {
-  const cart = loadCart();
-  const badge = document.getElementById("cart-badge");
-  if (badge) {
-    const totalItems = cart.reduce((s, it) => s + it.quantity, 0);
-    badge.textContent = `🛒 ${totalItems}`;
-  }
-}
-function renderCart() {
-  const cart = loadCart();
-  const container = document.getElementById("cart");
-  if (!container) return;
-
-  container.innerHTML = "";
-  if (cart.length === 0) {
-    container.innerHTML = "<p>Panier vide.</p>";
-    return;
+  function saveCart(cart){
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    updateBadge();
   }
 
-  let total = 0;
-  cart.forEach(item => {
-    total += item.price * item.quantity;
-    container.innerHTML += `
-      <div>
-        ${item.name} x ${item.quantity} — ${(item.price / 100).toFixed(2)} €
-      </div>`;
-  });
-  container.innerHTML += `<p><strong>Total: ${(total / 100).toFixed(2)} €</strong></p>`;
-}
+  function updateBadge(){
+    let badge = document.getElementById('cart-badge');
+    if(!badge){
+      badge = document.createElement('div');
+      badge.id = 'cart-badge';
+      badge.setAttribute('aria-live','polite');
+      badge.style.cssText = 'position:fixed;bottom:20px;right:20px;background:#ff6f00;color:#fff;padding:8px 14px;border-radius:22px;font-weight:600;cursor:pointer;z-index:9999;box-shadow:0 6px 18px rgba(0,0,0,0.15);';
+      document.body.appendChild(badge);
+    }
+    const cart = loadCart();
+    const count = cart.reduce((s,i)=>s + (i.quantity||0), 0);
+    badge.textContent = '🛒 ' + count;
+  }
 
-window.addProduct = addProduct;
-window.renderCart = renderCart;
+  function addToCartData(attrs){
+    if(!attrs || !attrs.id){ console.warn('[publii-cart] product id missing'); return; }
+    const id = String(attrs.id);
+    const name = attrs.name || 'Produit';
+    const price = Number(attrs.price) || 0;
+    const currency = attrs.currency || 'eur';
 
-document.addEventListener("DOMContentLoaded", () => {
-  updateCartBadge();
-});</script><div class="container container--nosidebar"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/MIMISTOK.svg" alt="mimistok" width="1414" height="1414"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li class="active"><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="salut"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>salut</span></a></li><li class="active fff"><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="ok"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>ok</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/MIMISTOK.svg" alt="mimistok" width="1414" height="1414"></a></header></div></div><main class="main page"><article class="content"><div class="main__inner"><header class="content__header"><h1 class="content__title">Tout le meilleur de l&#x27;high-tech de Chine</h1></header><div class="content__entry"><h1>Acheter un mail</h1><div class="product" data-id="prod_mail1" data-name="Pack 10 mails" data-price="500"><h2>Pack 10 mails</h2><p>Recevez 10 mails premium.</p><p><strong>5,00 €</strong></p><button>Ajouter au panier</button></div><div class="product" data-id="prod_mail2" data-name="Pack 50 mails" data-price="2000"><h2>Pack 50 mails</h2><p>Recevez 50 mails premium.</p><p><strong>20,00 €</strong></p><button>Ajouter au panier</button></div></div></div></article></main></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
+    const cart = loadCart();
+    const existing = cart.find(i => i.id === id);
+    if(existing) existing.quantity = (existing.quantity || 0) + 1;
+    else cart.push({ id, name, price, quantity: 1, currency });
+    saveCart(cart);
+    console.log('[publii-cart] added', id, name, price);
+  }
+
+  // Event delegation: écouter tout clic sur un élément ayant l'attribut data-add-to-cart
+  document.addEventListener('click', function(ev){
+    const btn = ev.target.closest('[data-add-to-cart]');
+    if(!btn) return;
+    ev.preventDefault();
+    // cherche le conteneur produit (.product) s'il existe, sinon prend dataset du bouton
+    const productEl = btn.closest('.product') || btn;
+    const attrs = {
+      id: productEl.dataset.id || btn.dataset.id,
+      name: productEl.dataset.name || btn.dataset.name,
+      price: productEl.dataset.price || btn.dataset.price,
+      currency: productEl.dataset.currency || btn.dataset.currency
+    };
+    addToCartData(attrs);
+
+    // Feedback visuel : petite animation
+    const badge = document.getElementById('cart-badge');
+    if(badge){
+      badge.classList.add('pc-bounce');
+      setTimeout(()=>badge.classList.remove('pc-bounce'), 300);
+    }
+  }, false);
+
+  // Render panier dans l'élément #cart
+  function renderCart(){
+    const container = document.getElementById('cart');
+    if(!container){ console.warn('[publii-cart] no #cart container on this page'); return; }
+    const cart = loadCart();
+    container.innerHTML = '';
+    if(cart.length === 0){ container.innerHTML = '<p>Panier vide.</p>'; return; }
+
+    let total = 0;
+    cart.forEach(item => {
+      const line = document.createElement('div');
+      const price = Number(item.price) || 0;
+      total += price * (item.quantity || 0);
+      line.textContent = `${item.name} x ${item.quantity} — ${(price/100).toFixed(2)} €`;
+      container.appendChild(line);
+    });
+    const t = document.createElement('p');
+    t.innerHTML = `<strong>Total: ${(total/100).toFixed(2)} €</strong>`;
+    container.appendChild(t);
+  }
+
+  // utilitaires debug accessibles via console : publiiCart.debug(), publiiCart.clear()
+  window.publiiCart = {
+    load: loadCart,
+    save: saveCart,
+    add: addToCartData,
+    render: renderCart,
+    clear: function(){ localStorage.removeItem(CART_KEY); updateBadge(); console.log('[publii-cart] cleared'); },
+    debug: function(){ console.log('[publii-cart] cart=', loadCart()); }
+  };
+
+  // style d'animation simple (ajouté dynamiquement pour éviter dépendance CSS thème)
+  const style = document.createElement('style');
+  style.textContent = '.pc-bounce{ animation: pcBounce 0.28s; } @keyframes pcBounce{0%{transform:scale(1)}50%{transform:scale(1.25)}100%{transform:scale(1)}}';
+  document.head.appendChild(style);
+
+  // init badge au chargement
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', updateBadge);
+  else updateBadge();
+
+  console.log('[publii-cart] ready');
+})();</script><div class="container container--nosidebar"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/MIMISTOK.svg" alt="mimistok" width="1414" height="1414"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li class="active"><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="salut"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>salut</span></a></li><li class="active fff"><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="ok"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>ok</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/MIMISTOK.svg" alt="mimistok" width="1414" height="1414"></a></header></div></div><main class="main page"><article class="content"><div class="main__inner"><header class="content__header"><h1 class="content__title">Tout le meilleur de l&#x27;high-tech de Chine</h1></header><div class="content__entry"><h1>Acheter un mail</h1><div class="product" data-id="prod_mail1" data-name="Pack 10 mails" data-price="500"><h2>Pack 10 mails</h2><p>Recevez 10 mails premium.</p><p><strong>5,00 €</strong></p><button>Ajouter au panier</button></div><div class="product" data-id="prod_mail2" data-name="Pack 50 mails" data-price="2000"><h2>Pack 50 mails</h2><p>Recevez 50 mails premium.</p><p><strong>20,00 €</strong></p><button>Ajouter au panier</button></div></div></div></article></main></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
         for (var i = 0; i < images.length; i++) {
             if (images[i].complete) {
                 images[i].classList.add('is-loaded');
