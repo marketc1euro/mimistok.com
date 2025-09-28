@@ -122,7 +122,217 @@ document.addEventListener('DOMContentLoaded', function() {
     font-size: 12px;
     margin-left: 5px;
     display: none;
-}</style><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="page-template"><div class="container container--nosidebar"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/MIMISTOK.svg" alt="mimistok" width="1414" height="1414"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li class="active"><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="salut"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>salut</span></a></li><li class="active fff"><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="ok"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>ok</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/MIMISTOK.svg" alt="mimistok" width="1414" height="1414"></a></header></div></div><main class="main page"><article class="content"><div class="main__inner"><header class="content__header"><h1 class="content__title">Tout le meilleur de l&#x27;high-tech de Chine</h1></header><div class="content__entry"><div class="produit"><h3>T-Shirt Personnalisé</h3><p>Prix : €25.00</p><button class="ajouter-panier" data-id="tshirt_001" data-nom="T-Shirt Personnalisé" data-prix="25.00" data-image="https://votresite.com/images/tshirt.jpg">Ajouter au panier</button></div><div class="produit"><h3>Casquette Logo</h3><p>Prix : €15.00</p><button class="ajouter-panier" data-id="casquette_002" data-nom="Casquette Logo" data-prix="15.00" data-image="https://votresite.com/images/casquette.jpg">Ajouter au panier</button></div></div></div></article></main></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
+}</style><style>/* Panier flottant */
+#panier-flottant {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #007cba;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#panier-flottant:hover {
+    background: #005a87;
+    transform: scale(1.05);
+}
+
+#panier-flottant .infos-panier {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#panier-flottant .quantite {
+    background: #ff4444;
+    color: white;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#panier-flottant .total {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+#panier-flottant .btn-payer-flottant {
+    background: white;
+    color: #007cba;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#panier-flottant .btn-payer-flottant:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+}</style><div id="panier-flottant"><div class="infos-panier"><div class="quantite">0</div><div class="total">€0.00</div></div><button class="btn-payer-flottant" onclick="redirigerVersPaiement()">💳 Payer</button></div><script>// Gestion du panier flottant
+class PanierFlottant {
+    constructor() {
+        this.element = document.getElementById('panier-flottant');
+        this.quantiteElement = this.element.querySelector('.quantite');
+        this.totalElement = this.element.querySelector('.total');
+        this.mettreAJour();
+    }
+
+    mettreAJour() {
+        const panier = JSON.parse(localStorage.getItem('panier')) || [];
+        const totalItems = panier.reduce((total, item) => total + item.quantite, 0);
+        const totalPrix = panier.reduce((total, item) => total + (item.prix * item.quantite), 0);
+
+        if (totalItems > 0) {
+            this.quantiteElement.textContent = totalItems;
+            this.totalElement.textContent = `€${totalPrix.toFixed(2)}`;
+            this.element.style.display = 'flex';
+        } else {
+            this.element.style.display = 'none';
+        }
+    }
+}
+
+// Initialiser le panier flottant
+let panierFlottant;
+
+document.addEventListener('DOMContentLoaded', function() {
+    panierFlottant = new PanierFlottant();
+});
+
+// Fonction pour rediriger vers la page de paiement
+function redirigerVersPaiement() {
+    const panier = JSON.parse(localStorage.getItem('panier')) || [];
+    if (panier.length > 0) {
+        window.location.href = '/panier'; // Redirige vers la page panier
+    }
+}
+
+// Mettre à jour le panier flottant quand le panier change
+function mettreAJourPanierFlottant() {
+    if (panierFlottant) {
+        panierFlottant.mettreAJour();
+    }
+}
+
+// Modifier la classe Panier existante pour mettre à jour le flottant
+class Panier {
+    constructor() {
+        this.items = JSON.parse(localStorage.getItem('panier')) || [];
+        this.mettreAJourBadge();
+        mettreAJourPanierFlottant(); // ← AJOUT IMPORTANT
+    }
+
+    ajouterProduit(id, nom, prix, image) {
+        const produitExistant = this.items.find(item => item.id === id);
+        
+        if (produitExistant) {
+            produitExistant.quantite += 1;
+        } else {
+            this.items.push({
+                id: id,
+                nom: nom,
+                prix: parseFloat(prix),
+                image: image || '',
+                quantite: 1
+            });
+        }
+        
+        this.sauvegarder();
+        this.mettreAJourBadge();
+        mettreAJourPanierFlottant(); // ← AJOUT IMPORTANT
+        this.afficherNotification(nom);
+    }
+
+    modifierQuantite(id, changement) {
+        const produit = this.items.find(item => item.id === id);
+        if (produit) {
+            produit.quantite += changement;
+            if (produit.quantite <= 0) {
+                this.retirerProduit(id);
+            } else {
+                this.sauvegarder();
+                this.mettreAJourBadge();
+                mettreAJourPanierFlottant(); // ← AJOUT IMPORTANT
+            }
+        }
+    }
+
+    retirerProduit(id) {
+        this.items = this.items.filter(item => item.id !== id);
+        this.sauvegarder();
+        this.mettreAJourBadge();
+        mettreAJourPanierFlottant(); // ← AJOUT IMPORTANT
+    }
+
+    sauvegarder() {
+        localStorage.setItem('panier', JSON.stringify(this.items));
+    }
+
+    mettreAJourBadge() {
+        const totalItems = this.items.reduce((total, item) => total + item.quantite, 0);
+        const badgePanier = document.getElementById('badge-panier');
+        if (badgePanier) {
+            badgePanier.textContent = totalItems;
+            badgePanier.style.display = totalItems > 0 ? 'inline' : 'none';
+        }
+    }
+
+    afficherNotification(nomProduit) {
+        const notification = document.createElement('div');
+        notification.innerHTML = `✓ ${nomProduit} ajouté au panier`;
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 1001;
+            animation: fadeInOut 3s ease-in-out;
+        `;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
+    }
+}
+
+// Remplacer la classe Panier existante
+document.addEventListener('DOMContentLoaded', function() {
+    window.monPanier = new Panier();
+    panierFlottant = new PanierFlottant();
+    
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('ajouter-panier')) {
+            const btn = e.target;
+            window.monPanier.ajouterProduit(
+                btn.getAttribute('data-id'),
+                btn.getAttribute('data-nom'), 
+                btn.getAttribute('data-prix'),
+                btn.getAttribute('data-image')
+            );
+        }
+    });
+});</script><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="page-template"><div class="container container--nosidebar"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/MIMISTOK.svg" alt="mimistok" width="1414" height="1414"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li class="active"><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="salut"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>salut</span></a></li><li class="active fff"><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="ok"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>ok</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/MIMISTOK.svg" alt="mimistok" width="1414" height="1414"></a></header></div></div><main class="main page"><article class="content"><div class="main__inner"><header class="content__header"><h1 class="content__title">Tout le meilleur de l&#x27;high-tech de Chine</h1></header><div class="content__entry"><div class="produit"><h3>T-Shirt Personnalisé</h3><p>Prix : €25.00</p><button class="ajouter-panier" data-id="tshirt_001" data-nom="T-Shirt Personnalisé" data-prix="25.00" data-image="https://votresite.com/images/tshirt.jpg">Ajouter au panier</button></div><div class="produit"><h3>Casquette Logo</h3><p>Prix : €15.00</p><button class="ajouter-panier" data-id="casquette_002" data-nom="Casquette Logo" data-prix="15.00" data-image="https://votresite.com/images/casquette.jpg">Ajouter au panier</button></div></div></div></article></main></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
         for (var i = 0; i < images.length; i++) {
             if (images[i].complete) {
                 images[i].classList.add('is-loaded');
