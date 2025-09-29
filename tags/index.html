@@ -30,7 +30,6 @@
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
-
 #panier-flottant .infos {
   flex: 1 1 auto;
   font-size: 16px;
@@ -38,7 +37,6 @@
   margin-right: 15px;
   white-space: nowrap; 
 }
-
 #panier-flottant .btn-payer-flottant {
   background: #007BFF;
   color: #fff;
@@ -56,7 +54,6 @@
   background: #0056d2;
   transform: scale(1.05);
 }
-
 .pulse {
   animation: pulseAnim 0.3s;
 }
@@ -66,7 +63,7 @@
   100% { transform: scale(1); }
 }</style><script>// --- FONCTIONS GLOBALES ---
 
-// Son léger généré directement avec JS
+// Son léger moderne via Web Audio API
 function jouerSonAjout() {
     const ctx = new (window.AudioContext || window.webkitAudioContext)();
     const osc = ctx.createOscillator();
@@ -75,12 +72,15 @@ function jouerSonAjout() {
     osc.connect(gain);
     gain.connect(ctx.destination);
 
-    osc.type = 'square';    // 'sine', 'square', 'triangle', 'sawtooth'
-    osc.frequency.value = 800; // fréquence en Hz
-    gain.gain.value = 0.1;  // volume faible
+    osc.type = 'triangle';      // Son doux et moderne
+    osc.frequency.value = 1200; // Fréquence plus aiguë mais pas agressive
+    gain.gain.setValueAtTime(0.08, ctx.currentTime); // Volume très léger
+
+    // Courte montée en volume pour un effet “pop” moderne
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
 
     osc.start();
-    osc.stop(ctx.currentTime + 0.1); // 0.1 seconde
+    osc.stop(ctx.currentTime + 0.12); // Durée 0,12 seconde
 }
 
 function ajouterProduitAuPanier(priceId, nom, prix, quantite) {
