@@ -5,6 +5,18 @@
 <loc>https://mimistok.com/</loc>
 </url>
 <url>
+<loc>https://mimistok.com/nike/</loc>
+<lastmod>2025-09-29T04:10:11+02:00</lastmod>
+<image:image>
+<image:loc>https://mimistok.com/media/posts/4/Plan-de-travail-14.png</image:loc>
+<image:title><![CDATA[]]></image:title>
+</image:image>
+<image:image>
+<image:loc>https://mimistok.com/media/posts/4/d7aa5b03b9b8787c0f5e6226f969.jpg</image:loc>
+<image:title><![CDATA[]]></image:title>
+</image:image>
+</url>
+<url>
 <loc>https://mimistok.com/panier/</loc>
 <lastmod>2025-09-29T02:03:51+02:00</lastmod>
 <image:image>
@@ -22,18 +34,6 @@
 <image:image>
 <image:loc>https://mimistok.com/media/posts/3/d7aa5b03b9b8787c0f5e6226f969.jpg</image:loc>
 <image:title><![CDATA[]]></image:title>
-</image:image>
-</url>
-<url>
-<loc>https://mimistok.com/tout-le-meilleur-de-lhigh-tech-de-chine/</loc>
-<lastmod>2025-09-29T00:37:30+02:00</lastmod>
-<image:image>
-<image:loc>https://mimistok.com/media/posts/1/8e425b9ab16b24bdbef986717f2e-2.jpg</image:loc>
-<image:title><![CDATA[]]></image:title>
-</image:image>
-<image:image>
-<image:loc>https://mimistok.com/media/posts/1/8e425b9ab16b24bdbef986717f2e.jpg</image:loc>
-<image:title><![CDATA[T-Shirt Personnalisé]]></image:title>
 </image:image>
 </url>
 </urlset>
