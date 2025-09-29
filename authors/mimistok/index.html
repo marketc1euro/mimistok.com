@@ -3,25 +3,25 @@
                 }</style></noscript><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="author-template"><div id="panier-flottant"><div class="infos"><span class="quantite">0</span> <span class="total">€0.00</span></div><button class="btn-payer-flottant">Payer</button></div><style>/* Panier flottant */
 #panier-flottant {
   position: fixed;
-  bottom: 20px;
+  bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
-  width: 600%;
+  width: calc(100% - 20px); /* laisse un petit espace par défaut */
   max-width: 600px;
   background: rgba(30, 30, 30, 0.7);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
   display: flex;
-  flex-wrap: nowrap; 
+  flex-wrap: nowrap; /* éléments sur la même ligne */
   justify-content: space-between;
   align-items: center;
-  padding: 14px 20px;
+  padding: 14px 10px; /* espace intérieur légèrement réduit */
   font-family: sans-serif;
   font-size: 16px;
   color: #fff;
-  opacity: 1; /* Toujours visible */
-  visibility: visible; /* Toujours visible */
+  opacity: 1;
+  visibility: visible;
   transition: all 0.4s ease;
   z-index: 9999;
 }
@@ -31,7 +31,7 @@
   font-size: 16px;
   font-weight: 500;
   margin-right: 15px;
-  white-space: nowrap; 
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -40,7 +40,7 @@
   background: #007BFF;
   color: #fff;
   border: none;
-  padding: 12px 40px;
+  padding: 12px 30px;
   border-radius: 999px;
   cursor: pointer;
   font-weight: bold;
@@ -49,30 +49,17 @@
   transition: transform 0.2s, background 0.3s;
   flex-shrink: 0;
 }
+
 #panier-flottant .btn-payer-flottant:hover {
   background: #0056d2;
   transform: scale(1.05);
 }
 
-/* Animation pulse */
-.pulse {
-  animation: pulseAnim 0.3s;
-}
-@keyframes pulseAnim {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-  100% { transform: scale(1); }
-}
-
-/* Ajustements pour petits écrans mobiles */
+/* Petit espace supplémentaire pour mobile */
 @media (max-width: 480px) {
-  #panier-flottant .infos {
-    margin-right: 10px;
-    font-size: 14px;
-  }
-  #panier-flottant .btn-payer-flottant {
-    padding: 10px 25px;
-    font-size: 14px;
+  #panier-flottant {
+    width: calc(100% - 20px); /* 10px de marge de chaque côté */
+    padding: 14px 10px;
   }
 }</style><script>// --- FONCTIONS GLOBALES ---
 
@@ -96,8 +83,6 @@ function jouerSonAjout() {
 
 function ajouterProduitAuPanier(priceId, nom, prix, quantite) {
     console.log('Ajout au panier:', { priceId, nom, prix, quantite });
-
-    // Son léger déclenché ici
     jouerSonAjout();
 
     let panier = JSON.parse(localStorage.getItem('panier')) || [];
@@ -128,7 +113,7 @@ function mettreAJourPanierFlottant() {
         totalElem.textContent = `€${totalPrix.toFixed(2)}`;
     }
 
-    // Toujours visible, même si le panier est vide
+    // Toujours visible
     if (flottant) flottant.classList.add('visible');
 
     // Bouton toujours "Payer"
@@ -139,7 +124,6 @@ function mettreAJourPanierFlottant() {
 document.addEventListener('DOMContentLoaded', function() {
     mettreAJourPanierFlottant();
 
-    // Écouteur pour le bouton "Payer"
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('btn-payer-flottant')) {
             window.location.href = '/panier';
