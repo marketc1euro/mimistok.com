@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Votre Panier - mimistok</title><meta name="description" content="Total :€0.00 Payer maintenant Votre panier est vide Continuer vos achats Connexion&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://mimistok.com/panier/"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="Votre Panier"><meta property="og:image" content="https://mimistok.com/media/posts/2/card2.svg"><meta property="og:image:width" content="3532"><meta property="og:image:height" content="700"><meta property="og:site_name" content="mimistok"><meta property="og:description" content="Total :€0.00 Payer maintenant Votre panier est vide Continuer vos achats Connexion&hellip;"><meta property="og:url" content="https://mimistok.com/panier/"><meta property="og:type" content="article"><link rel="preload" href="https://mimistok.com/assets/dynamic/fonts/publicsans/publicsans.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=0d70c1009dea48a35c13624e889d325e"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://mimistok.com/panier/"},"headline":"Votre Panier","datePublished":"2025-09-28T09:01+02:00","dateModified":"2025-09-29T18:55+02:00","image":{"@type":"ImageObject","url":"https://mimistok.com/media/posts/2/card2.svg","height":700,"width":3532},"description":"Total :€0.00 Payer maintenant Votre panier est vide Continuer vos achats Connexion&hellip;","author":{"@type":"Person","name":"mimistok","url":"https://mimistok.com/authors/mimistok/"},"publisher":{"@type":"Organization","name":"mimistok","logo":{"@type":"ImageObject","url":"https://mimistok.com/media/website/mimi.svg","height":50,"width":50}}}</script><noscript><style>img[loading] {
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Votre Panier - mimistok</title><meta name="description" content="Total :€0.00 Payer maintenant Votre panier est vide Continuer vos achats Connexion&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://mimistok.com/panier/"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="Votre Panier"><meta property="og:image" content="https://mimistok.com/media/posts/2/card2.svg"><meta property="og:image:width" content="3532"><meta property="og:image:height" content="700"><meta property="og:site_name" content="mimistok"><meta property="og:description" content="Total :€0.00 Payer maintenant Votre panier est vide Continuer vos achats Connexion&hellip;"><meta property="og:url" content="https://mimistok.com/panier/"><meta property="og:type" content="article"><link rel="preload" href="https://mimistok.com/assets/dynamic/fonts/publicsans/publicsans.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=0d70c1009dea48a35c13624e889d325e"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://mimistok.com/panier/"},"headline":"Votre Panier","datePublished":"2025-09-28T09:01+02:00","dateModified":"2025-09-29T19:02+02:00","image":{"@type":"ImageObject","url":"https://mimistok.com/media/posts/2/card2.svg","height":700,"width":3532},"description":"Total :€0.00 Payer maintenant Votre panier est vide Continuer vos achats Connexion&hellip;","author":{"@type":"Person","name":"mimistok","url":"https://mimistok.com/authors/mimistok/"},"publisher":{"@type":"Organization","name":"mimistok","logo":{"@type":"ImageObject","url":"https://mimistok.com/media/website/mimi.svg","height":50,"width":50}}}</script><noscript><style>img[loading] {
                     opacity: 1;
                 }</style></noscript><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="page-template"><div id="panier-flottant"><div class="infos"><span class="quantite">0</span> <span class="total">€0.00</span></div><button class="btn-payer-flottant">Payer</button></div><style>/* --- Panier flottant --- */
 #panier-flottant {
@@ -187,20 +187,28 @@ function afficherPanier() {
 
   let total = 0;
   
+  // Conteneur principal pour header + produits
+  const conteneurPrincipal = document.createElement('div');
+  conteneurPrincipal.style.cssText = `
+    background: rgba(30,30,30,0.7); 
+    backdrop-filter: blur(10px); 
+    border-radius: 12px; 
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4); 
+    border: 1px solid rgba(255,255,255,0.1);
+  `;
+
   // En-tête du tableau (visible seulement sur desktop)
   const enTeteHTML = document.createElement('div');
   enTeteHTML.className = 'en-tete-panier';
   enTeteHTML.style.cssText = `
-    display: none;
-    background: rgba(30,30,30,0.8); 
-    border-radius: 12px 12px 0 0; 
-    padding: 15px; 
-    margin: 0 5px;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr auto;
     gap: 15px;
+    padding: 20px;
     color: white;
     font-weight: bold;
+    background: rgba(40,40,40,0.8);
     border-bottom: 1px solid rgba(255,255,255,0.1);
   `;
   enTeteHTML.innerHTML = `
@@ -208,10 +216,13 @@ function afficherPanier() {
     <div style="text-align: center;">Prix</div>
     <div style="text-align: center;">Quantité</div>
     <div style="text-align: center;">Total</div>
-    <div></div>
+    <div style="text-align: center;">Action</div>
   `;
-  contenu.appendChild(enTeteHTML);
+  conteneurPrincipal.appendChild(enTeteHTML);
 
+  // Conteneur des produits
+  const produitsContainer = document.createElement('div');
+  
   panier.forEach(produit => {
     const sousTotal = produit.prix * produit.quantite;
     total += sousTotal;
@@ -219,24 +230,23 @@ function afficherPanier() {
     const produitHTML = document.createElement('div');
     produitHTML.className = 'item-panier';
     produitHTML.style.cssText = `
-      background: rgba(30,30,30,0.7); 
-      backdrop-filter: blur(10px); 
-      border-radius: 12px; 
-      padding: 20px; 
-      margin: 10px 5px;
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr auto;
       gap: 15px;
       align-items: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4); 
-      border: 1px solid rgba(255,255,255,0.1);
+      padding: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     `;
+
+    // Dernier élément sans bordure
+    if(panier.indexOf(produit) === panier.length - 1) {
+      produitHTML.style.borderBottom = 'none';
+    }
 
     produitHTML.innerHTML = `
       <!-- Nom du produit -->
       <div style="color: white; font-weight: bold; min-width: 0;">
-        <div style="margin-bottom: 4px;">${produit.nom}</div>
-        <div style="font-size: 0.85em; color: #ccc; display: none;">Prix unitaire: €${produit.prix.toFixed(2)}</div>
+        <div>${produit.nom}</div>
       </div>
 
       <!-- Prix unitaire -->
@@ -247,9 +257,9 @@ function afficherPanier() {
       <!-- Quantité avec sélecteur en gélule -->
       <div style="text-align: center;">
         <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); padding: 6px 12px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.2);">
-          <button data-priceid="${produit.priceId}" data-change="-1" style="background: rgba(0, 0, 0, 0.7); color: white; border: none; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-size: 0.9em;">-</button>
+          <button data-priceid="${produit.priceId}" data-change="-1" style="background: none; color: white; border: none; width: 28px; height: 28px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-size: 1.1em; font-weight: bold;">-</button>
           <span style="min-width: 30px; text-align: center; color: white; font-weight: bold;">${produit.quantite}</span>
-          <button data-priceid="${produit.priceId}" data-change="1" style="background: rgba(0, 0, 0, 0.7); color: white; border: none; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-size: 0.9em;">+</button>
+          <button data-priceid="${produit.priceId}" data-change="1" style="background: none; color: white; border: none; width: 28px; height: 28px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-size: 1.1em; font-weight: bold;">+</button>
         </div>
       </div>
 
@@ -266,8 +276,11 @@ function afficherPanier() {
       </div>
     `;
 
-    contenu.appendChild(produitHTML);
+    produitsContainer.appendChild(produitHTML);
   });
+
+  conteneurPrincipal.appendChild(produitsContainer);
+  contenu.appendChild(conteneurPrincipal);
 
   totalElement.textContent = total.toFixed(2);
 
@@ -339,6 +352,7 @@ style.textContent = `
       flex-direction: column !important;
       gap: 15px !important;
       text-align: center !important;
+      padding: 20px !important;
     }
     
     .item-panier > div {
@@ -349,20 +363,63 @@ style.textContent = `
     .item-panier > div:first-child {
       border-bottom: 1px solid rgba(255,255,255,0.1);
       padding-bottom: 10px;
+      font-size: 1.1em;
     }
     
     /* Labels mobiles */
-    .item-panier > div:nth-child(1)::before { content: "Produit: "; font-weight: bold; color: #ccc; }
-    .item-panier > div:nth-child(2)::before { content: "Prix: "; font-weight: bold; color: #ccc; }
-    .item-panier > div:nth-child(3)::before { content: "Quantité: "; font-weight: bold; color: #ccc; }
-    .item-panier > div:nth-child(4)::before { content: "Total: "; font-weight: bold; color: #ccc; }
+    .item-panier > div:nth-child(1)::before { 
+      content: "Produit: "; 
+      font-weight: bold; 
+      color: #ccc; 
+      display: block;
+      margin-bottom: 5px;
+    }
+    .item-panier > div:nth-child(2)::before { 
+      content: "Prix: "; 
+      font-weight: bold; 
+      color: #ccc; 
+      display: block;
+      margin-bottom: 5px;
+    }
+    .item-panier > div:nth-child(3)::before { 
+      content: "Quantité: "; 
+      font-weight: bold; 
+      color: #ccc; 
+      display: block;
+      margin-bottom: 5px;
+    }
+    .item-panier > div:nth-child(4)::before { 
+      content: "Total: "; 
+      font-weight: bold; 
+      color: #ccc; 
+      display: block;
+      margin-bottom: 5px;
+    }
     
     .item-panier > div:last-child::before {
       content: "" !important;
     }
+
+    /* Boutons +/- plus grands sur mobile */
+    .item-panier button[data-change] {
+      width: 35px !important;
+      height: 35px !important;
+      font-size: 1.2em !important;
+    }
+  }
+
+  /* Effets au survol */
+  .item-panier button[data-change]:hover {
+    background: rgba(255,255,255,0.1) !important;
+    border-radius: 50% !important;
+  }
+
+  .btn-supprimer:hover {
+    background: rgba(255,107,107,0.3) !important;
+    transform: scale(1.05);
   }
 `;
-document.head.appendChild(style);</script><div style="margin: 100px 0; text-align: center;"><div style="height: 4px; background: linear-gradient(90deg, transparent, #3498db, #9b59b6, #3498db, transparent); border-radius: 2px; position: relative; max-width: 300px; margin: 0 auto;"> </div></div></div></div></article></main></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
+document.head.appendChild(style);</script><div style="margin: 200px 0; text-align: center;"><div style="height: 4px; background: linear-gradient(90deg, transparent, #3498db, #9b59b6, #3498db, transparent); border-radius: 2px; position: relative; max-width: 300px; margin: 0 auto;"> </div></div></div></div></article></main></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
         for (var i = 0; i < images.length; i++) {
             if (images[i].complete) {
                 images[i].classList.add('is-loaded');
