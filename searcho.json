@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Laifen Swift",
+    "description": "Sèche-cheveux rapide et efficace avec moteur sans balai.",
+    "price": 69.99,
+    "image": "media/posts/6/laifen-swift-seche-cheveux-argent-1_1440x_crop_center.webp",
+    "url": "/produits/laifen-swift"
+  },
+  {
+    "id": 2,
+    "title": "Dyson Supersonic",
+    "description": "Sèche-cheveux haut de gamme avec contrôle intelligent de la chaleur.",
+    "price": 399.99,
+    "image": "media/posts/7/dyson-supersonic.webp",
+    "url": "/produits/dyson-supersonic"
+  },
+  {
+    "id": 3,
+    "title": "Philips ThermoProtect",
+    "description": "Sèche-cheveux abordable avec protection ThermoProtect.",
+    "price": 39.99,
+    "image": "media/posts/8/philips-thermoprotect.webp",
+    "url": "/produits/philips-thermoprotect"
+  }
+]
