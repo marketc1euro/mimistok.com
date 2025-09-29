@@ -250,7 +250,7 @@ if (window.location.pathname.includes('/panier/') ||
     z-index: 99999;
     opacity: 0;
     transition: opacity 0.4s ease;
-    padding-top: 50px;
+    padding-top: 80px; /* Augmenté pour descendre la barre */
   }
   #popup.show {
     display: flex;
@@ -270,12 +270,12 @@ if (window.location.pathname.includes('/panier/') ||
   }
 
   #search-input-popup {
-    padding: 13px 25px; /* Augmenté de 15% */
+    padding: 13px 25px;
     width: 100%;
-    max-width: 690px; /* Augmenté de 15% (600px * 1.15) */
-    border-radius: 30px; /* Légèrement plus arrondi */
+    max-width: 690px;
+    border-radius: 30px;
     border: 2px solid rgba(255, 255, 255, 0.2);
-    font-size: 18px; /* Augmenté de 15% */
+    font-size: 18px;
     background: rgba(30, 30, 30, 0.9);
     color: #FFFFFF;
     backdrop-filter: blur(10px);
@@ -283,11 +283,14 @@ if (window.location.pathname.includes('/panier/') ||
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     margin-bottom: 15px;
     box-sizing: border-box;
+    /* Empêcher le zoom sur mobile */
+    font-size: 16px; /* Taille minimum pour éviter le zoom */
+    transform: scale(1); /* Forcer l'échelle */
   }
 
   #search-input-popup::placeholder {
     color: rgba(255, 255, 255, 0.6);
-    font-size: 18px; /* Augmenté de 15% */
+    font-size: 18px;
   }
 
   #search-input-popup:focus {
@@ -302,7 +305,7 @@ if (window.location.pathname.includes('/panier/') ||
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 690px; /* Même largeur que la barre */
+    max-width: 690px;
   }
 
   .result-item-popup {
@@ -310,7 +313,7 @@ if (window.location.pathname.includes('/panier/') ||
     align-items: center;
     width: 100%;
     margin: 10px 0;
-    padding: 15px; /* Augmenté de 15% */
+    padding: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     cursor: pointer;
@@ -328,16 +331,16 @@ if (window.location.pathname.includes('/panier/') ||
   }
 
   .result-img-popup {
-    width: 55px; /* Augmenté de 15% */
-    height: 55px; /* Augmenté de 15% */
+    width: 55px;
+    height: 55px;
     object-fit: cover;
     border-radius: 10px;
-    margin-right: 18px; /* Augmenté de 15% */
+    margin-right: 18px;
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .result-title-popup {
-    font-size: 18px; /* Augmenté de 15% */
+    font-size: 18px;
     color: #FFFFFF;
     font-weight: 500;
   }
@@ -354,9 +357,9 @@ if (window.location.pathname.includes('/panier/') ||
   /* Bouton fermer */
   #popup-close {
     position: fixed;
-    top: 20px;
+    top: 25px; /* Légèrement descendu */
     right: 20px;
-    width: 45px; /* Légèrement plus gros */
+    width: 45px;
     height: 45px;
     background: transparent;
     border: none;
@@ -368,7 +371,7 @@ if (window.location.pathname.includes('/panier/') ||
   /* RESPONSIVE MOBILE */
   @media (max-width: 768px) {
     #popup {
-      padding-top: 30px;
+      padding-top: 100px; /* Beaucoup plus bas sur mobile */
       align-items: flex-start;
     }
     
@@ -378,9 +381,12 @@ if (window.location.pathname.includes('/panier/') ||
     
     #search-input-popup {
       padding: 15px 20px;
-      font-size: 16px;
+      font-size: 16px; /* Taille fixe pour éviter le zoom */
       max-width: 100%;
       border-radius: 25px;
+      /* Espace sur les côtés */
+      margin-left: 10px;
+      margin-right: 10px;
     }
     
     #search-input-popup::placeholder {
@@ -389,11 +395,14 @@ if (window.location.pathname.includes('/panier/') ||
     
     #search-results-container-popup {
       max-width: 100%;
+      padding: 0 10px; /* Espace sur les côtés pour les résultats */
+      box-sizing: border-box;
     }
     
     .result-item-popup {
       padding: 12px;
       margin: 8px 0;
+      width: calc(100% - 20px); /* Espace sur les côtés */
     }
     
     .result-img-popup {
@@ -407,7 +416,7 @@ if (window.location.pathname.includes('/panier/') ||
     }
     
     #popup-close {
-      top: 15px;
+      top: 20px; /* Descendu sur mobile */
       right: 15px;
       width: 40px;
       height: 40px;
@@ -416,7 +425,7 @@ if (window.location.pathname.includes('/panier/') ||
 
   @media (max-width: 480px) {
     #popup {
-      padding-top: 20px;
+      padding-top: 90px; /* Encore plus bas sur très petits écrans */
     }
     
     #search-container-popup {
@@ -424,16 +433,19 @@ if (window.location.pathname.includes('/panier/') ||
     }
     
     #search-input-popup {
-      padding: 12px 18px;
-      font-size: 14px;
+      padding: 14px 18px; /* Légèrement plus de padding */
+      font-size: 16px; /* Toujours 16px pour éviter le zoom */
+      margin-left: 5px;
+      margin-right: 5px;
     }
     
     #search-input-popup::placeholder {
-      font-size: 14px;
+      font-size: 16px;
     }
     
     .result-item-popup {
-      padding: 10px;
+      padding: 12px;
+      width: calc(100% - 10px); /* Moins d'espace sur très petits écrans */
     }
     
     .result-img-popup {
@@ -443,16 +455,33 @@ if (window.location.pathname.includes('/panier/') ||
     }
     
     .result-title-popup {
-      font-size: 14px;
+      font-size: 15px;
     }
     
     #popup-close {
-      top: 10px;
+      top: 15px;
       right: 10px;
       width: 35px;
       height: 35px;
     }
-  }</style><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255,255,255,0.1)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div></div><script>// LOGIQUE DU POPUP
+  }
+
+  /* Empêcher le zoom sur l'input sur mobile */
+  @media screen and (max-width: 768px) {
+    #search-input-popup {
+      font-size: 16px !important;
+      transform: scale(1) !important;
+    }
+    
+    /* Viewport pour éviter le zoom */
+    @viewport {
+      width: device-width;
+      zoom: 1.0;
+      min-zoom: 1.0;
+      max-zoom: 1.0;
+      user-zoom: fixed;
+    }
+  }</style><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255,255,255,0.1)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div></div><script>// LOGIQUE DU POPUP
 const popup = document.getElementById('popup');
 const popupCloseBtn = document.getElementById('popup-close');
 const openSearchBtn = document.getElementById('open-search-btn');
@@ -466,7 +495,14 @@ function showPopup() {
     
     // Focus sur la barre de recherche
     setTimeout(() => {
-      document.getElementById('search-input-popup').focus();
+      const searchInput = document.getElementById('search-input-popup');
+      searchInput.focus();
+      
+      // Empêcher le zoom sur mobile
+      if (window.innerWidth <= 768) {
+        searchInput.style.fontSize = '16px';
+        searchInput.style.transform = 'scale(1)';
+      }
     }, 300);
   }, 10);
 }
@@ -557,6 +593,19 @@ inputPopup.addEventListener('keydown', function(e) {
     if (firstResult) {
       firstResult.click();
     }
+  }
+});
+
+// Empêcher le zoom sur l'input
+inputPopup.addEventListener('touchstart', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});
+
+inputPopup.addEventListener('focus', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
   }
 });</script><script type="module">import PhotoSwipeLightbox from 'https://mimistok.com/media/plugins/coreLightboxGallery/photoswipe-lightbox.esm.min.js';
 				 const galleries = document.querySelectorAll('.gallery');
