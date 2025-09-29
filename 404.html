@@ -3,20 +3,20 @@
                 }</style></noscript><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="error-template"><div id="panier-flottant"><div class="infos"><span class="quantite">0</span> <span class="total">€0.00</span></div><button class="btn-payer-flottant">Payer</button></div><style>/* Panier flottant */
 #panier-flottant {
   position: fixed;
-  bottom: 60px;
+  bottom: 40px;
   left: 50%;
-  transform: translateX(-50%) translateY(50px);
-  width: 90%;
+  transform: translateX(-50%);
+  width: 100%;
   max-width: 600px;
   background: rgba(30, 30, 30, 0.7);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: nowrap; 
   justify-content: space-between;
   align-items: center;
-  padding: 14px 22px;
+  padding: 14px 20px;
   font-family: sans-serif;
   font-size: 16px;
   color: #fff;
@@ -32,6 +32,8 @@
   font-weight: 500;
   margin-right: 15px;
   white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #panier-flottant .btn-payer-flottant {
@@ -52,6 +54,7 @@
   transform: scale(1.05);
 }
 
+/* Animation pulse */
 .pulse {
   animation: pulseAnim 0.3s;
 }
@@ -59,6 +62,18 @@
   0% { transform: scale(1); }
   50% { transform: scale(1.15); }
   100% { transform: scale(1); }
+}
+
+/* Ajustements pour petits écrans mobiles */
+@media (max-width: 480px) {
+  #panier-flottant .infos {
+    margin-right: 10px;
+    font-size: 14px;
+  }
+  #panier-flottant .btn-payer-flottant {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
 }</style><script>// --- FONCTIONS GLOBALES ---
 
 // Son léger moderne via Web Audio API
@@ -73,7 +88,6 @@ function jouerSonAjout() {
     osc.type = 'triangle';      
     osc.frequency.value = 1200; 
     gain.gain.setValueAtTime(0.08, ctx.currentTime); 
-
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
 
     osc.start();
@@ -125,7 +139,7 @@ function mettreAJourPanierFlottant() {
 document.addEventListener('DOMContentLoaded', function() {
     mettreAJourPanierFlottant();
 
-    // Écouteur pour le bouton "Mon panier"
+    // Écouteur pour le bouton "Payer"
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('btn-payer-flottant')) {
             window.location.href = '/panier';
