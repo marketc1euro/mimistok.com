@@ -74,10 +74,10 @@ function jouerSonAjout() {
     }
 }
 
-// FONCTION MODIFIÉE : Utilise priceId au lieu de id
 function ajouterProduitAuPanier(priceId, nom, prix, quantite) {
     console.log('Ajout au panier:', { priceId, nom, prix, quantite });
 
+    // Le son est déclenché directement ici
     jouerSonAjout();
 
     let panier = JSON.parse(localStorage.getItem('panier')) || [];
@@ -86,13 +86,7 @@ function ajouterProduitAuPanier(priceId, nom, prix, quantite) {
     if (produitExistant) {
         produitExistant.quantite += quantite;
     } else {
-        panier.push({ 
-            priceId: priceId,  // ← CHANGEMENT ICI : priceId au lieu de id
-            nom: nom, 
-            prix: prix, 
-            quantite: quantite
-            // Plus besoin de stocker l'image
-        });
+        panier.push({ priceId, nom, prix, quantite });
     }
 
     localStorage.setItem('panier', JSON.stringify(panier));
@@ -122,6 +116,12 @@ function mettreAJourPanierFlottant() {
 // --- INIT ---
 document.addEventListener('DOMContentLoaded', function() {
     mettreAJourPanierFlottant();
+
+    // Débloquer le son dès le premier clic utilisateur
+    document.addEventListener('click', () => {
+        const son = document.getElementById('son-ajout');
+        if (son) son.play().catch(() => {});
+    }, { once: true });
 
     // Écouteur pour le bouton payer
     document.addEventListener('click', function(e) {
