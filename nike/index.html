@@ -1,35 +1,31 @@
 <!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>nike - mimistok</title><meta name="description" content="T-Shirt Personnalisé Un T-shirt de haute qualité, personnalisable selon vos envies. €25.00"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://mimistok.com/nike/"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="nike"><meta property="og:image" content="https://mimistok.com/media/posts/4/Plan-de-travail-14.png"><meta property="og:image:width" content="2500"><meta property="og:image:height" content="1688"><meta property="og:site_name" content="mimistok"><meta property="og:description" content="T-Shirt Personnalisé Un T-shirt de haute qualité, personnalisable selon vos envies. €25.00"><meta property="og:url" content="https://mimistok.com/nike/"><meta property="og:type" content="article"><link rel="preload" href="https://mimistok.com/assets/dynamic/fonts/publicsans/publicsans.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=0d70c1009dea48a35c13624e889d325e"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://mimistok.com/nike/"},"headline":"nike","datePublished":"2025-09-29T02:19+02:00","dateModified":"2025-09-29T04:10+02:00","image":{"@type":"ImageObject","url":"https://mimistok.com/media/posts/4/Plan-de-travail-14.png","height":1688,"width":2500},"description":"T-Shirt Personnalisé Un T-shirt de haute qualité, personnalisable selon vos envies. €25.00","author":{"@type":"Person","name":"mimistok","url":"https://mimistok.com/authors/mimistok/"},"publisher":{"@type":"Organization","name":"mimistok","logo":{"@type":"ImageObject","url":"https://mimistok.com/media/website/mimi.svg","height":50,"width":50}}}</script><noscript><style>img[loading] {
                     opacity: 1;
-                }</style></noscript><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="page-template"><div id="panier-flottant"><div class="infos"><span class="quantite">0</span> <span class="total">€0.00</span></div><button class="btn-payer-flottant">Payer</button></div><style>/* Panier flottant */
+                }</style></noscript><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="page-template"><div id="panier-flottant"><div class="infos"><span class="quantite">0</span> <span class="total">€0.00</span></div><button class="btn-payer-flottant">Payer</button></div><style>/* --- Panier flottant --- */
 #panier-flottant {
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  width: calc(100% - 20px); /* 10px d'espace de chaque côté */
+  width: calc(100% - 20px);
   max-width: 600px;
   background: rgba(30, 30, 30, 0.7);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
   display: flex;
-  flex-wrap: nowrap; /* éléments sur la même ligne */
   justify-content: space-between;
   align-items: center;
-  padding: 14px 10px; /* espace interne général */
+  padding: 14px 10px;
   font-family: sans-serif;
-  font-size: 16px;
+  font-size: 16px; /* 16px pour éviter le zoom sur iOS */
   color: #fff;
-  opacity: 1;
-  visibility: visible;
-  transition: all 0.4s ease;
   z-index: 9999;
+  touch-action: manipulation; /* empêche double-tap zoom */
 }
 
-/* Décalage intérieur de 4px pour infos et bouton */
+/* Infos quantité / total */
 #panier-flottant .infos {
   flex: 1 1 auto;
-  font-size: 16px;
   font-weight: 500;
   margin-right: 15px;
   white-space: nowrap;
@@ -39,19 +35,21 @@
   padding-right: 8px;
 }
 
+/* Bouton payer */
 #panier-flottant .btn-payer-flottant {
   background: #007BFF;
   color: #fff;
   border: none;
-  padding: 12px 60px; /* +4px horizontal */
+  padding: 12px 60px;
   border-radius: 999px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 16px; /* 16px pour iOS */
   text-align: center;
   transition: transform 0.2s, background 0.3s;
   flex-shrink: 0;
   margin-right: 8px;
+  touch-action: manipulation; /* empêche double-tap zoom */
 }
 
 #panier-flottant .btn-payer-flottant:hover {
@@ -65,8 +63,15 @@
     width: calc(100% - 20px);
     padding: 14px 10px;
   }
-}</style><script>// --- FONCTIONS GLOBALES ---
+}
 
+/* Empêche zoom sur tous les boutons / inputs globaux */
+button, input, select, textarea {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}</style><script>// --- Fonctions panier flottant ---
 function jouerSonAjout() {
     const ctx = new (window.AudioContext || window.webkitAudioContext)();
     const osc = ctx.createOscillator();
@@ -121,7 +126,7 @@ function mettreAJourPanierFlottant() {
     if (btnElem) btnElem.textContent = 'Payer';
 }
 
-// --- INIT ---
+// --- Initialisation ---
 document.addEventListener('DOMContentLoaded', function() {
     mettreAJourPanierFlottant();
 
