@@ -607,6 +607,12 @@ inputPopup.addEventListener('focus', function(e) {
   if (window.innerWidth <= 768) {
     this.style.fontSize = '16px';
   }
+});</script><script>document.addEventListener('DOMContentLoaded', function() {
+  const menuItem = document.querySelector('.open-search-btn');
+  if (menuItem) {
+    menuItem.style.cursor = 'pointer';
+    menuItem.addEventListener('click', showPopup);
+  }
 });</script><script type="module">import PhotoSwipeLightbox from 'https://mimistok.com/media/plugins/coreLightboxGallery/photoswipe-lightbox.esm.min.js';
 				 const galleries = document.querySelectorAll('.gallery');
 				 galleries.forEach(gallery => {
