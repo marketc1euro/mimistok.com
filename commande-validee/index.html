@@ -557,4 +557,18 @@ inputPopup.addEventListener('focus', function(e) {
   if (window.innerWidth <= 768) {
     this.style.fontSize = '16px';
   }
+});</script><script>// Ouvre le pop-up depuis le menu
+document.addEventListener('DOMContentLoaded', function() {
+  const menuSearchItem = document.querySelector('.open-search-btn');
+  
+  if (menuSearchItem) {
+    // Style pour indiquer que c'est cliquable
+    menuSearchItem.style.cursor = 'pointer';
+    
+    // Ouvre le pop-up au clic
+    menuSearchItem.addEventListener('click', function() {
+      // Déclenche le même comportement que le bouton physique
+      document.getElementById('open-search-btn').click();
+    });
+  }
 });</script></body></html>
