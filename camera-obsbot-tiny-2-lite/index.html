@@ -605,20 +605,17 @@ inputPopup.addEventListener('focus', function(e) {
   }
 
   .form-container-popup {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
+    background: transparent;
     max-width: 500px;
     width: 90%;
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   }
 
   .close-bottom-btn {
     display: block;
-    margin: 30px auto 0 auto;
+    margin: 50px auto 20px auto;
     padding: 12px 30px;
     background: white;
     color: #333;
@@ -632,12 +629,41 @@ inputPopup.addEventListener('focus', function(e) {
     min-width: 120px;
   }
 
+  /* POUR VOIR LE TEXTE EN NOIR */
+  .form-input {
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    margin-bottom: 15px;
+    background: white;
+    color: black !important; /* FORCE le texte en noir */
+  }
+
+  .form-input::placeholder {
+    color: #666 !important;
+  }
+
+  .form-textarea {
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    margin-bottom: 15px;
+    min-height: 100px;
+    resize: vertical;
+    font-family: inherit;
+    background: white;
+    color: black !important;
+  }
+
   @media (max-width: 768px) {
     .form-container-popup {
-      padding: 25px 20px;
       width: 95%;
     }
-  }</style><div id="popup-avis" aria-hidden="true" role="dialog" aria-modal="true"><div class="form-container-popup"><p style="text-align: center; margin: 0;"><img class="post__image post__image--center" style="border-radius: 50%; object-fit: cover; border: 3px solid #4217f4;" src="https://image.mimistok.com/women12.svg" alt="" width="100" height="100"></p><div style="max-width: 400px; margin: 30px auto; text-align: center;"><div id="successMessageTop" style="display: none; background-color: #d4edda; color: #155724; font-weight: 500; border-radius: 999px; padding: 10px 18px; margin-bottom: 20px; font-size: 14px; max-width: 300px; margin-left: auto; margin-right: auto;">Votre message a bien été envoyé !</div><form id="contactForm" action="https://api.web3forms.com/submit" enctype="multipart/form-data" method="POST"><input name="access_key" type="hidden" value="7fee4d4b-e46f-49f8-9858-4d07d0732e87"><div id="step-1" class="form-step"><input style="font-size: 16px; padding: 12px; border: 1px solid #ccc; border-radius: 6px; width: 100%; margin-bottom: 15px;" name="nom" required type="text" placeholder="Votre nom ou pseudo"> <button class="next-btn" style="background-color: #4217f4; color: white; padding: 12px; width: 80%; border: none; border-radius: 999px; font-size: 16px; cursor: pointer;" type="button" data-next="2">Étape suivante</button></div><div id="step-2" class="form-step" style="display: none;"><div id="starSelector" style="display: block; margin-bottom: 20px;"><div style="font-size: 16px; margin-bottom: 15px; color: #333; font-weight: 500;">Sélectionnez votre note</div><div id="starsContainer" style="display: flex; justify-content: center; gap: 12px; margin-bottom: 15px;"><div class="star-option" style="width: 50px; height: 50px; background: #d35400; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 3px solid transparent;" data-value="1">1</div><div class="star-option" style="width: 50px; height: 50px; background: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 3px solid transparent;" data-value="2">2</div><div class="star-option" style="width: 50px; height: 50px; background: #2c3e50; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 3px solid transparent;" data-value="3">3</div><div class="star-option" style="width: 50px; height: 50px; background: #8e44ad; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 3px solid transparent;" data-value="4">4</div><div class="star-option" style="width: 50px; height: 50px; background: #f39c12; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 3px solid #4217f4; transform: scale(1.1);" data-value="5">5</div></div></div><input id="selectedStars" name="nombre_etoiles" required type="hidden" value="5"><div id="selectedStarsDisplay" style="display: block; margin-bottom: 15px;"><div style="font-size: 14px; color: #666; margin-bottom: 5px;">Note sélectionnée :</div><div id="starsPreview" style="font-size: 18px; font-weight: bold; color: #4217f4;">5/5</div></div><button class="next-btn" style="background-color: #4217f4; color: white; padding: 12px; width: 80%; border: none; border-radius: 999px; font-size: 16px; cursor: pointer;" type="button" data-next="3">Étape suivante</button></div><div id="step-3" class="form-step" style="display: none;"><textarea style="font-size: 16px; padding: 12px; border: 1px solid #ccc; border-radius: 6px; width: 100%; margin-bottom: 15px; min-height: 100px; resize: vertical; font-family: inherit;" name="commentaire" required placeholder="Votre commentaire"></textarea> <button class="next-btn" style="background-color: #4217f4; color: white; padding: 12px; width: 80%; border: none; border-radius: 999px; font-size: 16px; cursor: pointer;" type="button" data-next="4">Étape suivante</button></div><div id="step-4" class="form-step" style="display: none;"><input style="font-size: 16px; padding: 12px; border: 1px solid #ccc; border-radius: 6px; width: 100%; margin-bottom: 15px;" name="email" required type="email" placeholder="Votre email"> <button class="next-btn" style="background-color: #4217f4; color: white; padding: 12px; width: 80%; border: none; border-radius: 999px; font-size: 16px; cursor: pointer;" type="button" data-next="5">Étape suivante</button></div><div id="step-5" class="form-step" style="display: none;"><label id="captcha-label" style="font-size: 15px; font-weight: bold; color: #772af0; display: block; margin-bottom: 10px;"></label> <input id="captcha-input" style="font-size: 16px; padding: 12px; border: 1px solid #ccc; border-radius: 999px; width: 50%; margin: 0 auto 15px auto; text-align: center; display: block;" name="captcha" required type="text" placeholder="Réponse"> <button style="background-color: #4217f4; color: white; padding: 12px; width: 80%; border: none; border-radius: 999px; font-size: 16px; cursor: pointer;" type="submit">Envoyer</button></div><div id="successMessageBottom" style="display: none; background-color: #d4edda; color: #155724; font-weight: 500; border-radius: 999px; padding: 10px 18px; font-size: 14px; max-width: 300px; margin: 10px auto 0 auto;">Votre message a bien été envoyé !</div></form></div><button class="close-bottom-btn" onclick="hideAvisPopup()">Fermer</button></div></div><script>// GESTION DU POPUP
+  }</style><div id="popup-avis" aria-hidden="true" role="dialog" aria-modal="true"><div class="form-container-popup"><p style="text-align: center; margin: 0;"><img class="post__image post__image--center" style="border-radius: 50%; object-fit: cover; border: 3px solid #4217f4;" src="https://image.mimistok.com/women12.svg" alt="" width="100" height="100"></p><div style="max-width: 400px; margin: 30px auto; text-align: center;"><div id="successMessageTop" style="display: none; background-color: #d4edda; color: #155724; font-weight: 500; border-radius: 999px; padding: 10px 18px; margin-bottom: 20px; font-size: 14px; max-width: 300px; margin-left: auto; margin-right: auto;">Votre message a bien été envoyé !</div><form id="contactForm" action="https://api.web3forms.com/submit" method="POST"><input name="access_key" type="hidden" value="7fee4d4b-e46f-49f8-9858-4d07d0732e87"><div id="step-1" class="form-step"><input class="form-input" name="nom" required type="text" placeholder="Votre nom ou pseudo"> <button class="next-btn" style="background-color: #4217f4; color: white; padding: 12px; width: 80%; border: none; border-radius: 999px; font-size: 16px; cursor: pointer;" type="button" data-next="2">Étape suivante</button></div><div id="step-2" class="form-step" style="display: none;"><div id="starSelector" style="display: block; margin-bottom: 20px;"><div style="font-size: 16px; margin-bottom: 15px; color: white; font-weight: 500;">Sélectionnez votre note</div><div id="starsContainer" style="display: flex; justify-content: center; gap: 12px; margin-bottom: 15px;"><div class="star-option" style="width: 50px; height: 50px; background: #d35400; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 3px solid transparent;" data-value="1">1</div><div class="star-option" style="width: 50px; height: 50px; background: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 3px solid transparent;" data-value="2">2</div><div class="star-option" style="width: 50px; height: 50px; background: #2c3e50; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 3px solid transparent;" data-value="3">3</div><div class="star-option" style="width: 50px; height: 50px; background: #8e44ad; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 3px solid transparent;" data-value="4">4</div><div class="star-option" style="width: 50px; height: 50px; background: #f39c12; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 3px solid #4217f4; transform: scale(1.1);" data-value="5">5</div></div></div><input id="selectedStars" name="nombre_etoiles" required type="hidden" value="5"><div id="selectedStarsDisplay" style="display: block; margin-bottom: 15px;"><div style="font-size: 14px; color: white; margin-bottom: 5px;">Note sélectionnée :</div><div id="starsPreview" style="font-size: 18px; font-weight: bold; color: #4217f4;">5/5</div></div><button class="next-btn" style="background-color: #4217f4; color: white; padding: 12px; width: 80%; border: none; border-radius: 999px; font-size: 16px; cursor: pointer;" type="button" data-next="3">Étape suivante</button></div><div id="step-3" class="form-step" style="display: none;"><textarea class="form-textarea" name="commentaire" required placeholder="Votre commentaire"></textarea> <button class="next-btn" style="background-color: #4217f4; color: white; padding: 12px; width: 80%; border: none; border-radius: 999px; font-size: 16px; cursor: pointer;" type="button" data-next="4">Étape suivante</button></div><div id="step-4" class="form-step" style="display: none;"><input class="form-input" name="email" required type="email" placeholder="Votre email"> <button class="next-btn" style="background-color: #4217f4; color: white; padding: 12px; width: 80%; border: none; border-radius: 999px; font-size: 16px; cursor: pointer;" type="button" data-next="5">Étape suivante</button></div><div id="step-5" class="form-step" style="display: none;"><label id="captcha-label" style="font-size: 15px; font-weight: bold; color: white; display: block; margin-bottom: 10px;"></label> <input class="form-input" id="captcha-input" name="captcha" required type="text" placeholder="Réponse" style="width: 50%; margin: 0 auto 15px auto; text-align: center; display: block;"> <button style="background-color: #4217f4; color: white; padding: 12px; width: 80%; border: none; border-radius: 999px; font-size: 16px; cursor: pointer;" type="submit">Envoyer</button></div><div id="successMessageBottom" style="display: none; background-color: #d4edda; color: #155724; font-weight: 500; border-radius: 999px; padding: 10px 18px; font-size: 14px; max-width: 300px; margin: 10px auto 0 auto;">Votre message a bien été envoyé !</div></form></div><button class="close-bottom-btn" onclick="hideAvisPopup()">Fermer</button></div></div><script>// GESTION DU POPUP
 const popupAvis = document.getElementById('popup-avis');
 
 function showAvisPopup() {
@@ -646,6 +672,13 @@ function showAvisPopup() {
     popupAvis.classList.add('show');
     popupAvis.setAttribute('aria-hidden', 'false');
     document.body.classList.add('no-scroll');
+    
+    // RÉINITIALISER le formulaire à l'étape 1
+    document.querySelectorAll('.form-step').forEach(step => {
+      step.style.display = 'none';
+    });
+    document.getElementById('step-1').style.display = 'block';
+    
   }, 10);
 }
 
@@ -675,15 +708,11 @@ popupAvis.addEventListener('click', function(e) {
   }
 });
 
-// LOGIQUE FORMULAIRE
-const num1 = Math.floor(Math.random() * 10);
-const num2 = Math.floor(Math.random() * 10);
-const result = num1 + num2;
-document.getElementById('captcha-label').textContent = "Combien font " + num1 + " + " + num2 + " ?";
-
+// LOGIQUE FORMULAIRE - CORRIGÉE
 let selectedStarValue = 5;
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
+  // Gestion des étoiles
   const starOptions = document.querySelectorAll('.star-option');
   const selectedStarsInput = document.getElementById('selectedStars');
   const starsPreview = document.getElementById('starsPreview');
@@ -702,27 +731,82 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // Gestion des boutons suivants - CORRIGÉ
   const buttons = document.querySelectorAll('.next-btn');
-  buttons.forEach(function (btn) {
-    btn.addEventListener('click', function () {
+  buttons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
       const currentStep = this.closest('.form-step');
       const nextId = this.getAttribute('data-next');
-      const next = document.getElementById('step-' + nextId);
-      if (next) {
+      const nextStep = document.getElementById('step-' + nextId);
+      
+      if (nextStep) {
         currentStep.style.display = 'none';
-        next.style.display = 'block';
+        nextStep.style.display = 'block';
       }
+    });
+  });
+
+  // Captcha
+  const num1 = Math.floor(Math.random() * 10);
+  const num2 = Math.floor(Math.random() * 10);
+  const result = num1 + num2;
+  document.getElementById('captcha-label').textContent = "Combien font " + num1 + " + " + num2 + " ?";
+
+  // Gestion de l'envoi du formulaire
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const userAnswer = parseInt(document.getElementById('captcha-input').value);
+    if (userAnswer !== result) {
+      alert("Captcha incorrect. Merci de réessayer.");
+      return;
+    }
+
+    // Envoi du formulaire
+    const formData = new FormData(form);
+    
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        // Succès
+        document.getElementById('successMessageTop').style.display = 'block';
+        document.getElementById('successMessageBottom').style.display = 'block';
+        form.reset();
+        
+        // Réinitialiser à l'étape 1
+        document.querySelectorAll('.form-step').forEach(step => {
+          step.style.display = 'none';
+        });
+        document.getElementById('step-1').style.display = 'block';
+        
+        // Cacher les messages après 5 secondes
+        setTimeout(() => {
+          document.getElementById('successMessageTop').style.display = 'none';
+          document.getElementById('successMessageBottom').style.display = 'none';
+        }, 5000);
+      } else {
+        alert('Une erreur est survenue, veuillez réessayer.');
+      }
+    })
+    .catch(error => {
+      alert('Une erreur est survenue, veuillez réessayer.');
     });
   });
 });
 
-const form = document.getElementById('contactForm');
-form.addEventListener('submit', function (event) {
-  event.preventDefault();
-  const userAnswer = parseInt(document.getElementById('captcha-input').value);
-  if (userAnswer !== result) {
-    alert("Captcha incorrect. Merci de réessayer.");
-    return;
+// Pour le bouton d'ouverture
+document.addEventListener('DOMContentLoaded', function() {
+  const openAvisBtn = document.getElementById('open-avis-btn');
+  if (openAvisBtn) {
+    openAvisBtn.style.cursor = 'pointer';
+    openAvisBtn.addEventListener('click', showAvisPopup);
   }
-  // ... reste du code d'envoi
 });</script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-autolinker.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-show-invisibles.min.js"></script></body></html>
