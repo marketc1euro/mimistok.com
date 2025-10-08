@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <clipPath id="clip-path">
+      <circle id="Ellipse_138" data-name="Ellipse 138" cx="60" cy="60" r="60" transform="translate(-2788 7448)" fill="#472365" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_de_masques_48" data-name="Groupe de masques 48" transform="translate(2788 -7448)" clip-path="url(#clip-path)">
+    <g id="_96d824478a503e3b3141643f0c57c14a" data-name="96d824478a503e3b3141643f0c57c14a" transform="translate(-2788 7448)">
+      <path id="Tracé_920" data-name="Tracé 920" d="M97.5,120h-75A22.5,22.5,0,0,1,0,97.5v-75A22.5,22.5,0,0,1,22.5,0h75A22.5,22.5,0,0,1,120,22.5v75A22.5,22.5,0,0,1,97.5,120Z" fill="#472365"/>
+      <path id="Tracé_921" data-name="Tracé 921" d="M33.645,49.376l-2.6,5.374H45.195c.716,0,.7.412.356,1.132s-.949,2.006-1.309,2.749c-.184.379-.514,1.065.585,1.065h5.786l1.714-3.548c1.061-2.194.09-6.769-3.709-6.769Z" fill="#d9a4fc"/>
+      <path id="Tracé_922" data-name="Tracé 922" d="M30,66.874l5.213-10.789h6.469c.716,0,.705.412.356,1.132l-1.32,2.737c-.184.379-.514,1.069.585,1.069h8.666c-.72,1.5-3.056,5.85-7.256,5.85Z" fill="#d9a4fc"/>
+      <path id="Tracé_923" data-name="Tracé 923" d="M59.854,61.02l-2.827,5.854H49.571l2.827-5.85ZM71.276,59.7H53.04l4.987-10.32h7.455l-2.861,5.917h3.33l2.857-5.917h7.455Zm-.638,1.328-2.827,5.85H60.356l2.827-5.85ZM86.588,49.376,81.6,59.7H73.7l4.991-10.32ZM73.061,61.024l-.81,1.68c-.937,1.928-.109,4.174,2.947,4.174H87.173L90,61.024Z" fill="#be63f9"/>
+    </g>
+  </g>
+</svg>
