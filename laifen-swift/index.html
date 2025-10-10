@@ -279,15 +279,15 @@ volumeBtn.addEventListener('click', () => {
         }</script><style>#popup {
     position: fixed;
     inset: 0;
-    background: rgba(22, 23, 24, 0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(22, 23, 24, 0.80); /* 15% PLUS TRANSPARENT (0.95 → 0.80) */
+    backdrop-filter: blur(15px); /* 15% PLUS FLOU (10px → 15px) */
     display: none;
     justify-content: center;
     align-items: flex-start;
     z-index: 99999;
     opacity: 0;
     transition: opacity 0.4s ease;
-    padding-top: 80px; /* Augmenté pour descendre la barre */
+    padding-top: 80px;
   }
   #popup.show {
     display: flex;
@@ -313,16 +313,15 @@ volumeBtn.addEventListener('click', () => {
     border-radius: 30px;
     border: 2px solid rgba(255, 255, 255, 0.2);
     font-size: 18px;
-    background: rgba(30, 30, 30, 0.9);
+    background: rgba(30, 30, 30, 0.75); /* 15% PLUS TRANSPARENT */
     color: #FFFFFF;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px); /* 15% PLUS FLOU */
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     margin-bottom: 15px;
     box-sizing: border-box;
-    /* Empêcher le zoom sur mobile */
-    font-size: 16px; /* Taille minimum pour éviter le zoom */
-    transform: scale(1); /* Forcer l'échelle */
+    font-size: 16px;
+    transform: scale(1);
   }
 
   #search-input-popup::placeholder {
@@ -343,11 +342,11 @@ volumeBtn.addEventListener('click', () => {
     align-items: center;
     width: 100%;
     max-width: 690px;
-    max-height: 400px; /* HAUTEUR MAXIMALE POUR LE SCROLL */
-    overflow-y: auto; /* ACTIVATION DU SCROLL */
+    max-height: 400px;
+    overflow-y: auto;
     overflow-x: hidden;
-    padding-right: 15px; /* ESPACE POUR DÉCOLLER LA SCROLLBAR */
-    margin-right: -5px; /* COMPENSE LE PADDING */
+    padding-right: 15px;
+    margin-right: -5px;
     box-sizing: border-box;
   }
 
@@ -359,13 +358,13 @@ volumeBtn.addEventListener('click', () => {
   #search-results-container-popup::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 4px;
-    margin: 8px 0; /* ESPACE EN HAUT ET EN BAS */
+    margin: 8px 0;
   }
 
   #search-results-container-popup::-webkit-scrollbar-thumb {
     background: rgba(33, 150, 243, 0.6);
     border-radius: 4px;
-    border: 2px solid rgba(22, 23, 24, 0.8); /* BORDURE POUR DÉCOLLER */
+    border: 2px solid rgba(22, 23, 24, 0.8);
   }
 
   #search-results-container-popup::-webkit-scrollbar-thumb:hover {
@@ -381,15 +380,15 @@ volumeBtn.addEventListener('click', () => {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     cursor: pointer;
-    background: rgba(50, 50, 50, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(50, 50, 50, 0.65); /* 15% PLUS TRANSPARENT */
+    backdrop-filter: blur(15px); /* 15% PLUS FLOU */
     transition: all 0.3s ease;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
   }
 
   .result-item-popup:hover {
-    background: rgba(70, 70, 70, 0.9);
+    background: rgba(70, 70, 70, 0.75); /* 15% PLUS TRANSPARENT */
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
@@ -407,7 +406,7 @@ volumeBtn.addEventListener('click', () => {
     font-size: 18px;
     color: #FFFFFF;
     font-weight: 500;
-    flex: 1; /* POUR QUE LA GÉLULE S'ALIGNE À DROITE */
+    flex: 1;
   }
 
   /* GÉLULE DE PRIX AJOUTÉE */
@@ -434,7 +433,7 @@ volumeBtn.addEventListener('click', () => {
   /* Bouton fermer */
   #popup-close {
     position: fixed;
-    top: 25px; /* Légèrement descendu */
+    top: 25px;
     right: 20px;
     width: 45px;
     height: 45px;
@@ -448,7 +447,7 @@ volumeBtn.addEventListener('click', () => {
   /* RESPONSIVE MOBILE */
   @media (max-width: 768px) {
     #popup {
-      padding-top: 100px; /* Beaucoup plus bas sur mobile */
+      padding-top: 100px;
       align-items: flex-start;
     }
     
@@ -458,10 +457,9 @@ volumeBtn.addEventListener('click', () => {
     
     #search-input-popup {
       padding: 15px 20px;
-      font-size: 16px; /* Taille fixe pour éviter le zoom */
+      font-size: 16px;
       max-width: 100%;
       border-radius: 25px;
-      /* Espace sur les côtés */
       margin-left: 10px;
       margin-right: 10px;
     }
@@ -472,16 +470,16 @@ volumeBtn.addEventListener('click', () => {
     
     #search-results-container-popup {
       max-width: 100%;
-      padding: 0 8px 0 5px; /* PADDING ADAPTÉ SUR MOBILE */
+      padding: 0 8px 0 5px;
       box-sizing: border-box;
-      max-height: 300px; /* PLUS PETIT SUR MOBILE */
+      max-height: 300px;
       margin-right: 0;
     }
     
     .result-item-popup {
       padding: 12px;
       margin: 8px 0;
-      width: calc(100% - 20px); /* Espace sur les côtés */
+      width: calc(100% - 20px);
     }
     
     .result-img-popup {
@@ -500,7 +498,7 @@ volumeBtn.addEventListener('click', () => {
     }
     
     #popup-close {
-      top: 20px; /* Descendu sur mobile */
+      top: 20px;
       right: 15px;
       width: 40px;
       height: 40px;
@@ -509,7 +507,7 @@ volumeBtn.addEventListener('click', () => {
 
   @media (max-width: 480px) {
     #popup {
-      padding-top: 90px; /* Encore plus bas sur très petits écrans */
+      padding-top: 90px;
     }
     
     #search-container-popup {
@@ -517,8 +515,8 @@ volumeBtn.addEventListener('click', () => {
     }
     
     #search-input-popup {
-      padding: 14px 18px; /* Légèrement plus de padding */
-      font-size: 16px; /* Toujours 16px pour éviter le zoom */
+      padding: 14px 18px;
+      font-size: 16px;
       margin-left: 5px;
       margin-right: 5px;
     }
@@ -529,7 +527,7 @@ volumeBtn.addEventListener('click', () => {
     
     .result-item-popup {
       padding: 12px;
-      width: calc(100% - 10px); /* Moins d'espace sur très petits écrans */
+      width: calc(100% - 10px);
     }
     
     .result-img-popup {
@@ -561,15 +559,6 @@ volumeBtn.addEventListener('click', () => {
       font-size: 16px !important;
       transform: scale(1) !important;
     }
-    
-    /* Viewport pour éviter le zoom */
-    @viewport {
-      width: device-width;
-      zoom: 1.0;
-      min-zoom: 1.0;
-      max-zoom: 1.0;
-      user-zoom: fixed;
-    }
   }</style><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div></div><script>// LOGIQUE DU POPUP
 const popup = document.getElementById('popup');
 const popupCloseBtn = document.getElementById('popup-close');
@@ -582,12 +571,10 @@ function showPopup() {
     popup.setAttribute('aria-hidden', 'false');
     document.body.classList.add('no-scroll');
     
-    // Focus sur la barre de recherche
     setTimeout(() => {
       const searchInput = document.getElementById('search-input-popup');
       searchInput.focus();
       
-      // Empêcher le zoom sur mobile
       if (window.innerWidth <= 768) {
         searchInput.style.fontSize = '16px';
         searchInput.style.transform = 'scale(1)';
@@ -629,10 +616,9 @@ popup.addEventListener('click', function(e) {
   }
 });
 
-// TON SYSTÈME DE RECHERCHE EXISTANT (adapté pour le popup)
+// SYSTÈME DE RECHERCHE
 let pagesIndex = [];
 
-// Utilise ton fichier JSON existant
 fetch('/searcho.json')
   .then(response => response.json())
   .then(data => {
@@ -664,14 +650,13 @@ inputPopup.addEventListener('input', function() {
     title.textContent = p.title;
     title.className = 'result-title-popup';
 
-    // AJOUT DE LA GÉLULE DE PRIX
     const price = document.createElement('span');
     price.textContent = `${p.price}€`;
     price.className = 'result-price-popup';
 
     resultDiv.appendChild(img);
     resultDiv.appendChild(title);
-    resultDiv.appendChild(price); // AJOUT DU PRIX
+    resultDiv.appendChild(price);
 
     resultDiv.addEventListener('click', function() {
       window.location.href = p.url;
