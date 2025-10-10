@@ -598,6 +598,7 @@ popup.addEventListener('click', function(e) {
 let pagesIndex = [];
 let currentIndex = 0;
 let allResults = [];
+let canScroll = true; // Anti-spam du scroll
 
 // Charger les données JSON
 fetch('/searcho.json')
@@ -656,9 +657,13 @@ function showThreeResults() {
   }
 }
 
-// Fonction pour faire tourner les résultats
+// Fonction pour faire tourner les résultats (UN SEUL à la fois)
 function rotateResults(direction) {
   if (allResults.length <= 3) return; // Pas besoin de tourner si 3 ou moins
+  
+  // Anti-spam
+  if (!canScroll) return;
+  canScroll = false;
   
   if (direction === 'down') {
     currentIndex = (currentIndex + 1) % allResults.length;
@@ -667,53 +672,68 @@ function rotateResults(direction) {
   }
   
   showThreeResults();
+  
+  // Réactiver le scroll après un délai
+  setTimeout(() => {
+    canScroll = true;
+  }, 300);
 }
 
-// Gestion du scroll souris et tactile
-let startY = 0;
-let isScrolling = false;
+// Gestion du scroll souris - BEAUCOUP PLUS STRICTE
+let wheelTimeout = null;
 
 carouselContainer.addEventListener('wheel', function(e) {
   e.preventDefault();
   
-  if (e.deltaY > 0) {
-    // Scroll vers le bas = tourner vers le bas
+  // Empêcher le spam de scroll
+  if (wheelTimeout) return;
+  
+  if (e.deltaY > 10) { // Seuil plus élevé
+    // Scroll vers le bas = tourner vers le bas (UN SEUL)
     rotateResults('down');
-  } else {
-    // Scroll vers le haut = tourner vers le haut
+  } else if (e.deltaY < -10) {
+    // Scroll vers le haut = tourner vers le haut (UN SEUL)
     rotateResults('up');
   }
+  
+  // Bloquer les nouveaux scrolls pendant 300ms
+  wheelTimeout = setTimeout(() => {
+    wheelTimeout = null;
+  }, 300);
 });
 
-// Touch events pour mobile
+// Touch events pour mobile - AMÉLIORÉ
+let touchStartY = 0;
+let touchEndY = 0;
+let touchTimeout = null;
+
 carouselContainer.addEventListener('touchstart', function(e) {
-  startY = e.touches[0].clientY;
-  isScrolling = true;
+  touchStartY = e.touches[0].clientY;
 });
 
 carouselContainer.addEventListener('touchmove', function(e) {
-  if (!isScrolling) return;
-  e.preventDefault();
+  e.preventDefault(); // Empêcher le scroll naturel
 });
 
 carouselContainer.addEventListener('touchend', function(e) {
-  if (!isScrolling) return;
+  touchEndY = e.changedTouches[0].clientY;
+  const diffY = touchStartY - touchEndY;
   
-  const endY = e.changedTouches[0].clientY;
-  const diffY = startY - endY;
+  // Seuil plus élevé et anti-spam
+  if (touchTimeout) return;
   
-  // Seuil minimal pour déclencher le changement
-  if (Math.abs(diffY) > 30) {
-    if (diffY > 0) {
-      // Swipe vers le haut = tourner vers le bas
-      rotateResults('down');
-    } else {
-      // Swipe vers le bas = tourner vers le haut
-      rotateResults('up');
-    }
+  // Seuil minimal de 50px pour déclencher
+  if (diffY > 50) {
+    // Swipe vers le haut = tourner vers le bas (UN SEUL)
+    rotateResults('down');
+  } else if (diffY < -50) {
+    // Swipe vers le bas = tourner vers le haut (UN SEUL)
+    rotateResults('up');
   }
   
-  isScrolling = false;
+  touchTimeout = setTimeout(() => {
+    touchTimeout = null;
+  }, 400);
 });
 
 // Recherche
@@ -738,14 +758,22 @@ inputPopup.addEventListener('keydown', function(e) {
   }
 });
 
-// Navigation au clavier
+// Navigation au clavier - UN SEUL à la fois
+let keyTimeout = null;
+
 document.addEventListener('keydown', function(e) {
   if (popup.classList.contains('show') && allResults.length > 3) {
+    if (keyTimeout) return;
+    
     if (e.key === 'ArrowDown') {
       rotateResults('down');
     } else if (e.key === 'ArrowUp') {
       rotateResults('up');
     }
+    
+    keyTimeout = setTimeout(() => {
+      keyTimeout = null;
+    }, 300);
   }
 });
 
