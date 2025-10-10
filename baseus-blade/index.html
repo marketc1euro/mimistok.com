@@ -307,7 +307,7 @@ updateSlides();</script></p><h3> </h3><h3 class="align-center">Avis client</h3>
     z-index: 99999;
     opacity: 0;
     transition: opacity 0.4s ease;
-    padding-top: 80px; /* Augmenté pour descendre la barre */
+    padding-top: 80px;
   }
   #popup.show {
     display: flex;
@@ -340,9 +340,8 @@ updateSlides();</script></p><h3> </h3><h3 class="align-center">Avis client</h3>
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     margin-bottom: 15px;
     box-sizing: border-box;
-    /* Empêcher le zoom sur mobile */
-    font-size: 16px; /* Taille minimum pour éviter le zoom */
-    transform: scale(1); /* Forcer l'échelle */
+    font-size: 16px;
+    transform: scale(1);
   }
 
   #search-input-popup::placeholder {
@@ -357,35 +356,27 @@ updateSlides();</script></p><h3> </h3><h3 class="align-center">Avis client</h3>
     transform: scale(1.02);
   }
 
-  #search-results-container-popup {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  /* Conteneur du carrousel */
+  .carousel-container {
     width: 100%;
     max-width: 690px;
-    max-height: 400px; /* Hauteur maximale pour le défilement */
-    overflow-y: auto; /* Activation du défilement */
-    overflow-x: hidden;
-    padding-right: 5px; /* Espace pour la scrollbar */
+    position: relative;
+    overflow: hidden;
   }
 
-  /* Style de la scrollbar */
-  #search-results-container-popup::-webkit-scrollbar {
-    width: 6px;
+  /* Piste du carrousel */
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
   }
 
-  #search-results-container-popup::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
-  }
-
-  #search-results-container-popup::-webkit-scrollbar-thumb {
-    background: rgba(33, 150, 243, 0.6);
-    border-radius: 3px;
-  }
-
-  #search-results-container-popup::-webkit-scrollbar-thumb:hover {
-    background: rgba(33, 150, 243, 0.8);
+  /* Groupe de 3 produits */
+  .carousel-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-shrink: 0;
   }
 
   .result-item-popup {
@@ -440,6 +431,36 @@ updateSlides();</script></p><h3> </h3><h3 class="align-center">Avis client</h3>
     border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
+  /* Indicateurs de pagination */
+  .carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+  }
+
+  .carousel-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-indicator.active {
+    background: #2196F3;
+    transform: scale(1.2);
+  }
+
+  /* Message quand aucun résultat */
+  .no-results {
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+  }
+
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -452,7 +473,7 @@ updateSlides();</script></p><h3> </h3><h3 class="align-center">Avis client</h3>
   /* Bouton fermer */
   #popup-close {
     position: fixed;
-    top: 25px; /* Légèrement descendu */
+    top: 25px;
     right: 20px;
     width: 45px;
     height: 45px;
@@ -466,7 +487,7 @@ updateSlides();</script></p><h3> </h3><h3 class="align-center">Avis client</h3>
   /* RESPONSIVE MOBILE */
   @media (max-width: 768px) {
     #popup {
-      padding-top: 100px; /* Beaucoup plus bas sur mobile */
+      padding-top: 100px;
       align-items: flex-start;
     }
     
@@ -476,10 +497,9 @@ updateSlides();</script></p><h3> </h3><h3 class="align-center">Avis client</h3>
     
     #search-input-popup {
       padding: 15px 20px;
-      font-size: 16px; /* Taille fixe pour éviter le zoom */
+      font-size: 16px;
       max-width: 100%;
       border-radius: 25px;
-      /* Espace sur les côtés */
       margin-left: 10px;
       margin-right: 10px;
     }
@@ -488,17 +508,14 @@ updateSlides();</script></p><h3> </h3><h3 class="align-center">Avis client</h3>
       font-size: 16px;
     }
     
-    #search-results-container-popup {
+    .carousel-container {
       max-width: 100%;
-      padding: 0 10px; /* Espace sur les côtés pour les résultats */
-      box-sizing: border-box;
-      max-height: 300px; /* Plus petit sur mobile */
+      padding: 0 10px;
     }
     
     .result-item-popup {
       padding: 12px;
       margin: 8px 0;
-      width: calc(100% - 20px); /* Espace sur les côtés */
     }
     
     .result-img-popup {
@@ -517,7 +534,7 @@ updateSlides();</script></p><h3> </h3><h3 class="align-center">Avis client</h3>
     }
     
     #popup-close {
-      top: 20px; /* Descendu sur mobile */
+      top: 20px;
       right: 15px;
       width: 40px;
       height: 40px;
@@ -526,7 +543,7 @@ updateSlides();</script></p><h3> </h3><h3 class="align-center">Avis client</h3>
 
   @media (max-width: 480px) {
     #popup {
-      padding-top: 90px; /* Encore plus bas sur très petits écrans */
+      padding-top: 90px;
     }
     
     #search-container-popup {
@@ -534,8 +551,8 @@ updateSlides();</script></p><h3> </h3><h3 class="align-center">Avis client</h3>
     }
     
     #search-input-popup {
-      padding: 14px 18px; /* Légèrement plus de padding */
-      font-size: 16px; /* Toujours 16px pour éviter le zoom */
+      padding: 14px 18px;
+      font-size: 16px;
       margin-left: 5px;
       margin-right: 5px;
     }
@@ -546,7 +563,6 @@ updateSlides();</script></p><h3> </h3><h3 class="align-center">Avis client</h3>
     
     .result-item-popup {
       padding: 12px;
-      width: calc(100% - 10px); /* Moins d'espace sur très petits écrans */
     }
     
     .result-img-popup {
@@ -578,16 +594,7 @@ updateSlides();</script></p><h3> </h3><h3 class="align-center">Avis client</h3>
       font-size: 16px !important;
       transform: scale(1) !important;
     }
-    
-    /* Viewport pour éviter le zoom */
-    @viewport {
-      width: device-width;
-      zoom: 1.0;
-      min-zoom: 1.0;
-      max-zoom: 1.0;
-      user-zoom: fixed;
-    }
-  }</style><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div></div><script>// LOGIQUE DU POPUP
+  }</style><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div class="carousel-container"><div class="carousel-track" id="carousel-track"></div></div><div class="carousel-indicators" id="carousel-indicators"></div></div></div><script>// LOGIQUE DU POPUP
 const popup = document.getElementById('popup');
 const popupCloseBtn = document.getElementById('popup-close');
 const openSearchBtn = document.getElementById('open-search-btn');
@@ -599,12 +606,10 @@ function showPopup() {
     popup.setAttribute('aria-hidden', 'false');
     document.body.classList.add('no-scroll');
     
-    // Focus sur la barre de recherche
     setTimeout(() => {
       const searchInput = document.getElementById('search-input-popup');
       searchInput.focus();
       
-      // Empêcher le zoom sur mobile
       if (window.innerWidth <= 768) {
         searchInput.style.fontSize = '16px';
         searchInput.style.transform = 'scale(1)';
@@ -646,8 +651,10 @@ popup.addEventListener('click', function(e) {
   }
 });
 
-// SYSTÈME DE RECHERCHE AVEC PRIX ET LIMITE
+// SYSTÈME DE RECHERCHE AVEC CARROUSEL
 let pagesIndex = [];
+let currentGroupIndex = 0;
+let totalGroups = 0;
 
 // Utilise ton fichier JSON existant
 fetch('/searcho.json')
@@ -657,20 +664,16 @@ fetch('/searcho.json')
   });
 
 const inputPopup = document.getElementById('search-input-popup');
-const resultsContainerPopup = document.getElementById('search-results-container-popup');
+const carouselTrack = document.getElementById('carousel-track');
+const carouselIndicators = document.getElementById('carousel-indicators');
 
-inputPopup.addEventListener('input', function() {
-  const query = inputPopup.value.trim().toLowerCase();
-  resultsContainerPopup.innerHTML = '';
-  
-  if (!query) return;
+// Fonction pour créer un groupe de 3 produits
+function createProductGroup(products, groupIndex) {
+  const groupDiv = document.createElement('div');
+  groupDiv.className = 'carousel-group';
+  groupDiv.dataset.groupIndex = groupIndex;
 
-  const matches = pagesIndex.filter(p => p.title.toLowerCase().includes(query));
-  
-  // Limiter à 3 résultats maximum
-  const limitedMatches = matches.slice(0, 3);
-
-  limitedMatches.forEach((p, index) => {
+  products.forEach((p, index) => {
     const resultDiv = document.createElement('div');
     resultDiv.className = 'result-item-popup fade-in-popup';
     resultDiv.style.animationDelay = `${index * 0.05}s`;
@@ -684,7 +687,6 @@ inputPopup.addEventListener('input', function() {
     title.textContent = p.title;
     title.className = 'result-title-popup';
 
-    // Ajouter la gélule de prix
     const price = document.createElement('span');
     price.textContent = `${p.price}€`;
     price.className = 'result-price-popup';
@@ -697,16 +699,121 @@ inputPopup.addEventListener('input', function() {
       window.location.href = p.url;
     });
 
-    resultsContainerPopup.appendChild(resultDiv);
+    groupDiv.appendChild(resultDiv);
   });
+
+  return groupDiv;
+}
+
+// Fonction pour mettre à jour le carrousel
+function updateCarousel(groups) {
+  carouselTrack.innerHTML = '';
+  carouselIndicators.innerHTML = '';
+  
+  if (groups.length === 0) {
+    const noResults = document.createElement('div');
+    noResults.className = 'no-results';
+    noResults.textContent = 'Aucun produit trouvé';
+    carouselTrack.appendChild(noResults);
+    return;
+  }
+
+  groups.forEach((groupProducts, index) => {
+    const groupElement = createProductGroup(groupProducts, index);
+    carouselTrack.appendChild(groupElement);
+  });
+
+  // Mettre à jour les indicateurs
+  totalGroups = groups.length;
+  for (let i = 0; i < totalGroups; i++) {
+    const indicator = document.createElement('div');
+    indicator.className = `carousel-indicator ${i === currentGroupIndex ? 'active' : ''}`;
+    indicator.addEventListener('click', () => goToGroup(i));
+    carouselIndicators.appendChild(indicator);
+  }
+
+  // Positionner le carrousel
+  updateCarouselPosition();
+}
+
+// Fonction pour aller à un groupe spécifique
+function goToGroup(groupIndex) {
+  if (groupIndex < 0 || groupIndex >= totalGroups) return;
+  
+  currentGroupIndex = groupIndex;
+  updateCarouselPosition();
+  updateIndicators();
+}
+
+// Fonction pour mettre à jour la position du carrousel
+function updateCarouselPosition() {
+  const translateX = -currentGroupIndex * 100;
+  carouselTrack.style.transform = `translateX(${translateX}%)`;
+}
+
+// Fonction pour mettre à jour les indicateurs
+function updateIndicators() {
+  const indicators = carouselIndicators.querySelectorAll('.carousel-indicator');
+  indicators.forEach((indicator, index) => {
+    indicator.classList.toggle('active', index === currentGroupIndex);
+  });
+}
+
+// Gestion du scroll de la souris
+carouselTrack.addEventListener('wheel', function(e) {
+  e.preventDefault();
+  
+  if (e.deltaY > 0) {
+    // Scroll vers le bas = aller au groupe suivant
+    goToGroup(currentGroupIndex + 1);
+  } else {
+    // Scroll vers le haut = aller au groupe précédent
+    goToGroup(currentGroupIndex - 1);
+  }
 });
 
-// Entrée = aller sur le premier résultat
+// Recherche
+inputPopup.addEventListener('input', function() {
+  const query = inputPopup.value.trim().toLowerCase();
+  
+  if (!query) {
+    carouselTrack.innerHTML = '';
+    carouselIndicators.innerHTML = '';
+    return;
+  }
+
+  const matches = pagesIndex.filter(p => p.title.toLowerCase().includes(query));
+  
+  // Diviser les résultats en groupes de 3
+  const groups = [];
+  for (let i = 0; i < matches.length; i += 3) {
+    groups.push(matches.slice(i, i + 3));
+  }
+  
+  currentGroupIndex = 0;
+  updateCarousel(groups);
+});
+
+// Entrée = aller sur le premier résultat du groupe actuel
 inputPopup.addEventListener('keydown', function(e) {
   if (e.key === 'Enter') {
-    const firstResult = resultsContainerPopup.querySelector('.result-item-popup');
-    if (firstResult) {
-      firstResult.click();
+    const currentGroup = carouselTrack.querySelector(`[data-group-index="${currentGroupIndex}"]`);
+    if (currentGroup) {
+      const firstResult = currentGroup.querySelector('.result-item-popup');
+      if (firstResult) {
+        firstResult.click();
+      }
+    }
+  }
+});
+
+// Navigation au clavier
+document.addEventListener('keydown', function(e) {
+  if (popup.classList.contains('show')) {
+    if (e.key === 'ArrowRight') {
+      goToGroup(currentGroupIndex + 1);
+    } else if (e.key === 'ArrowLeft') {
+      goToGroup(currentGroupIndex - 1);
     }
   }
 });
