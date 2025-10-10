@@ -579,13 +579,13 @@ inputPopup.addEventListener('input', function() {
   });
 });
 
-// Entrée = aller sur le premier résultat
+// ENTREE = FERMER LE CLAVIER SEULEMENT
 inputPopup.addEventListener('keydown', function(e) {
   if (e.key === 'Enter') {
-    const firstResult = resultsContainerPopup.querySelector('.result-item-popup');
-    if (firstResult) {
-      firstResult.click();
-    }
+    e.preventDefault(); // Empêche le comportement par défaut
+    
+    // Ferme le clavier virtuel en retirant le focus
+    this.blur();
   }
 });
 
