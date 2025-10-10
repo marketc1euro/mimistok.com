@@ -295,7 +295,7 @@ if (window.location.pathname.includes('/panier/') ||
     z-index: 99999;
     opacity: 0;
     transition: opacity 0.4s ease;
-    padding-top: 80px;
+    padding-top: 80px; /* Augmenté pour descendre la barre */
   }
   #popup.show {
     display: flex;
@@ -328,7 +328,9 @@ if (window.location.pathname.includes('/panier/') ||
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     margin-bottom: 15px;
     box-sizing: border-box;
-    font-size: 16px;
+    /* Empêcher le zoom sur mobile */
+    font-size: 16px; /* Taille minimum pour éviter le zoom */
+    transform: scale(1); /* Forcer l'échelle */
   }
 
   #search-input-popup::placeholder {
@@ -343,29 +345,19 @@ if (window.location.pathname.includes('/panier/') ||
     transform: scale(1.02);
   }
 
-  /* Conteneur du carrousel vertical */
-  .carousel-vertical {
-    width: 100%;
-    max-width: 690px;
-    height: 300px; /* Hauteur fixe pour 3 éléments */
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* Piste du carrousel vertical */
-  .carousel-vertical-track {
+  #search-results-container-popup {
     display: flex;
     flex-direction: column;
-    transition: transform 0.4s ease;
-    height: 100%;
+    align-items: center;
+    width: 100%;
+    max-width: 690px;
   }
 
   .result-item-popup {
     display: flex;
     align-items: center;
     width: 100%;
-    height: 80px; /* Hauteur fixe pour chaque élément */
-    margin: 5px 0;
+    margin: 10px 0;
     padding: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
@@ -375,7 +367,6 @@ if (window.location.pathname.includes('/panier/') ||
     transition: all 0.3s ease;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
-    flex-shrink: 0;
   }
 
   .result-item-popup:hover {
@@ -385,26 +376,26 @@ if (window.location.pathname.includes('/panier/') ||
   }
 
   .result-img-popup {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     object-fit: cover;
     border-radius: 10px;
-    margin-right: 15px;
+    margin-right: 18px;
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .result-title-popup {
-    font-size: 16px;
+    font-size: 18px;
     color: #FFFFFF;
     font-weight: 500;
     flex: 1;
   }
 
-  /* Styles pour la gélule de prix */
+  /* GÉLULE DE PRIX AJOUTÉE */
   .result-price-popup {
     background: rgba(33, 150, 243, 0.9);
     color: white;
-    padding: 4px 12px;
+    padding: 6px 14px;
     border-radius: 20px;
     font-size: 14px;
     font-weight: 600;
@@ -412,14 +403,6 @@ if (window.location.pathname.includes('/panier/') ||
     white-space: nowrap;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-
-  /* Message quand aucun résultat */
-  .no-results {
-    color: rgba(255, 255, 255, 0.7);
-    text-align: center;
-    padding: 20px;
-    font-size: 16px;
   }
 
   @keyframes fadeIn {
@@ -434,7 +417,7 @@ if (window.location.pathname.includes('/panier/') ||
   /* Bouton fermer */
   #popup-close {
     position: fixed;
-    top: 25px;
+    top: 25px; /* Légèrement descendu */
     right: 20px;
     width: 45px;
     height: 45px;
@@ -448,7 +431,8 @@ if (window.location.pathname.includes('/panier/') ||
   /* RESPONSIVE MOBILE */
   @media (max-width: 768px) {
     #popup {
-      padding-top: 100px;
+      padding-top: 100px; /* Beaucoup plus bas sur mobile */
+      align-items: flex-start;
     }
     
     #search-container-popup {
@@ -457,20 +441,76 @@ if (window.location.pathname.includes('/panier/') ||
     
     #search-input-popup {
       padding: 15px 20px;
-      font-size: 16px;
+      font-size: 16px; /* Taille fixe pour éviter le zoom */
       max-width: 100%;
       border-radius: 25px;
+      /* Espace sur les côtés */
+      margin-left: 10px;
+      margin-right: 10px;
     }
     
-    .carousel-vertical {
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    #search-results-container-popup {
       max-width: 100%;
-      height: 250px; /* Plus petit sur mobile */
+      padding: 0 10px; /* Espace sur les côtés pour les résultats */
+      box-sizing: border-box;
     }
     
     .result-item-popup {
-      height: 70px;
       padding: 12px;
-      margin: 4px 0;
+      margin: 8px 0;
+      width: calc(100% - 20px); /* Espace sur les côtés */
+    }
+    
+    .result-img-popup {
+      width: 45px;
+      height: 45px;
+      margin-right: 15px;
+    }
+    
+    .result-title-popup {
+      font-size: 16px;
+    }
+    
+    .result-price-popup {
+      font-size: 13px;
+      padding: 5px 12px;
+    }
+    
+    #popup-close {
+      top: 20px; /* Descendu sur mobile */
+      right: 15px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #popup {
+      padding-top: 90px; /* Encore plus bas sur très petits écrans */
+    }
+    
+    #search-container-popup {
+      padding: 0 10px;
+    }
+    
+    #search-input-popup {
+      padding: 14px 18px; /* Légèrement plus de padding */
+      font-size: 16px; /* Toujours 16px pour éviter le zoom */
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      width: calc(100% - 10px); /* Moins d'espace sur très petits écrans */
     }
     
     .result-img-popup {
@@ -484,55 +524,34 @@ if (window.location.pathname.includes('/panier/') ||
     }
     
     .result-price-popup {
-      font-size: 13px;
-      padding: 3px 10px;
+      font-size: 12px;
+      padding: 4px 10px;
     }
     
     #popup-close {
-      top: 20px;
-      right: 15px;
-      width: 40px;
-      height: 40px;
+      top: 15px;
+      right: 10px;
+      width: 35px;
+      height: 35px;
     }
   }
 
-  @media (max-width: 480px) {
-    #popup {
-      padding-top: 90px;
-    }
-    
-    #search-container-popup {
-      padding: 0 10px;
-    }
-    
+  /* Empêcher le zoom sur l'input sur mobile */
+  @media screen and (max-width: 768px) {
     #search-input-popup {
-      padding: 14px 18px;
+      font-size: 16px !important;
+      transform: scale(1) !important;
     }
     
-    .carousel-vertical {
-      height: 220px;
+    /* Viewport pour éviter le zoom */
+    @viewport {
+      width: device-width;
+      zoom: 1.0;
+      min-zoom: 1.0;
+      max-zoom: 1.0;
+      user-zoom: fixed;
     }
-    
-    .result-item-popup {
-      height: 65px;
-      padding: 10px;
-    }
-    
-    .result-img-popup {
-      width: 35px;
-      height: 35px;
-      margin-right: 10px;
-    }
-    
-    .result-title-popup {
-      font-size: 14px;
-    }
-    
-    .result-price-popup {
-      font-size: 12px;
-      padding: 3px 8px;
-    }
-  }</style><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div class="carousel-vertical" id="carousel-vertical"><div class="carousel-vertical-track" id="carousel-track"></div></div></div></div><script>// LOGIQUE DU POPUP
+  }</style><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div></div><script>// LOGIQUE DU POPUP
 const popup = document.getElementById('popup');
 const popupCloseBtn = document.getElementById('popup-close');
 const openSearchBtn = document.getElementById('open-search-btn');
@@ -544,9 +563,16 @@ function showPopup() {
     popup.setAttribute('aria-hidden', 'false');
     document.body.classList.add('no-scroll');
     
+    // Focus sur la barre de recherche
     setTimeout(() => {
       const searchInput = document.getElementById('search-input-popup');
       searchInput.focus();
+      
+      // Empêcher le zoom sur mobile
+      if (window.innerWidth <= 768) {
+        searchInput.style.fontSize = '16px';
+        searchInput.style.transform = 'scale(1)';
+      }
     }, 300);
   }, 10);
 }
@@ -570,25 +596,24 @@ if (openSearchBtn) {
 }
 popupCloseBtn.addEventListener('click', hidePopup);
 
+// Fermer avec Échap
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape' && popup.classList.contains('show')) {
     hidePopup();
   }
 });
 
+// Fermer en cliquant en dehors
 popup.addEventListener('click', function(e) {
   if (e.target === popup) {
     hidePopup();
   }
 });
 
-// SYSTÈME DE RECHERCHE AVEC CARROUSEL VERTICAL SIMPLE
+// TON SYSTÈME DE RECHERCHE EXISTANT (adapté pour le popup)
 let pagesIndex = [];
-let currentIndex = 0;
-let allResults = [];
-let canScroll = true; // Anti-spam du scroll
 
-// Charger les données JSON
+// Utilise ton fichier JSON existant
 fetch('/searcho.json')
   .then(response => response.json())
   .then(data => {
@@ -596,183 +621,65 @@ fetch('/searcho.json')
   });
 
 const inputPopup = document.getElementById('search-input-popup');
-const carouselTrack = document.getElementById('carousel-track');
-const carouselContainer = document.getElementById('carousel-vertical');
+const resultsContainerPopup = document.getElementById('search-results-container-popup');
 
-// Fonction pour afficher 3 résultats
-function showThreeResults() {
-  carouselTrack.innerHTML = '';
+inputPopup.addEventListener('input', function() {
+  const query = inputPopup.value.trim().toLowerCase();
+  resultsContainerPopup.innerHTML = '';
   
-  if (allResults.length === 0) {
-    const noResults = document.createElement('div');
-    noResults.className = 'no-results';
-    noResults.textContent = 'Aucun produit trouvé';
-    carouselTrack.appendChild(noResults);
-    return;
-  }
+  if (!query) return;
 
-  // Afficher 3 résultats à partir de l'index courant
-  for (let i = 0; i < 3; i++) {
-    const resultIndex = (currentIndex + i) % allResults.length;
-    const product = allResults[resultIndex];
-    
+  const matches = pagesIndex.filter(p => p.title.toLowerCase().includes(query));
+
+  matches.forEach((p, index) => {
     const resultDiv = document.createElement('div');
     resultDiv.className = 'result-item-popup fade-in-popup';
-    resultDiv.style.animationDelay = `${i * 0.1}s`;
+    resultDiv.style.animationDelay = `${index * 0.05}s`;
 
     const img = document.createElement('img');
-    img.src = product.image || '';
+    img.src = p.image || '';
     img.className = 'result-img-popup';
-    img.alt = product.title;
+    img.alt = p.title;
     
     const title = document.createElement('span');
-    title.textContent = product.title;
+    title.textContent = p.title;
     title.className = 'result-title-popup';
 
+    // AJOUT DE LA GÉLULE DE PRIX
     const price = document.createElement('span');
-    price.textContent = `${product.price}€`;
+    price.textContent = `${p.price}€`;
     price.className = 'result-price-popup';
 
     resultDiv.appendChild(img);
     resultDiv.appendChild(title);
-    resultDiv.appendChild(price);
+    resultDiv.appendChild(price); // AJOUT DU PRIX
 
     resultDiv.addEventListener('click', function() {
-      window.location.href = product.url;
+      window.location.href = p.url;
     });
 
-    carouselTrack.appendChild(resultDiv);
-  }
-}
-
-// Fonction pour faire tourner les résultats (UN SEUL à la fois)
-function rotateResults(direction) {
-  if (allResults.length <= 3) return; // Pas besoin de tourner si 3 ou moins
-  
-  // Anti-spam
-  if (!canScroll) return;
-  canScroll = false;
-  
-  if (direction === 'down') {
-    currentIndex = (currentIndex + 1) % allResults.length;
-  } else {
-    currentIndex = (currentIndex - 1 + allResults.length) % allResults.length;
-  }
-  
-  showThreeResults();
-  
-  // Réactiver le scroll après un délai
-  setTimeout(() => {
-    canScroll = true;
-  }, 300);
-}
-
-// Gestion du scroll souris - BEAUCOUP PLUS STRICTE
-let wheelTimeout = null;
-
-carouselContainer.addEventListener('wheel', function(e) {
-  e.preventDefault();
-  
-  // Empêcher le spam de scroll
-  if (wheelTimeout) return;
-  
-  if (e.deltaY > 10) { // Seuil plus élevé
-    // Scroll vers le bas = tourner vers le bas (UN SEUL)
-    rotateResults('down');
-  } else if (e.deltaY < -10) {
-    // Scroll vers le haut = tourner vers le haut (UN SEUL)
-    rotateResults('up');
-  }
-  
-  // Bloquer les nouveaux scrolls pendant 300ms
-  wheelTimeout = setTimeout(() => {
-    wheelTimeout = null;
-  }, 300);
-});
-
-// Touch events pour mobile - AMÉLIORÉ
-let touchStartY = 0;
-let touchEndY = 0;
-let touchTimeout = null;
-
-carouselContainer.addEventListener('touchstart', function(e) {
-  touchStartY = e.touches[0].clientY;
-});
-
-carouselContainer.addEventListener('touchmove', function(e) {
-  e.preventDefault(); // Empêcher le scroll naturel
-});
-
-carouselContainer.addEventListener('touchend', function(e) {
-  touchEndY = e.changedTouches[0].clientY;
-  const diffY = touchStartY - touchEndY;
-  
-  // Seuil plus élevé et anti-spam
-  if (touchTimeout) return;
-  
-  // Seuil minimal de 50px pour déclencher
-  if (diffY > 50) {
-    // Swipe vers le haut = tourner vers le bas (UN SEUL)
-    rotateResults('down');
-  } else if (diffY < -50) {
-    // Swipe vers le bas = tourner vers le haut (UN SEUL)
-    rotateResults('up');
-  }
-  
-  touchTimeout = setTimeout(() => {
-    touchTimeout = null;
-  }, 400);
-});
-
-// Recherche
-inputPopup.addEventListener('input', function() {
-  const query = inputPopup.value.trim().toLowerCase();
-  
-  if (!query) {
-    carouselTrack.innerHTML = '';
-    allResults = [];
-    return;
-  }
-
-  allResults = pagesIndex.filter(p => p.title.toLowerCase().includes(query));
-  currentIndex = 0;
-  showThreeResults();
+    resultsContainerPopup.appendChild(resultDiv);
+  });
 });
 
 // Entrée = aller sur le premier résultat
 inputPopup.addEventListener('keydown', function(e) {
-  if (e.key === 'Enter' && allResults.length > 0) {
-    window.location.href = allResults[currentIndex].url;
-  }
-});
-
-// Navigation au clavier - UN SEUL à la fois
-let keyTimeout = null;
-
-document.addEventListener('keydown', function(e) {
-  if (popup.classList.contains('show') && allResults.length > 3) {
-    if (keyTimeout) return;
-    
-    if (e.key === 'ArrowDown') {
-      rotateResults('down');
-    } else if (e.key === 'ArrowUp') {
-      rotateResults('up');
+  if (e.key === 'Enter') {
+    const firstResult = resultsContainerPopup.querySelector('.result-item-popup');
+    if (firstResult) {
+      firstResult.click();
     }
-    
-    keyTimeout = setTimeout(() => {
-      keyTimeout = null;
-    }, 300);
   }
 });
 
-// Empêcher le zoom sur l'input mobile
-inputPopup.addEventListener('touchstart', function() {
+// Empêcher le zoom sur l'input
+inputPopup.addEventListener('touchstart', function(e) {
   if (window.innerWidth <= 768) {
     this.style.fontSize = '16px';
   }
 });
 
-inputPopup.addEventListener('focus', function() {
+inputPopup.addEventListener('focus', function(e) {
   if (window.innerWidth <= 768) {
     this.style.fontSize = '16px';
   }
