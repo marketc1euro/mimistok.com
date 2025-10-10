@@ -379,7 +379,7 @@ quantiteAffichage.textContent = 1;
     width: 100%;
     height: 100%;
     object-fit: contain;
-    background: transparent !important; /* POUR IPHONE */
+    background: transparent;
   }
 
   @keyframes fadeIn {
@@ -527,7 +527,7 @@ quantiteAffichage.textContent = 1;
       font-size: 16px !important;
       transform: scale(1) !important;
     }
-  }</style><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div><div id="no-results-animation" class="no-results-animation"><video autoplay loop muted playsinline webkit-playsinline><source src="/soanime.webm" type="video/webm"></video></div></div><script>const popup = document.getElementById('popup');
+  }</style><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div><div id="no-results-animation" class="no-results-animation"><video autoplay loop muted playsinline><source src="/soanime.webm" type="video/webm"></video></div></div><script>const popup = document.getElementById('popup');
 const popupCloseBtn = document.getElementById('popup-close');
 const openSearchBtn = document.getElementById('open-search-btn');
 const noResultsAnimation = document.getElementById('no-results-animation');
@@ -540,9 +540,8 @@ function showPopup() {
     popup.setAttribute('aria-hidden', 'false');
     document.body.classList.add('no-scroll');
     
-    // AFFICHER L'ANIMATION AU DÉPART
+    // AFFICHER L'ANIMATION DIRECTEMENT
     noResultsAnimation.style.display = 'block';
-    animationVideo.play().catch(e => console.log('Erreur play:', e));
     
     setTimeout(() => {
       const searchInput = document.getElementById('search-input-popup');
@@ -603,22 +602,16 @@ function updateResultsDisplay() {
   resultsContainerPopup.innerHTML = '';
   
   if (!query) {
-    // AUCUNE RECHERCHE - AFFICHER L'ANIMATION
     noResultsAnimation.style.display = 'block';
-    animationVideo.play().catch(e => console.log('Erreur play:', e));
     return;
   }
 
   const matches = pagesIndex.filter(p => p.title.toLowerCase().includes(query));
 
   if (matches.length === 0) {
-    // AUCUN RÉSULTAT - AFFICHER L'ANIMATION
     noResultsAnimation.style.display = 'block';
-    animationVideo.play().catch(e => console.log('Erreur play:', e));
   } else {
-    // RÉSULTATS TROUVÉS - CACHER L'ANIMATION
     noResultsAnimation.style.display = 'none';
-    animationVideo.pause();
     
     matches.forEach((p, index) => {
       const resultDiv = document.createElement('div');
@@ -672,22 +665,10 @@ inputPopup.addEventListener('focus', function(e) {
   }
 });
 
-// CORRECTION POUR IPHONE - FOND NOIR
+// CORRECTION FOND NOIR SUR SAFARI/IPHONE
 animationVideo.addEventListener('loadeddata', function() {
-  // Forcer le fond transparent sur iOS
   this.style.backgroundColor = 'transparent';
-});
-
-// Redémarrer la vidéo quand elle devient visible
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animationVideo.play().catch(e => console.log('Auto-play bloqué:', e));
-    }
-  });
-});
-
-observer.observe(animationVideo);</script><script>document.addEventListener('DOMContentLoaded', function() {
+});</script><script>document.addEventListener('DOMContentLoaded', function() {
   const menuItem = document.querySelector('.open-search-btn');
   if (menuItem) {
     menuItem.style.cursor = 'pointer';
