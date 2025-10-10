@@ -259,7 +259,7 @@ volumeBtn.addEventListener('click', () => {
         }</script><style>#popup {
     position: fixed;
     inset: 0;
-    background: rgba(22, 23, 24, 0.95);
+    background: rgba(22, 23, 24, 0.85); /* plus transparent */
     backdrop-filter: blur(10px);
     display: none;
     justify-content: center;
@@ -267,15 +267,10 @@ volumeBtn.addEventListener('click', () => {
     z-index: 99999;
     opacity: 0;
     transition: opacity 0.4s ease;
-    padding-top: 80px; /* Augmenté pour descendre la barre */
+    padding-top: 80px;
   }
-  #popup.show {
-    display: flex;
-    opacity: 1;
-  }
-  body.no-scroll {
-    overflow: hidden;
-  }
+  #popup.show { display: flex; opacity: 1; }
+  body.no-scroll { overflow: hidden; }
 
   #search-container-popup {
     display: flex;
@@ -292,29 +287,13 @@ volumeBtn.addEventListener('click', () => {
     max-width: 690px;
     border-radius: 30px;
     border: 2px solid rgba(255, 255, 255, 0.2);
-    font-size: 18px;
+    font-size: 16px;
     background: rgba(30, 30, 30, 0.9);
     color: #FFFFFF;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     margin-bottom: 15px;
-    box-sizing: border-box;
-    /* Empêcher le zoom sur mobile */
-    font-size: 16px; /* Taille minimum pour éviter le zoom */
-    transform: scale(1); /* Forcer l'échelle */
-  }
-
-  #search-input-popup::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 18px;
-  }
-
-  #search-input-popup:focus {
-    outline: none;
-    border-color: #2196F3;
-    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.4), 0 6px 20px rgba(0, 0, 0, 0.4);
-    transform: scale(1.02);
   }
 
   #search-results-container-popup {
@@ -323,28 +302,33 @@ volumeBtn.addEventListener('click', () => {
     align-items: center;
     width: 100%;
     max-width: 690px;
+    overflow: hidden; /* cache le reste pour l'effet rotation */
+    position: relative;
   }
 
   .result-item-popup {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     width: 100%;
     margin: 10px 0;
     padding: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     cursor: pointer;
     background: rgba(50, 50, 50, 0.8);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    box-sizing: border-box;
   }
 
   .result-item-popup:hover {
     background: rgba(70, 70, 70, 0.9);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .result-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
   }
 
   .result-img-popup {
@@ -356,148 +340,47 @@ volumeBtn.addEventListener('click', () => {
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
+  .result-texts {
+    display: flex;
+    flex-direction: column;
+  }
+
   .result-title-popup {
-    font-size: 18px;
+    font-size: 17px;
     color: #FFFFFF;
     font-weight: 500;
+  }
+
+  .result-description-popup {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 3px;
+  }
+
+  .result-price-popup {
+    font-size: 14px;
+    color: #4CAF50;
+    font-weight: 600;
+    margin-top: 4px;
   }
 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
-  .fade-in-popup {
-    animation: fadeIn 0.3s ease forwards;
-  }
+  .fade-in-popup { animation: fadeIn 0.3s ease forwards; }
 
   /* Bouton fermer */
   #popup-close {
     position: fixed;
-    top: 25px; /* Légèrement descendu */
+    top: 25px;
     right: 20px;
     width: 45px;
     height: 45px;
     background: transparent;
     border: none;
-    padding: 0;
     cursor: pointer;
     z-index: 100000;
-  }
-
-  /* RESPONSIVE MOBILE */
-  @media (max-width: 768px) {
-    #popup {
-      padding-top: 100px; /* Beaucoup plus bas sur mobile */
-      align-items: flex-start;
-    }
-    
-    #search-container-popup {
-      padding: 0 15px;
-    }
-    
-    #search-input-popup {
-      padding: 15px 20px;
-      font-size: 16px; /* Taille fixe pour éviter le zoom */
-      max-width: 100%;
-      border-radius: 25px;
-      /* Espace sur les côtés */
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-    
-    #search-input-popup::placeholder {
-      font-size: 16px;
-    }
-    
-    #search-results-container-popup {
-      max-width: 100%;
-      padding: 0 10px; /* Espace sur les côtés pour les résultats */
-      box-sizing: border-box;
-    }
-    
-    .result-item-popup {
-      padding: 12px;
-      margin: 8px 0;
-      width: calc(100% - 20px); /* Espace sur les côtés */
-    }
-    
-    .result-img-popup {
-      width: 45px;
-      height: 45px;
-      margin-right: 15px;
-    }
-    
-    .result-title-popup {
-      font-size: 16px;
-    }
-    
-    #popup-close {
-      top: 20px; /* Descendu sur mobile */
-      right: 15px;
-      width: 40px;
-      height: 40px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    #popup {
-      padding-top: 90px; /* Encore plus bas sur très petits écrans */
-    }
-    
-    #search-container-popup {
-      padding: 0 10px;
-    }
-    
-    #search-input-popup {
-      padding: 14px 18px; /* Légèrement plus de padding */
-      font-size: 16px; /* Toujours 16px pour éviter le zoom */
-      margin-left: 5px;
-      margin-right: 5px;
-    }
-    
-    #search-input-popup::placeholder {
-      font-size: 16px;
-    }
-    
-    .result-item-popup {
-      padding: 12px;
-      width: calc(100% - 10px); /* Moins d'espace sur très petits écrans */
-    }
-    
-    .result-img-popup {
-      width: 40px;
-      height: 40px;
-      margin-right: 12px;
-    }
-    
-    .result-title-popup {
-      font-size: 15px;
-    }
-    
-    #popup-close {
-      top: 15px;
-      right: 10px;
-      width: 35px;
-      height: 35px;
-    }
-  }
-
-  /* Empêcher le zoom sur l'input sur mobile */
-  @media screen and (max-width: 768px) {
-    #search-input-popup {
-      font-size: 16px !important;
-      transform: scale(1) !important;
-    }
-    
-    /* Viewport pour éviter le zoom */
-    @viewport {
-      width: device-width;
-      zoom: 1.0;
-      min-zoom: 1.0;
-      max-zoom: 1.0;
-      user-zoom: fixed;
-    }
   }</style><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div></div><script>// LOGIQUE DU POPUP
 const popup = document.getElementById('popup');
 const popupCloseBtn = document.getElementById('popup-close');
@@ -507,129 +390,105 @@ function showPopup() {
   popup.style.display = 'flex';
   setTimeout(() => {
     popup.classList.add('show');
-    popup.setAttribute('aria-hidden', 'false');
     document.body.classList.add('no-scroll');
-    
-    // Focus sur la barre de recherche
-    setTimeout(() => {
-      const searchInput = document.getElementById('search-input-popup');
-      searchInput.focus();
-      
-      // Empêcher le zoom sur mobile
-      if (window.innerWidth <= 768) {
-        searchInput.style.fontSize = '16px';
-        searchInput.style.transform = 'scale(1)';
-      }
-    }, 300);
+    setTimeout(() => document.getElementById('search-input-popup').focus(), 300);
   }, 10);
 }
 
 function hidePopup() {
   popup.classList.remove('show');
-  popup.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('no-scroll');
-  
   popup.addEventListener('transitionend', function handler() {
-    if (!popup.classList.contains('show')) {
-      popup.style.display = 'none';
-    }
+    if (!popup.classList.contains('show')) popup.style.display = 'none';
     popup.removeEventListener('transitionend', handler);
   });
 }
 
-// Événements
-if (openSearchBtn) {
-  openSearchBtn.addEventListener('click', showPopup);
-}
+if (openSearchBtn) openSearchBtn.addEventListener('click', showPopup);
 popupCloseBtn.addEventListener('click', hidePopup);
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && popup.classList.contains('show')) hidePopup(); });
+popup.addEventListener('click', e => { if (e.target === popup) hidePopup(); });
 
-// Fermer avec Échap
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape' && popup.classList.contains('show')) {
-    hidePopup();
-  }
-});
-
-// Fermer en cliquant en dehors
-popup.addEventListener('click', function(e) {
-  if (e.target === popup) {
-    hidePopup();
-  }
-});
-
-// TON SYSTÈME DE RECHERCHE EXISTANT (adapté pour le popup)
+// SYSTÈME DE RECHERCHE AVEC DESCRIPTION, PRIX ET ROTATION
 let pagesIndex = [];
-
-// Utilise ton fichier JSON existant
-fetch('/searcho.json')
-  .then(response => response.json())
-  .then(data => {
-    pagesIndex = data;
-  });
+fetch('/searcho.json').then(res => res.json()).then(data => pagesIndex = data);
 
 const inputPopup = document.getElementById('search-input-popup');
 const resultsContainerPopup = document.getElementById('search-results-container-popup');
+let rotationInterval = null;
 
 inputPopup.addEventListener('input', function() {
   const query = inputPopup.value.trim().toLowerCase();
   resultsContainerPopup.innerHTML = '';
-  
+  clearInterval(rotationInterval);
   if (!query) return;
 
-  const matches = pagesIndex.filter(p => p.title.toLowerCase().includes(query));
+  const matches = pagesIndex.filter(p =>
+    p.title.toLowerCase().includes(query) ||
+    (p.description && p.description.toLowerCase().includes(query))
+  );
 
-  matches.forEach((p, index) => {
-    const resultDiv = document.createElement('div');
-    resultDiv.className = 'result-item-popup fade-in-popup';
-    resultDiv.style.animationDelay = `${index * 0.05}s`;
+  if (matches.length === 0) return;
 
-    const img = document.createElement('img');
-    img.src = p.image || '';
-    img.className = 'result-img-popup';
-    img.alt = p.title;
-    
-    const title = document.createElement('span');
-    title.textContent = p.title;
-    title.className = 'result-title-popup';
+  let startIndex = 0;
+  const showResults = () => {
+    resultsContainerPopup.innerHTML = '';
+    const visible = matches.slice(startIndex, startIndex + 4);
 
-    resultDiv.appendChild(img);
-    resultDiv.appendChild(title);
+    visible.forEach((p, index) => {
+      const resultDiv = document.createElement('div');
+      resultDiv.className = 'result-item-popup fade-in-popup';
+      resultDiv.style.animationDelay = `${index * 0.05}s`;
 
-    resultDiv.addEventListener('click', function() {
-      window.location.href = p.url;
+      const content = document.createElement('div');
+      content.className = 'result-content';
+
+      const img = document.createElement('img');
+      img.src = p.image || '';
+      img.className = 'result-img-popup';
+      img.alt = p.title;
+
+      const texts = document.createElement('div');
+      texts.className = 'result-texts';
+
+      const title = document.createElement('div');
+      title.textContent = p.title;
+      title.className = 'result-title-popup';
+
+      const desc = document.createElement('div');
+      desc.textContent = p.description || '';
+      desc.className = 'result-description-popup';
+
+      const price = document.createElement('div');
+      price.textContent = p.price ? `${p.price} €` : '';
+      price.className = 'result-price-popup';
+
+      texts.append(title, desc, price);
+      content.append(img, texts);
+      resultDiv.append(content);
+      resultDiv.addEventListener('click', () => window.location.href = p.url);
+      resultsContainerPopup.appendChild(resultDiv);
     });
 
-    resultsContainerPopup.appendChild(resultDiv);
-  });
+    startIndex = (startIndex + 4) % matches.length;
+  };
+
+  showResults();
+  if (matches.length > 4) {
+    rotationInterval = setInterval(showResults, 2500);
+  }
 });
 
-// Entrée = aller sur le premier résultat
 inputPopup.addEventListener('keydown', function(e) {
   if (e.key === 'Enter') {
     const firstResult = resultsContainerPopup.querySelector('.result-item-popup');
-    if (firstResult) {
-      firstResult.click();
-    }
+    if (firstResult) firstResult.click();
   }
 });
 
-// Empêcher le zoom sur l'input
-inputPopup.addEventListener('touchstart', function(e) {
-  if (window.innerWidth <= 768) {
-    this.style.fontSize = '16px';
-  }
-});
-
-inputPopup.addEventListener('focus', function(e) {
-  if (window.innerWidth <= 768) {
-    this.style.fontSize = '16px';
-  }
-});</script><script>document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
   const menuItem = document.querySelector('.open-search-btn');
-  if (menuItem) {
-    menuItem.style.cursor = 'pointer';
-    menuItem.addEventListener('click', showPopup);
-  }
+  if (menuItem) menuItem.addEventListener('click', showPopup);
 });</script><style>#popup-avis {
     position: fixed;
     inset: 0;
