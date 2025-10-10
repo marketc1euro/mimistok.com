@@ -323,6 +323,28 @@ volumeBtn.addEventListener('click', () => {
     align-items: center;
     width: 100%;
     max-width: 690px;
+    max-height: 400px; /* HAUTEUR MAXIMALE POUR LE SCROLL */
+    overflow-y: auto; /* ACTIVATION DU SCROLL */
+    overflow-x: hidden;
+  }
+
+  /* STYLE DE LA SCROLLBAR */
+  #search-results-container-popup::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb {
+    background: rgba(33, 150, 243, 0.6);
+    border-radius: 3px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb:hover {
+    background: rgba(33, 150, 243, 0.8);
   }
 
   .result-item-popup {
@@ -360,6 +382,19 @@ volumeBtn.addEventListener('click', () => {
     font-size: 18px;
     color: #FFFFFF;
     font-weight: 500;
+    flex: 1; /* POUR QUE LA GÉLULE S'ALIGNE À DROITE */
+  }
+
+  /* GÉLULE DE PRIX AJOUTÉE */
+  .result-price-popup {
+    background: #2196F3;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+    white-space: nowrap;
   }
 
   @keyframes fadeIn {
@@ -414,6 +449,7 @@ volumeBtn.addEventListener('click', () => {
       max-width: 100%;
       padding: 0 10px; /* Espace sur les côtés pour les résultats */
       box-sizing: border-box;
+      max-height: 300px; /* PLUS PETIT SUR MOBILE */
     }
     
     .result-item-popup {
@@ -430,6 +466,11 @@ volumeBtn.addEventListener('click', () => {
     
     .result-title-popup {
       font-size: 16px;
+    }
+    
+    .result-price-popup {
+      font-size: 13px;
+      padding: 5px 12px;
     }
     
     #popup-close {
@@ -473,6 +514,11 @@ volumeBtn.addEventListener('click', () => {
     
     .result-title-popup {
       font-size: 15px;
+    }
+    
+    .result-price-popup {
+      font-size: 12px;
+      padding: 4px 10px;
     }
     
     #popup-close {
@@ -592,8 +638,14 @@ inputPopup.addEventListener('input', function() {
     title.textContent = p.title;
     title.className = 'result-title-popup';
 
+    // AJOUT DE LA GÉLULE DE PRIX
+    const price = document.createElement('span');
+    price.textContent = `${p.price}€`;
+    price.className = 'result-price-popup';
+
     resultDiv.appendChild(img);
     resultDiv.appendChild(title);
+    resultDiv.appendChild(price); // AJOUT DU PRIX
 
     resultDiv.addEventListener('click', function() {
       window.location.href = p.url;
