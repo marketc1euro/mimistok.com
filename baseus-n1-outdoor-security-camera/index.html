@@ -341,7 +341,6 @@ updateSlides();</script></p><h3 class="align-center">Avis client</h3><div style=
     margin-bottom: 15px;
     box-sizing: border-box;
     font-size: 16px;
-    transform: scale(1);
   }
 
   #search-input-popup::placeholder {
@@ -356,34 +355,29 @@ updateSlides();</script></p><h3 class="align-center">Avis client</h3><div style=
     transform: scale(1.02);
   }
 
-  /* Conteneur du carrousel */
-  .carousel-container {
+  /* Conteneur du carrousel vertical */
+  .carousel-vertical {
     width: 100%;
     max-width: 690px;
+    height: 300px; /* Hauteur fixe pour 3 éléments */
     position: relative;
     overflow: hidden;
   }
 
-  /* Piste du carrousel */
-  .carousel-track {
-    display: flex;
-    transition: transform 0.5s ease;
-    width: 100%;
-  }
-
-  /* Groupe de 3 produits */
-  .carousel-group {
+  /* Piste du carrousel vertical */
+  .carousel-vertical-track {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    flex-shrink: 0;
+    transition: transform 0.4s ease;
+    height: 100%;
   }
 
   .result-item-popup {
     display: flex;
     align-items: center;
     width: 100%;
-    margin: 10px 0;
+    height: 80px; /* Hauteur fixe pour chaque élément */
+    margin: 5px 0;
     padding: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
@@ -393,6 +387,7 @@ updateSlides();</script></p><h3 class="align-center">Avis client</h3><div style=
     transition: all 0.3s ease;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
+    flex-shrink: 0;
   }
 
   .result-item-popup:hover {
@@ -402,16 +397,16 @@ updateSlides();</script></p><h3 class="align-center">Avis client</h3><div style=
   }
 
   .result-img-popup {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     object-fit: cover;
     border-radius: 10px;
-    margin-right: 18px;
+    margin-right: 15px;
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .result-title-popup {
-    font-size: 18px;
+    font-size: 16px;
     color: #FFFFFF;
     font-weight: 500;
     flex: 1;
@@ -429,28 +424,6 @@ updateSlides();</script></p><h3 class="align-center">Avis client</h3><div style=
     white-space: nowrap;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-
-  /* Indicateurs de pagination */
-  .carousel-indicators {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 15px;
-  }
-
-  .carousel-indicator {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .carousel-indicator.active {
-    background: #2196F3;
-    transform: scale(1.2);
   }
 
   /* Message quand aucun résultat */
@@ -488,7 +461,6 @@ updateSlides();</script></p><h3 class="align-center">Avis client</h3><div style=
   @media (max-width: 768px) {
     #popup {
       padding-top: 100px;
-      align-items: flex-start;
     }
     
     #search-container-popup {
@@ -500,32 +472,27 @@ updateSlides();</script></p><h3 class="align-center">Avis client</h3><div style=
       font-size: 16px;
       max-width: 100%;
       border-radius: 25px;
-      margin-left: 10px;
-      margin-right: 10px;
     }
     
-    #search-input-popup::placeholder {
-      font-size: 16px;
-    }
-    
-    .carousel-container {
+    .carousel-vertical {
       max-width: 100%;
-      padding: 0 10px;
+      height: 250px; /* Plus petit sur mobile */
     }
     
     .result-item-popup {
+      height: 70px;
       padding: 12px;
-      margin: 8px 0;
+      margin: 4px 0;
     }
     
     .result-img-popup {
-      width: 45px;
-      height: 45px;
-      margin-right: 15px;
+      width: 40px;
+      height: 40px;
+      margin-right: 12px;
     }
     
     .result-title-popup {
-      font-size: 16px;
+      font-size: 15px;
     }
     
     .result-price-popup {
@@ -552,49 +519,32 @@ updateSlides();</script></p><h3 class="align-center">Avis client</h3><div style=
     
     #search-input-popup {
       padding: 14px 18px;
-      font-size: 16px;
-      margin-left: 5px;
-      margin-right: 5px;
     }
     
-    #search-input-popup::placeholder {
-      font-size: 16px;
+    .carousel-vertical {
+      height: 220px;
     }
     
     .result-item-popup {
-      padding: 12px;
+      height: 65px;
+      padding: 10px;
     }
     
     .result-img-popup {
-      width: 40px;
-      height: 40px;
-      margin-right: 12px;
+      width: 35px;
+      height: 35px;
+      margin-right: 10px;
     }
     
     .result-title-popup {
-      font-size: 15px;
+      font-size: 14px;
     }
     
     .result-price-popup {
       font-size: 12px;
       padding: 3px 8px;
     }
-    
-    #popup-close {
-      top: 15px;
-      right: 10px;
-      width: 35px;
-      height: 35px;
-    }
-  }
-
-  /* Empêcher le zoom sur l'input sur mobile */
-  @media screen and (max-width: 768px) {
-    #search-input-popup {
-      font-size: 16px !important;
-      transform: scale(1) !important;
-    }
-  }</style><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div class="carousel-container"><div class="carousel-track" id="carousel-track"></div></div><div class="carousel-indicators" id="carousel-indicators"></div></div></div><script>// LOGIQUE DU POPUP
+  }</style><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div class="carousel-vertical" id="carousel-vertical"><div class="carousel-vertical-track" id="carousel-track"></div></div></div></div><script>// LOGIQUE DU POPUP
 const popup = document.getElementById('popup');
 const popupCloseBtn = document.getElementById('popup-close');
 const openSearchBtn = document.getElementById('open-search-btn');
@@ -609,11 +559,6 @@ function showPopup() {
     setTimeout(() => {
       const searchInput = document.getElementById('search-input-popup');
       searchInput.focus();
-      
-      if (window.innerWidth <= 768) {
-        searchInput.style.fontSize = '16px';
-        searchInput.style.transform = 'scale(1)';
-      }
     }, 300);
   }, 10);
 }
@@ -637,26 +582,24 @@ if (openSearchBtn) {
 }
 popupCloseBtn.addEventListener('click', hidePopup);
 
-// Fermer avec Échap
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape' && popup.classList.contains('show')) {
     hidePopup();
   }
 });
 
-// Fermer en cliquant en dehors
 popup.addEventListener('click', function(e) {
   if (e.target === popup) {
     hidePopup();
   }
 });
 
-// SYSTÈME DE RECHERCHE AVEC CARROUSEL
+// SYSTÈME DE RECHERCHE AVEC CARROUSEL VERTICAL SIMPLE
 let pagesIndex = [];
-let currentGroupIndex = 0;
-let totalGroups = 0;
+let currentIndex = 0;
+let allResults = [];
 
-// Utilise ton fichier JSON existant
+// Charger les données JSON
 fetch('/searcho.json')
   .then(response => response.json())
   .then(data => {
@@ -665,52 +608,13 @@ fetch('/searcho.json')
 
 const inputPopup = document.getElementById('search-input-popup');
 const carouselTrack = document.getElementById('carousel-track');
-const carouselIndicators = document.getElementById('carousel-indicators');
+const carouselContainer = document.getElementById('carousel-vertical');
 
-// Fonction pour créer un groupe de 3 produits
-function createProductGroup(products, groupIndex) {
-  const groupDiv = document.createElement('div');
-  groupDiv.className = 'carousel-group';
-  groupDiv.dataset.groupIndex = groupIndex;
-
-  products.forEach((p, index) => {
-    const resultDiv = document.createElement('div');
-    resultDiv.className = 'result-item-popup fade-in-popup';
-    resultDiv.style.animationDelay = `${index * 0.05}s`;
-
-    const img = document.createElement('img');
-    img.src = p.image || '';
-    img.className = 'result-img-popup';
-    img.alt = p.title;
-    
-    const title = document.createElement('span');
-    title.textContent = p.title;
-    title.className = 'result-title-popup';
-
-    const price = document.createElement('span');
-    price.textContent = `${p.price}€`;
-    price.className = 'result-price-popup';
-
-    resultDiv.appendChild(img);
-    resultDiv.appendChild(title);
-    resultDiv.appendChild(price);
-
-    resultDiv.addEventListener('click', function() {
-      window.location.href = p.url;
-    });
-
-    groupDiv.appendChild(resultDiv);
-  });
-
-  return groupDiv;
-}
-
-// Fonction pour mettre à jour le carrousel
-function updateCarousel(groups) {
+// Fonction pour afficher 3 résultats
+function showThreeResults() {
   carouselTrack.innerHTML = '';
-  carouselIndicators.innerHTML = '';
   
-  if (groups.length === 0) {
+  if (allResults.length === 0) {
     const noResults = document.createElement('div');
     noResults.className = 'no-results';
     noResults.textContent = 'Aucun produit trouvé';
@@ -718,58 +622,98 @@ function updateCarousel(groups) {
     return;
   }
 
-  groups.forEach((groupProducts, index) => {
-    const groupElement = createProductGroup(groupProducts, index);
-    carouselTrack.appendChild(groupElement);
-  });
+  // Afficher 3 résultats à partir de l'index courant
+  for (let i = 0; i < 3; i++) {
+    const resultIndex = (currentIndex + i) % allResults.length;
+    const product = allResults[resultIndex];
+    
+    const resultDiv = document.createElement('div');
+    resultDiv.className = 'result-item-popup fade-in-popup';
+    resultDiv.style.animationDelay = `${i * 0.1}s`;
 
-  // Mettre à jour les indicateurs
-  totalGroups = groups.length;
-  for (let i = 0; i < totalGroups; i++) {
-    const indicator = document.createElement('div');
-    indicator.className = `carousel-indicator ${i === currentGroupIndex ? 'active' : ''}`;
-    indicator.addEventListener('click', () => goToGroup(i));
-    carouselIndicators.appendChild(indicator);
+    const img = document.createElement('img');
+    img.src = product.image || '';
+    img.className = 'result-img-popup';
+    img.alt = product.title;
+    
+    const title = document.createElement('span');
+    title.textContent = product.title;
+    title.className = 'result-title-popup';
+
+    const price = document.createElement('span');
+    price.textContent = `${product.price}€`;
+    price.className = 'result-price-popup';
+
+    resultDiv.appendChild(img);
+    resultDiv.appendChild(title);
+    resultDiv.appendChild(price);
+
+    resultDiv.addEventListener('click', function() {
+      window.location.href = product.url;
+    });
+
+    carouselTrack.appendChild(resultDiv);
   }
-
-  // Positionner le carrousel
-  updateCarouselPosition();
 }
 
-// Fonction pour aller à un groupe spécifique
-function goToGroup(groupIndex) {
-  if (groupIndex < 0 || groupIndex >= totalGroups) return;
+// Fonction pour faire tourner les résultats
+function rotateResults(direction) {
+  if (allResults.length <= 3) return; // Pas besoin de tourner si 3 ou moins
   
-  currentGroupIndex = groupIndex;
-  updateCarouselPosition();
-  updateIndicators();
+  if (direction === 'down') {
+    currentIndex = (currentIndex + 1) % allResults.length;
+  } else {
+    currentIndex = (currentIndex - 1 + allResults.length) % allResults.length;
+  }
+  
+  showThreeResults();
 }
 
-// Fonction pour mettre à jour la position du carrousel
-function updateCarouselPosition() {
-  const translateX = -currentGroupIndex * 100;
-  carouselTrack.style.transform = `translateX(${translateX}%)`;
-}
+// Gestion du scroll souris et tactile
+let startY = 0;
+let isScrolling = false;
 
-// Fonction pour mettre à jour les indicateurs
-function updateIndicators() {
-  const indicators = carouselIndicators.querySelectorAll('.carousel-indicator');
-  indicators.forEach((indicator, index) => {
-    indicator.classList.toggle('active', index === currentGroupIndex);
-  });
-}
-
-// Gestion du scroll de la souris
-carouselTrack.addEventListener('wheel', function(e) {
+carouselContainer.addEventListener('wheel', function(e) {
   e.preventDefault();
   
   if (e.deltaY > 0) {
-    // Scroll vers le bas = aller au groupe suivant
-    goToGroup(currentGroupIndex + 1);
+    // Scroll vers le bas = tourner vers le bas
+    rotateResults('down');
   } else {
-    // Scroll vers le haut = aller au groupe précédent
-    goToGroup(currentGroupIndex - 1);
+    // Scroll vers le haut = tourner vers le haut
+    rotateResults('up');
   }
+});
+
+// Touch events pour mobile
+carouselContainer.addEventListener('touchstart', function(e) {
+  startY = e.touches[0].clientY;
+  isScrolling = true;
+});
+
+carouselContainer.addEventListener('touchmove', function(e) {
+  if (!isScrolling) return;
+  e.preventDefault();
+});
+
+carouselContainer.addEventListener('touchend', function(e) {
+  if (!isScrolling) return;
+  
+  const endY = e.changedTouches[0].clientY;
+  const diffY = startY - endY;
+  
+  // Seuil minimal pour déclencher le changement
+  if (Math.abs(diffY) > 30) {
+    if (diffY > 0) {
+      // Swipe vers le haut = tourner vers le bas
+      rotateResults('down');
+    } else {
+      // Swipe vers le bas = tourner vers le haut
+      rotateResults('up');
+    }
+  }
+  
+  isScrolling = false;
 });
 
 // Recherche
@@ -778,54 +722,41 @@ inputPopup.addEventListener('input', function() {
   
   if (!query) {
     carouselTrack.innerHTML = '';
-    carouselIndicators.innerHTML = '';
+    allResults = [];
     return;
   }
 
-  const matches = pagesIndex.filter(p => p.title.toLowerCase().includes(query));
-  
-  // Diviser les résultats en groupes de 3
-  const groups = [];
-  for (let i = 0; i < matches.length; i += 3) {
-    groups.push(matches.slice(i, i + 3));
-  }
-  
-  currentGroupIndex = 0;
-  updateCarousel(groups);
+  allResults = pagesIndex.filter(p => p.title.toLowerCase().includes(query));
+  currentIndex = 0;
+  showThreeResults();
 });
 
-// Entrée = aller sur le premier résultat du groupe actuel
+// Entrée = aller sur le premier résultat
 inputPopup.addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') {
-    const currentGroup = carouselTrack.querySelector(`[data-group-index="${currentGroupIndex}"]`);
-    if (currentGroup) {
-      const firstResult = currentGroup.querySelector('.result-item-popup');
-      if (firstResult) {
-        firstResult.click();
-      }
-    }
+  if (e.key === 'Enter' && allResults.length > 0) {
+    window.location.href = allResults[currentIndex].url;
   }
 });
 
 // Navigation au clavier
 document.addEventListener('keydown', function(e) {
-  if (popup.classList.contains('show')) {
-    if (e.key === 'ArrowRight') {
-      goToGroup(currentGroupIndex + 1);
-    } else if (e.key === 'ArrowLeft') {
-      goToGroup(currentGroupIndex - 1);
+  if (popup.classList.contains('show') && allResults.length > 3) {
+    if (e.key === 'ArrowDown') {
+      rotateResults('down');
+    } else if (e.key === 'ArrowUp') {
+      rotateResults('up');
     }
   }
 });
 
-// Empêcher le zoom sur l'input
-inputPopup.addEventListener('touchstart', function(e) {
+// Empêcher le zoom sur l'input mobile
+inputPopup.addEventListener('touchstart', function() {
   if (window.innerWidth <= 768) {
     this.style.fontSize = '16px';
   }
 });
 
-inputPopup.addEventListener('focus', function(e) {
+inputPopup.addEventListener('focus', function() {
   if (window.innerWidth <= 768) {
     this.style.fontSize = '16px';
   }
