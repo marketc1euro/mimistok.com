@@ -400,21 +400,6 @@ updateSlides();</script></p><h3> </h3><h3 class="align-center">Avis client</h3>
     font-size: 18px;
     color: #FFFFFF;
     font-weight: 500;
-    flex: 1;
-  }
-
-  /* GÉLULE DE PRIX AJOUTÉE */
-  .result-price-popup {
-    background: rgba(33, 150, 243, 0.9);
-    color: white;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
-    margin-left: auto;
-    white-space: nowrap;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
   @keyframes fadeIn {
@@ -487,11 +472,6 @@ updateSlides();</script></p><h3> </h3><h3 class="align-center">Avis client</h3>
       font-size: 16px;
     }
     
-    .result-price-popup {
-      font-size: 13px;
-      padding: 5px 12px;
-    }
-    
     #popup-close {
       top: 20px; /* Descendu sur mobile */
       right: 15px;
@@ -533,11 +513,6 @@ updateSlides();</script></p><h3> </h3><h3 class="align-center">Avis client</h3>
     
     .result-title-popup {
       font-size: 15px;
-    }
-    
-    .result-price-popup {
-      font-size: 12px;
-      padding: 4px 10px;
     }
     
     #popup-close {
@@ -657,14 +632,8 @@ inputPopup.addEventListener('input', function() {
     title.textContent = p.title;
     title.className = 'result-title-popup';
 
-    // AJOUT DE LA GÉLULE DE PRIX
-    const price = document.createElement('span');
-    price.textContent = `${p.price}€`;
-    price.className = 'result-price-popup';
-
     resultDiv.appendChild(img);
     resultDiv.appendChild(title);
-    resultDiv.appendChild(price); // AJOUT DU PRIX
 
     resultDiv.addEventListener('click', function() {
       window.location.href = p.url;
