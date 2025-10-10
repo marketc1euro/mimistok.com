@@ -334,8 +334,8 @@ if (window.location.pathname.includes('/panier/') ||
     white-space: nowrap;
   }
 
-  /* ANIMATION QUAND AUCUN RÉSULTAT */
-  .no-results-animation {
+  /* ANIMATION LOTTIE QUAND AUCUN RÉSULTAT */
+  .no-results-lottie {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -344,12 +344,7 @@ if (window.location.pathname.includes('/panier/') ||
     height: 200px;
     z-index: 99998;
     pointer-events: none;
-  }
-
-  .no-results-animation video {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    display: none;
   }
 
   @keyframes fadeIn {
@@ -428,7 +423,7 @@ if (window.location.pathname.includes('/panier/') ||
       padding: 5px 12px;
     }
     
-    .no-results-animation {
+    .no-results-lottie {
       width: 150px;
       height: 150px;
     }
@@ -481,7 +476,7 @@ if (window.location.pathname.includes('/panier/') ||
       padding: 4px 10px;
     }
     
-    .no-results-animation {
+    .no-results-lottie {
       width: 120px;
       height: 120px;
     }
@@ -500,11 +495,14 @@ if (window.location.pathname.includes('/panier/') ||
       font-size: 16px !important;
       transform: scale(1) !important;
     }
-  }</style><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div><div id="no-results-animation" class="no-results-animation"><video autoplay loop muted playsinline><source src="https://movie.mimistok.com/searchanime.webm" type="video/webm"></video></div></div><script>// LOGIQUE DU POPUP
+  }</style><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div><div id="no-results-lottie" class="no-results-lottie"></div></div><script>// LOGIQUE DU POPUP
 const popup = document.getElementById('popup');
 const popupCloseBtn = document.getElementById('popup-close');
 const openSearchBtn = document.getElementById('open-search-btn');
-const noResultsAnimation = document.getElementById('no-results-animation');
+const noResultsLottie = document.getElementById('no-results-lottie');
+
+// Variable pour stocker l'animation Lottie
+let lottieAnimation = null;
 
 function showPopup() {
   popup.style.display = 'flex';
@@ -533,8 +531,11 @@ function hidePopup() {
   popup.addEventListener('transitionend', function handler() {
     if (!popup.classList.contains('show')) {
       popup.style.display = 'none';
-      // Cacher l'animation quand le popup se ferme
-      noResultsAnimation.style.display = 'none';
+      // Cacher l'animation Lottie quand le popup se ferme
+      noResultsLottie.style.display = 'none';
+      if (lottieAnimation) {
+        lottieAnimation.stop();
+      }
     }
     popup.removeEventListener('transitionend', handler);
   });
@@ -572,24 +573,53 @@ fetch('/searcho.json')
 const inputPopup = document.getElementById('search-input-popup');
 const resultsContainerPopup = document.getElementById('search-results-container-popup');
 
+// Fonction pour charger l'animation Lottie
+function loadLottieAnimation() {
+  if (lottieAnimation) {
+    lottieAnimation.destroy();
+  }
+  
+  lottieAnimation = lottie.loadAnimation({
+    container: noResultsLottie,
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: '/soanime.json' // Remplacez par le chemin vers votre fichier JSON
+  });
+}
+
+// Fonction pour mettre à jour l'affichage des résultats
 function updateResultsDisplay() {
   const query = inputPopup.value.trim().toLowerCase();
   resultsContainerPopup.innerHTML = '';
   
   if (!query) {
-    // Aucune recherche - AFFICHER l'animation
-    noResultsAnimation.style.display = 'block';
+    // Aucune recherche - AFFICHER l'animation Lottie
+    noResultsLottie.style.display = 'block';
+    if (!lottieAnimation) {
+      loadLottieAnimation();
+    } else {
+      lottieAnimation.play();
+    }
     return;
   }
 
   const matches = pagesIndex.filter(p => p.title.toLowerCase().includes(query));
 
   if (matches.length === 0) {
-    // Aucun résultat trouvé - AFFICHER l'animation
-    noResultsAnimation.style.display = 'block';
+    // Aucun résultat trouvé - AFFICHER l'animation Lottie
+    noResultsLottie.style.display = 'block';
+    if (!lottieAnimation) {
+      loadLottieAnimation();
+    } else {
+      lottieAnimation.play();
+    }
   } else {
     // Des résultats trouvés - CACHER l'animation et afficher les résultats
-    noResultsAnimation.style.display = 'none';
+    noResultsLottie.style.display = 'none';
+    if (lottieAnimation) {
+      lottieAnimation.stop();
+    }
     
     matches.forEach((p, index) => {
       const resultDiv = document.createElement('div');
@@ -624,9 +654,6 @@ function updateResultsDisplay() {
 
 inputPopup.addEventListener('input', updateResultsDisplay);
 
-// Au chargement, cacher l'animation
-noResultsAnimation.style.display = 'none';
-
 // ENTREE = FERMER LE CLAVIER SEULEMENT
 inputPopup.addEventListener('keydown', function(e) {
   if (e.key === 'Enter') {
@@ -653,12 +680,6 @@ inputPopup.addEventListener('focus', function(e) {
   if (menuItem) {
     menuItem.style.cursor = 'pointer';
     menuItem.addEventListener('click', showPopup);
-  }
-  
-  // Cacher l'animation au démarrage
-  const noResultsAnimation = document.getElementById('no-results-animation');
-  if (noResultsAnimation) {
-    noResultsAnimation.style.display = 'none';
   }
 });</script><style>#popup-avis {
     position: fixed;
