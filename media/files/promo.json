@@ -1,0 +1,44 @@
+{
+  "popup": {
+    "background": "rgba(30, 30, 30, 0.7)",
+    "backdropFilter": "blur(10px)",
+    "padding": "10px 5%",
+    "zIndex": "9999"
+  },
+  "image": {
+    "width": "80px",
+    "height": "80px",
+    "borderRadius": "8px",
+    "marginRight": "20px"
+  },
+  "title": {
+    "fontSize": "16px",
+    "lineHeight": "1.2"
+  },
+  "promoButton": {
+    "background": "orange",
+    "padding": "6px 12px",
+    "borderRadius": "20px",
+    "minWidth": "100px",
+    "fontSize": "14px"
+  },
+  "closeButton": {
+    "width": "30px",
+    "height": "30px",
+    "iconSize": "24px"
+  },
+  "mobile": {
+    "imageWidth": "66px",
+    "imageHeight": "66px",
+    "imageMargin": "12px",
+    "titleFontSize": "14px",
+    "promoMinWidth": "90px",
+    "promoFontSize": "12px",
+    "closeSize": "25px",
+    "closeIconSize": "20px"
+  },
+  "urls": {
+    "closeIcon": "https://image.mimistok.com/close.svg",
+    "apiEndpoint": "https://n8n.c1euro.com/webhook/favoris"
+  }
+}
