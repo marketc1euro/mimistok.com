@@ -606,286 +606,296 @@ inputPopup.addEventListener('focus', function(e) {
     menuItem.style.cursor = 'pointer';
     menuItem.addEventListener('click', showPopup);
   }
-});</script><script>// FONCTION POPUP DIRECTE
-function showPopup(type) {
-  const popup = document.createElement('div');
-  popup.style.cssText = 'position: fixed; inset: 0; background: rgba(22, 23, 24, 0.95); backdrop-filter: blur(10px); display: flex; justify-content: center; align-items: center; z-index: 99999;';
-  
-  const isApproved = type === 'approved';
-  const imageUrl = isApproved ? 'https://image.mimistok.com/yes.svg' : 'https://image.mimistok.com/not.svg';
-  const title = isApproved ? 'Votre avis sera bientôt publié' : 'Vous n\'avez effectué aucun achat';
-  const bubbleText = isApproved ? 'approuvé' : 'refusé';
-  const bubbleColor = isApproved ? '#FFA500' : '#FF4444';
-  const description = isApproved 
-    ? '<p style="font-size: 12px; margin: 5px 0 0 0; opacity: 0.7; line-height: 1.4;">Votre commentaire a bien été enregistré et sera publié<br>très prochainement sur notre plateforme.</p>'
-    : '<p style="font-size: 12px; margin: 5px 0 0 0; opacity: 0.7; line-height: 1.4;">Vous avez effectué aucun achat sur notre site.<br>Vous ne pouvez donc pas déposer de commentaire.</p>';
-
-  popup.innerHTML = `
-    <div style="background: transparent; text-align: center; color: white; max-width: 400px; padding: 0 20px;">
-      <img src="${imageUrl}" alt="${isApproved ? 'Succès' : 'Erreur'}" width="100" height="100" style="margin-bottom: 25px;">
-      <h2 style="font-size: 28px; margin: 0 0 15px 0; font-weight: 600; color: white;">${title}</h2>
-      <div style="background: ${bubbleColor}; color: white; padding: 8px 20px; border-radius: 999px; font-size: 16px; font-weight: 500; display: inline-block; margin-bottom: 15px;">${bubbleText}</div>
-      ${description}
-      <button onclick="this.parentElement.parentElement.remove()" style="margin-top: 40px; padding: 14px 40px; background: #FF5858; color: white; border: none; border-radius: 999px; font-size: 16px; font-weight: 500; cursor: pointer;">Fermer</button>
-    </div>`;
-  
-  document.body.appendChild(popup);
-}
-
-// POPUP FORMULAIRE
-const popupAvis = document.getElementById('popup-avis');
-
-function showAvisPopup() {
-  popupAvis.style.display = 'flex';
-  setTimeout(() => {
-    popupAvis.classList.add('show');
-    popupAvis.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('no-scroll');
-    
-    document.querySelectorAll('.form-step').forEach(step => {
-      step.style.display = 'none';
-    });
-    document.getElementById('step-1').style.display = 'block';
-    
-    document.querySelectorAll('.error-message').forEach(error => {
-      error.style.display = 'none';
-    });
-  }, 10);
-}
-
-function hideAvisPopup() {
-  popupAvis.classList.remove('show');
-  popupAvis.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('no-scroll');
-  
-  popupAvis.addEventListener('transitionend', function handler() {
-    if (!popupAvis.classList.contains('show')) {
-      popupAvis.style.display = 'none';
-    }
-    popupAvis.removeEventListener('transitionend', handler);
-  });
-}
-
-// GÉNÉRATION DU CARROUSEL D'AVATARS
-function generateAvatarCarousel() {
-  const carousel = document.getElementById('avatarCarousel');
+});</script><script>document.addEventListener('DOMContentLoaded', function() {
+  // ====== Sélecteurs (DOM ready) ======
+  const popupAvis = document.getElementById('popup-avis');
+  const avatarCarousel = document.getElementById('avatarCarousel');
   const selectedAvatarInput = document.getElementById('selectedAvatar');
-  
-  for (let i = 1; i <= 30; i++) {
-    const womenDiv = document.createElement('div');
-    womenDiv.className = 'avatar-option' + (i === 1 ? ' selected' : '');
-    womenDiv.innerHTML = `<img src="https://image.mimistok.com/women${i}.svg" alt="Profil femme ${i}">`;
-    womenDiv.addEventListener('click', function() {
-      document.querySelectorAll('.avatar-option').forEach(avatar => {
-        avatar.classList.remove('selected');
-      });
-      this.classList.add('selected');
-      selectedAvatarInput.value = `https://image.mimistok.com/women${i}.svg`;
-    });
-    carousel.appendChild(womenDiv);
-    
-    const menDiv = document.createElement('div');
-    menDiv.className = 'avatar-option';
-    menDiv.innerHTML = `<img src="https://image.mimistok.com/men${i}.svg" alt="Profil homme ${i}">`;
-    menDiv.addEventListener('click', function() {
-      document.querySelectorAll('.avatar-option').forEach(avatar => {
-        avatar.classList.remove('selected');
-      });
-      this.classList.add('selected');
-      selectedAvatarInput.value = `https://image.mimistok.com/men${i}.svg`;
-    });
-    carousel.appendChild(menDiv);
+  const successBottom = document.getElementById('successMessageBottom');
+  const form = document.getElementById('contactForm');
+
+  if (!popupAvis) console.warn("Warning: #popup-avis introuvable dans le DOM");
+  if (!form) console.warn("Warning: #contactForm introuvable dans le DOM");
+
+  // ====== Fonctions d'ouverture / fermeture popup principal ======
+  function showAvisPopup() {
+    if (!popupAvis) return console.error("#popup-avis introuvable — impossible d'ouvrir le popup");
+    popupAvis.style.display = 'flex';
+    // Force repaint pour transition
+    popupAvis.style.opacity = '0';
+    popupAvis.style.transition = 'opacity 0.35s ease';
+    setTimeout(() => {
+      popupAvis.classList.add('show');
+      popupAvis.setAttribute('aria-hidden', 'false');
+      popupAvis.style.opacity = '1';
+      document.body.classList.add('no-scroll');
+      // remettre à la première étape
+      document.querySelectorAll('.form-step').forEach(step => step.style.display = 'none');
+      const s1 = document.getElementById('step-1');
+      if (s1) s1.style.display = 'block';
+      document.querySelectorAll('.error-message').forEach(err => err.style.display = 'none');
+    }, 20);
   }
-}
 
-// VALIDATION D’ÉTAPE
-function validateStep(stepId) {
-  let isValid = true;
-  
-  switch(stepId) {
-    case '2':
-      const nomInput = document.querySelector('#step-2 .form-input');
-      const nomError = document.getElementById('nom-error');
-      if (!nomInput.value.trim()) {
-        nomError.style.display = 'block';
-        isValid = false;
-      } else {
-        nomError.style.display = 'none';
-      }
-      break;
-    case '4':
-      const commentaireInput = document.querySelector('#step-4 .form-textarea');
-      const commentaireError = document.getElementById('commentaire-error');
-      if (!commentaireInput.value.trim()) {
-        commentaireError.style.display = 'block';
-        isValid = false;
-      } else {
-        commentaireError.style.display = 'none';
-      }
-      break;
-    case '5':
-      const emailInput = document.querySelector('#step-5 .form-input');
-      const emailError = document.getElementById('email-error');
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailInput.value.trim() || !emailRegex.test(emailInput.value)) {
-        emailError.style.display = 'block';
-        isValid = false;
-      } else {
-        emailError.style.display = 'none';
-      }
-      break;
+  function hideAvisPopup() {
+    if (!popupAvis) return;
+    popupAvis.classList.remove('show');
+    popupAvis.setAttribute('aria-hidden', 'true');
+    popupAvis.style.opacity = '0';
+    document.body.classList.remove('no-scroll');
+    // attendre la fin de la transition
+    setTimeout(() => {
+      popupAvis.style.display = 'none';
+    }, 350);
   }
-  
-  return isValid;
-}
 
-// LOGIQUE DU FORMULAIRE
-let selectedStarValue = 5;
+  // ====== Popup résultat (approuvé / refusé) ======
+  function showPopup(type) {
+    const popup = document.createElement('div');
+    popup.setAttribute('role', 'dialog');
+    popup.style.cssText = `
+      position: fixed; inset: 0; display: flex; justify-content: center; align-items: center;
+      background: rgba(22,23,24,0.95); backdrop-filter: blur(10px); z-index: 99999; opacity: 0;
+      transition: opacity 0.35s ease;
+    `;
 
-document.addEventListener('DOMContentLoaded', function() {
+    const isApproved = type === 'approved';
+    const imageUrl = isApproved ? 'https://image.mimistok.com/yes.svg' : 'https://image.mimistok.com/not.svg';
+    const title = isApproved ? 'Votre avis sera bientôt publié' : "Vous n'avez effectué aucun achat";
+    const bubbleText = isApproved ? 'approuvé' : 'refusé';
+    const bubbleColor = isApproved ? '#FFA500' : '#FF4444';
+    const description = isApproved
+      ? '<p style="font-size:12px; opacity:0.8; line-height:1.4">Votre commentaire a bien été enregistré et sera publié très prochainement.</p>'
+      : '<p style="font-size:12px; opacity:0.8; line-height:1.4">Vous n\'avez pas effectué d\'achat. Vous ne pouvez pas déposer de commentaire.</p>';
+
+    popup.innerHTML = `
+      <div style="text-align:center; color:white; max-width:420px; padding:20px; transform: scale(0.9); transition: transform 0.35s ease;">
+        <img src="${imageUrl}" alt="" width="96" height="96" style="margin-bottom:18px">
+        <h3 style="margin:0 0 10px; font-size:20px">${title}</h3>
+        <span style="display:inline-block; background:${bubbleColor}; padding:8px 18px; border-radius:999px; color:#fff; font-weight:600; margin-bottom:12px;">${bubbleText}</span>
+        ${description}
+        <div style="margin-top:18px">
+          <button id="result-close-btn" style="padding:10px 28px; border-radius:999px; border:none; background:#FF5858; color:white; cursor:pointer">Fermer</button>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(popup);
+    // apparition
+    setTimeout(() => {
+      popup.style.opacity = '1';
+      const inner = popup.firstElementChild;
+      if (inner) inner.style.transform = 'scale(1)';
+    }, 40);
+
+    // close handler
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) popup.remove();
+    });
+    const closeBtn = popup.querySelector('#result-close-btn');
+    if (closeBtn) closeBtn.addEventListener('click', () => popup.remove());
+  }
+
+  // ====== Génération carrousel d'avatars (identique à ton code) ======
+  function generateAvatarCarousel() {
+    if (!avatarCarousel || !selectedAvatarInput) return;
+    avatarCarousel.innerHTML = '';
+    for (let i = 1; i <= 30; i++) {
+      const womenDiv = document.createElement('div');
+      womenDiv.className = 'avatar-option' + (i === 1 ? ' selected' : '');
+      womenDiv.innerHTML = `<img src="https://image.mimistok.com/women${i}.svg" alt="Profil femme ${i}">`;
+      womenDiv.addEventListener('click', function() {
+        document.querySelectorAll('.avatar-option').forEach(a => a.classList.remove('selected'));
+        this.classList.add('selected');
+        selectedAvatarInput.value = `https://image.mimistok.com/women${i}.svg`;
+      });
+      avatarCarousel.appendChild(womenDiv);
+
+      const menDiv = document.createElement('div');
+      menDiv.className = 'avatar-option';
+      menDiv.innerHTML = `<img src="https://image.mimistok.com/men${i}.svg" alt="Profil homme ${i}">`;
+      menDiv.addEventListener('click', function() {
+        document.querySelectorAll('.avatar-option').forEach(a => a.classList.remove('selected'));
+        this.classList.add('selected');
+        selectedAvatarInput.value = `https://image.mimistok.com/men${i}.svg`;
+      });
+      avatarCarousel.appendChild(menDiv);
+    }
+  }
+
+  // ====== Validation par étape (idem) ======
+  function validateStep(stepId) {
+    let isValid = true;
+    switch (stepId) {
+      case '2': {
+        const nomInput = document.querySelector('#step-2 .form-input');
+        const nomError = document.getElementById('nom-error');
+        if (!nomInput || !nomInput.value.trim()) { if (nomError) nomError.style.display = 'block'; isValid = false; }
+        else if (nomError) nomError.style.display = 'none';
+        break;
+      }
+      case '4': {
+        const com = document.querySelector('#step-4 .form-textarea');
+        const comErr = document.getElementById('commentaire-error');
+        if (!com || !com.value.trim()) { if (comErr) comErr.style.display = 'block'; isValid = false; }
+        else if (comErr) comErr.style.display = 'none';
+        break;
+      }
+      case '5': {
+        const email = document.querySelector('#step-5 .form-input');
+        const err = document.getElementById('email-error');
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email || !re.test(email.value)) { if (err) err.style.display = 'block'; isValid = false; }
+        else if (err) err.style.display = 'none';
+        break;
+      }
+    }
+    return isValid;
+  }
+
+  // ====== Initialisation UI ======
   generateAvatarCarousel();
-  
-  const starOptions = document.querySelectorAll('.star-option');
-  const selectedStarsInput = document.getElementById('selectedStars');
-  const starsPreview = document.getElementById('starsPreview');
 
-  starOptions.forEach(star => {
-    star.addEventListener('click', function() {
-      starOptions.forEach(s => {
-        s.style.transform = 'scale(1)';
-        s.style.border = '3px solid transparent';
-      });
-      this.style.transform = 'scale(1.1)';
-      this.style.border = '3px solid #4217f4';
-      selectedStarValue = this.getAttribute('data-value');
-      selectedStarsInput.value = selectedStarValue;
-      starsPreview.textContent = selectedStarValue + '/5';
-    });
-  });
-
-  const buttons = document.querySelectorAll('.next-btn');
-  buttons.forEach(function(btn) {
+  // next buttons
+  document.querySelectorAll('.next-btn').forEach(btn => {
     btn.addEventListener('click', function() {
       const currentStep = this.closest('.form-step');
-      const currentStepId = currentStep.id.split('-')[1];
+      if (!currentStep) return;
+      const currentId = currentStep.id.split('-')[1];
       const nextId = this.getAttribute('data-next');
-      
-      if (validateStep(currentStepId)) {
-        const nextStep = document.getElementById('step-' + nextId);
-        if (nextStep) {
-          currentStep.style.display = 'none';
-          nextStep.style.display = 'block';
-        }
+      if (!nextId) return;
+      if (validateStep(currentId)) {
+        currentStep.style.display = 'none';
+        const next = document.getElementById('step-' + nextId);
+        if (next) next.style.display = 'block';
       }
     });
   });
 
-  document.querySelectorAll('.form-input, .form-textarea').forEach(input => {
-    input.addEventListener('input', function() {
-      const errorId = this.name + '-error';
-      const errorElement = document.getElementById(errorId);
-      if (errorElement) {
-        errorElement.style.display = 'none';
-      }
+  // input hide error on input
+  document.querySelectorAll('.form-input, .form-textarea').forEach(i => {
+    i.addEventListener('input', function() {
+      const err = document.getElementById(this.name + '-error');
+      if (err) err.style.display = 'none';
     });
   });
 
-  // Captcha
-  const num1 = Math.floor(Math.random() * 10);
-  const num2 = Math.floor(Math.random() * 10);
-  const result = num1 + num2;
-  document.getElementById('captcha-label').textContent = "Combien font " + num1 + " + " + num2 + " ?";
+  // ====== Captcha simple (créé une seule fois et conservé) ======
+  const captchaNum1 = Math.floor(Math.random() * 10);
+  const captchaNum2 = Math.floor(Math.random() * 10);
+  const captchaResult = captchaNum1 + captchaNum2;
+  const captchaLabel = document.getElementById('captcha-label');
+  if (captchaLabel) captchaLabel.textContent = `Combien font ${captchaNum1} + ${captchaNum2} ?`;
 
-  // Envoi du formulaire
-  const form = document.getElementById('contactForm');
-  form.addEventListener('submit', async function(event) {
-    event.preventDefault();
-    
-    const userAnswer = parseInt(document.getElementById('captcha-input').value);
-    const captchaError = document.getElementById('captcha-error');
-    const emailInput = document.querySelector('#step-5 .form-input');
-    const userEmail = emailInput.value;
-    
-    if (userAnswer !== result) {
-      captchaError.style.display = 'block';
-      return;
-    } else {
-      captchaError.style.display = 'none';
-    }
+  // ====== Envoi du formulaire (stable) ======
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
 
-    try {
-      // Affiche la gélule “Vérification en cours”
-      const successBottom = document.getElementById('successMessageBottom');
-      successBottom.style.display = 'block';
-      successBottom.textContent = 'Vérification en cours...';
+      // Vérif captcha
+      const userAnswer = parseInt(document.getElementById('captcha-input').value || '', 10);
+      const captchaError = document.getElementById('captcha-error');
+      if (userAnswer !== captchaResult) {
+        if (captchaError) captchaError.style.display = 'block';
+        return;
+      } else if (captchaError) {
+        captchaError.style.display = 'none';
+      }
 
-      // Préparer FormData
+      // Show verification pill
+      if (successBottom) {
+        successBottom.style.display = 'block';
+        successBottom.style.opacity = '1';
+        successBottom.style.transition = 'opacity 0.45s ease';
+        successBottom.textContent = 'Vérification en cours...';
+      }
+
+      // Prepare data
       const formData = new FormData(form);
 
-      // ENVOYER LE MAIL
-      const emailResponse = await fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
-      const emailResult = await emailResponse.json();
-
-      // ENVOYER À N8N
-      const n8nPayload = {
-        avatar: formData.get('avatar'),
-        nom: formData.get('nom'),
-        nombre_etoiles: formData.get('nombre_etoiles'),
-        commentaire: formData.get('commentaire'),
-        email: formData.get('email'),
-        page: window.location.href
-      };
-
-      const n8nResponse = await fetch('https://n8n.c1euro.com/webhook/avis', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(n8nPayload)
-      });
-      const n8nResult = await n8nResponse.json();
-
-      // TRAITEMENT DU RÉSULTAT
-      if (emailResult.success) {
-        // Réinitialiser le formulaire
-        form.reset();
-        document.querySelectorAll('.form-step').forEach(step => {
-          step.style.display = 'none';
+      try {
+        // 1) envoyer mail via web3forms
+        const emailResponse = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
         });
-        document.getElementById('step-1').style.display = 'block';
-        document.querySelectorAll('.error-message').forEach(error => {
-          error.style.display = 'none';
-        });
+        const emailResult = await emailResponse.json();
 
-        // ✅ Affiche la gélule, puis ferme le popup automatiquement
-        setTimeout(() => {
-          successBottom.style.display = 'none';
-          hideAvisPopup();
+        // 2) envoyer tout à n8n
+        const n8nPayload = {
+          avatar: formData.get('avatar'),
+          nom: formData.get('nom'),
+          nombre_etoiles: formData.get('nombre_etoiles'),
+          commentaire: formData.get('commentaire'),
+          email: formData.get('email'),
+          page: window.location.href
+        };
 
+        let n8nResult = {};
+        try {
+          const n8nResp = await fetch('https://n8n.c1euro.com/webhook/avis', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(n8nPayload)
+          });
+          n8nResult = await n8nResp.json();
+        } catch (err) {
+          console.warn('n8n webhook error (non bloquant):', err);
+        }
+
+        // Traitement résultat
+        if (emailResult && emailResult.success) {
+          // reset formulaire et UI
+          form.reset();
+          document.querySelectorAll('.form-step').forEach(step => step.style.display = 'none');
+          const s1 = document.getElementById('step-1');
+          if (s1) s1.style.display = 'block';
+          document.querySelectorAll('.error-message').forEach(err => err.style.display = 'none');
+
+          // fade-out pill -> fermer popup -> ouvrir popup résultat
           setTimeout(() => {
-            if (n8nResult.status === 'approved') {
-              showPopup('approved');
+            if (successBottom) {
+              successBottom.style.opacity = '0';
+              setTimeout(() => {
+                if (successBottom) successBottom.style.display = 'none';
+                hideAvisPopup();
+                setTimeout(() => {
+                  const status = (n8nResult && n8nResult.status) ? n8nResult.status : 'not_purchased';
+                  if (status === 'approved') showPopup('approved');
+                  else showPopup('not_purchased');
+                }, 350);
+              }, 420);
             } else {
-              showPopup('not_purchased');
+              // fallback si pill introuvable
+              hideAvisPopup();
+              setTimeout(() => {
+                const status = (n8nResult && n8nResult.status) ? n8nResult.status : 'not_purchased';
+                if (status === 'approved') showPopup('approved');
+                else showPopup('not_purchased');
+              }, 350);
             }
-          }, 400);
-        }, 2000);
-      } else {
-        alert('Une erreur est survenue, veuillez réessayer.');
+          }, 1600); // délai pendant lequel l'utilisateur voit "Vérification en cours"
+        } else {
+          // échec envoi web3forms
+          alert('Une erreur est survenue lors de l\'envoi. Veuillez réessayer.');
+          if (successBottom) { successBottom.style.opacity = '0'; setTimeout(()=> successBottom.style.display='none', 350); }
+        }
+      } catch (err) {
+        console.error('Erreur envoi formulaire:', err);
+        alert('Erreur de communication. Veuillez réessayer plus tard.');
+        if (successBottom) { successBottom.style.opacity = '0'; setTimeout(()=> successBottom.style.display='none', 350); }
       }
-    } catch (error) {
-      alert('Une erreur est survenue, veuillez réessayer.');
-    }
-  });
-});
+    });
+  }
 
-// BOUTON D’OUVERTURE
-document.addEventListener('DOMContentLoaded', function() {
+  // ====== Bouton d'ouverture (doit exister dans ton HTML) ======
   const openAvisBtn = document.getElementById('open-avis-btn');
   if (openAvisBtn) {
-    openAvisBtn.style.cursor = 'pointer';
     openAvisBtn.addEventListener('click', showAvisPopup);
+    openAvisBtn.style.cursor = 'pointer';
+  } else {
+    // pas critique ; popup peut s'ouvrir via JS
+    console.info('#open-avis-btn introuvable (si tu utilises un autre déclencheur, c\'est ok).');
   }
 });</script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-autolinker.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-show-invisibles.min.js"></script></body></html>
