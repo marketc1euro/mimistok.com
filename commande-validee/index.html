@@ -704,127 +704,424 @@ body.no-scroll {
   .avatar-carousel { gap: 10px; padding: 15px 5px; }
   .avatar-option { width: 60px; height: 60px; }
 }</style><style>#popup-avis {
-  position: fixed;
-  inset: 0;
-  background: rgba(22, 23, 24, 0.95);
-  backdrop-filter: blur(10px);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 99999;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-#popup-avis.show {
-  display: flex;
-  opacity: 1;
-}
-body.no-scroll {
-  overflow: hidden;
-}
-.form-container-popup {
-  background: transparent;
-  max-width: 500px;
-  width: 90%;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-}
-.close-bottom-btn {
-  display: block;
-  margin: 50px auto 20px auto;
-  padding: 12px 30px;
-  background: white;
-  color: #333;
-  border: 2px solid #ddd;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: auto;
-  min-width: 120px;
-}
-.form-input {
-  font-size: 16px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  width: 100%;
-  margin-bottom: 15px;
-  background: rgba(60, 60, 60, 0.7) !important;
-  color: white !important;
-}
-.form-input:invalid {
-  border-color: #ff4444;
-}
-.form-input::placeholder {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-.form-textarea {
-  font-size: 16px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  width: 100%;
-  margin-bottom: 15px;
-  min-height: 100px;
-  resize: vertical;
-  font-family: inherit;
-  background: rgba(60, 60, 60, 0.7) !important;
-  color: white !important;
-}
-.form-textarea:invalid {
-  border-color: #ff4444;
-}
-.form-textarea::placeholder {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-.error-message {
-  color: #ff4444;
-  font-size: 14px;
-  margin-top: -10px;
-  margin-bottom: 15px;
-  display: none;
-}
-.avatar-carousel {
-  display: flex;
-  gap: 15px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  padding: 20px 10px;
-  margin-bottom: 20px;
-  scrollbar-width: thin;
-}
-.avatar-option {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 3px solid transparent;
-  flex-shrink: 0;
-}
-.avatar-option.selected {
-  border: 3px solid #4217f4;
-  transform: scale(1.1);
-}
-.avatar-option img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-}
-@media (max-width: 768px) {
+    position: fixed;
+    inset: 0;
+    background: rgba(22, 23, 24, 0.95);
+    backdrop-filter: blur(10px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  #popup-avis.show {
+    display: flex;
+    opacity: 1;
+  }
+  
+  body.no-scroll {
+    overflow: hidden;
+  }
+
   .form-container-popup {
-    width: 95%;
+    background: transparent;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
   }
+
+  .close-bottom-btn {
+    display: block;
+    margin: 50px auto 20px auto;
+    padding: 12px 30px;
+    background: white;
+    color: #333;
+    border: 2px solid #ddd;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: auto;
+    min-width: 120px;
+  }
+
+  .form-input {
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    margin-bottom: 15px;
+    background: rgba(60, 60, 60, 0.7) !important;
+    color: white !important;
+  }
+
+  .form-input:invalid {
+    border-color: #ff4444;
+  }
+
+  .form-input::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .form-textarea {
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    margin-bottom: 15px;
+    min-height: 100px;
+    resize: vertical;
+    font-family: inherit;
+    background: rgba(60, 60, 60, 0.7) !important;
+    color: white !important;
+  }
+
+  .form-textarea:invalid {
+    border-color: #ff4444;
+  }
+
+  .form-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .error-message {
+    color: #ff4444;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    display: none;
+  }
+
   .avatar-carousel {
-    gap: 10px;
-    padding: 15px 5px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 20px 10px;
+    margin-bottom: 20px;
+    scrollbar-width: thin;
   }
+
   .avatar-option {
-    width: 60px;
-    height: 60px;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    flex-shrink: 0;
   }
-}</style><div id="popup-avis" aria-hidden="true" role="dialog" aria-modal="true"><div class="form-container-popup"><div style="text-align: center; margin-bottom: 20px;"><img src="https://image.mimistok.com/smile.svg" alt="Notation" width="100" height="100"></div><div style="max-width: 400px; margin: 0 auto; text-align: center;"><form id="contactForm" action="https://api.web3forms.com/submit" method="POST"><input name="access_key" type="hidden" value="7fee4d4b-e46f-49f8-9858-4d07d0732e87"> <input id="selectedAvatar" name="avatar" type="hidden" value="https://image.mimistok.com/women1.svg"><div id="step-1" class="form-step"><div style="font-size: 16px; margin-bottom: 15px; color: white; font-weight: 500;">Sélectionnez votre image de profil</div><div class="avatar-carousel" id="avatarCarousel"></div><button class="next-btn" style="background-color: #4217f4; color: white; padding: 12px; width: 80%; border: none; border-radius: 999px; font-size: 16px; cursor: pointer;" type="button" data-next="2">Étape suivante</button></div><div id="step-2" class="form-step" style="display: none;"><input class="form-input" name="nom" required type="text" placeholder="Votre nom ou pseudo *"><div class="error-message" id="nom-error">Veuillez saisir votre nom ou pseudo</div><button class="next-btn" style="background-color: #4217f4; color: white; padding: 12px; width: 80%; border: none; border-radius: 999px; font-size: 16px; cursor: pointer;" type="button" data-next="3">Étape suivante</button></div><div id="step-3" class="form-step" style="display: none;"><div id="starSelector" style="display: block; margin-bottom: 20px;"><div style="font-size: 16px; margin-bottom: 15px; color: white; font-weight: 500;">Sélectionnez votre note *</div><div id="starsContainer" style="display: flex; justify-content: center; gap: 12px; margin-bottom: 15px;"><div class="star-option" data-value="1">1</div><div class="star-option" data-value="2">2</div><div class="star-option" data-value="3">3</div><div class="star-option" data-value="4">4</div><div class="star-option" data-value="5">5</div></div></div><input id="selectedStars" name="nombre_etoiles" required type="hidden" value="5"><div id="selectedStarsDisplay"><div style="font-size: 14px; color: white; margin-bottom: 5px;">Note sélectionnée :</div><div id="starsPreview" style="font-size: 18px; font-weight: bold; color: #4217f4;">5/5</div></div><button class="next-btn" type="button" data-next="4">Étape suivante</button></div><div id="step-4" class="form-step" style="display: none;"><textarea class="form-textarea" name="commentaire" required placeholder="Votre commentaire *"></textarea><div class="error-message" id="commentaire-error">Veuillez saisir votre commentaire</div><button class="next-btn" type="button" data-next="5">Étape suivante</button></div><div id="step-5" class="form-step" style="display: none;"><input class="form-input" name="email" required type="email" placeholder="Votre email *"><div class="error-message" id="email-error">Veuillez saisir un email valide</div><button class="next-btn" type="button" data-next="6">Étape suivante</button></div><div id="step-6" class="form-step" style="display: none;"><label id="captcha-label"></label> <input class="form-input" id="captcha-input" name="captcha" required type="text" placeholder="Réponse *"><div class="error-message" id="captcha-error">Veuillez saisir la réponse correcte</div><button type="submit">Envoyer</button></div><div id="successMessageBottom" style="display: none;">Vérification en cours</div></form></div><button class="close-bottom-btn" onclick="hideAvisPopup()">Fermer</button></div></div><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-autolinker.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-show-invisibles.min.js"></script></body></html>
+
+  .avatar-option.selected {
+    border: 3px solid #4217f4;
+    transform: scale(1.1);
+  }
+
+  .avatar-option img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .form-container-popup {
+      width: 95%;
+    }
+    
+    .avatar-carousel {
+      gap: 10px;
+      padding: 15px 5px;
+    }
+    
+    .avatar-option {
+      width: 60px;
+      height: 60px;
+    }
+  }</style><div id="popup-avis" aria-hidden="true" role="dialog" aria-modal="true"><div class="form-container-popup"><div style="text-align: center; margin-bottom: 20px;"><img src="https://image.mimistok.com/smile.svg" alt="Notation" width="100" height="100"></div><div style="max-width: 400px; margin: 0 auto; text-align: center;"><div id="successMessageTop" style="display: none; background-color: #d4edda; color: #155724; font-weight: 500; border-radius: 999px; padding: 10px 18px; margin-bottom: 20px; font-size: 14px; max-width: 300px; margin-left: auto; margin-right: auto;">Votre avis a été envoyé</div><form id="contactForm" action="https://api.web3forms.com/submit" method="POST"><input name="access_key" type="hidden" value="7fee4d4b-e46f-49f8-9858-4d07d0732e87"> <input id="selectedAvatar" name="avatar" type="hidden" value="https://image.mimistok.com/women1.svg"><div id="step-1" class="form-step"><div style="font-size: 16px; margin-bottom: 15px; color: white; font-weight: 500;">Sélectionnez votre image de profil</div><div class="avatar-carousel" id="avatarCarousel"></div><button class="next-btn" style="background-color: #4217f4; color: white; padding: 12px; width: 80%; border: none; border-radius: 999px; font-size: 16px; cursor: pointer;" type="button" data-next="2">Étape suivante</button></div><div id="step-2" class="form-step" style="display: none;"><input class="form-input" name="nom" required type="text" placeholder="Votre nom ou pseudo *"><div class="error-message" id="nom-error">Veuillez saisir votre nom ou pseudo</div><button class="next-btn" style="background-color: #4217f4; color: white; padding: 12px; width: 80%; border: none; border-radius: 999px; font-size: 16px; cursor: pointer;" type="button" data-next="3">Étape suivante</button></div><div id="step-3" class="form-step" style="display: none;"><div id="starSelector" style="display: block; margin-bottom: 20px;"><div style="font-size: 16px; margin-bottom: 15px; color: white; font-weight: 500;">Sélectionnez votre note *</div><div id="starsContainer" style="display: flex; justify-content: center; gap: 12px; margin-bottom: 15px;"><div class="star-option" style="width: 50px; height: 50px; background: #d35400; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 3px solid transparent;" data-value="1">1</div><div class="star-option" style="width: 50px; height: 50px; background: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 3px solid transparent;" data-value="2">2</div><div class="star-option" style="width: 50px; height: 50px; background: #2c3e50; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 3px solid transparent;" data-value="3">3</div><div class="star-option" style="width: 50px; height: 50px; background: #8e44ad; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 3px solid transparent;" data-value="4">4</div><div class="star-option" style="width: 50px; height: 50px; background: #f39c12; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 3px solid #4217f4; transform: scale(1.1);" data-value="5">5</div></div></div><input id="selectedStars" name="nombre_etoiles" required type="hidden" value="5"><div id="selectedStarsDisplay" style="display: block; margin-bottom: 15px;"><div style="font-size: 14px; color: white; margin-bottom: 5px;">Note sélectionnée :</div><div id="starsPreview" style="font-size: 18px; font-weight: bold; color: #4217f4;">5/5</div></div><button class="next-btn" style="background-color: #4217f4; color: white; padding: 12px; width: 80%; border: none; border-radius: 999px; font-size: 16px; cursor: pointer;" type="button" data-next="4">Étape suivante</button></div><div id="step-4" class="form-step" style="display: none;"><textarea class="form-textarea" name="commentaire" required placeholder="Votre commentaire *"></textarea><div class="error-message" id="commentaire-error">Veuillez saisir votre commentaire</div><button class="next-btn" style="background-color: #4217f4; color: white; padding: 12px; width: 80%; border: none; border-radius: 999px; font-size: 16px; cursor: pointer;" type="button" data-next="5">Étape suivante</button></div><div id="step-5" class="form-step" style="display: none;"><input class="form-input" name="email" required type="email" placeholder="Votre email *"><div class="error-message" id="email-error">Veuillez saisir un email valide</div><button class="next-btn" style="background-color: #4217f4; color: white; padding: 12px; width: 80%; border: none; border-radius: 999px; font-size: 16px; cursor: pointer;" type="button" data-next="6">Étape suivante</button></div><div id="step-6" class="form-step" style="display: none;"><label id="captcha-label" style="font-size: 15px; font-weight: bold; color: white; display: block; margin-bottom: 10px;"></label> <input class="form-input" id="captcha-input" name="captcha" required type="text" placeholder="Réponse *" style="width: 50%; margin: 0 auto 15px auto; text-align: center; display: block;"><div class="error-message" id="captcha-error">Veuillez saisir la réponse correcte</div><button style="background-color: #4217f4; color: white; padding: 12px; width: 80%; border: none; border-radius: 999px; font-size: 16px; cursor: pointer;" type="submit">Envoyer</button></div><div id="successMessageBottom" style="display: none; background-color: #d4edda; color: #155724; font-weight: 500; border-radius: 999px; padding: 10px 18px; font-size: 14px; max-width: 300px; margin: 10px auto 0 auto;">Vérification en cours</div></form></div><button class="close-bottom-btn" onclick="hideAvisPopup()">Fermer</button></div></div><script>// FONCTION POPUP DIRECTE - ÇA MARCHE
+function showPopup(type) {
+  const popup = document.createElement('div');
+  popup.style.cssText = 'position: fixed; inset: 0; background: rgba(22, 23, 24, 0.95); backdrop-filter: blur(10px); display: flex; justify-content: center; align-items: center; z-index: 99999;';
+  
+  const isApproved = type === 'approved';
+  const imageUrl = isApproved ? 'https://image.mimistok.com/yes.svg' : 'https://image.mimistok.com/not.svg';
+  const title = isApproved ? 'Votre avis sera bientôt publié' : 'Vous n\'avez effectué aucun achat';
+  const bubbleText = isApproved ? 'approuvé' : 'refusé';
+  const bubbleColor = isApproved ? '#FFA500' : '#FF4444';
+  const description = isApproved 
+    ? '<p style="font-size: 12px; margin: 5px 0 0 0; opacity: 0.7; line-height: 1.4;">Votre commentaire a bien été enregistré et sera publié<br>très prochainement sur notre plateforme.</p>'
+    : '<p style="font-size: 12px; margin: 5px 0 0 0; opacity: 0.7; line-height: 1.4;">Vous avez effectué aucun achat sur notre site.<br>Vous ne pouvez donc pas déposer de commentaire.</p>';
+
+  popup.innerHTML = `
+    <div style="background: transparent; text-align: center; color: white; max-width: 400px; padding: 0 20px;">
+      <img src="${imageUrl}" alt="${isApproved ? 'Succès' : 'Erreur'}" width="100" height="100" style="margin-bottom: 25px;">
+      <h2 style="font-size: 28px; margin: 0 0 15px 0; font-weight: 600; color: white;">${title}</h2>
+      <div style="background: ${bubbleColor}; color: white; padding: 8px 20px; border-radius: 999px; font-size: 16px; font-weight: 500; display: inline-block; margin-bottom: 15px;">${bubbleText}</div>
+      ${description}
+      <button onclick="this.parentElement.parentElement.remove()" style="margin-top: 40px; padding: 14px 40px; background: #FF5858; color: white; border: none; border-radius: 999px; font-size: 16px; font-weight: 500; cursor: pointer;">Fermer</button>
+    </div>`;
+  
+  document.body.appendChild(popup);
+}
+
+// GESTION DU POPUP FORMULAIRE
+const popupAvis = document.getElementById('popup-avis');
+
+function showAvisPopup() {
+  popupAvis.style.display = 'flex';
+  setTimeout(() => {
+    popupAvis.classList.add('show');
+    popupAvis.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('no-scroll');
+    
+    document.querySelectorAll('.form-step').forEach(step => {
+      step.style.display = 'none';
+    });
+    document.getElementById('step-1').style.display = 'block';
+    
+    document.querySelectorAll('.error-message').forEach(error => {
+      error.style.display = 'none';
+    });
+    
+  }, 10);
+}
+
+function hideAvisPopup() {
+  popupAvis.classList.remove('show');
+  popupAvis.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+  
+  popupAvis.addEventListener('transitionend', function handler() {
+    if (!popupAvis.classList.contains('show')) {
+      popupAvis.style.display = 'none';
+    }
+    popupAvis.removeEventListener('transitionend', handler);
+  });
+}
+
+// GÉNÉRATION DU CARROUSEL D'AVATARS
+function generateAvatarCarousel() {
+  const carousel = document.getElementById('avatarCarousel');
+  const selectedAvatarInput = document.getElementById('selectedAvatar');
+  
+  for (let i = 1; i <= 30; i++) {
+    const womenDiv = document.createElement('div');
+    womenDiv.className = 'avatar-option' + (i === 1 ? ' selected' : '');
+    womenDiv.innerHTML = `<img src="https://image.mimistok.com/women${i}.svg" alt="Profil femme ${i}">`;
+    womenDiv.addEventListener('click', function() {
+      document.querySelectorAll('.avatar-option').forEach(avatar => {
+        avatar.classList.remove('selected');
+      });
+      this.classList.add('selected');
+      selectedAvatarInput.value = `https://image.mimistok.com/women${i}.svg`;
+    });
+    carousel.appendChild(womenDiv);
+    
+    const menDiv = document.createElement('div');
+    menDiv.className = 'avatar-option';
+    menDiv.innerHTML = `<img src="https://image.mimistok.com/men${i}.svg" alt="Profil homme ${i}">`;
+    menDiv.addEventListener('click', function() {
+      document.querySelectorAll('.avatar-option').forEach(avatar => {
+        avatar.classList.remove('selected');
+      });
+      this.classList.add('selected');
+      selectedAvatarInput.value = `https://image.mimistok.com/men${i}.svg`;
+    });
+    carousel.appendChild(menDiv);
+  }
+}
+
+// FONCTION DE VALIDATION
+function validateStep(stepId) {
+  let isValid = true;
+  
+  switch(stepId) {
+    case '2':
+      const nomInput = document.querySelector('#step-2 .form-input');
+      const nomError = document.getElementById('nom-error');
+      if (!nomInput.value.trim()) {
+        nomError.style.display = 'block';
+        isValid = false;
+      } else {
+        nomError.style.display = 'none';
+      }
+      break;
+      
+    case '4':
+      const commentaireInput = document.querySelector('#step-4 .form-textarea');
+      const commentaireError = document.getElementById('commentaire-error');
+      if (!commentaireInput.value.trim()) {
+        commentaireError.style.display = 'block';
+        isValid = false;
+      } else {
+        commentaireError.style.display = 'none';
+      }
+      break;
+      
+    case '5':
+      const emailInput = document.querySelector('#step-5 .form-input');
+      const emailError = document.getElementById('email-error');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailInput.value.trim() || !emailRegex.test(emailInput.value)) {
+        emailError.style.display = 'block';
+        isValid = false;
+      } else {
+        emailError.style.display = 'none';
+      }
+      break;
+  }
+  
+  return isValid;
+}
+
+// LOGIQUE FORMULAIRE
+let selectedStarValue = 5;
+
+document.addEventListener('DOMContentLoaded', function() {
+  generateAvatarCarousel();
+  
+  const starOptions = document.querySelectorAll('.star-option');
+  const selectedStarsInput = document.getElementById('selectedStars');
+  const starsPreview = document.getElementById('starsPreview');
+
+  starOptions.forEach(star => {
+    star.addEventListener('click', function() {
+      starOptions.forEach(s => {
+        s.style.transform = 'scale(1)';
+        s.style.border = '3px solid transparent';
+      });
+      this.style.transform = 'scale(1.1)';
+      this.style.border = '3px solid #4217f4';
+      selectedStarValue = this.getAttribute('data-value');
+      selectedStarsInput.value = selectedStarValue;
+      starsPreview.textContent = selectedStarValue + '/5';
+    });
+  });
+
+  const buttons = document.querySelectorAll('.next-btn');
+  buttons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const currentStep = this.closest('.form-step');
+      const currentStepId = currentStep.id.split('-')[1];
+      const nextId = this.getAttribute('data-next');
+      
+      if (validateStep(currentStepId)) {
+        const nextStep = document.getElementById('step-' + nextId);
+        
+        if (nextStep) {
+          currentStep.style.display = 'none';
+          nextStep.style.display = 'block';
+        }
+      }
+    });
+  });
+
+  document.querySelectorAll('.form-input, .form-textarea').forEach(input => {
+    input.addEventListener('input', function() {
+      const errorId = this.name + '-error';
+      const errorElement = document.getElementById(errorId);
+      if (errorElement) {
+        errorElement.style.display = 'none';
+      }
+    });
+  });
+
+  // Captcha
+  const num1 = Math.floor(Math.random() * 10);
+  const num2 = Math.floor(Math.random() * 10);
+  const result = num1 + num2;
+  document.getElementById('captcha-label').textContent = "Combien font " + num1 + " + " + num2 + " ?";
+
+  // GESTION DE L'ENVOI - VERSION SIMPLE QUI MARCHE
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    
+    const userAnswer = parseInt(document.getElementById('captcha-input').value);
+    const captchaError = document.getElementById('captcha-error');
+    const emailInput = document.querySelector('#step-5 .form-input');
+    const userEmail = emailInput.value;
+    
+    if (userAnswer !== result) {
+      captchaError.style.display = 'block';
+      return;
+    } else {
+      captchaError.style.display = 'none';
+    }
+
+    try {
+      document.getElementById('successMessageBottom').style.display = 'block';
+      document.getElementById('successMessageBottom').textContent = 'Vérification en cours...';
+
+      // 1. ENVOYER LE MAIL
+      const formData = new FormData(form);
+      
+      const emailResponse = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      const emailResult = await emailResponse.json();
+
+      // 2. ENVOYER À N8N
+      const n8nResponse = await fetch('https://n8n.c1euro.com/webhook/avis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: userEmail, page: window.location.href })
+      });
+
+      const n8nResult = await n8nResponse.json();
+
+      // RÉSULTAT
+      if (emailResult.success) {
+        document.getElementById('successMessageTop').style.display = 'block';
+        document.getElementById('successMessageBottom').style.display = 'block';
+        document.getElementById('successMessageBottom').textContent = 'Vérification terminée';
+        
+        // RÉINITIALISER LE FORMULAIRE
+        form.reset();
+        document.querySelectorAll('.form-step').forEach(step => {
+          step.style.display = 'none';
+        });
+        document.getElementById('step-1').style.display = 'block';
+        
+        document.querySelectorAll('.error-message').forEach(error => {
+          error.style.display = 'none';
+        });
+
+        // AFFICHER LE POPUP
+        if (n8nResult.status === 'approved') {
+          showPopup('approved');
+        } else {
+          showPopup('not_purchased');
+        }
+
+        setTimeout(() => {
+          document.getElementById('successMessageTop').style.display = 'none';
+          document.getElementById('successMessageBottom').style.display = 'none';
+        }, 5000);
+      } else {
+        alert('Une erreur est survenue, veuillez réessayer.');
+      }
+    } catch (error) {
+      alert('Une erreur est survenue, veuillez réessayer.');
+    }
+  });
+});
+
+// BOUTON D'OUVERTURE
+document.addEventListener('DOMContentLoaded', function() {
+  const openAvisBtn = document.getElementById('open-avis-btn');
+  if (openAvisBtn) {
+    openAvisBtn.style.cursor = 'pointer';
+    openAvisBtn.addEventListener('click', showAvisPopup);
+  }
+});</script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-autolinker.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-show-invisibles.min.js"></script></body></html>
