@@ -1064,6 +1064,25 @@ function validateStep(stepId) {
   return isValid;
 }
 
+// FONCTION POUR RÉCUPÉRER TOUTES LES DONNÉES DU FORMULAIRE
+function getAllFormData() {
+  const form = document.getElementById('contactForm');
+  const formData = new FormData(form);
+  const data = {};
+  
+  // Récupérer toutes les valeurs du formulaire
+  for (let [key, value] of formData.entries()) {
+    data[key] = value;
+  }
+  
+  // Ajouter des informations supplémentaires
+  data.timestamp = new Date().toISOString();
+  data.page_url = window.location.href;
+  data.user_agent = navigator.userAgent;
+  
+  return data;
+}
+
 // LOGIQUE FORMULAIRE
 let selectedStarValue = 5;
 
@@ -1122,7 +1141,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const result = num1 + num2;
   document.getElementById('captcha-label').textContent = "Combien font " + num1 + " + " + num2 + " ?";
 
-  // GESTION DE L'ENVOI - MODIFICATIONS APPLIQUÉES
+  // GESTION DE L'ENVOI - MODIFIÉ POUR ENVOYER TOUTES LES DONNÉES À N8N
   const form = document.getElementById('contactForm');
   form.addEventListener('submit', async function(event) {
     event.preventDefault();
@@ -1142,25 +1161,26 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('successMessageBottom').style.display = 'block';
       document.getElementById('successMessageBottom').textContent = 'Vérification en cours...';
 
-      // 1. ENVOYER LE MAIL
-      const formData = new FormData(form);
-      
+      // RÉCUPÉRER TOUTES LES DONNÉES DU FORMULAIRE
+      const allFormData = getAllFormData();
+
+      // 1. ENVOYER LE MAIL (Web3Forms)
       const emailResponse = await fetch(form.action, {
         method: 'POST',
-        body: formData,
+        body: new FormData(form),
         headers: { 'Accept': 'application/json' }
       });
 
       const emailResult = await emailResponse.json();
 
-      // 2. ENVOYER À N8N
-      const emailInput = document.querySelector('#step-5 .form-input');
-      const userEmail = emailInput.value;
-      
+      // 2. ENVOYER TOUTES LES DONNÉES À N8N
       const n8nResponse = await fetch('https://n8n.c1euro.com/webhook/avis', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: userEmail, page: window.location.href })
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(allFormData)
       });
 
       const n8nResult = await n8nResponse.json();
@@ -1197,6 +1217,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('successMessageBottom').style.display = 'none';
       }
     } catch (error) {
+      console.error('Erreur lors de l\'envoi:', error);
       alert('Une erreur est survenue, veuillez réessayer.');
       document.getElementById('successMessageBottom').style.display = 'none';
     }
