@@ -78,162 +78,7 @@
       }
     }
   ]
-}</script><meta name="viewport" content="width=device-width,initial-scale=1"><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="page-template"><div id="panier-flottant"><div class="infos"><span class="quantite">0</span> <span class="total">€0.00</span></div><button class="btn-payer-flottant">Payer</button></div><style>/* --- Panier flottant --- */
-#panier-flottant {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 20px);
-  max-width: 600px;
-  background: rgba(30, 30, 30, 0.7);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 10px;
-  font-family: sans-serif;
-  font-size: 16px; /* 16px pour éviter le zoom sur iOS */
-  color: #fff;
-  z-index: 2147483647;
-  touch-action: manipulation; /* empêche double-tap zoom */
-}
-
-/* Infos quantité / total */
-#panier-flottant .infos {
-  flex: 1 1 auto;
-  font-weight: 500;
-  margin-right: 15px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-left: 18px;
-  padding-right: 8px;
-}
-
-/* Bouton payer */
-#panier-flottant .btn-payer-flottant {
-  background: #007BFF;
-  color: #fff;
-  border: none;
-  padding: 12px 32px;
-  border-radius: 999px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 16px; /* 16px pour iOS */
-  text-align: center;
-  transition: transform 0.2s, background 0.3s;
-  flex-shrink: 0;
-  margin-right: 8px;
-  touch-action: manipulation; /* empêche double-tap zoom */
-}
-
-#panier-flottant .btn-payer-flottant:hover {
-  background: #0056d2;
-  transform: scale(1.05);
-}
-
-/* Petit espace supplémentaire pour mobile */
-@media (max-width: 480px) {
-  #panier-flottant {
-    width: calc(100% - 20px);
-    padding: 14px 10px;
-  }
-}
-
-/* Empêche zoom sur tous les boutons / inputs globaux */
-button, input, select, textarea {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-}</style><script>// --- Fonctions panier flottant ---
-function jouerSonAjout() {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
-    osc.type = 'triangle';      
-    osc.frequency.value = 1200; 
-    gain.gain.setValueAtTime(0.08, ctx.currentTime); 
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
-
-    osc.start();
-    osc.stop(ctx.currentTime + 0.12);
-}
-
-function ajouterProduitAuPanier(priceId, nom, prix, quantite) {
-    console.log('Ajout au panier:', { priceId, nom, prix, quantite });
-    jouerSonAjout();
-
-    let panier = JSON.parse(localStorage.getItem('panier')) || [];
-    const produitExistant = panier.find(item => item.priceId === priceId);
-
-    if (produitExistant) {
-        produitExistant.quantite += quantite;
-    } else {
-        panier.push({ priceId, nom, prix, quantite });
-    }
-
-    localStorage.setItem('panier', JSON.stringify(panier));
-    mettreAJourPanierFlottant();
-}
-
-function mettreAJourPanierFlottant() {
-    const panier = JSON.parse(localStorage.getItem('panier')) || [];
-    const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
-    const totalPrix = panier.reduce((t, i) => t + (i.prix * i.quantite), 0);
-
-    const flottant = document.getElementById('panier-flottant');
-    const quantiteElem = document.querySelector('#panier-flottant .quantite');
-    const totalElem = document.querySelector('#panier-flottant .total');
-    const btnElem = document.querySelector('#panier-flottant .btn-payer-flottant');
-
-    if (quantiteElem && totalElem) {
-        quantiteElem.textContent = `${totalItems} ${totalItems > 1 ? 'articles' : 'article'} – `;
-        totalElem.textContent = `€${totalPrix.toFixed(2)}`;
-    }
-
-    if (flottant) flottant.classList.add('visible');
-
-    if (btnElem) btnElem.textContent = 'Mon Panier';
-}
-
-// --- Initialisation ---
-document.addEventListener('DOMContentLoaded', function() {
-    mettreAJourPanierFlottant();
-
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('btn-payer-flottant')) {
-            window.location.href = '/panier';
-        }
-    });
-});</script><script>function fixImages() {
-    if (window.innerWidth >= 1024) {
-      document.querySelectorAll('.content__featured-image--attop img.is-loaded').forEach(img => {
-        img.removeAttribute('srcset'); // Supprime le srcset pour éviter le flou progressif
-        img.style.imageRendering = ''; // Réinitialise toute manipulation CSS de rendu
-      });
-    }
-  }
-  window.addEventListener('load', fixImages);
-  window.addEventListener('resize', fixImages);</script><script>// Cacher le panier flottant sur la page panier
-if (window.location.pathname.includes('/panier/') || 
-    window.location.href.includes('/panier/') ||
-    document.body.classList.contains('page-panier') ||
-    window.location.pathname.includes('/commande-validee/') || 
-    window.location.href.includes('/commande-validee/')) {
-    
-    const panierFlottant = document.getElementById('panier-flottant');
-    if (panierFlottant) {
-        panierFlottant.style.display = 'none';
-    }
-}</script><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main page"><article class="content"><figure class="content__featured-image content__featured-image--attop"><img src="https://mimistok.com/media/posts/36/Xiaomi_HyperOS.webp" srcset="https://mimistok.com/media/posts/36/responsive/Xiaomi_HyperOS-xs.webp 320w, https://mimistok.com/media/posts/36/responsive/Xiaomi_HyperOS-sm.webp 480w, https://mimistok.com/media/posts/36/responsive/Xiaomi_HyperOS-md.webp 768w, https://mimistok.com/media/posts/36/responsive/Xiaomi_HyperOS-xl.webp 1024w" sizes="(min-width: 1460px) 938px, (min-width: 1200px) calc(75.83vw - 154px), (min-width: 1120px) 938px, (min-width: 900px) calc(55vw + 333px), 100vw" loading="eager" height="694" width="2000" alt="" aria-describedby="image-caption"></figure><div class="main__inner"><header class="content__header"><h1 class="content__title">Catégorie Xiaomi</h1></header><div class="content__entry"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; width: 100%; margin: 0; padding: 0; box-sizing: border-box;"><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/mi-smart-clock/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/31/imgi_11_S0d6f4286cd2943fbb29e1e992e365689j.jpg_960x960q75.jpg_.webp" alt="Réveil Intelligent Mi Smart Clock avec Google Assistant" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/31/responsive/imgi_11_S0d6f4286cd2943fbb29e1e992e365689j.jpg_960x960q75.jpg_-xs.webp 320w, https://mimistok.com/media/posts/31/responsive/imgi_11_S0d6f4286cd2943fbb29e1e992e365689j.jpg_960x960q75.jpg_-sm.webp 480w, https://mimistok.com/media/posts/31/responsive/imgi_11_S0d6f4286cd2943fbb29e1e992e365689j.jpg_960x960q75.jpg_-md.webp 768w, https://mimistok.com/media/posts/31/responsive/imgi_11_S0d6f4286cd2943fbb29e1e992e365689j.jpg_960x960q75.jpg_-xl.webp 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>49.99€</strong></div><a href="https://mimistok.com/mi-smart-clock/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Réveil Intelligent Mi Smart Clock avec Google Assistant</strong></div><div style="font-size: 0.85em; line-height: 1.3;">éveil connecté Mi avec Google Assistant. Agenda, météo, trafic et infos sur son écran. Amé…</div></div><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/mijia-brosse-a-dents/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/33/imgi_143_s-l960.webp" alt="Brosse à Dents Électrique Xiaomi Mijia T300 - Nettoyage UV" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/33/responsive/imgi_143_s-l960-xs.webp 320w, https://mimistok.com/media/posts/33/responsive/imgi_143_s-l960-sm.webp 480w, https://mimistok.com/media/posts/33/responsive/imgi_143_s-l960-md.webp 768w, https://mimistok.com/media/posts/33/responsive/imgi_143_s-l960-xl.webp 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>39.99€</strong></div><a href="https://mimistok.com/mijia-brosse-a-dents/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Brosse à Dents Électrique Xiaomi Mijia T300 - Nettoyage UV</strong></div><div style="font-size: 0.85em; line-height: 1.3;">Brosse à dents sonique Xiaomi avec stérilisation UV. Nettoyage profond et blanchiment des…</div></div><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/mijia-de-xiaomi/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/32//imgi_109_513GwPWnZL._AC_.webp" alt="Machine sous Vide Xiaomi Mijia - Conservation Aliments" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/32//responsive/imgi_109_513GwPWnZL._AC_-xs.webp 320w, https://mimistok.com/media/posts/32//responsive/imgi_109_513GwPWnZL._AC_-sm.webp 480w, https://mimistok.com/media/posts/32//responsive/imgi_109_513GwPWnZL._AC_-md.webp 768w, https://mimistok.com/media/posts/32//responsive/imgi_109_513GwPWnZL._AC_-xl.webp 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>79.99€</strong></div><a href="https://mimistok.com/mijia-de-xiaomi/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Machine sous Vide Xiaomi Mijia - Conservation Aliments</strong></div><div style="font-size: 0.85em; line-height: 1.3;">Machine sous vide Xiaomi pour une conservation optimale. Garde fraîcheur et saveurs des al…</div></div><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/seche-cheveux-xiaomi-mi/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/27/imgi_24_secador-de-cabelo-xiaomi-mi-high-speed-ionic-1600w-branco.webp" alt="Sèche-Cheveux Xiaomi Mi 1600W - Technologie Ionique" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/27/responsive/imgi_24_secador-de-cabelo-xiaomi-mi-high-speed-ionic-1600w-branco-xs.webp 320w, https://mimistok.com/media/posts/27/responsive/imgi_24_secador-de-cabelo-xiaomi-mi-high-speed-ionic-1600w-branco-sm.webp 480w, https://mimistok.com/media/posts/27/responsive/imgi_24_secador-de-cabelo-xiaomi-mi-high-speed-ionic-1600w-branco-md.webp 768w, https://mimistok.com/media/posts/27/responsive/imgi_24_secador-de-cabelo-xiaomi-mi-high-speed-ionic-1600w-branco-xl.webp 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>49.99€</strong></div><a href="https://mimistok.com/seche-cheveux-xiaomi-mi/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Sèche-Cheveux Xiaomi Mi 1600W - Technologie Ionique</strong></div><div style="font-size: 0.85em; line-height: 1.3;">Sèche-cheveux Xiaomi Mi 1600W puissant avec ions. Séchage rapide sans abîmer les cheveux.…</div></div></div><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; width: 100%; margin: 0; padding: 0; box-sizing: border-box;"><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/xiaomi-aspirateur-portable/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/34//imgi_7_249280795.webp" alt="Aspirateur Portable Xiaomi Sans Fil - Mini Aspirateur Multiusage" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/34//responsive/imgi_7_249280795-xs.webp 320w, https://mimistok.com/media/posts/34//responsive/imgi_7_249280795-sm.webp 480w, https://mimistok.com/media/posts/34//responsive/imgi_7_249280795-md.webp 768w, https://mimistok.com/media/posts/34//responsive/imgi_7_249280795-xl.webp 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>39.99€</strong></div><a href="https://mimistok.com/xiaomi-aspirateur-portable/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Aspirateur Portable Xiaomi Sans Fil - Mini Aspirateur Multiusage</strong></div><div style="font-size: 0.85em; line-height: 1.3;">Aspirateur portable Xiaomi pour voiture, maison et bureau. Idéal pour clavier, siège auto…</div></div><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/xiaomi-handheld-garment-steamer/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/28/imgi_130_51xQ6999wjL._AC_SL1500_.webp" alt="Défroisseur Vapeur Portable Xiaomi - Repassage Rapide" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/28/responsive/imgi_130_51xQ6999wjL._AC_SL1500_-xs.webp 320w, https://mimistok.com/media/posts/28/responsive/imgi_130_51xQ6999wjL._AC_SL1500_-sm.webp 480w, https://mimistok.com/media/posts/28/responsive/imgi_130_51xQ6999wjL._AC_SL1500_-md.webp 768w, https://mimistok.com/media/posts/28/responsive/imgi_130_51xQ6999wjL._AC_SL1500_-xl.webp 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>25.99€</strong></div><a href="https://mimistok.com/xiaomi-handheld-garment-steamer/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Défroisseur Vapeur Portable Xiaomi - Repassage Rapide</strong></div><div style="font-size: 0.85em; line-height: 1.3;">Défroisseur vapeur Xiaomi pliable et portable. Élimine les plis en 1 passage. Idéal voyage…</div></div><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/xiaomi-instant-hot-water/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/35/imgi_5_93b9d82b8dbda3502c55ea93be524835.webp" alt="Distributeur d'Eau Chaude Instantanée Xiaomi - 3 Secondes" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/35/responsive/imgi_5_93b9d82b8dbda3502c55ea93be524835-xs.webp 320w, https://mimistok.com/media/posts/35/responsive/imgi_5_93b9d82b8dbda3502c55ea93be524835-sm.webp 480w, https://mimistok.com/media/posts/35/responsive/imgi_5_93b9d82b8dbda3502c55ea93be524835-md.webp 768w, https://mimistok.com/media/posts/35/responsive/imgi_5_93b9d82b8dbda3502c55ea93be524835-xl.webp 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>59.99€</strong></div><a href="https://mimistok.com/xiaomi-instant-hot-water/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Distributeur d'Eau Chaude Instantanée Xiaomi - 3 Secondes</strong></div><div style="font-size: 0.85em; line-height: 1.3;">Obtenez de l'eau chaude en 3 sec avec le distributeur Xiaomi. Technologie chauffante insta…</div></div><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/xiaomi-mijia-coupe-ongles/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/30//imgi_26_857952067950e486f121b3d97bdcb60d6573a87e_original.webp" alt="Coupe-Ongles Xiaomi Mijia - Kit Manucure Professionnel" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/30//responsive/imgi_26_857952067950e486f121b3d97bdcb60d6573a87e_original-xs.webp 320w, https://mimistok.com/media/posts/30//responsive/imgi_26_857952067950e486f121b3d97bdcb60d6573a87e_original-sm.webp 480w, https://mimistok.com/media/posts/30//responsive/imgi_26_857952067950e486f121b3d97bdcb60d6573a87e_original-md.webp 768w, https://mimistok.com/media/posts/30//responsive/imgi_26_857952067950e486f121b3d97bdcb60d6573a87e_original-xl.webp 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>12.99€</strong></div><a href="https://mimistok.com/xiaomi-mijia-coupe-ongles/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Coupe-Ongles Xiaomi Mijia - Kit Manucure Professionnel</strong></div><div style="font-size: 0.85em; line-height: 1.3;">Kit manucure Xiaomi Mijia avec coupe-ongles inox. 5 outils professionnels pour soins compl…</div></div></div><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; width: 100%; margin: 0; padding: 0; box-sizing: border-box;"><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/xiaomi-mijia-induction-cooker/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/29//imgi_164_51jexv2fneL._AC_SL1200_.webp" alt="Plaque Induction Portable Xiaomi Mijia - Cuisine Précise" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/29//responsive/imgi_164_51jexv2fneL._AC_SL1200_-xs.webp 320w, https://mimistok.com/media/posts/29//responsive/imgi_164_51jexv2fneL._AC_SL1200_-sm.webp 480w, https://mimistok.com/media/posts/29//responsive/imgi_164_51jexv2fneL._AC_SL1200_-md.webp 768w, https://mimistok.com/media/posts/29//responsive/imgi_164_51jexv2fneL._AC_SL1200_-xl.webp 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>56.99€</strong></div><a href="https://mimistok.com/xiaomi-mijia-induction-cooker/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Plaque Induction Portable Xiaomi Mijia - Cuisine Précise</strong></div><div style="font-size: 0.85em; line-height: 1.3;">Plaque induction Xiaomi Mijia portable et sûre. Contrôle précis de température. Parfait po…</div></div><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/xiaomi-smart-kettle-2-pro/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/26//c1ff8f88a7c94ef17518cd4951f11f2f.png" alt="Bouilloire Connectée Xiaomi Smart Kettle 2 Pro - App Control" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/26//responsive/c1ff8f88a7c94ef17518cd4951f11f2f-xs.png 320w, https://mimistok.com/media/posts/26//responsive/c1ff8f88a7c94ef17518cd4951f11f2f-sm.png 480w, https://mimistok.com/media/posts/26//responsive/c1ff8f88a7c94ef17518cd4951f11f2f-md.png 768w, https://mimistok.com/media/posts/26//responsive/c1ff8f88a7c94ef17518cd4951f11f2f-xl.png 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>49.99€</strong></div><a href="https://mimistok.com/xiaomi-smart-kettle-2-pro/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Bouilloire Connectée Xiaomi Smart Kettle 2 Pro - App Control</strong></div><div style="font-size: 0.85em; line-height: 1.3;">Bouilloire Xiaomi Smart Kettle 2 Pro avec contrôle par app. Réglage température précis pou…</div><div> </div><div> </div><div> </div></div></div><div style="display: flex; align-items: center; justify-content: space-between; background-color: rgba(80,80,80,0.1); border-radius: 10px; padding: 20px 30px; width: 100%; box-sizing: border-box; position: relative; flex-wrap: wrap; gap: 20px;"><div style="flex: 1 1 100%; display: flex; justify-content: center;"><figure class="post__image"><img loading="lazy" style="width: 70px; height: 70px; object-fit: contain;" src="https://mimistok.com/media/posts/36/Logo-X.Xiaomi-xl-xl.webp" alt="" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/36/responsive/Logo-X.Xiaomi-xl-xl-xs.webp 320w, https://mimistok.com/media/posts/36/responsive/Logo-X.Xiaomi-xl-xl-sm.webp 480w, https://mimistok.com/media/posts/36/responsive/Logo-X.Xiaomi-xl-xl-md.webp 768w, https://mimistok.com/media/posts/36/responsive/Logo-X.Xiaomi-xl-xl-xl.webp 1024w"></figure></div><div style="flex: 1 1 100%; text-align: center;"><h2 style="margin: 0; font-size: 28px;">Histoire de la marque Xiaomi</h2><p>Découvrez l’histoire de <strong>Xiaomi</strong>, le géant chinois de la technologie fondé en 2010. De ses débuts dans les smartphones à son expansion dans les objets connectés et l’électronique grand public, Xiaomi s’est imposé comme une marque innovante alliant <strong>performance, design et accessibilité</strong>.</p><p> </p></div></div><div style="margin: 40px 0; text-align: center;"> </div><div style="height: 4px; background: linear-gradient(90deg, transparent, #3498db, #9b59b6, #3498db, transparent); border-radius: 2px; position: relative; max-width: 300px; margin: 0 auto;"> </div></div></div></article></main><div class="right-bar"><div class="right-bar__inner"><div class="sidebar"><div class="box follow"><a href="https://www.facebook.com/people/Mimistok/61582459216888/" class="tltp tltp--top" aria-label="Facebook"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://x.com/storemimistok" class="tltp tltp--top" aria-label="Twitter"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://www.instagram.com/storemimistok/" class="tltp tltp--top" aria-label="Instagram"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#instagram"/></svg> <span>Instagram</span> </a><a href="https://www.linkedin.com/company/mimistok/" class="tltp tltp--top" aria-label="LinkedIn"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#linkedin"/></svg> <span>LinkedIn</span></a></div></div></div></div></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
+}</script><meta name="viewport" content="width=device-width,initial-scale=1"><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="page-template"><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main page"><article class="content"><figure class="content__featured-image content__featured-image--attop"><img src="https://mimistok.com/media/posts/36/Xiaomi_HyperOS.webp" srcset="https://mimistok.com/media/posts/36/responsive/Xiaomi_HyperOS-xs.webp 320w, https://mimistok.com/media/posts/36/responsive/Xiaomi_HyperOS-sm.webp 480w, https://mimistok.com/media/posts/36/responsive/Xiaomi_HyperOS-md.webp 768w, https://mimistok.com/media/posts/36/responsive/Xiaomi_HyperOS-xl.webp 1024w" sizes="(min-width: 1460px) 938px, (min-width: 1200px) calc(75.83vw - 154px), (min-width: 1120px) 938px, (min-width: 900px) calc(55vw + 333px), 100vw" loading="eager" height="694" width="2000" alt="" aria-describedby="image-caption"></figure><div class="main__inner"><header class="content__header"><h1 class="content__title">Catégorie Xiaomi</h1></header><div class="content__entry"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; width: 100%; margin: 0; padding: 0; box-sizing: border-box;"><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/mi-smart-clock/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/31/imgi_11_S0d6f4286cd2943fbb29e1e992e365689j.jpg_960x960q75.jpg_.webp" alt="Réveil Intelligent Mi Smart Clock avec Google Assistant" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/31/responsive/imgi_11_S0d6f4286cd2943fbb29e1e992e365689j.jpg_960x960q75.jpg_-xs.webp 320w, https://mimistok.com/media/posts/31/responsive/imgi_11_S0d6f4286cd2943fbb29e1e992e365689j.jpg_960x960q75.jpg_-sm.webp 480w, https://mimistok.com/media/posts/31/responsive/imgi_11_S0d6f4286cd2943fbb29e1e992e365689j.jpg_960x960q75.jpg_-md.webp 768w, https://mimistok.com/media/posts/31/responsive/imgi_11_S0d6f4286cd2943fbb29e1e992e365689j.jpg_960x960q75.jpg_-xl.webp 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>49.99€</strong></div><a href="https://mimistok.com/mi-smart-clock/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Réveil Intelligent Mi Smart Clock avec Google Assistant</strong></div><div style="font-size: 0.85em; line-height: 1.3;">éveil connecté Mi avec Google Assistant. Agenda, météo, trafic et infos sur son écran. Amé…</div></div><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/mijia-brosse-a-dents/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/33/imgi_143_s-l960.webp" alt="Brosse à Dents Électrique Xiaomi Mijia T300 - Nettoyage UV" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/33/responsive/imgi_143_s-l960-xs.webp 320w, https://mimistok.com/media/posts/33/responsive/imgi_143_s-l960-sm.webp 480w, https://mimistok.com/media/posts/33/responsive/imgi_143_s-l960-md.webp 768w, https://mimistok.com/media/posts/33/responsive/imgi_143_s-l960-xl.webp 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>39.99€</strong></div><a href="https://mimistok.com/mijia-brosse-a-dents/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Brosse à Dents Électrique Xiaomi Mijia T300 - Nettoyage UV</strong></div><div style="font-size: 0.85em; line-height: 1.3;">Brosse à dents sonique Xiaomi avec stérilisation UV. Nettoyage profond et blanchiment des…</div></div><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/mijia-de-xiaomi/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/32//imgi_109_513GwPWnZL._AC_.webp" alt="Machine sous Vide Xiaomi Mijia - Conservation Aliments" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/32//responsive/imgi_109_513GwPWnZL._AC_-xs.webp 320w, https://mimistok.com/media/posts/32//responsive/imgi_109_513GwPWnZL._AC_-sm.webp 480w, https://mimistok.com/media/posts/32//responsive/imgi_109_513GwPWnZL._AC_-md.webp 768w, https://mimistok.com/media/posts/32//responsive/imgi_109_513GwPWnZL._AC_-xl.webp 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>79.99€</strong></div><a href="https://mimistok.com/mijia-de-xiaomi/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Machine sous Vide Xiaomi Mijia - Conservation Aliments</strong></div><div style="font-size: 0.85em; line-height: 1.3;">Machine sous vide Xiaomi pour une conservation optimale. Garde fraîcheur et saveurs des al…</div></div><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/seche-cheveux-xiaomi-mi/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/27/imgi_24_secador-de-cabelo-xiaomi-mi-high-speed-ionic-1600w-branco.webp" alt="Sèche-Cheveux Xiaomi Mi 1600W - Technologie Ionique" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/27/responsive/imgi_24_secador-de-cabelo-xiaomi-mi-high-speed-ionic-1600w-branco-xs.webp 320w, https://mimistok.com/media/posts/27/responsive/imgi_24_secador-de-cabelo-xiaomi-mi-high-speed-ionic-1600w-branco-sm.webp 480w, https://mimistok.com/media/posts/27/responsive/imgi_24_secador-de-cabelo-xiaomi-mi-high-speed-ionic-1600w-branco-md.webp 768w, https://mimistok.com/media/posts/27/responsive/imgi_24_secador-de-cabelo-xiaomi-mi-high-speed-ionic-1600w-branco-xl.webp 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>49.99€</strong></div><a href="https://mimistok.com/seche-cheveux-xiaomi-mi/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Sèche-Cheveux Xiaomi Mi 1600W - Technologie Ionique</strong></div><div style="font-size: 0.85em; line-height: 1.3;">Sèche-cheveux Xiaomi Mi 1600W puissant avec ions. Séchage rapide sans abîmer les cheveux.…</div></div></div><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; width: 100%; margin: 0; padding: 0; box-sizing: border-box;"><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/xiaomi-aspirateur-portable/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/34//imgi_7_249280795.webp" alt="Aspirateur Portable Xiaomi Sans Fil - Mini Aspirateur Multiusage" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/34//responsive/imgi_7_249280795-xs.webp 320w, https://mimistok.com/media/posts/34//responsive/imgi_7_249280795-sm.webp 480w, https://mimistok.com/media/posts/34//responsive/imgi_7_249280795-md.webp 768w, https://mimistok.com/media/posts/34//responsive/imgi_7_249280795-xl.webp 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>39.99€</strong></div><a href="https://mimistok.com/xiaomi-aspirateur-portable/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Aspirateur Portable Xiaomi Sans Fil - Mini Aspirateur Multiusage</strong></div><div style="font-size: 0.85em; line-height: 1.3;">Aspirateur portable Xiaomi pour voiture, maison et bureau. Idéal pour clavier, siège auto…</div></div><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/xiaomi-handheld-garment-steamer/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/28/imgi_130_51xQ6999wjL._AC_SL1500_.webp" alt="Défroisseur Vapeur Portable Xiaomi - Repassage Rapide" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/28/responsive/imgi_130_51xQ6999wjL._AC_SL1500_-xs.webp 320w, https://mimistok.com/media/posts/28/responsive/imgi_130_51xQ6999wjL._AC_SL1500_-sm.webp 480w, https://mimistok.com/media/posts/28/responsive/imgi_130_51xQ6999wjL._AC_SL1500_-md.webp 768w, https://mimistok.com/media/posts/28/responsive/imgi_130_51xQ6999wjL._AC_SL1500_-xl.webp 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>25.99€</strong></div><a href="https://mimistok.com/xiaomi-handheld-garment-steamer/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Défroisseur Vapeur Portable Xiaomi - Repassage Rapide</strong></div><div style="font-size: 0.85em; line-height: 1.3;">Défroisseur vapeur Xiaomi pliable et portable. Élimine les plis en 1 passage. Idéal voyage…</div></div><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/xiaomi-instant-hot-water/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/35/imgi_5_93b9d82b8dbda3502c55ea93be524835.webp" alt="Distributeur d'Eau Chaude Instantanée Xiaomi - 3 Secondes" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/35/responsive/imgi_5_93b9d82b8dbda3502c55ea93be524835-xs.webp 320w, https://mimistok.com/media/posts/35/responsive/imgi_5_93b9d82b8dbda3502c55ea93be524835-sm.webp 480w, https://mimistok.com/media/posts/35/responsive/imgi_5_93b9d82b8dbda3502c55ea93be524835-md.webp 768w, https://mimistok.com/media/posts/35/responsive/imgi_5_93b9d82b8dbda3502c55ea93be524835-xl.webp 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>59.99€</strong></div><a href="https://mimistok.com/xiaomi-instant-hot-water/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Distributeur d'Eau Chaude Instantanée Xiaomi - 3 Secondes</strong></div><div style="font-size: 0.85em; line-height: 1.3;">Obtenez de l'eau chaude en 3 sec avec le distributeur Xiaomi. Technologie chauffante insta…</div></div><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/xiaomi-mijia-coupe-ongles/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/30//imgi_26_857952067950e486f121b3d97bdcb60d6573a87e_original.webp" alt="Coupe-Ongles Xiaomi Mijia - Kit Manucure Professionnel" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/30//responsive/imgi_26_857952067950e486f121b3d97bdcb60d6573a87e_original-xs.webp 320w, https://mimistok.com/media/posts/30//responsive/imgi_26_857952067950e486f121b3d97bdcb60d6573a87e_original-sm.webp 480w, https://mimistok.com/media/posts/30//responsive/imgi_26_857952067950e486f121b3d97bdcb60d6573a87e_original-md.webp 768w, https://mimistok.com/media/posts/30//responsive/imgi_26_857952067950e486f121b3d97bdcb60d6573a87e_original-xl.webp 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>12.99€</strong></div><a href="https://mimistok.com/xiaomi-mijia-coupe-ongles/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Coupe-Ongles Xiaomi Mijia - Kit Manucure Professionnel</strong></div><div style="font-size: 0.85em; line-height: 1.3;">Kit manucure Xiaomi Mijia avec coupe-ongles inox. 5 outils professionnels pour soins compl…</div></div></div><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; width: 100%; margin: 0; padding: 0; box-sizing: border-box;"><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/xiaomi-mijia-induction-cooker/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/29//imgi_164_51jexv2fneL._AC_SL1200_.webp" alt="Plaque Induction Portable Xiaomi Mijia - Cuisine Précise" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/29//responsive/imgi_164_51jexv2fneL._AC_SL1200_-xs.webp 320w, https://mimistok.com/media/posts/29//responsive/imgi_164_51jexv2fneL._AC_SL1200_-sm.webp 480w, https://mimistok.com/media/posts/29//responsive/imgi_164_51jexv2fneL._AC_SL1200_-md.webp 768w, https://mimistok.com/media/posts/29//responsive/imgi_164_51jexv2fneL._AC_SL1200_-xl.webp 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>56.99€</strong></div><a href="https://mimistok.com/xiaomi-mijia-induction-cooker/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Plaque Induction Portable Xiaomi Mijia - Cuisine Précise</strong></div><div style="font-size: 0.85em; line-height: 1.3;">Plaque induction Xiaomi Mijia portable et sûre. Contrôle précis de température. Parfait po…</div></div><div style="background: transparent; border-radius: 12px; display: flex; flex-direction: column;"><a href="https://mimistok.com/xiaomi-smart-kettle-2-pro/"><figure class="post__image"><img style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; margin-bottom: 12px;" src="https://mimistok.com/media/posts/26//c1ff8f88a7c94ef17518cd4951f11f2f.png" alt="Bouilloire Connectée Xiaomi Smart Kettle 2 Pro - App Control" loading="lazy" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/26//responsive/c1ff8f88a7c94ef17518cd4951f11f2f-xs.png 320w, https://mimistok.com/media/posts/26//responsive/c1ff8f88a7c94ef17518cd4951f11f2f-sm.png 480w, https://mimistok.com/media/posts/26//responsive/c1ff8f88a7c94ef17518cd4951f11f2f-md.png 768w, https://mimistok.com/media/posts/26//responsive/c1ff8f88a7c94ef17518cd4951f11f2f-xl.png 1024w"></figure></a><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><div style="font-size: 1.1em; font-weight: bold;"><strong>49.99€</strong></div><a href="https://mimistok.com/xiaomi-smart-kettle-2-pro/" style="display: inline-block; background: #3498db; color: white; text-decoration: none; padding: 6px 16px; border-radius: 20px; text-align: center; font-weight: 600; font-size: 0.8em;">Voir</a></div><div style="font-size: 1em; font-weight: 600; margin-bottom: 6px; line-height: 1.3;"><strong>Bouilloire Connectée Xiaomi Smart Kettle 2 Pro - App Control</strong></div><div style="font-size: 0.85em; line-height: 1.3;">Bouilloire Xiaomi Smart Kettle 2 Pro avec contrôle par app. Réglage température précis pou…</div><div> </div><div> </div><div> </div></div></div><div style="display: flex; align-items: center; justify-content: space-between; background-color: rgba(80,80,80,0.1); border-radius: 10px; padding: 20px 30px; width: 100%; box-sizing: border-box; position: relative; flex-wrap: wrap; gap: 20px;"><div style="flex: 1 1 100%; display: flex; justify-content: center;"><figure class="post__image"><img loading="lazy" style="width: 70px; height: 70px; object-fit: contain;" src="https://mimistok.com/media/posts/36/Logo-X.Xiaomi-xl-xl.webp" alt="" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/36/responsive/Logo-X.Xiaomi-xl-xl-xs.webp 320w, https://mimistok.com/media/posts/36/responsive/Logo-X.Xiaomi-xl-xl-sm.webp 480w, https://mimistok.com/media/posts/36/responsive/Logo-X.Xiaomi-xl-xl-md.webp 768w, https://mimistok.com/media/posts/36/responsive/Logo-X.Xiaomi-xl-xl-xl.webp 1024w"></figure></div><div style="flex: 1 1 100%; text-align: center;"><h2 style="margin: 0; font-size: 28px;">Histoire de la marque Xiaomi</h2><p>Découvrez l’histoire de <strong>Xiaomi</strong>, le géant chinois de la technologie fondé en 2010. De ses débuts dans les smartphones à son expansion dans les objets connectés et l’électronique grand public, Xiaomi s’est imposé comme une marque innovante alliant <strong>performance, design et accessibilité</strong>.</p><p> </p></div></div><div style="margin: 40px 0; text-align: center;"> </div><div style="height: 4px; background: linear-gradient(90deg, transparent, #3498db, #9b59b6, #3498db, transparent); border-radius: 2px; position: relative; max-width: 300px; margin: 0 auto;"> </div></div></div></article></main><div class="right-bar"><div class="right-bar__inner"><div class="sidebar"><div class="box follow"><a href="https://www.facebook.com/people/Mimistok/61582459216888/" class="tltp tltp--top" aria-label="Facebook"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://x.com/storemimistok" class="tltp tltp--top" aria-label="Twitter"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://www.instagram.com/storemimistok/" class="tltp tltp--top" aria-label="Instagram"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#instagram"/></svg> <span>Instagram</span> </a><a href="https://www.linkedin.com/company/mimistok/" class="tltp tltp--top" aria-label="LinkedIn"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#linkedin"/></svg> <span>LinkedIn</span></a></div></div></div></div></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
         for (var i = 0; i < images.length; i++) {
             if (images[i].complete) {
                 images[i].classList.add('is-loaded');
@@ -1209,4 +1054,159 @@ document.addEventListener('DOMContentLoaded', function() {
     openAvisBtn.style.cursor = 'pointer';
     openAvisBtn.addEventListener('click', showAvisPopup);
   }
-});</script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-autolinker.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-show-invisibles.min.js"></script></body></html>
+});</script><div id="panier-flottant"><div class="infos"><span class="quantite">0</span> <span class="total">€0.00</span></div><button class="btn-payer-flottant">Payer</button></div><style>/* --- Panier flottant --- */
+#panier-flottant {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 20px);
+  max-width: 600px;
+  background: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 10px;
+  font-family: sans-serif;
+  font-size: 16px; /* 16px pour éviter le zoom sur iOS */
+  color: #fff;
+  z-index: 2147483647;
+  touch-action: manipulation; /* empêche double-tap zoom */
+}
+
+/* Infos quantité / total */
+#panier-flottant .infos {
+  flex: 1 1 auto;
+  font-weight: 500;
+  margin-right: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 18px;
+  padding-right: 8px;
+}
+
+/* Bouton payer */
+#panier-flottant .btn-payer-flottant {
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px; /* 16px pour iOS */
+  text-align: center;
+  transition: transform 0.2s, background 0.3s;
+  flex-shrink: 0;
+  margin-right: 8px;
+  touch-action: manipulation; /* empêche double-tap zoom */
+}
+
+#panier-flottant .btn-payer-flottant:hover {
+  background: #0056d2;
+  transform: scale(1.05);
+}
+
+/* Petit espace supplémentaire pour mobile */
+@media (max-width: 480px) {
+  #panier-flottant {
+    width: calc(100% - 20px);
+    padding: 14px 10px;
+  }
+}
+
+/* Empêche zoom sur tous les boutons / inputs globaux */
+button, input, select, textarea {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}</style><script>// --- Fonctions panier flottant ---
+function jouerSonAjout() {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.type = 'triangle';      
+    osc.frequency.value = 1200; 
+    gain.gain.setValueAtTime(0.08, ctx.currentTime); 
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
+
+    osc.start();
+    osc.stop(ctx.currentTime + 0.12);
+}
+
+function ajouterProduitAuPanier(priceId, nom, prix, quantite) {
+    console.log('Ajout au panier:', { priceId, nom, prix, quantite });
+    jouerSonAjout();
+
+    let panier = JSON.parse(localStorage.getItem('panier')) || [];
+    const produitExistant = panier.find(item => item.priceId === priceId);
+
+    if (produitExistant) {
+        produitExistant.quantite += quantite;
+    } else {
+        panier.push({ priceId, nom, prix, quantite });
+    }
+
+    localStorage.setItem('panier', JSON.stringify(panier));
+    mettreAJourPanierFlottant();
+}
+
+function mettreAJourPanierFlottant() {
+    const panier = JSON.parse(localStorage.getItem('panier')) || [];
+    const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
+    const totalPrix = panier.reduce((t, i) => t + (i.prix * i.quantite), 0);
+
+    const flottant = document.getElementById('panier-flottant');
+    const quantiteElem = document.querySelector('#panier-flottant .quantite');
+    const totalElem = document.querySelector('#panier-flottant .total');
+    const btnElem = document.querySelector('#panier-flottant .btn-payer-flottant');
+
+    if (quantiteElem && totalElem) {
+        quantiteElem.textContent = `${totalItems} ${totalItems > 1 ? 'articles' : 'article'} – `;
+        totalElem.textContent = `€${totalPrix.toFixed(2)}`;
+    }
+
+    if (flottant) flottant.classList.add('visible');
+
+    if (btnElem) btnElem.textContent = 'Mon Panier';
+}
+
+// --- Initialisation ---
+document.addEventListener('DOMContentLoaded', function() {
+    mettreAJourPanierFlottant();
+
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('btn-payer-flottant')) {
+            window.location.href = '/panier';
+        }
+    });
+});</script><script>function fixImages() {
+    if (window.innerWidth >= 1024) {
+      document.querySelectorAll('.content__featured-image--attop img.is-loaded').forEach(img => {
+        img.removeAttribute('srcset'); // Supprime le srcset pour éviter le flou progressif
+        img.style.imageRendering = ''; // Réinitialise toute manipulation CSS de rendu
+      });
+    }
+  }
+  window.addEventListener('load', fixImages);
+  window.addEventListener('resize', fixImages);</script><script>// Cacher le panier flottant sur la page panier
+if (window.location.pathname.includes('/panier/') || 
+    window.location.href.includes('/panier/') ||
+    document.body.classList.contains('page-panier') ||
+    window.location.pathname.includes('/commande-validee/') || 
+    window.location.href.includes('/commande-validee/')) {
+    
+    const panierFlottant = document.getElementById('panier-flottant');
+    if (panierFlottant) {
+        panierFlottant.style.display = 'none';
+    }
+}</script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-autolinker.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-show-invisibles.min.js"></script></body></html>
