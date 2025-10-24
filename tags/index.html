@@ -78,7 +78,162 @@
       }
     }
   ]
-}</script><meta name="viewport" content="width=device-width,initial-scale=1"><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="tags-template"><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main page page--tags"><div class="hero"><div class="main__inner"><h1>Tags</h1><p>Collection of all 0 tags</p></div></div><div class="main__inner"><ul class="tags-list"></ul></div></main><div class="right-bar"><div class="right-bar__inner"><div class="sidebar"><div class="box follow"><a href="https://www.facebook.com/people/Mimistok/61582459216888/" class="tltp tltp--top" aria-label="Facebook"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://x.com/storemimistok" class="tltp tltp--top" aria-label="Twitter"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://www.instagram.com/storemimistok/" class="tltp tltp--top" aria-label="Instagram"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#instagram"/></svg> <span>Instagram</span> </a><a href="https://www.linkedin.com/company/mimistok/" class="tltp tltp--top" aria-label="LinkedIn"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#linkedin"/></svg> <span>LinkedIn</span></a></div></div></div></div></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
+}</script><meta name="viewport" content="width=device-width,initial-scale=1"><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="tags-template"><div id="panier-flottant"><div class="infos"><span class="quantite">0</span> <span class="total">€0.00</span></div><button class="btn-payer-flottant">Payer</button></div><style>/* --- Panier flottant --- */
+#panier-flottant {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 20px);
+  max-width: 600px;
+  background: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 10px;
+  font-family: sans-serif;
+  font-size: 16px; /* 16px pour éviter le zoom sur iOS */
+  color: #fff;
+  z-index: 2147483647;
+  touch-action: manipulation; /* empêche double-tap zoom */
+}
+
+/* Infos quantité / total */
+#panier-flottant .infos {
+  flex: 1 1 auto;
+  font-weight: 500;
+  margin-right: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 18px;
+  padding-right: 8px;
+}
+
+/* Bouton payer */
+#panier-flottant .btn-payer-flottant {
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px; /* 16px pour iOS */
+  text-align: center;
+  transition: transform 0.2s, background 0.3s;
+  flex-shrink: 0;
+  margin-right: 8px;
+  touch-action: manipulation; /* empêche double-tap zoom */
+}
+
+#panier-flottant .btn-payer-flottant:hover {
+  background: #0056d2;
+  transform: scale(1.05);
+}
+
+/* Petit espace supplémentaire pour mobile */
+@media (max-width: 480px) {
+  #panier-flottant {
+    width: calc(100% - 20px);
+    padding: 14px 10px;
+  }
+}
+
+/* Empêche zoom sur tous les boutons / inputs globaux */
+button, input, select, textarea {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}</style><script>// --- Fonctions panier flottant ---
+function jouerSonAjout() {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.type = 'triangle';      
+    osc.frequency.value = 1200; 
+    gain.gain.setValueAtTime(0.08, ctx.currentTime); 
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
+
+    osc.start();
+    osc.stop(ctx.currentTime + 0.12);
+}
+
+function ajouterProduitAuPanier(priceId, nom, prix, quantite) {
+    console.log('Ajout au panier:', { priceId, nom, prix, quantite });
+    jouerSonAjout();
+
+    let panier = JSON.parse(localStorage.getItem('panier')) || [];
+    const produitExistant = panier.find(item => item.priceId === priceId);
+
+    if (produitExistant) {
+        produitExistant.quantite += quantite;
+    } else {
+        panier.push({ priceId, nom, prix, quantite });
+    }
+
+    localStorage.setItem('panier', JSON.stringify(panier));
+    mettreAJourPanierFlottant();
+}
+
+function mettreAJourPanierFlottant() {
+    const panier = JSON.parse(localStorage.getItem('panier')) || [];
+    const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
+    const totalPrix = panier.reduce((t, i) => t + (i.prix * i.quantite), 0);
+
+    const flottant = document.getElementById('panier-flottant');
+    const quantiteElem = document.querySelector('#panier-flottant .quantite');
+    const totalElem = document.querySelector('#panier-flottant .total');
+    const btnElem = document.querySelector('#panier-flottant .btn-payer-flottant');
+
+    if (quantiteElem && totalElem) {
+        quantiteElem.textContent = `${totalItems} ${totalItems > 1 ? 'articles' : 'article'} – `;
+        totalElem.textContent = `€${totalPrix.toFixed(2)}`;
+    }
+
+    if (flottant) flottant.classList.add('visible');
+
+    if (btnElem) btnElem.textContent = 'Mon Panier';
+}
+
+// --- Initialisation ---
+document.addEventListener('DOMContentLoaded', function() {
+    mettreAJourPanierFlottant();
+
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('btn-payer-flottant')) {
+            window.location.href = '/panier';
+        }
+    });
+});</script><script>function fixImages() {
+    if (window.innerWidth >= 1024) {
+      document.querySelectorAll('.content__featured-image--attop img.is-loaded').forEach(img => {
+        img.removeAttribute('srcset'); // Supprime le srcset pour éviter le flou progressif
+        img.style.imageRendering = ''; // Réinitialise toute manipulation CSS de rendu
+      });
+    }
+  }
+  window.addEventListener('load', fixImages);
+  window.addEventListener('resize', fixImages);</script><script>// Cacher le panier flottant sur la page panier
+if (window.location.pathname.includes('/panier/') || 
+    window.location.href.includes('/panier/') ||
+    document.body.classList.contains('page-panier') ||
+    window.location.pathname.includes('/commande-validee/') || 
+    window.location.href.includes('/commande-validee/')) {
+    
+    const panierFlottant = document.getElementById('panier-flottant');
+    if (panierFlottant) {
+        panierFlottant.style.display = 'none';
+    }
+}</script><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main page page--tags"><div class="hero"><div class="main__inner"><h1>Tags</h1><p>Collection of all 0 tags</p></div></div><div class="main__inner"><ul class="tags-list"></ul></div></main><div class="right-bar"><div class="right-bar__inner"><div class="sidebar"><div class="box follow"><a href="https://www.facebook.com/people/Mimistok/61582459216888/" class="tltp tltp--top" aria-label="Facebook"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://x.com/storemimistok" class="tltp tltp--top" aria-label="Twitter"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://www.instagram.com/storemimistok/" class="tltp tltp--top" aria-label="Instagram"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#instagram"/></svg> <span>Instagram</span> </a><a href="https://www.linkedin.com/company/mimistok/" class="tltp tltp--top" aria-label="LinkedIn"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#linkedin"/></svg> <span>LinkedIn</span></a></div></div></div></div></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
         for (var i = 0; i < images.length; i++) {
             if (images[i].complete) {
                 images[i].classList.add('is-loaded');
@@ -1054,159 +1209,4 @@ document.addEventListener('DOMContentLoaded', function() {
     openAvisBtn.style.cursor = 'pointer';
     openAvisBtn.addEventListener('click', showAvisPopup);
   }
-});</script><div id="panier-flottant"><div class="infos"><span class="quantite">0</span> <span class="total">€0.00</span></div><button class="btn-payer-flottant">Payer</button></div><style>/* --- Panier flottant --- */
-#panier-flottant {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 20px);
-  max-width: 600px;
-  background: rgba(30, 30, 30, 0.7);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 10px;
-  font-family: sans-serif;
-  font-size: 16px; /* 16px pour éviter le zoom sur iOS */
-  color: #fff;
-  z-index: 2147483647;
-  touch-action: manipulation; /* empêche double-tap zoom */
-}
-
-/* Infos quantité / total */
-#panier-flottant .infos {
-  flex: 1 1 auto;
-  font-weight: 500;
-  margin-right: 15px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-left: 18px;
-  padding-right: 8px;
-}
-
-/* Bouton payer */
-#panier-flottant .btn-payer-flottant {
-  background: #007BFF;
-  color: #fff;
-  border: none;
-  padding: 12px 32px;
-  border-radius: 999px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 16px; /* 16px pour iOS */
-  text-align: center;
-  transition: transform 0.2s, background 0.3s;
-  flex-shrink: 0;
-  margin-right: 8px;
-  touch-action: manipulation; /* empêche double-tap zoom */
-}
-
-#panier-flottant .btn-payer-flottant:hover {
-  background: #0056d2;
-  transform: scale(1.05);
-}
-
-/* Petit espace supplémentaire pour mobile */
-@media (max-width: 480px) {
-  #panier-flottant {
-    width: calc(100% - 20px);
-    padding: 14px 10px;
-  }
-}
-
-/* Empêche zoom sur tous les boutons / inputs globaux */
-button, input, select, textarea {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-}</style><script>// --- Fonctions panier flottant ---
-function jouerSonAjout() {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
-    osc.type = 'triangle';      
-    osc.frequency.value = 1200; 
-    gain.gain.setValueAtTime(0.08, ctx.currentTime); 
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
-
-    osc.start();
-    osc.stop(ctx.currentTime + 0.12);
-}
-
-function ajouterProduitAuPanier(priceId, nom, prix, quantite) {
-    console.log('Ajout au panier:', { priceId, nom, prix, quantite });
-    jouerSonAjout();
-
-    let panier = JSON.parse(localStorage.getItem('panier')) || [];
-    const produitExistant = panier.find(item => item.priceId === priceId);
-
-    if (produitExistant) {
-        produitExistant.quantite += quantite;
-    } else {
-        panier.push({ priceId, nom, prix, quantite });
-    }
-
-    localStorage.setItem('panier', JSON.stringify(panier));
-    mettreAJourPanierFlottant();
-}
-
-function mettreAJourPanierFlottant() {
-    const panier = JSON.parse(localStorage.getItem('panier')) || [];
-    const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
-    const totalPrix = panier.reduce((t, i) => t + (i.prix * i.quantite), 0);
-
-    const flottant = document.getElementById('panier-flottant');
-    const quantiteElem = document.querySelector('#panier-flottant .quantite');
-    const totalElem = document.querySelector('#panier-flottant .total');
-    const btnElem = document.querySelector('#panier-flottant .btn-payer-flottant');
-
-    if (quantiteElem && totalElem) {
-        quantiteElem.textContent = `${totalItems} ${totalItems > 1 ? 'articles' : 'article'} – `;
-        totalElem.textContent = `€${totalPrix.toFixed(2)}`;
-    }
-
-    if (flottant) flottant.classList.add('visible');
-
-    if (btnElem) btnElem.textContent = 'Mon Panier';
-}
-
-// --- Initialisation ---
-document.addEventListener('DOMContentLoaded', function() {
-    mettreAJourPanierFlottant();
-
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('btn-payer-flottant')) {
-            window.location.href = '/panier';
-        }
-    });
-});</script><script>function fixImages() {
-    if (window.innerWidth >= 1024) {
-      document.querySelectorAll('.content__featured-image--attop img.is-loaded').forEach(img => {
-        img.removeAttribute('srcset'); // Supprime le srcset pour éviter le flou progressif
-        img.style.imageRendering = ''; // Réinitialise toute manipulation CSS de rendu
-      });
-    }
-  }
-  window.addEventListener('load', fixImages);
-  window.addEventListener('resize', fixImages);</script><script>// Cacher le panier flottant sur la page panier
-if (window.location.pathname.includes('/panier/') || 
-    window.location.href.includes('/panier/') ||
-    document.body.classList.contains('page-panier') ||
-    window.location.pathname.includes('/commande-validee/') || 
-    window.location.href.includes('/commande-validee/')) {
-    
-    const panierFlottant = document.getElementById('panier-flottant');
-    if (panierFlottant) {
-        panierFlottant.style.display = 'none';
-    }
-}</script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-autolinker.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-show-invisibles.min.js"></script></body></html>
+});</script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-autolinker.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-show-invisibles.min.js"></script></body></html>
