@@ -3,7 +3,7 @@
     <title>mimistok</title>
     <link href="https://mimistok.com/feed.xml" rel="self" />
     <link href="https://mimistok.com" />
-    <updated>2025-10-28T19:02:25+01:00</updated>
+    <updated>2025-10-28T21:24:04+01:00</updated>
     <author>
         <name>mimistok</name>
     </author>
@@ -17,7 +17,10 @@
         <link href="https://mimistok.com/histoire-de-laifen-technologie-et-innovation-au-service-de-votre-beaute/"/>
         <id>https://mimistok.com/histoire-de-laifen-technologie-et-innovation-au-service-de-votre-beaute/</id>
         <media:content url="https://mimistok.com/media/posts/56/kv-laifen-electric-shavers-t1-p3.webp" medium="image" />
+            <category term="Xiaomi"/>
+            <category term="Obsbot"/>
             <category term="Laifen"/>
+            <category term="Baseus"/>
 
         <updated>2025-10-28T18:46:10+01:00</updated>
             <summary>
