@@ -1290,6 +1290,11 @@ document.addEventListener('DOMContentLoaded', function() {
     openAvisBtn.style.cursor = 'pointer';
     openAvisBtn.addEventListener('click', showAvisPopup);
   }
+});</script><script>document.addEventListener("DOMContentLoaded", function() {
+    var titre = document.querySelector('h1');
+    if (titre && titre.textContent.trim() === "Tags") {
+        titre.textContent = "Le blog";
+    }
 });</script><script type="module">import PhotoSwipeLightbox from 'https://mimistok.com/media/plugins/coreLightboxGallery/photoswipe-lightbox.esm.min.js';
 				 const galleries = document.querySelectorAll('.gallery');
 				 galleries.forEach(gallery => {
