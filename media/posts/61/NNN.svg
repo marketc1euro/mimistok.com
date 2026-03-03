@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="300" viewBox="0 0 300 300">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_3430" data-name="Rectangle 3430" width="156" height="161" transform="translate(3521 2001)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_3751" data-name="Groupe 3751" transform="translate(-3435 -1907)">
+    <path id="Tracé_6962" data-name="Tracé 6962" d="M150,0A150,150,0,1,1,0,150,150,150,0,0,1,150,0Z" transform="translate(3435 1907)" fill="rgba(167,167,190,0)"/>
+    <g id="Groupe_de_masques_10" data-name="Groupe de masques 10" transform="translate(-14 -24)" clip-path="url(#clip-path)">
+      <g id="Layer_2" data-name="Layer 2" transform="translate(3521 2001.267)">
+        <path id="brush" d="M69.635,125.1c-17.5,4.3-29.888,20.317-30.025,38.814v31.273a4.8,4.8,0,0,0,1.345,3.444,4.531,4.531,0,0,0,3.349,1.383l31.688-.6a36.92,36.92,0,0,0,33.644-22.122,37.549,37.549,0,0,0-3.879-39.156A35.166,35.166,0,0,0,69.635,125.1ZM188.366,43.746A20.516,20.516,0,0,0,160.2,45.858L97.8,110.314a4.821,4.821,0,0,0,0,6.637l22.005,22.725a4.508,4.508,0,0,0,6.455,0l63.473-65.059A21.019,21.019,0,0,0,195.6,59.835a20.345,20.345,0,0,0-7.237-16.089Z" transform="translate(-39.609 -39.124)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>
