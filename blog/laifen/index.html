@@ -99,8 +99,8 @@
 					display: none;
 				}</style><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="tag-template"><script defer="defer" src="https://widget.senja.io/..."></script><a href="/panier" id="cart-button" style="opacity: 0; pointer-events: none; transition: opacity 0.5s ease;"><div class="cart-icon">🛒 <span id="cart-count">0</span></div></a><style>#cart-button {
   position: fixed;
-  top: 60%;               /* ✅ EXACTEMENT pareil */
-  right: 22px;            /* ✅ EXACTEMENT pareil */
+  top: 60%;
+  right: 22px;
   transform: translateY(-50%);
 
   width: 44px;
@@ -110,14 +110,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
 
   background: rgba(230, 230, 230, 0.4);
-
-  box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-
   z-index: 99999;
   transition: transform 0.2s ease-in-out;
 }
@@ -132,41 +126,62 @@
   font-size: 18px;
 }
 
-/* Badge rouge */
+/* 🔴 Badge amélioré */
 #cart-count {
   position: absolute;
-  top: -6px;
-  right: -10px;
+  top: -8px;     /* ⬆️ sort du cercle */
+  right: -8px;   /* ➡️ sort du cercle */
+
   background: red;
   color: #fff;
+
   font-size: 10px;
   font-weight: bold;
+
   border-radius: 50%;
-  padding: 2px 5px;
-  min-width: 16px;
-  text-align: center;
-  display: none;
+  min-width: 18px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 0 2px white; /* effet pro (bord blanc) */
+
+  transform: scale(0);
+  transition: transform 0.2s ease;
 }
 
-/* ✅ MOBILE IDENTIQUE */
+/* Badge visible */
+#cart-count.show {
+  transform: scale(1);
+}
+
+/* Mobile */
 @media (max-width: 1024px) {
   #cart-button {
-    top: 36px;        /* ✅ EXACT */
-    right: 82px;      /* ✅ EXACT */
+    top: 36px;
+    right: 82px;
   }
-}</style><script>// 🔄 Badge panier
+}</style><script>// 🔄 Fonction update badge
 function updateCartBadge() {
     const panier = JSON.parse(localStorage.getItem('panier')) || [];
     const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
 
     const badge = document.getElementById('cart-count');
+
     if (badge) {
         badge.textContent = totalItems;
-        badge.style.display = totalItems > 0 ? 'block' : 'none';
+
+        if (totalItems > 0) {
+            badge.classList.add('show');
+        } else {
+            badge.classList.remove('show');
+        }
     }
 }
 
-// 🔌 Hook sur ton système existant
+// 🔌 Hook sur TON panier
 const oldUpdate = window.mettreAJourPanierFlottant;
 
 window.mettreAJourPanierFlottant = function() {
@@ -174,7 +189,7 @@ window.mettreAJourPanierFlottant = function() {
     updateCartBadge();
 };
 
-// 🚀 Apparition comme WhatsApp
+// 🚀 Apparition + sync en temps réel
 window.addEventListener('load', function() {
     const btn = document.getElementById('cart-button');
 
@@ -184,6 +199,9 @@ window.addEventListener('load', function() {
     }, 800);
 
     updateCartBadge();
+
+    // ✅ 🔥 Sync temps réel (ultra important)
+    setInterval(updateCartBadge, 500);
 });</script><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main page page--tag"><div class="hero"><div class="main__inner"><h1>Laifen <sup>(1)</sup></h1><p>Laifen – Technologie innovante pour votre beauté. Sèche-cheveux et rasoirs high-tech, performance et confort au quotidien.</p></div></div><div class="main__inner"><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2025-10-28T18:46">oct. 28, 2025</time></div><a href="https://mimistok.com/histoire-de-laifen-technologie-et-innovation-au-service-de-votre-beaute/" class="c-card__image"><img src="https://mimistok.com/media/posts/56/kv-laifen-electric-shavers-t1-p3.webp" srcset="https://mimistok.com/media/posts/56/responsive/kv-laifen-electric-shavers-t1-p3-xs.webp 320w, https://mimistok.com/media/posts/56/responsive/kv-laifen-electric-shavers-t1-p3-sm.webp 480w" sizes="(min-width: 700px) 200px, (min-width: 480px) 160px, calc(100vw - 50px)" loading="lazy" height="1000" width="2400" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/histoire-de-laifen-technologie-et-innovation-au-service-de-votre-beaute/">Histoire de Laifen – Technologie et Innovation au Service de Votre Beauté</a></h2><p>Histoire de Laifen – Technologie et Innovation au Service de Votre Beauté&hellip;</p></header></article></div></main><div class="right-bar"><div class="right-bar__inner"><div class="sidebar"><div class="box follow"><a href="https://www.facebook.com/people/Mimistok/61582459216888/" class="tltp tltp--top" aria-label="Facebook"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://x.com/storemimistok" class="tltp tltp--top" aria-label="Twitter"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://www.instagram.com/storemimistok/" class="tltp tltp--top" aria-label="Instagram"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#instagram"/></svg> <span>Instagram</span> </a><a href="https://www.linkedin.com/company/mimistok/" class="tltp tltp--top" aria-label="LinkedIn"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#linkedin"/></svg> <span>LinkedIn</span> </a><a href="https://www.pinterest.com/storemimistok/" class="tltp tltp--top" aria-label="Pinterest"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></div></div></div></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
         for (var i = 0; i < images.length; i++) {
             if (images[i].complete) {

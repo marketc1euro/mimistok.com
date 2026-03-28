@@ -99,8 +99,8 @@
 					display: none;
 				}</style><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="page-template"><script defer="defer" src="https://widget.senja.io/..."></script><a href="/panier" id="cart-button" style="opacity: 0; pointer-events: none; transition: opacity 0.5s ease;"><div class="cart-icon">🛒 <span id="cart-count">0</span></div></a><style>#cart-button {
   position: fixed;
-  top: 60%;               /* ✅ EXACTEMENT pareil */
-  right: 22px;            /* ✅ EXACTEMENT pareil */
+  top: 60%;
+  right: 22px;
   transform: translateY(-50%);
 
   width: 44px;
@@ -110,14 +110,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
 
   background: rgba(230, 230, 230, 0.4);
-
-  box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-
   z-index: 99999;
   transition: transform 0.2s ease-in-out;
 }
@@ -132,41 +126,62 @@
   font-size: 18px;
 }
 
-/* Badge rouge */
+/* 🔴 Badge amélioré */
 #cart-count {
   position: absolute;
-  top: -6px;
-  right: -10px;
+  top: -8px;     /* ⬆️ sort du cercle */
+  right: -8px;   /* ➡️ sort du cercle */
+
   background: red;
   color: #fff;
+
   font-size: 10px;
   font-weight: bold;
+
   border-radius: 50%;
-  padding: 2px 5px;
-  min-width: 16px;
-  text-align: center;
-  display: none;
+  min-width: 18px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 0 2px white; /* effet pro (bord blanc) */
+
+  transform: scale(0);
+  transition: transform 0.2s ease;
 }
 
-/* ✅ MOBILE IDENTIQUE */
+/* Badge visible */
+#cart-count.show {
+  transform: scale(1);
+}
+
+/* Mobile */
 @media (max-width: 1024px) {
   #cart-button {
-    top: 36px;        /* ✅ EXACT */
-    right: 82px;      /* ✅ EXACT */
+    top: 36px;
+    right: 82px;
   }
-}</style><script>// 🔄 Badge panier
+}</style><script>// 🔄 Fonction update badge
 function updateCartBadge() {
     const panier = JSON.parse(localStorage.getItem('panier')) || [];
     const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
 
     const badge = document.getElementById('cart-count');
+
     if (badge) {
         badge.textContent = totalItems;
-        badge.style.display = totalItems > 0 ? 'block' : 'none';
+
+        if (totalItems > 0) {
+            badge.classList.add('show');
+        } else {
+            badge.classList.remove('show');
+        }
     }
 }
 
-// 🔌 Hook sur ton système existant
+// 🔌 Hook sur TON panier
 const oldUpdate = window.mettreAJourPanierFlottant;
 
 window.mettreAJourPanierFlottant = function() {
@@ -174,7 +189,7 @@ window.mettreAJourPanierFlottant = function() {
     updateCartBadge();
 };
 
-// 🚀 Apparition comme WhatsApp
+// 🚀 Apparition + sync en temps réel
 window.addEventListener('load', function() {
     const btn = document.getElementById('cart-button');
 
@@ -184,6 +199,9 @@ window.addEventListener('load', function() {
     }, 800);
 
     updateCartBadge();
+
+    // ✅ 🔥 Sync temps réel (ultra important)
+    setInterval(updateCartBadge, 500);
 });</script><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main page"><article class="content"><figure class="content__featured-image content__featured-image--attop"><img src="https://mimistok.com/media/posts/59/magichour_ai_image_editor-2026-03-25-1376x768-cmn5kttd2007a1n0ztqxaenxq-2.png" srcset="https://mimistok.com/media/posts/59/responsive/magichour_ai_image_editor-2026-03-25-1376x768-cmn5kttd2007a1n0ztqxaenxq-2-xs.png 320w, https://mimistok.com/media/posts/59/responsive/magichour_ai_image_editor-2026-03-25-1376x768-cmn5kttd2007a1n0ztqxaenxq-2-sm.png 480w, https://mimistok.com/media/posts/59/responsive/magichour_ai_image_editor-2026-03-25-1376x768-cmn5kttd2007a1n0ztqxaenxq-2-md.png 768w, https://mimistok.com/media/posts/59/responsive/magichour_ai_image_editor-2026-03-25-1376x768-cmn5kttd2007a1n0ztqxaenxq-2-xl.png 1024w" sizes="(min-width: 1460px) 938px, (min-width: 1200px) calc(75.83vw - 154px), (min-width: 1120px) 938px, (min-width: 900px) calc(55vw + 333px), 100vw" loading="eager" height="526" width="994" alt="" aria-describedby="image-caption"></figure><div class="main__inner"><header class="content__header"><h1 class="content__title">Scooter électrique Citycoco Super 701</h1></header><div class="content__entry"><p> </p><div id="fiche-produit" style="display: flex; flex-wrap: wrap; max-width: 900px; margin: auto; gap: 20px; align-items: center;"><div style="flex: 1 1 40%; min-width: 200px;"><figure class="post__image"><img loading="lazy" style="width: 1024px; border-radius: 12px;" src="https://mimistok.com/media/posts/59/magichour_ai_image_editor-2026-03-25-1024x1024-cmn5kiqew002e1n0z1uyl6yvg-2.png" alt="" height="961" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/59/responsive/magichour_ai_image_editor-2026-03-25-1024x1024-cmn5kiqew002e1n0z1uyl6yvg-2-xs.png 320w, https://mimistok.com/media/posts/59/responsive/magichour_ai_image_editor-2026-03-25-1024x1024-cmn5kiqew002e1n0z1uyl6yvg-2-sm.png 480w, https://mimistok.com/media/posts/59/responsive/magichour_ai_image_editor-2026-03-25-1024x1024-cmn5kiqew002e1n0z1uyl6yvg-2-md.png 768w, https://mimistok.com/media/posts/59/responsive/magichour_ai_image_editor-2026-03-25-1024x1024-cmn5kiqew002e1n0z1uyl6yvg-2-xl.png 1024w"></figure></div><div style="flex: 1 1 55%; display: flex; flex-direction: column; gap: 12px; min-width: 200px; justify-content: center;"><h2 class="product-title uppercase--true" style="margin: 0; text-align: left;">Citycoco Super 701</h2><p style="margin: 0; color: #444; line-height: 1.4; text-align: left;"><span style="color: #843fa1;"><strong>Modèle grande capacité 45ah</strong></span> Citycoco est un scooter électrique léger, facile à conduire et avec 1 emplacement pour batterie. Très utile et modulable à souhait, la batterie de 60V 45Ah pour une autonomie de 80 kms)..</p><p style="margin: 0; font-size: 20px; font-weight: bold; text-align: left;"><strong>2 099.00€</strong></p><p> </p><div style="text-align: center;"><strong><a href="https://buy.stripe.com/00w8wO27H7eE9dF292ejK00" style="display: inline-block; background: #7C0BC3; color: #fff; text-decoration: none; padding: 12px 40px; border-radius: 999px; font-weight: bold; font-size: 16px; text-align: center; min-width: 90%; cursor: pointer;">Acheter Maintenant</a></strong></div></div></div><p> </p><div style="display: flex; justify-content: space-between; align-items: center; font-family: 'Public Sans', sans-serif; margin: 20px; padding: 12px 12px; border-radius: 12px; background: rgba(30,30,30,0.7); box-shadow: 0 2px 6px rgba(0,0,0,0.05); gap: 12px; overflow-x: auto;"><div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;"><div style="width: 20px; height: 20px; border-radius: 50%; background: #ff7a00;"> </div><span style="color: #ffffff; font-weight: 500;">Couleurs : Orange, Gris</span></div><div style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: none; display: flex; justify-content: center; align-items: center;"><figure class="post__image"><img loading="lazy" style="width: 30px; height: 30px;" src="https://mimistok.com/media/posts/59/NNN.svg" alt=""></figure></div></div><div style="display: flex; justify-content: flex-start; font-family: 'Public Sans', sans-serif; margin: 0; gap: 10px; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 10px; width: 100%;"><div style="flex: 1 0 auto; min-width: 140px; background: #ff7a00; border-radius: 12px; padding: 2px 15px; box-shadow: 0 3px 5px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 10px; color: #ffffff;"><figure class="post__image"><img loading="lazy" src="https://mimistok.com/media/posts/59/Groupe-3749-2.svg" alt="" width="30" height="30"></figure><div><strong>Moteur :</strong> 3000W</div></div><div style="flex: 1 0 auto; min-width: 140px; background: #ff7a00; border-radius: 12px; padding: 2px 15px; box-shadow: 0 3px 5px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 10px; color: #ffffff;"><figure class="post__image"><img loading="lazy" src="https://mimistok.com/media/posts/59/Groupe-3751-2.svg" alt="" width="30" height="30"></figure><div><strong>Batterie :</strong> 60V 45Ah</div></div><div style="flex: 1 0 auto; min-width: 140px; background: #ff7a00; border-radius: 12px; padding: 2px 15px; box-shadow: 0 3px 5px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 10px; color: #ffffff;"><figure class="post__image"><img loading="lazy" src="https://mimistok.com/media/posts/59/Groupe-3750-2.svg" alt="" width="30" height="30"></figure><div><strong>Autonomie :</strong> 80km</div></div></div><div class="tabs-content__container"><div class="tabs--content fade-in-normal f20-18 forloop-index-1 active"><div class="headings__container"><div class="gallery-wrapper"><div class="gallery" data-is-empty="false" data-translation="Ajouter des images" data-columns="3"><figure class="gallery__item"><a href="https://mimistok.com/media/posts/59/gallery/magichour_ai_image_editor-2026-03-25-1024x1024-cmn5kwdpj00831n0zxpcdzs34.png" data-pswp-width="1024" data-pswp-height="1024"><img loading="lazy" src="https://mimistok.com/media/posts/59/gallery/magichour_ai_image_editor-2026-03-25-1024x1024-cmn5kwdpj00831n0zxpcdzs34-thumbnail.png" alt="" width="768" height="768"></a></figure><figure class="gallery__item"><a href="https://mimistok.com/media/posts/59/gallery/magichour_ai_image_editor-2026-03-25-1048x1008-cmn5l375k003r1s0zko96ahyd.png" data-pswp-width="1048" data-pswp-height="1008"><img loading="lazy" src="https://mimistok.com/media/posts/59/gallery/magichour_ai_image_editor-2026-03-25-1048x1008-cmn5l375k003r1s0zko96ahyd-thumbnail.png" alt="" width="768" height="739"></a></figure><figure class="gallery__item"><a href="https://mimistok.com/media/posts/59/gallery/magichour_ai_image_editor-2026-03-25-1048x1008-cmn5kd8qv000cye0zvon0kski-2.png" data-pswp-width="1048" data-pswp-height="944"><img loading="lazy" src="https://mimistok.com/media/posts/59/gallery/magichour_ai_image_editor-2026-03-25-1048x1008-cmn5kd8qv000cye0zvon0kski-2-thumbnail.png" alt="" width="768" height="692"></a></figure><figure class="gallery__item"><a href="https://mimistok.com/media/posts/59/gallery/magichour_ai_image_editor-2026-03-25-1152x925-cmn5kf8zt0012ye0z3zqxvpfv-2.png" data-pswp-width="1152" data-pswp-height="863"><img loading="lazy" src="https://mimistok.com/media/posts/59/gallery/magichour_ai_image_editor-2026-03-25-1152x925-cmn5kf8zt0012ye0z3zqxvpfv-2-thumbnail.png" alt="" width="768" height="575"></a></figure><figure class="gallery__item"><a href="https://mimistok.com/media/posts/59/gallery/magichour_ai_image_editor-2026-03-25-1024x1024-cmn5kiqew002e1n0z1uyl6yvg-2.png" data-pswp-width="1024" data-pswp-height="961"><img loading="lazy" src="https://mimistok.com/media/posts/59/gallery/magichour_ai_image_editor-2026-03-25-1024x1024-cmn5kiqew002e1n0z1uyl6yvg-2-thumbnail.png" alt="" width="768" height="721"></a></figure></div></div></div><h3 class="align-center"> </h3><div style="width: 100%; overflow: hidden; border-radius: 20px; background: #000;"><video loading="lazy" style="width: 100%; height: auto; min-height: 70vh; display: block; object-fit: cover;" id="fullscreenVideo" autoplay="autoplay" loop="loop" muted="" playsinline="" webkit-playsinline=""><source src="https://movie.mimistok.com/citycoco.mp4" type="video/mp4">Votre navigateur ne supporte pas la lecture vidéo.</video></div><h3 class="align-center"></h3><div style="width: 100%; margin-top: 10px; display: flex; justify-content: center; align-items: center; gap: 15px;"><button id="playBtn" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,71,87,0.9); border: none; display: flex; justify-content: center; align-items: center; cursor: pointer; color: white; font-size: 12px; transition: background 0.3s;">▶</button><div id="timer" style="padding: 6px 15px; background: rgba(0,0,0,0.7); border-radius: 20px; color: white; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 500; text-align: center;"><span id="currentTime">0:00</span> / <span id="totalTime">0:00</span></div><button id="volumeBtn" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.2); border: none; display: flex; justify-content: center; align-items: center; cursor: pointer; color: white; font-size: 12px; transition: background 0.3s;">🔇</button></div><p><script>const video = document.getElementById('fullscreenVideo');
 const playBtn = document.getElementById('playBtn');
 const volumeBtn = document.getElementById('volumeBtn');

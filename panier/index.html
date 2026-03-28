@@ -88,8 +88,8 @@
   ]
 }</script><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="page-template"><script defer="defer" src="https://widget.senja.io/..."></script><a href="/panier" id="cart-button" style="opacity: 0; pointer-events: none; transition: opacity 0.5s ease;"><div class="cart-icon">🛒 <span id="cart-count">0</span></div></a><style>#cart-button {
   position: fixed;
-  top: 60%;               /* ✅ EXACTEMENT pareil */
-  right: 22px;            /* ✅ EXACTEMENT pareil */
+  top: 60%;
+  right: 22px;
   transform: translateY(-50%);
 
   width: 44px;
@@ -99,14 +99,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
 
   background: rgba(230, 230, 230, 0.4);
-
-  box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-
   z-index: 99999;
   transition: transform 0.2s ease-in-out;
 }
@@ -121,41 +115,62 @@
   font-size: 18px;
 }
 
-/* Badge rouge */
+/* 🔴 Badge amélioré */
 #cart-count {
   position: absolute;
-  top: -6px;
-  right: -10px;
+  top: -8px;     /* ⬆️ sort du cercle */
+  right: -8px;   /* ➡️ sort du cercle */
+
   background: red;
   color: #fff;
+
   font-size: 10px;
   font-weight: bold;
+
   border-radius: 50%;
-  padding: 2px 5px;
-  min-width: 16px;
-  text-align: center;
-  display: none;
+  min-width: 18px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 0 2px white; /* effet pro (bord blanc) */
+
+  transform: scale(0);
+  transition: transform 0.2s ease;
 }
 
-/* ✅ MOBILE IDENTIQUE */
+/* Badge visible */
+#cart-count.show {
+  transform: scale(1);
+}
+
+/* Mobile */
 @media (max-width: 1024px) {
   #cart-button {
-    top: 36px;        /* ✅ EXACT */
-    right: 82px;      /* ✅ EXACT */
+    top: 36px;
+    right: 82px;
   }
-}</style><script>// 🔄 Badge panier
+}</style><script>// 🔄 Fonction update badge
 function updateCartBadge() {
     const panier = JSON.parse(localStorage.getItem('panier')) || [];
     const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
 
     const badge = document.getElementById('cart-count');
+
     if (badge) {
         badge.textContent = totalItems;
-        badge.style.display = totalItems > 0 ? 'block' : 'none';
+
+        if (totalItems > 0) {
+            badge.classList.add('show');
+        } else {
+            badge.classList.remove('show');
+        }
     }
 }
 
-// 🔌 Hook sur ton système existant
+// 🔌 Hook sur TON panier
 const oldUpdate = window.mettreAJourPanierFlottant;
 
 window.mettreAJourPanierFlottant = function() {
@@ -163,7 +178,7 @@ window.mettreAJourPanierFlottant = function() {
     updateCartBadge();
 };
 
-// 🚀 Apparition comme WhatsApp
+// 🚀 Apparition + sync en temps réel
 window.addEventListener('load', function() {
     const btn = document.getElementById('cart-button');
 
@@ -173,6 +188,9 @@ window.addEventListener('load', function() {
     }, 800);
 
     updateCartBadge();
+
+    // ✅ 🔥 Sync temps réel (ultra important)
+    setInterval(updateCartBadge, 500);
 });</script><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li class="active"><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main page"><article class="content"><figure class="content__featured-image content__featured-image--attop"><img src="https://mimistok.com/media/posts/2/Carte-de-Credit-Elegante-copie.webp" srcset="https://mimistok.com/media/posts/2/responsive/Carte-de-Credit-Elegante-copie-xs.webp 320w, https://mimistok.com/media/posts/2/responsive/Carte-de-Credit-Elegante-copie-sm.webp 480w, https://mimistok.com/media/posts/2/responsive/Carte-de-Credit-Elegante-copie-md.webp 768w, https://mimistok.com/media/posts/2/responsive/Carte-de-Credit-Elegante-copie-xl.webp 1024w" sizes="(min-width: 1460px) 938px, (min-width: 1200px) calc(75.83vw - 154px), (min-width: 1120px) 938px, (min-width: 900px) calc(55vw + 333px), 100vw" loading="eager" height="382" width="1536" alt="" aria-describedby="image-caption"></figure><div class="main__inner"><header class="content__header"><h1 class="content__title">Votre Panier</h1></header><div class="content__entry"><div id="page-panier"><div id="contenu-panier" style="max-width: 800px; margin: 0 auto 20px auto;"></div><div style="max-width: 800px; margin: 0 auto;"><div style="background: #000000; backdrop-filter: blur(10px); border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid rgba(255, 255, 255, 0.2);"><div style="display: flex; justify-content: space-between; align-items: center; padding: 0 10px; font-size: 1.1em; color: white; font-weight: bold;">Total :<span id="montant-total">0.00€</span></div></div><button id="btn-payer" style="display: block; width: auto; padding: 14px 50px; background: #007BFF; color: white; border: none; border-radius: 50px; cursor: pointer; margin: 0 auto 15px auto; font-size: 18px; font-weight: 600;">Payer maintenant</button><div id="panier-vide" style="display: none; text-align: center; padding: 40px 15px;"><div style="margin-bottom: 20px; font-size: 1.1em; color: white;">Votre panier est vide</div><a href="/" style="display: inline-block; padding: 14px 50px; background: #FF8C00; color: white; text-decoration: none; border-radius: 50px; cursor: pointer; margin: 0 auto 15px auto; font-size: 18px; font-weight: bold;">Continuer vos achats</a></div><div id="loading-paiement" style="display: none; text-align: center; padding: 25px;"><div style="font-size: 0.9em; color: white;">Connexion au paiement en cours...</div></div></div><p><script>// Classe Panier
 class PanierPage {
   constructor() { this.items = JSON.parse(localStorage.getItem('panier')) || []; }
