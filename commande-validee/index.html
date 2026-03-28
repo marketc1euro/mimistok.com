@@ -86,7 +86,7 @@
       }
     }
   ]
-}</script><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="page-template"><script defer="defer" src="https://widget.senja.io/..."></script><a href="/panier" id="cart-button" style="opacity: 0; pointer-events: none; transition: opacity 0.5s ease;"><div class="cart-icon">🛒 <span id="cart-count">0</span></div></a><style>#cart-button {
+}</script><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="page-template"><script defer="defer" src="https://widget.senja.io/..."></script><a href="/panier" id="cart-button" style="opacity: 0; pointer-events: none; transition: opacity 0.5s ease;"><div class="cart-icon"><img src="https://image.mimistok.com/shopping-bag-white-icon.png" alt="Panier"> <span id="cart-count">0</span></div></a><style>#cart-button {
   position: fixed;
   top: 60%;
   right: 22px;
@@ -101,6 +101,7 @@
   justify-content: center;
 
   background: rgba(230, 230, 230, 0.4);
+
   z-index: 99999;
   transition: transform 0.2s ease-in-out;
 }
@@ -109,39 +110,50 @@
   transform: translateY(-50%) scale(1.1);
 }
 
-/* Icône */
+/* Conteneur */
 .cart-icon {
   position: relative;
-  font-size: 18px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🛍️ Icône centrée */
+.cart-icon img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
 }
 
 /* 🔴 Badge amélioré */
 #cart-count {
   position: absolute;
-  top: -8px;     /* ⬆️ sort du cercle */
-  right: -8px;   /* ➡️ sort du cercle */
+  top: -6px;     /* sort du cercle */
+  right: -6px;   /* sort du cercle */
 
   background: red;
   color: #fff;
 
-  font-size: 10px;
+  font-size: 9px;
   font-weight: bold;
 
   border-radius: 50%;
-  min-width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  box-shadow: 0 0 0 2px white; /* effet pro (bord blanc) */
+  box-shadow: 0 0 0 2px white;
 
   transform: scale(0);
   transition: transform 0.2s ease;
 }
 
-/* Badge visible */
+/* visible */
 #cart-count.show {
   transform: scale(1);
 }
@@ -152,7 +164,7 @@
     top: 36px;
     right: 82px;
   }
-}</style><script>// 🔄 Fonction update badge
+}</style><script>// 🔄 Badge
 function updateCartBadge() {
     const panier = JSON.parse(localStorage.getItem('panier')) || [];
     const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
@@ -170,7 +182,7 @@ function updateCartBadge() {
     }
 }
 
-// 🔌 Hook sur TON panier
+// 🔌 Hook sur ton panier
 const oldUpdate = window.mettreAJourPanierFlottant;
 
 window.mettreAJourPanierFlottant = function() {
@@ -178,7 +190,7 @@ window.mettreAJourPanierFlottant = function() {
     updateCartBadge();
 };
 
-// 🚀 Apparition + sync en temps réel
+// 🚀 Init + temps réel
 window.addEventListener('load', function() {
     const btn = document.getElementById('cart-button');
 
@@ -189,7 +201,7 @@ window.addEventListener('load', function() {
 
     updateCartBadge();
 
-    // ✅ 🔥 Sync temps réel (ultra important)
+    // sync live
     setInterval(updateCartBadge, 500);
 });</script><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main page"><article class="content"><figure class="content__featured-image content__featured-image--attop"><img src="https://mimistok.com/media/posts/5/a-dynamic-product-advertisement-showcasi_kM37TyxvR_-fswQt1dP7zg_j6lvym4kTo-bNUoRMwRJkw.webp" srcset="https://mimistok.com/media/posts/5/responsive/a-dynamic-product-advertisement-showcasi_kM37TyxvR_-fswQt1dP7zg_j6lvym4kTo-bNUoRMwRJkw-xs.webp 320w, https://mimistok.com/media/posts/5/responsive/a-dynamic-product-advertisement-showcasi_kM37TyxvR_-fswQt1dP7zg_j6lvym4kTo-bNUoRMwRJkw-sm.webp 480w, https://mimistok.com/media/posts/5/responsive/a-dynamic-product-advertisement-showcasi_kM37TyxvR_-fswQt1dP7zg_j6lvym4kTo-bNUoRMwRJkw-md.webp 768w, https://mimistok.com/media/posts/5/responsive/a-dynamic-product-advertisement-showcasi_kM37TyxvR_-fswQt1dP7zg_j6lvym4kTo-bNUoRMwRJkw-xl.webp 1024w" sizes="(min-width: 1460px) 938px, (min-width: 1200px) calc(75.83vw - 154px), (min-width: 1120px) 938px, (min-width: 900px) calc(55vw + 333px), 100vw" loading="eager" height="563" width="1312" alt="" aria-describedby="image-caption"></figure><div class="main__inner"><header class="content__header"><h1 class="content__title">Commande validée</h1></header><div class="content__entry"><div class="confirmation" style="text-align: center; padding: 40px; color: white; font-family: sans-serif;"><figure class="post__image"><img loading="lazy" src="https://mimistok.com/media/posts/5/a-green-circle-with-a-white-check-mark-symbol-isolated-on-transparent-background-png.png" alt="" width="120" height="120" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://mimistok.com/media/posts/5/responsive/a-green-circle-with-a-white-check-mark-symbol-isolated-on-transparent-background-png-xs.png 320w, https://mimistok.com/media/posts/5/responsive/a-green-circle-with-a-white-check-mark-symbol-isolated-on-transparent-background-png-sm.png 480w, https://mimistok.com/media/posts/5/responsive/a-green-circle-with-a-white-check-mark-symbol-isolated-on-transparent-background-png-md.png 768w, https://mimistok.com/media/posts/5/responsive/a-green-circle-with-a-white-check-mark-symbol-isolated-on-transparent-background-png-xl.png 1024w"></figure><p><strong>Merci pour votre achat. Votre paiement a bien été enregistré.</strong></p><p><span style="color: #e67e23;">Félicitations ! Votre paiement est confirmé. Votre colis vous sera livré sous peu et vous recevrez prochainement votre numéro de suivi pour suivre votre commande en temps réel.</span></p><a class="button" href="https://www.17track.net/fr" style="display: inline-block; margin-top: 56px; padding: 14px 56px; background: #ff793f; color: white; text-decoration: none; border-radius: 50px; font: bolt;">Suivre la commande</a></div><p><script>// --- Vider le panier ---
   class PanierPage {
