@@ -88,7 +88,7 @@
   ]
 }</script><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="page-template"><script defer="defer" src="https://widget.senja.io/..."></script><a href="/panier" id="cart-button" style="opacity: 0; pointer-events: none; transition: opacity 0.5s ease;"><div class="cart-icon"><img src="https://image.mimistok.com/shopping-bag-white-icon.png" alt="Panier"> <span id="cart-count">0</span></div></a><style>#cart-button {
   position: fixed;
-  top: 60%;
+  top: 45%;
   right: 22px;
   transform: translateY(-50%);
 
@@ -100,7 +100,8 @@
   align-items: center;
   justify-content: center;
 
-  background: rgba(230, 230, 230, 0.4);
+  /* 🔵 BLEU IDENTIQUE AU BOUTON "MON PANIER" */
+  background: #007BFF;
 
   z-index: 99999;
   transition: transform 0.2s ease-in-out;
@@ -120,18 +121,20 @@
   justify-content: center;
 }
 
-/* 🛍️ Icône centrée */
+/* 🛍️ Icône */
 .cart-icon img {
   width: 18px;
   height: 18px;
-  object-fit: contain;
+
+  /* 🔼 léger décalage vers le haut (PC uniquement) */
+  transform: translateY(-1px);
 }
 
-/* 🔴 Badge amélioré */
+/* 🔴 Badge */
 #cart-count {
   position: absolute;
-  top: -6px;     /* sort du cercle */
-  right: -6px;   /* sort du cercle */
+  top: -7px;
+  right: -7px;
 
   background: red;
   color: #fff;
@@ -140,14 +143,15 @@
   font-weight: bold;
 
   border-radius: 50%;
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  box-shadow: 0 0 0 2px white;
+  /* ⚪ bordure blanche plus fine */
+  box-shadow: 0 0 0 1px white;
 
   transform: scale(0);
   transition: transform 0.2s ease;
@@ -164,7 +168,12 @@
     top: 36px;
     right: 82px;
   }
-}</style><script>// 🔄 Badge
+
+  /* pas de décalage sur mobile */
+  .cart-icon img {
+    transform: none;
+  }
+}</style><script>// 🔄 Badge panier
 function updateCartBadge() {
     const panier = JSON.parse(localStorage.getItem('panier')) || [];
     const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
@@ -182,7 +191,7 @@ function updateCartBadge() {
     }
 }
 
-// 🔌 Hook sur ton panier
+// 🔌 Hook sur ton panier existant
 const oldUpdate = window.mettreAJourPanierFlottant;
 
 window.mettreAJourPanierFlottant = function() {
@@ -190,7 +199,7 @@ window.mettreAJourPanierFlottant = function() {
     updateCartBadge();
 };
 
-// 🚀 Init + temps réel
+// 🚀 init + temps réel
 window.addEventListener('load', function() {
     const btn = document.getElementById('cart-button');
 
@@ -201,7 +210,7 @@ window.addEventListener('load', function() {
 
     updateCartBadge();
 
-    // sync live
+    // live sync
     setInterval(updateCartBadge, 500);
 });</script><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li class="active"><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main page"><article class="content"><div class="main__inner"><header class="content__header"><h1 class="content__title">Contactez-nous</h1></header><div class="content__entry"><figure class="post__image post__image--center"><img loading="lazy" src="https://mimistok.com/media/posts/16/undraw_golden-gate-bridge_1c6x-1.svg" alt="" width="130" height="127"></figure><p class="align-center"><strong>Nous allons vous répondre dans les plus brefs délais. Merci!</strong></p><div style="max-width: 400px; margin: 50px auto; text-align: center;"><div id="successBlock" style="display: none; text-align: center;"><div style="background-color: #d4edda; color: #155724; font-weight: 500; border-radius: 999px; padding: 12px 25px; font-size: 15px; max-width: 280px; margin: 0 auto 20px auto;">✓ Message envoyé</div><div style="margin-bottom: 15px; font-size: 14px;">Message envoyé avec succès</div><a id="backHome" href="https://mimistok.com/" style="display: inline-block; background-color: #4217f4; color: white; padding: 10px 20px; border-radius: 999px; text-decoration: none; font-size: 14px;">Retour à l'accueil</a></div><form id="contactForm" style="display: flex; flex-direction: column; gap: 20px;" action="https://formsubmit.co/contact@c1euro.com" method="POST"><input name="_captcha" type="hidden" value="false"> <input style="font-size: 16px; padding: 12px; border: 1px solid #ccc; border-radius: 6px; width: 100%;" required="" type="text" placeholder="Votre nom"> <input style="font-size: 16px; padding: 12px; border: 1px solid #ccc; border-radius: 6px; width: 100%;" name="email" required="" type="email" placeholder="Votre email"> <textarea style="font-size: 16px; padding: 12px; border: 1px solid #ccc; border-radius: 6px; width: 100%; min-height: 120px; resize: vertical;" name="message" required="" placeholder="Votre message"></textarea> <button style="background-color: #4217f4; color: white; padding: 12px 24px; width: 100%; max-width: 500px; border: none; border-radius: 999px; font-size: 16px; cursor: pointer; display: block; margin: 0 auto;" type="submit">Envoyer</button></form></div><p><script>const form = document.getElementById('contactForm');
   const successBlock = document.getElementById('successBlock');
