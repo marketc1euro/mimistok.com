@@ -1,0 +1,603 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Épilateur : douleur, repousses et préparation de la peau</title><meta name="description" content="Douleur, repousses, préparation de la peau : découvrez comment choisir votre épilateur et limiter l'inconfort avant et après chaque séance."><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="stylesheet" href="https://mimistok.com/media/plugins/syntaxHighlighter/prism-black.css"><link rel="stylesheet" href="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.css"><link rel="canonical" href="https://mimistok.com/epilateur/"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="Bien choisir son épilateur : douleur, repousses et peau préparée"><meta property="og:image" content="https://mimistok.com/media/posts/9/laifen-p3-pro-color-option-alliage-daluminium-gris-espace-copie.webp"><meta property="og:image:width" content="1399"><meta property="og:image:height" content="622"><meta property="og:site_name" content="mimistok"><meta property="og:description" content="Douleur, repousses, préparation de la peau : découvrez comment choisir votre épilateur et limiter l'inconfort avant et après chaque séance."><meta property="og:url" content="https://mimistok.com/epilateur/"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://mimistok.com/media/website/ICONMIMI.svg" type="image/x-icon"><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=ee05e1048288936916617ed6de72b720"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://mimistok.com/epilateur/"},"headline":"Bien choisir son épilateur : douleur, repousses et peau préparée","datePublished":"2026-09-23T00:30+02:00","dateModified":"2026-09-23T00:30+02:00","image":{"@type":"ImageObject","url":"https://mimistok.com/media/posts/9/laifen-p3-pro-color-option-alliage-daluminium-gris-espace-copie.webp","height":622,"width":1399},"description":"Douleur, repousses, préparation de la peau : découvrez comment choisir votre épilateur et limiter l'inconfort avant et après chaque séance.","author":{"@type":"Person","name":"mimistok","url":"https://mimistok.com/authors/mimistok/"},"publisher":{"@type":"Organization","name":"mimistok","logo":{"@type":"ImageObject","url":"https://mimistok.com/media/website/mimistoklogo.svg","height":50,"width":50}}}</script><noscript><style>img[loading] { opacity: 1; }</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=AW-17683532210"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-17683532210');</script><meta name="p:domain_verify" content="52ce14b83d0b84c3ea8a305787e16373"><script defer="defer" src="https://cloud.umami.is/script.js" data-website-id="42ea37ac-125a-4569-a4fb-b8c82dea3aeb"></script></head><body class="post-template"><script defer="defer" src="https://widget.senja.io/..."></script><a href="/panier" id="cart-button"><div class="cart-icon"><img src="https://image.mimistok.com/bag001.svg" alt="Panier"> <span id="cart-count">0</span></div></a><style>#cart-button {
+  position: fixed;
+  top: 8%;
+  right: 26px;
+  transform: translateY(-50%);
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #007BFF;
+  z-index: 99999;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+#cart-button:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Conteneur */
+.cart-icon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🛍️ Icône */
+.cart-icon img {
+  width: 18px;
+  height: 18px;
+  transform: translateY(-1px);
+}
+
+/* 🔴 Badge toujours visible */
+#cart-count {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  background: red;
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: bold;
+
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
+
+  transform: scale(1);
+}
+
+/* Mobile */
+@media (max-width: 1024px) {
+  #cart-button {
+    top: 36px;
+    right: 82px;
+  }
+
+  .cart-icon img {
+    transform: none;
+  }
+}</style><script>// 🔄 Badge panier en temps réel
+function updateCartBadge() {
+    const panier = JSON.parse(localStorage.getItem('panier')) || [];
+    const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
+
+    const badge = document.getElementById('cart-count');
+
+    if (badge) {
+        badge.textContent = totalItems;
+    }
+}
+
+// 🔌 Hook sur ton panier existant
+const oldUpdate = window.mettreAJourPanierFlottant;
+
+window.mettreAJourPanierFlottant = function() {
+    if (oldUpdate) oldUpdate();
+    updateCartBadge();
+};
+
+// 🚀 Init propre (sans fade-in)
+window.addEventListener('load', function() {
+    updateCartBadge();
+    setInterval(updateCartBadge, 500);
+});</script><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main post"><article class="content"><figure class="content__featured-image content__featured-image--attop"><img src="https://mimistok.com/media/posts/9/laifen-p3-pro-color-option-alliage-daluminium-gris-espace-copie.webp" srcset="https://mimistok.com/media/posts/9/responsive/laifen-p3-pro-color-option-alliage-daluminium-gris-espace-copie-xs.webp 320w, https://mimistok.com/media/posts/9/responsive/laifen-p3-pro-color-option-alliage-daluminium-gris-espace-copie-sm.webp 480w, https://mimistok.com/media/posts/9/responsive/laifen-p3-pro-color-option-alliage-daluminium-gris-espace-copie-md.webp 768w, https://mimistok.com/media/posts/9/responsive/laifen-p3-pro-color-option-alliage-daluminium-gris-espace-copie-xl.webp 1024w" sizes="(min-width: 1460px) 938px, (min-width: 1200px) calc(75.83vw - 139px), 100vw" loading="eager" height="622" width="1399" alt="Bien choisir son épilateur : douleur, repousses et peau préparée"></figure><div class="main__inner"><div class="content__meta"><div class="content__author"><div><a href="https://mimistok.com/authors/mimistok/" class="content__author__name">mimistok</a></div></div><div class="content__date"><time datetime="2026-09-23T00:30">sept. 23, 2026</time></div></div><header class="content__header"><h1 class="content__title">Bien choisir son épilateur : douleur, repousses et peau préparée</h1></header><div class="content__entry"><p>Vous hésitez devant le rayon épilation parce que chaque méthode promet une peau nette, mais aucune ne dit vraiment ce qu'elle coûte en douleur, en repousses et en temps. Ce sont pourtant ces trois points qui décident si un appareil finira au fond d'un tiroir ou s'il fera partie de votre routine. Un épilateur bien choisi, une peau correctement préparée et quelques gestes simples changent radicalement le résultat.</p>
+<h2>Épilateur : ce qui provoque réellement la douleur</h2>
+<p>La douleur ne dépend pas seulement du type d'appareil. Elle dépend surtout de la zone traitée, de la longueur du poil, de la qualité de votre peau ce jour-là et de la façon dont le poil est saisi. Un poil long est arraché avec sa racine complète : la sensation est nette mais brève. Un poil de quelques millimètres, déjà cassé, se casse au ras de l'épiderme et laisse une sensation de tiraillement diffus, plus désagréable qu'efficace.</p>
+<p>La peau réagit aussi à la chaleur et à la friction. Une épilation sur une peau chauffée par un bain chaud, ou juste après un gommage, est plus douloureuse, car les terminaisons nerveuses sont alors plus réactives. À l'inverse, une peau sèche et détendue tolère beaucoup mieux le passage de l'appareil.</p>
+<p>Enfin, la vitesse compte plus que la force. Un geste lent et appuyé irrite ; un geste régulier, avec des passages courts et une peau maintenue tendue, réduit nettement l'inconfort. La plupart des personnes qui décrivent l'épilation comme insupportable appuient trop fort et avancent trop lentement.</p>
+<h2>Repousses : ce qui se passe vraiment sous la peau</h2>
+<p>Le cycle pilaire se déroule en trois phases : croissance, transition et repos. Un poil arraché avec sa racine repousse à partir du follicule, et il faut plusieurs semaines pour qu'il réapparaisse à la surface. C'est ce décalage qui donne l'impression d'une peau nette plus longtemps.</p>
+<p>Deux idées reçues méritent d'être corrigées. D'abord, l'épilation ne rend pas les poils plus épais : un poil coupé au ras présente une extrémité plate, qui paraît plus foncée et plus drue que la pointe fine d'un poil intact. Ensuite, l'épilation ne supprime pas la pilosité de façon définitive. Seules les techniques agissant sur le follicule, comme le laser ou la lumière pulsée, peuvent obtenir une réduction durable, et elles demandent plusieurs séances ainsi qu'un avis professionnel sur votre carnation et la couleur de vos poils.</p>
+<p>Autre point souvent mal compris : les poils incarnés n'apparaissent pas parce que vous vous épilez, mais parce qu'un poil fin se recourbe sous une couche de peau morte. Un gommage régulier et une hydratation suffisante restent les meilleurs préventifs.</p>
+<h2>Préparer la peau : l'étape qui change tout</h2>
+<p>Une préparation correcte vaut mieux qu'un appareil plus cher utilisé sur une peau mal préparée. Comptez trois jours d'avance, puis une routine de séance d'une dizaine de minutes.</p>
+<ol>
+<li><strong>Trois jours avant</strong> : gommez doucement la zone, puis hydratez matin et soir avec un lait corporel sans parfum.</li>
+<li><strong>La veille</strong> : laissez la peau au repos, sans gommage ni crème dépilatoire.</li>
+<li><strong>Le jour même</strong> : douchez-vous à l'eau tiède, séchez sans frotter, puis attendez vingt minutes que la peau soit parfaitement sèche.</li>
+<li><strong>Juste avant</strong> : passez un linge propre sur la zone, tendez la peau et travaillez par bandes courtes.</li>
+<li><strong>Après</strong> : rincez à l'eau fraîche, séchez en tamponnant, appliquez une crème apaisante sans alcool et évitez sauna, piscine et sport pendant vingt-quatre heures.</li>
+</ol>
+<p>La longueur du poil au moment de la séance dépend de la méthode : quelques millimètres pour la cire ou un épilateur à pincement, une peau rasée de près pour un rasoir électrique. Se tromper sur ce point est l'erreur la plus fréquente, et celle qui fait le plus mal.</p>
+<h2>Épilation à la cire, à la pince ou au rasoir : le tableau de comparaison</h2>
+<p>Le tableau suivant résume les compromis habituels observés selon les méthodes. Les durées sont des ordres de grandeur : elles varient fortement d'une personne à l'autre.</p>
+<table>
+<thead>
+<tr><th>Méthode</th><th>Douleur ressentie</th><th>Repousses visibles</th><th>Zones adaptées</th><th>Entretien hebdomadaire</th></tr>
+</thead>
+<tbody>
+<tr><td>Rasoir électrique</td><td>Faible à nulle</td><td>Sous 24 à 48 heures</td><td>Toutes, y compris visage et zones sensibles</td><td>Plusieurs passages par semaine</td></tr>
+<tr><td>Cire chaude ou froide</td><td>Marquée, brève</td><td>Deux à quatre semaines</td><td>Jambes, aisselles, maillot</td><td>Aucun entre deux séances</td></tr>
+<tr><td>Épilateur à pincement</td><td>Marquée au début</td><td>Une à trois semaines</td><td>Jambes, bras</td><td>Aucun, mais retouches fréquentes</td></tr>
+<tr><td>Laser ou lumière pulsée</td><td>Modérée, par flashs</td><td>Réduction progressive</td><td>Zones étendues, poils foncés</td><td>Aucun, mais plusieurs séances espacées</td></tr>
+</tbody>
+</table>
+<p>Deux constats ressortent de ce comparatif. Un rasoir électrique ne fait pas disparaître le poil sous la peau : il coupe. Il ne convient donc pas si votre objectif principal est d'espacer les séances. À l'inverse, si votre priorité est une peau nette sans douleur, y compris sur le visage ou le maillot, c'est la solution la plus confortable et la plus rapide à maîtriser.</p>
+<h2>Réduire la douleur : les gestes utiles avant et pendant la séance</h2>
+<p>Certaines astuces circulent beaucoup et n'ont pas d'effet mesurable. Voici ce qui aide concrètement.</p>
+<ul>
+<li><strong>La tension de la peau</strong> : maintenez la zone tendue entre deux doigts, la sensation de tiraillement chute immédiatement.</li>
+<li><strong>Le froid doux</strong> : une compresse fraîche appliquée deux minutes avant la séance atténue la sensibilité. Évitez la glace directement sur la peau.</li>
+<li><strong>La régularité du geste</strong> : mieux vaut quatre passages rapides que deux passages lents et appuyés.</li>
+<li><strong>Le bon moment</strong> : la sensibilité est souvent plus basse en dehors des jours de règles, et la fin d'après-midi est généralement mieux tolérée que le réveil.</li>
+<li><strong>L'arrêt immédiat en cas de rougeur vive</strong> : une peau qui brûle ne doit pas être épilée davantage ce jour-là.</li>
+</ul>
+<p>Ce qui ne fonctionne pas, en revanche, c'est d'appuyer plus fort, d'épiler une peau humide ou de répéter les passages sur une zone déjà irritée. Ces trois réflexes expliquent la majorité des irritations et des petits boutons qui apparaissent le lendemain.</p>
+<h2>Laifen P3 Pro : un rasoir électrique pour une épilation sans douleur</h2>
+<p>Si votre priorité est de supprimer la douleur plutôt que d'espacer les séances, la logique change : vous cherchez un appareil qui coupe de près, sans tirer, et que vous pouvez utiliser souvent sans irriter la peau.</p>
+<p>Le <a href="https://mimistok.com/laifen-p3-pro/">Laifen P3 Pro : Rasoir Électrique 3 Lames, Moteur Linéaire Pro</a> est proposé à 199,99 €. Sa désignation annonce trois lames et un moteur linéaire. Ce mode de motorisation est en général choisi pour maintenir une vitesse de coupe régulière lorsque le poil résiste, ce qui limite les à-coups : c'est précisément ce qui rend un rasage électrique confortable ou désagréable.</p>
+<p>Pour le reste, restez méthodique avant d'acheter, car ces informations ne figurent pas dans la désignation du produit. Vérifiez sur la fiche produit quatre points : l'autonomie annoncée et le temps de charge, l'étanchéité et la possibilité d'un usage sous la douche, les accessoires fournis pour les zones sensibles, et la disponibilité des pièces d'usure comme les têtes de rechange.</p>
+<p>Soyez lucide sur ce qu'un tel appareil ne fera pas. Il ne remplace ni la cire ni la lumière pulsée si vous cherchez à espacer fortement les séances, et il ne conviendra pas si vous souhaitez une peau parfaitement lisse pendant trois semaines. En revanche, pour un usage régulier sur jambes, aisselles ou visage, sans douleur et sans préparation longue, un rasoir électrique à trois lames reste l'option la plus simple à intégrer au quotidien. Vous trouverez d'autres modèles de la marque dans la <a href="https://mimistok.com/accueil/categorie-laifen/">catégorie Laifen</a>, et nos guides pratiques sont regroupés sur le <a href="https://mimistok.com/blog/laifen/">blog Laifen</a>.</p>
+<h2>Entretenir l'appareil et apaiser la peau après la séance</h2>
+<p>Un appareil entretenu coupe mieux, donc tire moins. Quelques gestes suffisent.</p>
+<ul>
+<li><strong>Têtes de coupe</strong> : retirez les poils après chaque usage avec la petite brosse fournie, sans laver la tête si la notice ne la dit pas étanche.</li>
+<li><strong>Lames</strong> : changez-les selon la fréquence indiquée par le fabricant, ou dès que les passages se multiplient pour un résultat identique.</li>
+<li><strong>Corps de l'appareil</strong> : essuyez avec un chiffon sec, jamais avec un produit abrasif ou de l'alcool.</li>
+<li><strong>Rangement</strong> : au sec, avec le capot de protection, pour éviter que les lames ne s'entrechoquent.</li>
+</ul>
+<p>Côté peau, la routine d'après-séance est courte : eau fraîche, séchage en tamponnant, crème apaisante sans parfum, puis gommage léger vingt-quatre à quarante-huit heures plus tard pour éviter les poils incarnés. Si une rougeur persiste plus de deux jours ou si des petits boutons apparaissent, laissez la zone au repos une semaine et consultez un dermatologue en cas de doute.</p>
+<h2>Questions fréquentes</h2>
+<h3>Un épilateur électrique fait-il aussi mal qu'un épilateur à pincement ?</h3>
+<p>Non. Un rasoir électrique coupe le poil au ras de la peau, sans l'arracher : la sensation est celle d'une vibration, pas d'un tiraillement. L'épilateur à pincement, lui, extrait le poil avec sa racine, ce qui est nettement plus sensible, surtout sur les premières séances.</p>
+<h3>Combien de temps faut-il attendre entre deux épilations ?</h3>
+<p>Tout dépend de la méthode. Avec un rasoir électrique, vous pouvez raser dès que le poil repointe, mais il est préférable de laisser la peau se reposer un jour entre deux passages sur une même zone. Avec la cire, comptez deux à trois semaines pour laisser le poil atteindre la bonne longueur.</p>
+<h3>L'épilation rend-elle les poils plus épais ou plus nombreux ?</h3>
+<p>Non. Le nombre de follicules est fixé et ne change pas avec l'épilation. Un poil coupé paraît plus foncé parce que son extrémité est plate plutôt que fine. C'est une illusion d'optique, pas une modification de la pilosité.</p>
+<h3>Peut-on épiler une peau irritée ou fraîchement gommée ?</h3>
+<p>Mieux vaut éviter. Une peau rougie, qui gratte ou qui vient d'être gommée est plus réactive : l'épilation aggrave l'irritation et favorise les poils incarnés. Attendez vingt-quatre heures et reprenez la préparation habituelle, gommage doux puis hydratation.</p>
+<h2>En résumé</h2>
+<p>La douleur vient moins de l'appareil que de la préparation et du geste : une peau sèche, tendue et un poil à la bonne longueur changent tout. Les repousses, elles, dépendent uniquement de la méthode choisie, et aucune technique à la maison ne les supprime définitivement. Définissez donc votre priorité avant d'acheter : sans douleur et au quotidien, un <a href="https://mimistok.com/laifen-p3-pro/">rasoir électrique comme le Laifen P3 Pro à 199,99 €</a> répond au besoin ; avec des repousses espacées, il faudra accepter la cire ou la lumière pulsée. Sur le même principe de choix guidé par l'usage réel, nous appliquons la même méthode à d'autres catégories de la boutique, du soin des cheveux à l'entretien du linge.</p></div><footer class="content__footer"><div class="content__last-updated">This article was updated on <time datetime="2026-09-23T00:30">sept. 23, 2026</time></div><div class="content__share"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmimistok.com%2Fepilateur%2F" class="js-share facebook tltp tltp--top" aria-label="Facebook" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmimistok.com%2Fepilateur%2F&amp;via=mimistok&amp;text=Bien%20choisir%20son%20%C3%A9pilateur%20%3A%20douleur%2C%20repousses%20et%20peau%20pr%C3%A9par%C3%A9e" class="js-share twitter tltp tltp--top" aria-label="Twitter" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fmimistok.com%2Fepilateur%2F&amp;media=https%3A%2F%2Fmimistok.com%2Fmedia%2Fposts%2F9%2Flaifen-p3-pro-color-option-alliage-daluminium-gris-espace-copie.webp&amp;description=Bien%20choisir%20son%20%C3%A9pilateur%20%3A%20douleur%2C%20repousses%20et%20peau%20pr%C3%A9par%C3%A9e" class="js-share pinterest tltp tltp--top" aria-label="Pinterest" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></footer></div></article><div class="content__section post__related"><div class="main__inner"><h3 class="content__section__title">Related post</h3><div class="post__related__wrap"><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2026-09-23T00:30">sept. 23, 2026</time><a href="https://mimistok.com/blog/laifen/" class="c-card-tag">Laifen</a></div><a href="https://mimistok.com/seche-cheveux-ionique/" class="c-card__image"><img src="https://mimistok.com/media/posts/8/Capture-decran-2025-10-03-a-11.03.05.webp" loading="lazy" height="1072" width="2546" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/seche-cheveux-ionique/">Sèche-cheveux ionique : ce que la technologie change vraiment</a></h2><p>Le sèche-cheveux ionique agit sur l'électricité statique, pas sur la fibre : un vrai gain de confort, à condition de maîtriser température et distance de séchage.</p></header></article><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2026-09-23T00:30">sept. 23, 2026</time><a href="https://mimistok.com/blog/laifen/" class="c-card-tag">Laifen</a></div><a href="https://mimistok.com/rasoir-electrique/" class="c-card__image"><img src="https://mimistok.com/media/posts/13/Sans-titre-4.webp" loading="lazy" height="842" width="1798" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/rasoir-electrique/">Rasoir électrique : ce qui change vraiment au quotidien</a></h2><p>Lames, autonomie et entretien : ce qui décide vraiment de la qualité d'un rasoir électrique au quotidien.</p></header></article></div></div></div></main><div class="right-bar"><div class="right-bar__inner"><div class="sidebar"><div class="box follow"><a href="https://www.facebook.com/people/Mimistok/61582459216888/" class="tltp tltp--top" aria-label="Facebook"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://x.com/storemimistok" class="tltp tltp--top" aria-label="Twitter"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://www.instagram.com/storemimistok/" class="tltp tltp--top" aria-label="Instagram"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#instagram"/></svg> <span>Instagram</span> </a><a href="https://www.linkedin.com/company/mimistok/" class="tltp tltp--top" aria-label="LinkedIn"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#linkedin"/></svg> <span>LinkedIn</span> </a><a href="https://www.pinterest.com/storemimistok/" class="tltp tltp--top" aria-label="Pinterest"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></div></div></div></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script><style>#popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(22, 23, 24, 0.80);
+    backdrop-filter: blur(15px);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 99999;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding-top: 80px;
+  }
+  #popup.show {
+    display: flex;
+    opacity: 1;
+  }
+  body.no-scroll {
+    overflow: hidden;
+  }
+
+  #search-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  #search-input-popup {
+    padding: 13px 25px;
+    width: 100%;
+    max-width: 690px;
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    font-size: 18px;
+    background: rgba(30, 30, 30, 0.75);
+    color: #FFFFFF;
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transform: scale(1);
+  }
+
+  #search-input-popup::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+  }
+
+  #search-input-popup:focus {
+    outline: none;
+    border-color: #2196F3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.4), 0 6px 20px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02);
+  }
+
+  #search-results-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 690px;
+    max-height: 900px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 15px;
+    margin-right: -5px;
+    box-sizing: border-box;
+    padding-bottom: 400px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 35px;
+    margin: 300px 0;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb {
+    background: rgba(33, 150, 243, 0.6);
+    border-radius: 4px;
+    border: 2px solid rgba(22, 23, 24, 0.8);
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb:hover {
+    background: rgba(33, 150, 243, 0.8);
+  }
+
+  .result-item-popup {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    cursor: pointer;
+    background: rgba(50, 50, 50, 0.65);
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+  }
+
+  .result-item-popup:hover {
+    background: rgba(70, 70, 70, 0.75);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .result-img-popup {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .result-title-popup {
+    font-size: 18px;
+    color: #FFFFFF;
+    font-weight: 500;
+    flex: 1;
+  }
+
+  .result-price-popup {
+    background: #2196F3;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in-popup {
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  #popup-close {
+    position: fixed;
+    top: 25px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 100000;
+  }
+
+  @media (max-width: 768px) {
+    #popup {
+      padding-top: 100px;
+      align-items: flex-start;
+    }
+    
+    #search-container-popup {
+      padding: 0 15px;
+    }
+    
+    #search-input-popup {
+      padding: 15px 20px;
+      font-size: 16px;
+      max-width: 100%;
+      border-radius: 25px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    #search-results-container-popup {
+      max-width: 100%;
+      padding: 0 8px 900px 5px;
+      box-sizing: border-box;
+      max-height: 1200px;
+      margin-right: 0;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      margin: 8px 0;
+      width: calc(100% - 20px);
+    }
+    
+    .result-img-popup {
+      width: 45px;
+      height: 45px;
+      margin-right: 15px;
+    }
+    
+    .result-title-popup {
+      font-size: 16px;
+    }
+    
+    .result-price-popup {
+      font-size: 13px;
+      padding: 5px 12px;
+    }
+    
+    #popup-close {
+      top: 20px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #popup {
+      padding-top: 90px;
+    }
+    
+    #search-container-popup {
+      padding: 0 10px;
+    }
+    
+    #search-input-popup {
+      padding: 14px 18px;
+      font-size: 16px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      width: calc(100% - 10px);
+    }
+    
+    .result-img-popup {
+      width: 40px;
+      height: 40px;
+      margin-right: 12px;
+    }
+    
+    .result-title-popup {
+      font-size: 15px;
+    }
+    
+    .result-price-popup {
+      font-size: 12px;
+      padding: 4px 10px;
+    }
+    
+    #popup-close {
+      top: 15px;
+      right: 10px;
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    #search-input-popup {
+      font-size: 16px !important;
+      transform: scale(1) !important;
+    }
+  }</style><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div></div><script>// LOGIQUE DU POPUP
+const popup = document.getElementById('popup');
+const popupCloseBtn = document.getElementById('popup-close');
+const openSearchBtn = document.getElementById('open-search-btn');
+
+function showPopup() {
+  popup.style.display = 'flex';
+  setTimeout(() => {
+    popup.classList.add('show');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('no-scroll');
+    
+    setTimeout(() => {
+      const searchInput = document.getElementById('search-input-popup');
+      searchInput.focus();
+      
+      if (window.innerWidth <= 768) {
+        searchInput.style.fontSize = '16px';
+        searchInput.style.transform = 'scale(1)';
+      }
+    }, 300);
+  }, 10);
+}
+
+function hidePopup() {
+  popup.classList.remove('show');
+  popup.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+  
+  popup.addEventListener('transitionend', function handler() {
+    if (!popup.classList.contains('show')) {
+      popup.style.display = 'none';
+    }
+    popup.removeEventListener('transitionend', handler);
+  });
+}
+
+// Événements
+if (openSearchBtn) {
+  openSearchBtn.addEventListener('click', showPopup);
+}
+popupCloseBtn.addEventListener('click', hidePopup);
+
+// Fermer avec Échap
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && popup.classList.contains('show')) {
+    hidePopup();
+  }
+});
+
+// Fermer en cliquant en dehors
+popup.addEventListener('click', function(e) {
+  if (e.target === popup) {
+    hidePopup();
+  }
+});
+
+// SYSTÈME DE RECHERCHE
+let pagesIndex = [];
+
+fetch('/search02.json')
+  .then(response => response.json())
+  .then(data => {
+    pagesIndex = data;
+  });
+
+const inputPopup = document.getElementById('search-input-popup');
+const resultsContainerPopup = document.getElementById('search-results-container-popup');
+
+inputPopup.addEventListener('input', function() {
+  const query = inputPopup.value.trim().toLowerCase();
+  resultsContainerPopup.innerHTML = '';
+  
+  if (!query) return;
+
+  const matches = pagesIndex.filter(p => p.title.toLowerCase().includes(query));
+
+  matches.forEach((p, index) => {
+    const resultDiv = document.createElement('div');
+    resultDiv.className = 'result-item-popup fade-in-popup';
+    resultDiv.style.animationDelay = `${index * 0.05}s`;
+
+    const img = document.createElement('img');
+    img.src = p.image || '';
+    img.className = 'result-img-popup';
+    img.alt = p.title;
+    
+    const title = document.createElement('span');
+    title.textContent = p.title;
+    title.className = 'result-title-popup';
+
+    const price = document.createElement('span');
+    price.textContent = `${p.price}€`;
+    price.className = 'result-price-popup';
+
+    resultDiv.appendChild(img);
+    resultDiv.appendChild(title);
+    resultDiv.appendChild(price);
+
+    resultDiv.addEventListener('click', function() {
+      window.location.href = p.url;
+    });
+
+    resultsContainerPopup.appendChild(resultDiv);
+  });
+});
+
+// ENTREE = FERMER LE CLAVIER SEULEMENT
+inputPopup.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    this.blur();
+  }
+});
+
+// Empêcher le zoom sur l'input
+inputPopup.addEventListener('touchstart', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});
+
+inputPopup.addEventListener('focus', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});</script><script>// CODE CORRIGÉ POUR LE MENU - remplace l'ancien
+document.addEventListener('DOMContentLoaded', function() {
+  const menuItem = document.querySelector('.open-search-btn');
+  if (menuItem) {
+    menuItem.style.cursor = 'pointer';
+    menuItem.addEventListener('click', function(e) {
+      e.preventDefault();
+      const popup = document.getElementById('popup');
+      popup.style.display = 'flex';
+      setTimeout(() => {
+        popup.classList.add('show');
+        popup.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('no-scroll');
+        
+        setTimeout(() => {
+          const searchInput = document.getElementById('search-input-popup');
+          if (searchInput) searchInput.focus();
+        }, 300);
+      }, 10);
+    });
+  }
+});</script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-autolinker.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-show-invisibles.min.js"></script></body></html>

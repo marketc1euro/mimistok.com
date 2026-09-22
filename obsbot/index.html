@@ -1,0 +1,645 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Obsbot : webcams à suivi automatique, la gamme</title><meta name="description" content="Obsbot conçoit des webcams à cadrage automatique par intelligence artificielle. Usages réels et différences entre les modèles de la gamme."><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="stylesheet" href="https://mimistok.com/media/plugins/syntaxHighlighter/prism-black.css"><link rel="stylesheet" href="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.css"><link rel="canonical" href="https://mimistok.com/obsbot/"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="Obsbot : le cadrage automatique comme point de départ"><meta property="og:image" content="https://mimistok.com/media/posts/41/6528df32352d4b0ba049-2.png"><meta property="og:image:width" content="1500"><meta property="og:image:height" content="565"><meta property="og:site_name" content="mimistok"><meta property="og:description" content="Obsbot conçoit des webcams à cadrage automatique par intelligence artificielle. Usages réels et différences entre les modèles de la gamme."><meta property="og:url" content="https://mimistok.com/obsbot/"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://mimistok.com/media/website/ICONMIMI.svg" type="image/x-icon"><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=ee05e1048288936916617ed6de72b720"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://mimistok.com/obsbot/"},"headline":"Obsbot : le cadrage automatique comme point de départ","datePublished":"2026-09-23T00:30+02:00","dateModified":"2026-09-23T00:30+02:00","image":{"@type":"ImageObject","url":"https://mimistok.com/media/posts/41/6528df32352d4b0ba049-2.png","height":565,"width":1500},"description":"Obsbot conçoit des webcams à cadrage automatique par intelligence artificielle. Usages réels et différences entre les modèles de la gamme.","author":{"@type":"Person","name":"mimistok","url":"https://mimistok.com/authors/mimistok/"},"publisher":{"@type":"Organization","name":"mimistok","logo":{"@type":"ImageObject","url":"https://mimistok.com/media/website/mimistoklogo.svg","height":50,"width":50}}}</script><noscript><style>img[loading] { opacity: 1; }</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=AW-17683532210"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-17683532210');</script><meta name="p:domain_verify" content="52ce14b83d0b84c3ea8a305787e16373"><script defer="defer" src="https://cloud.umami.is/script.js" data-website-id="42ea37ac-125a-4569-a4fb-b8c82dea3aeb"></script></head><body class="post-template"><script defer="defer" src="https://widget.senja.io/..."></script><a href="/panier" id="cart-button"><div class="cart-icon"><img src="https://image.mimistok.com/bag001.svg" alt="Panier"> <span id="cart-count">0</span></div></a><style>#cart-button {
+  position: fixed;
+  top: 8%;
+  right: 26px;
+  transform: translateY(-50%);
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #007BFF;
+  z-index: 99999;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+#cart-button:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Conteneur */
+.cart-icon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🛍️ Icône */
+.cart-icon img {
+  width: 18px;
+  height: 18px;
+  transform: translateY(-1px);
+}
+
+/* 🔴 Badge toujours visible */
+#cart-count {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  background: red;
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: bold;
+
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
+
+  transform: scale(1);
+}
+
+/* Mobile */
+@media (max-width: 1024px) {
+  #cart-button {
+    top: 36px;
+    right: 82px;
+  }
+
+  .cart-icon img {
+    transform: none;
+  }
+}</style><script>// 🔄 Badge panier en temps réel
+function updateCartBadge() {
+    const panier = JSON.parse(localStorage.getItem('panier')) || [];
+    const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
+
+    const badge = document.getElementById('cart-count');
+
+    if (badge) {
+        badge.textContent = totalItems;
+    }
+}
+
+// 🔌 Hook sur ton panier existant
+const oldUpdate = window.mettreAJourPanierFlottant;
+
+window.mettreAJourPanierFlottant = function() {
+    if (oldUpdate) oldUpdate();
+    updateCartBadge();
+};
+
+// 🚀 Init propre (sans fade-in)
+window.addEventListener('load', function() {
+    updateCartBadge();
+    setInterval(updateCartBadge, 500);
+});</script><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main post"><article class="content"><figure class="content__featured-image content__featured-image--attop"><img src="https://mimistok.com/media/posts/41/6528df32352d4b0ba049-2.png" srcset="https://mimistok.com/media/posts/41/responsive/6528df32352d4b0ba049-2-xs.png 320w, https://mimistok.com/media/posts/41/responsive/6528df32352d4b0ba049-2-sm.png 480w, https://mimistok.com/media/posts/41/responsive/6528df32352d4b0ba049-2-md.png 768w, https://mimistok.com/media/posts/41/responsive/6528df32352d4b0ba049-2-xl.png 1024w" sizes="(min-width: 1460px) 938px, (min-width: 1200px) calc(75.83vw - 139px), 100vw" loading="eager" height="565" width="1500" alt="Obsbot : le cadrage automatique comme point de départ"></figure><div class="main__inner"><div class="content__meta"><div class="content__author"><div><a href="https://mimistok.com/authors/mimistok/" class="content__author__name">mimistok</a></div></div><div class="content__date"><time datetime="2026-09-23T00:30">sept. 23, 2026</time></div></div><header class="content__header"><h1 class="content__title">Obsbot : le cadrage automatique comme point de départ</h1></header><div class="content__entry"><p>Vous vous êtes déjà penché vers un second écran en pleine réunion, et votre interlocuteur ne voyait plus que votre épaule. Le cadrage ne se rattrape pas après coup, et c'est exactement le problème que la marque Obsbot a choisi de traiter : des webcams à suivi automatique, qui recadrent l'image à votre place. Voici comment se lit la gamme, à quels usages elle répond, et ce qu'il faut vérifier avant de commander.</p>
+
+<h2>Obsbot : le cadrage automatique comme point de départ</h2>
+<p>La plupart des webcams du marché restent des caméras fixes : vous les posez sur l'écran, vous les orientez une fois, et vous devez ensuite rester dans le champ. Obsbot travaille sur l'idée inverse. La marque conçoit des webcams pensées pour détecter la personne présente devant l'objectif et pour ajuster le cadre en conséquence, sans que vous ayez à toucher à quoi que ce soit.</p>
+<p>La conséquence pratique est simple. Vous parlez, vous vous levez pour aller chercher un document, vous revenez vous asseoir : le cadre suit. Sur une réunion ponctuelle, l'avantage paraît anecdotique. Sur un usage régulier — visioconférences quotidiennes, cours en ligne, captation de tutoriels — c'est souvent ce qui sépare une image soignée d'une image approximative, sans effort de votre part.</p>
+<p>Autre point à garder en tête : la marque ne couvre pas tout le marché. Elle ne vise ni les webcams d'appoint à petit prix, ni le matériel de studio professionnel. Son terrain, ce sont les modèles du milieu et du haut de gamme destinés aux personnes qui veulent un cadrage fiable sans piloter la caméra à la main.</p>
+
+<h2>Pourquoi le cadrage automatique change la donne en visio</h2>
+<p>Quand on compare deux webcams dans un tableau de caractéristiques, les différences sautent rarement aux yeux. À l'usage, elles apparaissent dès la première réunion un peu longue. Les signes d'un cadrage subi sont faciles à reconnaître :</p>
+<ul>
+<li>vous apparaissez décentré dès que vous bougez votre chaise ;</li>
+<li>vous vous surprenez à vous repositionner toutes les cinq minutes ;</li>
+<li>vous sortez du champ pour écrire au tableau ou montrer un objet ;</li>
+<li>votre interlocuteur voit surtout le vide autour de vous.</li>
+</ul>
+<p>Le suivi automatique répond à ces quatre situations. Il ne transforme pas une pièce sombre en studio : l'éclairage, la qualité du son et la stabilité de la connexion restent déterminants. Il retire en revanche une charge mentale réelle, celle qui consiste à surveiller sa propre position pendant que l'on réfléchit à ce que l'on dit.</p>
+<p>C'est aussi une question de durée. Une visio de quinze minutes pardonne un cadre approximatif ; une journée entière d'appels ne le pardonne pas, et une session de streaming de plusieurs heures encore moins.</p>
+
+<h2>Comment fonctionne le suivi automatique, concrètement</h2>
+<p>Le principe général est commun à tous les modèles du genre : un traitement logiciel analyse le flux vidéo, identifie la personne à suivre, puis ajuste le cadre pour la maintenir dans l'image. Deux approches existent, et il est utile de savoir laquelle vous convient.</p>
+<h3>Recadrage numérique ou orientation physique</h3>
+<p>Dans le premier cas, la caméra ne bouge pas : le logiciel découpe dans l'image une fenêtre qu'il déplace au fil de vos mouvements. C'est discret, silencieux et mécaniquement simple. Dans le second cas, un axe motorisé fait pivoter l'optique pour vous suivre réellement. Le rendu et le bruit ne sont pas les mêmes. Le choix retenu par un modèle donné fait partie des informations à vérifier sur la fiche produit, car il conditionne directement votre expérience.</p>
+<h3>Ce que cela implique pour la qualité d'image</h3>
+<p>Un recadrage numérique revient à utiliser une portion du capteur : plus la fenêtre est étroite, plus la définition utile diminue. Si vous avez besoin d'un cadrage serré pour un décor précis, mieux vaut le savoir avant l'achat. Une caméra qui pivote physiquement échappe en partie à cette contrainte, mais elle occupe davantage de place et peut produire un léger bruit de moteur. Aucune des deux solutions n'est supérieure dans l'absolu : tout dépend de votre usage.</p>
+
+<h2>La gamme Obsbot : plusieurs réponses au même besoin</h2>
+<p>La gamme se comprend mieux par usage que par fiche technique. Les modèles partagent une même logique — garder le sujet bien cadré — mais ne s'adressent pas aux mêmes personnes. Quatre profils reviennent le plus souvent :</p>
+<ul>
+<li><strong>le télétravail quotidien</strong> : on cherche une caméra compacte, facile à fixer sur un écran ou sur un pied, discrète dans un salon ou un bureau partagé ;</li>
+<li><strong>la création de contenu</strong> : le cadrage doit tenir sur la durée d'un direct, sans intervention, y compris quand vous vous déplacez dans la pièce ;</li>
+<li><strong>la captation de démonstrations</strong> : cours, tutoriels, présentations de produits, où le suivi doit rester stable quand vous manipulez un objet ;</li>
+<li><strong>la mobilité</strong> : un modèle que l'on emporte d'un poste à l'autre et que l'on installe en quelques secondes.</li>
+</ul>
+<p>Pour chaque profil, les caractéristiques précises — définition, champ de vision, fixation, connectique, compatibilité logicielle — sont à vérifier sur la fiche produit du modèle concerné. C'est la seule façon d'éviter une mauvaise surprise, car deux références de la même marque peuvent répondre à des besoins très différents.</p>
+<p>Deux ressources complètent utilement la présentation : la <a href="https://mimistok.com/accueil/categorie-obsbot/">catégorie Obsbot</a> regroupe les modèles disponibles, et le <a href="https://mimistok.com/blog/obsbot/">blog Obsbot</a> rassemble les articles de fond sur la marque et ses usages.</p>
+
+<h2>Ce qu'il faut vérifier avant d'acheter une webcam à suivi automatique</h2>
+<p>Le suivi automatique est un argument mis en avant partout. Il ne dispense pas de contrôler les fondamentaux, qui décideront de votre satisfaction au bout de trois semaines. Le tableau ci-dessous résume les priorités selon votre situation.</p>
+<table>
+<thead>
+<tr>
+<th>Votre usage</th>
+<th>Le critère à regarder en premier</th>
+<th>Le point de vigilance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Télétravail quotidien</td>
+<td>Encombrement, fixation, mise en route immédiate</td>
+<td>L'emplacement de la caméra sur l'écran et le passage des câbles</td>
+</tr>
+<tr>
+<td>Streaming et création</td>
+<td>Comportement du suivi sur une longue durée</td>
+<td>La compatibilité avec vos logiciels de diffusion</td>
+</tr>
+<tr>
+<td>Cours et tutoriels</td>
+<td>Stabilité du cadre quand vous montrez un objet</td>
+<td>Le champ de vision réel dans une pièce exiguë</td>
+</tr>
+<tr>
+<td>Déplacements fréquents</td>
+<td>Poids, robustesse, rangement</td>
+<td>La connectique disponible sur vos machines</td>
+</tr>
+<tr>
+<td>Pièce peu éclairée</td>
+<td>Comportement de l'image en basse lumière</td>
+<td>Aucune webcam ne remplace un éclairage correct</td>
+</tr>
+</tbody>
+</table>
+<p>Une liste de contrôle courte suffit avant de valider un panier :</p>
+<ol>
+<li>vérifiez la compatibilité avec votre système et vos applications principales ;</li>
+<li>contrôlez le mode de fixation proposé et la place disponible chez vous ;</li>
+<li>assurez-vous que le suivi automatique peut être désactivé, pour les cas où vous préférez un cadre fixe ;</li>
+<li>confirmez les caractéristiques techniques sur la fiche produit plutôt que sur une description de catégorie.</li>
+</ol>
+<p>Ce dernier point est le plus important. Le suivi automatique n'est pas une fonction unique et standardisée : deux webcams peuvent l'annoncer avec des comportements très différents selon la lumière, le nombre de personnes devant l'objectif et la distance.</p>
+
+<h2>Le modèle mis en avant : Obsbot Meet SE Blanc Nuage</h2>
+<p>Parmi les références de la marque, un modèle se distingue par sa présentation claire : la <strong>OBSBOT Meet SE Blanc Nuage - Webcam AI Cadrage Auto</strong>, proposée à <strong>79,99 €</strong>. La désignation annonce l'essentiel — un cadrage automatique assisté et une finition blanc nuage, plus discrète qu'un boîtier noir sur un bureau clair ou dans un salon.</p>
+<p>La fiche produit reste la seule source fiable pour les caractéristiques techniques : définition, champ de vision, mode de fixation, compatibilité. Nous ne les reproduisons pas ici, et nous vous conseillons de les consulter avant de commander, en particulier si votre usage sort du cadre de la visio classique.</p>
+<p>Ce modèle est disponible sur <a href="https://mimistok.com/obsbot-meet-se-blanc-nuage/">la fiche OBSBOT Meet SE Blanc Nuage</a>. Si vous hésitez encore entre plusieurs approches, notre article sur <a href="https://mimistok.com/webcam/">le choix d'une webcam</a> détaille les critères qui comptent, indépendamment de la marque.</p>
+
+<h2>Quand le suivi automatique ne sert à rien</h2>
+<p>Il serait malhonnête de présenter le suivi automatique comme indispensable. Dans plusieurs cas, il apporte peu, voire devient gênant.</p>
+<ul>
+<li><strong>Vous êtes toujours à la même place.</strong> Si votre fauteuil est fixe, que la caméra est orientée une fois pour toutes et que vous restez droit, un modèle fixe bien réglé donne un résultat équivalent.</li>
+<li><strong>Vous voulez un cadre strictement immobile.</strong> Certains usages — présentations de diapositives, appels où vous restez assis — supportent mal un recadrage qui bouge. Vérifiez que la fonction se désactive.</li>
+<li><strong>Vous enregistrez un plateau avec plusieurs personnes.</strong> Le suivi d'une personne unique n'est pas toujours le comportement souhaité. Là encore, tout dépend du modèle.</li>
+<li><strong>Votre priorité est le son.</strong> Un micro médiocre pénalise une réunion bien plus qu'un cadre imparfait. Si votre budget est contraint, arbitrez en conséquence.</li>
+</ul>
+<p>À l'inverse, il devient réellement utile dès que vous bougez : poste de travail partagé, espace de démonstration, pièce où l'on se lève régulièrement.</p>
+
+<h2>Questions fréquentes</h2>
+<h3>Obsbot est-il une marque fiable pour une webcam de télétravail ?</h3>
+<p>La marque s'est construite sur un domaine précis, le suivi automatique du cadrage, plutôt que sur une gamme généraliste. C'est généralement un bon signe sur un usage donné : l'effort de conception se concentre sur un problème identifiable. Cela ne dispense pas de vérifier les caractéristiques du modèle visé sur sa fiche produit, ni de comparer avec des alternatives si vos besoins sont éloignés de la visio.</p>
+<h3>Une webcam à suivi automatique consomme-t-elle plus de ressources ?</h3>
+<p>Le traitement du suivi s'exécute soit dans la caméra, soit dans le logiciel associé. Le comportement varie selon les modèles et n'est pas documenté de la même façon par tous les fabricants. Si vous travaillez sur une machine ancienne ou déjà chargée, ce point mérite d'être vérifié sur la fiche produit avant l'achat.</p>
+<h3>Le suivi automatique fonctionne-t-il avec toutes les applications ?</h3>
+<p>Pas nécessairement. Certains modèles appliquent le recadrage au niveau matériel, ce qui le rend visible dans n'importe quelle application ; d'autres s'appuient sur un logiciel dédié. La compatibilité avec votre outil habituel — visioconférence, logiciel de diffusion, outil d'enregistrement — fait partie des informations à contrôler avant de commander.</p>
+<h3>Faut-il privilégier le suivi automatique ou la qualité d'image ?</h3>
+<p>Cela dépend de ce que vous filmez. Si vous restez assis devant un écran, une bonne image bien éclairée est plus utile qu'un cadrage mouvant. Si vous vous déplacez ou présentez des objets, le suivi prend l'avantage. Le modèle cité plus haut, vendu 79,99 €, se situe dans une zone de prix où l'arbitrage reste ouvert : lisez la fiche, comparez, et choisissez selon votre usage réel plutôt que selon la démonstration la plus spectaculaire.</p>
+
+<h2>En résumé</h2>
+<p>Obsbot occupe un créneau identifiable : des webcams à suivi automatique, pensées pour que le cadre s'adapte à vous plutôt que l'inverse. La gamme se choisit par usage — télétravail, création, démonstration, mobilité — et non par accumulation de fonctions. Le modèle OBSBOT Meet SE Blanc Nuage, à 79,99 €, en constitue une porte d'entrée accessible, à condition de vérifier ses caractéristiques sur la fiche produit et de garder en tête que le suivi automatique est un confort, pas une garantie de qualité d'image.</p></div><footer class="content__footer"><div class="content__last-updated">This article was updated on <time datetime="2026-09-23T00:30">sept. 23, 2026</time></div><div class="content__share"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmimistok.com%2Fobsbot%2F" class="js-share facebook tltp tltp--top" aria-label="Facebook" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmimistok.com%2Fobsbot%2F&amp;via=mimistok&amp;text=Obsbot%20%3A%20le%20cadrage%20automatique%20comme%20point%20de%20d%C3%A9part" class="js-share twitter tltp tltp--top" aria-label="Twitter" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fmimistok.com%2Fobsbot%2F&amp;media=https%3A%2F%2Fmimistok.com%2Fmedia%2Fposts%2F41%2F6528df32352d4b0ba049-2.png&amp;description=Obsbot%20%3A%20le%20cadrage%20automatique%20comme%20point%20de%20d%C3%A9part" class="js-share pinterest tltp tltp--top" aria-label="Pinterest" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></footer></div></article><div class="content__section post__related"><div class="main__inner"><h3 class="content__section__title">Related post</h3><div class="post__related__wrap"><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2026-09-23T00:30">sept. 23, 2026</time><a href="https://mimistok.com/blog/obsbot/" class="c-card-tag">Obsbot</a></div><a href="https://mimistok.com/camera-sport/" class="c-card__image"><img src="https://mimistok.com/media/posts/19/videoframe_3360-1.webp" loading="lazy" height="570" width="1359" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/camera-sport/">Caméra sport : ce qu'une caméra motorisée apporte au cadrage</a></h2><p>Caméra fixe ou caméra motorisée : ce qui change réellement quand le sujet se déplace. Critères de choix, comparatif et modèle à 169,99 €.</p></header></article><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2026-09-23T00:30">sept. 23, 2026</time><a href="https://mimistok.com/blog/obsbot/" class="c-card-tag">Obsbot</a></div><a href="https://mimistok.com/ring-light/" class="c-card__image"><img src="https://mimistok.com/media/posts/41/6528df32352d4b0ba049-2.png" loading="lazy" height="565" width="1500" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/ring-light/">Ring light : ce que cet éclairage change à votre image</a></h2><p>Position, intensité et température : comment régler un ring light pour une image naturelle en visio et en vidéo.</p></header></article></div></div></div></main><div class="right-bar"><div class="right-bar__inner"><div class="sidebar"><div class="box follow"><a href="https://www.facebook.com/people/Mimistok/61582459216888/" class="tltp tltp--top" aria-label="Facebook"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://x.com/storemimistok" class="tltp tltp--top" aria-label="Twitter"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://www.instagram.com/storemimistok/" class="tltp tltp--top" aria-label="Instagram"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#instagram"/></svg> <span>Instagram</span> </a><a href="https://www.linkedin.com/company/mimistok/" class="tltp tltp--top" aria-label="LinkedIn"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#linkedin"/></svg> <span>LinkedIn</span> </a><a href="https://www.pinterest.com/storemimistok/" class="tltp tltp--top" aria-label="Pinterest"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></div></div></div></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script><style>#popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(22, 23, 24, 0.80);
+    backdrop-filter: blur(15px);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 99999;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding-top: 80px;
+  }
+  #popup.show {
+    display: flex;
+    opacity: 1;
+  }
+  body.no-scroll {
+    overflow: hidden;
+  }
+
+  #search-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  #search-input-popup {
+    padding: 13px 25px;
+    width: 100%;
+    max-width: 690px;
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    font-size: 18px;
+    background: rgba(30, 30, 30, 0.75);
+    color: #FFFFFF;
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transform: scale(1);
+  }
+
+  #search-input-popup::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+  }
+
+  #search-input-popup:focus {
+    outline: none;
+    border-color: #2196F3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.4), 0 6px 20px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02);
+  }
+
+  #search-results-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 690px;
+    max-height: 900px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 15px;
+    margin-right: -5px;
+    box-sizing: border-box;
+    padding-bottom: 400px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 35px;
+    margin: 300px 0;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb {
+    background: rgba(33, 150, 243, 0.6);
+    border-radius: 4px;
+    border: 2px solid rgba(22, 23, 24, 0.8);
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb:hover {
+    background: rgba(33, 150, 243, 0.8);
+  }
+
+  .result-item-popup {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    cursor: pointer;
+    background: rgba(50, 50, 50, 0.65);
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+  }
+
+  .result-item-popup:hover {
+    background: rgba(70, 70, 70, 0.75);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .result-img-popup {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .result-title-popup {
+    font-size: 18px;
+    color: #FFFFFF;
+    font-weight: 500;
+    flex: 1;
+  }
+
+  .result-price-popup {
+    background: #2196F3;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in-popup {
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  #popup-close {
+    position: fixed;
+    top: 25px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 100000;
+  }
+
+  @media (max-width: 768px) {
+    #popup {
+      padding-top: 100px;
+      align-items: flex-start;
+    }
+    
+    #search-container-popup {
+      padding: 0 15px;
+    }
+    
+    #search-input-popup {
+      padding: 15px 20px;
+      font-size: 16px;
+      max-width: 100%;
+      border-radius: 25px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    #search-results-container-popup {
+      max-width: 100%;
+      padding: 0 8px 900px 5px;
+      box-sizing: border-box;
+      max-height: 1200px;
+      margin-right: 0;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      margin: 8px 0;
+      width: calc(100% - 20px);
+    }
+    
+    .result-img-popup {
+      width: 45px;
+      height: 45px;
+      margin-right: 15px;
+    }
+    
+    .result-title-popup {
+      font-size: 16px;
+    }
+    
+    .result-price-popup {
+      font-size: 13px;
+      padding: 5px 12px;
+    }
+    
+    #popup-close {
+      top: 20px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #popup {
+      padding-top: 90px;
+    }
+    
+    #search-container-popup {
+      padding: 0 10px;
+    }
+    
+    #search-input-popup {
+      padding: 14px 18px;
+      font-size: 16px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      width: calc(100% - 10px);
+    }
+    
+    .result-img-popup {
+      width: 40px;
+      height: 40px;
+      margin-right: 12px;
+    }
+    
+    .result-title-popup {
+      font-size: 15px;
+    }
+    
+    .result-price-popup {
+      font-size: 12px;
+      padding: 4px 10px;
+    }
+    
+    #popup-close {
+      top: 15px;
+      right: 10px;
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    #search-input-popup {
+      font-size: 16px !important;
+      transform: scale(1) !important;
+    }
+  }</style><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div></div><script>// LOGIQUE DU POPUP
+const popup = document.getElementById('popup');
+const popupCloseBtn = document.getElementById('popup-close');
+const openSearchBtn = document.getElementById('open-search-btn');
+
+function showPopup() {
+  popup.style.display = 'flex';
+  setTimeout(() => {
+    popup.classList.add('show');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('no-scroll');
+    
+    setTimeout(() => {
+      const searchInput = document.getElementById('search-input-popup');
+      searchInput.focus();
+      
+      if (window.innerWidth <= 768) {
+        searchInput.style.fontSize = '16px';
+        searchInput.style.transform = 'scale(1)';
+      }
+    }, 300);
+  }, 10);
+}
+
+function hidePopup() {
+  popup.classList.remove('show');
+  popup.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+  
+  popup.addEventListener('transitionend', function handler() {
+    if (!popup.classList.contains('show')) {
+      popup.style.display = 'none';
+    }
+    popup.removeEventListener('transitionend', handler);
+  });
+}
+
+// Événements
+if (openSearchBtn) {
+  openSearchBtn.addEventListener('click', showPopup);
+}
+popupCloseBtn.addEventListener('click', hidePopup);
+
+// Fermer avec Échap
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && popup.classList.contains('show')) {
+    hidePopup();
+  }
+});
+
+// Fermer en cliquant en dehors
+popup.addEventListener('click', function(e) {
+  if (e.target === popup) {
+    hidePopup();
+  }
+});
+
+// SYSTÈME DE RECHERCHE
+let pagesIndex = [];
+
+fetch('/search02.json')
+  .then(response => response.json())
+  .then(data => {
+    pagesIndex = data;
+  });
+
+const inputPopup = document.getElementById('search-input-popup');
+const resultsContainerPopup = document.getElementById('search-results-container-popup');
+
+inputPopup.addEventListener('input', function() {
+  const query = inputPopup.value.trim().toLowerCase();
+  resultsContainerPopup.innerHTML = '';
+  
+  if (!query) return;
+
+  const matches = pagesIndex.filter(p => p.title.toLowerCase().includes(query));
+
+  matches.forEach((p, index) => {
+    const resultDiv = document.createElement('div');
+    resultDiv.className = 'result-item-popup fade-in-popup';
+    resultDiv.style.animationDelay = `${index * 0.05}s`;
+
+    const img = document.createElement('img');
+    img.src = p.image || '';
+    img.className = 'result-img-popup';
+    img.alt = p.title;
+    
+    const title = document.createElement('span');
+    title.textContent = p.title;
+    title.className = 'result-title-popup';
+
+    const price = document.createElement('span');
+    price.textContent = `${p.price}€`;
+    price.className = 'result-price-popup';
+
+    resultDiv.appendChild(img);
+    resultDiv.appendChild(title);
+    resultDiv.appendChild(price);
+
+    resultDiv.addEventListener('click', function() {
+      window.location.href = p.url;
+    });
+
+    resultsContainerPopup.appendChild(resultDiv);
+  });
+});
+
+// ENTREE = FERMER LE CLAVIER SEULEMENT
+inputPopup.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    this.blur();
+  }
+});
+
+// Empêcher le zoom sur l'input
+inputPopup.addEventListener('touchstart', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});
+
+inputPopup.addEventListener('focus', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});</script><script>// CODE CORRIGÉ POUR LE MENU - remplace l'ancien
+document.addEventListener('DOMContentLoaded', function() {
+  const menuItem = document.querySelector('.open-search-btn');
+  if (menuItem) {
+    menuItem.style.cursor = 'pointer';
+    menuItem.addEventListener('click', function(e) {
+      e.preventDefault();
+      const popup = document.getElementById('popup');
+      popup.style.display = 'flex';
+      setTimeout(() => {
+        popup.classList.add('show');
+        popup.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('no-scroll');
+        
+        setTimeout(() => {
+          const searchInput = document.getElementById('search-input-popup');
+          if (searchInput) searchInput.focus();
+        }, 300);
+      }, 10);
+    });
+  }
+});</script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-autolinker.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-show-invisibles.min.js"></script></body></html>

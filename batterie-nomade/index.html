@@ -1,0 +1,622 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Batterie nomade en avion : contraintes et bonnes pratiques</title><meta name="description" content="Batterie nomade en avion : règles en cabine et en soute, critères à vérifier et bonnes pratiques avant de partir. Notre guide pour voyager serein."><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="stylesheet" href="https://mimistok.com/media/plugins/syntaxHighlighter/prism-black.css"><link rel="stylesheet" href="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.css"><link rel="canonical" href="https://mimistok.com/batterie-nomade/"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="Batterie nomade en voyage et en avion : ce qu'il faut savoir"><meta property="og:image" content="https://mimistok.com/media/posts/37/imgi_6_f033e4a8f74b4c7981523a797485b478_image.webp"><meta property="og:image:width" content="1500"><meta property="og:image:height" content="1500"><meta property="og:site_name" content="mimistok"><meta property="og:description" content="Batterie nomade en avion : règles en cabine et en soute, critères à vérifier et bonnes pratiques avant de partir. Notre guide pour voyager serein."><meta property="og:url" content="https://mimistok.com/batterie-nomade/"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://mimistok.com/media/website/ICONMIMI.svg" type="image/x-icon"><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=ee05e1048288936916617ed6de72b720"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://mimistok.com/batterie-nomade/"},"headline":"Batterie nomade en voyage et en avion : ce qu'il faut savoir","datePublished":"2026-09-23T00:30+02:00","dateModified":"2026-09-23T00:30+02:00","image":{"@type":"ImageObject","url":"https://mimistok.com/media/posts/37/imgi_6_f033e4a8f74b4c7981523a797485b478_image.webp","height":1500,"width":1500},"description":"Batterie nomade en avion : règles en cabine et en soute, critères à vérifier et bonnes pratiques avant de partir. Notre guide pour voyager serein.","author":{"@type":"Person","name":"mimistok","url":"https://mimistok.com/authors/mimistok/"},"publisher":{"@type":"Organization","name":"mimistok","logo":{"@type":"ImageObject","url":"https://mimistok.com/media/website/mimistoklogo.svg","height":50,"width":50}}}</script><noscript><style>img[loading] { opacity: 1; }</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=AW-17683532210"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-17683532210');</script><meta name="p:domain_verify" content="52ce14b83d0b84c3ea8a305787e16373"><script defer="defer" src="https://cloud.umami.is/script.js" data-website-id="42ea37ac-125a-4569-a4fb-b8c82dea3aeb"></script></head><body class="post-template"><script defer="defer" src="https://widget.senja.io/..."></script><a href="/panier" id="cart-button"><div class="cart-icon"><img src="https://image.mimistok.com/bag001.svg" alt="Panier"> <span id="cart-count">0</span></div></a><style>#cart-button {
+  position: fixed;
+  top: 8%;
+  right: 26px;
+  transform: translateY(-50%);
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #007BFF;
+  z-index: 99999;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+#cart-button:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Conteneur */
+.cart-icon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🛍️ Icône */
+.cart-icon img {
+  width: 18px;
+  height: 18px;
+  transform: translateY(-1px);
+}
+
+/* 🔴 Badge toujours visible */
+#cart-count {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  background: red;
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: bold;
+
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
+
+  transform: scale(1);
+}
+
+/* Mobile */
+@media (max-width: 1024px) {
+  #cart-button {
+    top: 36px;
+    right: 82px;
+  }
+
+  .cart-icon img {
+    transform: none;
+  }
+}</style><script>// 🔄 Badge panier en temps réel
+function updateCartBadge() {
+    const panier = JSON.parse(localStorage.getItem('panier')) || [];
+    const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
+
+    const badge = document.getElementById('cart-count');
+
+    if (badge) {
+        badge.textContent = totalItems;
+    }
+}
+
+// 🔌 Hook sur ton panier existant
+const oldUpdate = window.mettreAJourPanierFlottant;
+
+window.mettreAJourPanierFlottant = function() {
+    if (oldUpdate) oldUpdate();
+    updateCartBadge();
+};
+
+// 🚀 Init propre (sans fade-in)
+window.addEventListener('load', function() {
+    updateCartBadge();
+    setInterval(updateCartBadge, 500);
+});</script><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main post"><article class="content"><figure class="content__featured-image content__featured-image--attop"><img src="https://mimistok.com/media/posts/37/imgi_6_f033e4a8f74b4c7981523a797485b478_image.webp" srcset="https://mimistok.com/media/posts/37/responsive/imgi_6_f033e4a8f74b4c7981523a797485b478_image-xs.webp 320w, https://mimistok.com/media/posts/37/responsive/imgi_6_f033e4a8f74b4c7981523a797485b478_image-sm.webp 480w, https://mimistok.com/media/posts/37/responsive/imgi_6_f033e4a8f74b4c7981523a797485b478_image-md.webp 768w, https://mimistok.com/media/posts/37/responsive/imgi_6_f033e4a8f74b4c7981523a797485b478_image-xl.webp 1024w" sizes="(min-width: 1460px) 938px, (min-width: 1200px) calc(75.83vw - 139px), 100vw" loading="eager" height="1500" width="1500" alt="Batterie nomade en voyage et en avion : ce qu'il faut savoir"></figure><div class="main__inner"><div class="content__meta"><div class="content__author"><div><a href="https://mimistok.com/authors/mimistok/" class="content__author__name">mimistok</a></div></div><div class="content__date"><time datetime="2026-09-23T00:30">sept. 23, 2026</time></div></div><header class="content__header"><h1 class="content__title">Batterie nomade en voyage et en avion : ce qu'il faut savoir</h1></header><div class="content__entry"><p>Vous partez bientôt et vous vous demandez si votre batterie nomade peut monter à bord, et dans quelles conditions ? La question est légitime, car cet accessoire très répandu est aussi l'un des objets les plus encadrés en aéroport. Les règles ne portent ni sur la marque ni sur le prix, mais sur l'énergie que l'appareil contient. Voici ce qui est réellement contrôlé, comment préparer votre matériel, et les critères qui comptent au moment de l'achat.</p>
+
+<h2>Batterie nomade en voyage : ce qui change vraiment</h2>
+<p>À la maison, une batterie externe se juge sur sa capacité et son confort d'usage. En voyage, trois contraintes s'ajoutent : la réglementation aérienne, qui encadre les batteries au lithium sans exception pour les modèles récents ; le poids, dès que vous partez en cabine avec un bagage léger ; et la fiabilité, car un appareil qui a gonflé ou qui chauffe anormalement n'a rien à faire dans un avion, même s'il charge encore.</p>
+<p>L'objectif n'est donc pas de renoncer au confort, mais de choisir un modèle dont les caractéristiques sont lisibles et vérifiables.</p>
+
+<h2>Ce que les compagnies aériennes regardent réellement</h2>
+<p>Le critère central n'est pas la capacité affichée en milliampères-heures (mAh), mais l'énergie exprimée en watts-heures (Wh). C'est cette valeur que le personnel au sol recherche sur l'appareil. Les principes les plus largement appliqués sont les suivants.</p>
+<ul>
+<li>jusqu'à 100 Wh : transport accepté en cabine, sans autorisation particulière ;</li>
+<li>entre 100 et 160 Wh : accepté uniquement avec l'accord de la compagnie, en cabine ;</li>
+<li>au-delà de 160 Wh : transport refusé en avion de passagers ;</li>
+<li>batteries de secours, dont font partie les batteries nomades : interdites en soute.</li>
+</ul>
+<p>La conversion entre mAh et Wh dépend de la tension de la batterie : deux modèles de même capacité affichée peuvent donc présenter des énergies différentes. C'est pourquoi la valeur en Wh est la seule qui fasse foi au contrôle.</p>
+<p>Autre point à connaître : plusieurs compagnies restreignent l'usage des batteries externes pendant le vol, ou interdisent de recharger un appareil en vol. Ces règles évoluent. Consultez la page « bagages » de votre transporteur quelques jours avant le départ, plutôt que de vous fier à une information lue l'an dernier.</p>
+
+<h2>Cabine ou soute : ce qui diffère concrètement</h2>
+<p>Le tableau ci-dessous résume la logique générale. Il décrit des principes largement appliqués, et non une règle unique : chaque transporteur peut ajouter ses propres restrictions.</p>
+<table>
+<thead>
+<tr><th>Situation</th><th>En cabine</th><th>En soute</th></tr>
+</thead>
+<tbody>
+<tr><td>Batterie de secours, c'est-à-dire une batterie nomade</td><td>Autorisée selon les seuils d'énergie</td><td>Interdite</td></tr>
+<tr><td>Appareil contenant sa batterie, téléphone ou ordinateur</td><td>Autorisé</td><td>Autorisé, appareil éteint</td></tr>
+<tr><td>Recharge d'un appareil pendant le vol</td><td>Selon la compagnie, parfois interdite</td><td>Sans objet</td></tr>
+<tr><td>Batterie gonflée, endommagée ou mouillée</td><td>Refusée</td><td>Refusée</td></tr>
+<tr><td>Réaction en cas d'incident</td><td>Intervention possible par l'équipage</td><td>Accès impossible en vol</td></tr>
+</tbody>
+</table>
+<p>La dernière ligne explique à elle seule pourquoi les batteries de secours sont renvoyées en cabine : c'est le seul endroit où un incident peut être détecté et traité pendant le vol.</p>
+
+<h2>Les critères à vérifier avant d'acheter</h2>
+<p>Une batterie destinée aux déplacements se choisit sur des informations concrètes, pas sur une promesse commerciale.</p>
+<ol>
+<li>l'énergie en watts-heures, lisible sur l'appareil ou sa notice : c'est la donnée qui décide de tout en aéroport ;</li>
+<li>le poids, déterminant si vous voyagez en cabine avec un bagage léger ;</li>
+<li>la puissance de sortie, indiquée sur la fiche produit, car elle détermine ce que vous pourrez recharger dans de bonnes conditions ;</li>
+<li>le nombre et le type de ports, qui doivent correspondre aux câbles que vous emportez ;</li>
+<li>la présence d'un indicateur de charge, plus utile en voyage qu'un affichage sophistiqué ;</li>
+<li>les mentions de sécurité du fabricant, notamment la protection contre les surcharges et les courts-circuits.</li>
+</ol>
+<p>Un modèle bien documenté vaut mieux qu'un modèle à la capacité impressionnante dont aucune caractéristique n'est clairement indiquée.</p>
+
+<h2>La Power Bank Baseus 10000mAh Blanc en pratique</h2>
+<p>Si vous cherchez une batterie nomade simple pour vos déplacements, la Power Bank Baseus 10000mAh Blanc - Charge Rapide Portable est proposée à 19,99 € sur notre boutique. Son format compact vise les usages quotidiens : recharger un téléphone, des écouteurs ou une petite tablette au fil de la journée, sans transporter un bloc volumineux.</p>
+<p>Nous restons volontairement sobres sur les chiffres : la puissance de sortie exacte, le nombre de recharges, le poids et les certifications éventuelles ne sont pas détaillés ici et sont à vérifier sur la fiche produit, qui seule fait référence. C'est particulièrement vrai pour la valeur en watts-heures, celle que l'on vous demandera en aéroport : elle doit être lisible sur l'appareil ou sa documentation.</p>
+<p>Un point d'honnêteté : ce type de modèle convient bien à un téléphone ou à des accessoires, mais il n'est pas conçu pour recharger un ordinateur portable exigeant. Si c'est votre besoin principal, comparez les modèles dont la puissance de sortie est explicitement prévue pour cet usage. Vous pouvez parcourir la <a href="https://mimistok.com/accueil/categorie-baseus/">catégorie Baseus</a>, consulter la <a href="https://mimistok.com/powerbank-baseus/">fiche de la Power Bank Baseus 10000mAh Blanc</a> pour les caractéristiques exactes, et retrouver les guides de la marque sur le <a href="https://mimistok.com/blog/baseus/">blog Baseus</a>.</p>
+
+<h2>Bonnes pratiques avant, pendant et après le vol</h2>
+<p>Quelques réflexes suffisent à passer les contrôles sans perdre de temps.</p>
+<ol>
+<li>placez votre batterie dans le bagage cabine, jamais dans un bagage enregistré ;</li>
+<li>protégez les connecteurs, par exemple avec un capuchon, pour éviter un contact avec des objets métalliques comme des clés ;</li>
+<li>vérifiez que la valeur en watts-heures est lisible sans devoir chercher une notice au fond d'une valise ;</li>
+<li>emportez un seul appareil si vous n'en avez pas un besoin réel : les textes prévoient des limites de quantité, à vérifier auprès de votre compagnie ;</li>
+<li>à l'arrivée, évitez de laisser la batterie dans un véhicule exposé au soleil, ce qui abîme les cellules.</li>
+</ol>
+
+<h2>Erreurs fréquentes et signaux d'alerte</h2>
+<p>Certaines habitudes courantes compliquent inutilement le passage en aéroport ou mettent le matériel en danger.</p>
+<ul>
+<li>confondre capacité en mAh et énergie en Wh, et supposer qu'un modèle passe le contrôle parce qu'il « charge bien » ;</li>
+<li>laisser la batterie dans la valise en soute : elle y est interdite ;</li>
+<li>emporter un appareil dont l'étiquette est effacée, ce qui rend toute vérification impossible ;</li>
+<li>continuer à utiliser une batterie gonflée ou dont la coque se déforme : c'est le signe de cellules endommagées, qu'il faut cesser d'utiliser et faire recycler ;</li>
+<li>se fier à un précédent voyage, alors que les règles et les contrôles évoluent.</li>
+</ul>
+<p>Un appareil qui chauffe anormalement, qui dégage une odeur inhabituelle ou dont la charge s'effondre en quelques minutes ne doit pas partir avec vous.</p>
+
+<h2>Questions fréquentes</h2>
+
+<h3>Puis-je emporter une batterie nomade en cabine ?</h3>
+<p>Oui, dans la plupart des cas, à condition que son énergie reste sous les seuils prévus et que cette valeur soit lisible sur l'appareil. Entre 100 et 160 Wh, l'accord préalable de la compagnie est nécessaire ; au-delà, le transport est refusé.</p>
+
+<h3>Pourquoi une batterie nomade est-elle interdite en soute ?</h3>
+<p>Parce qu'une batterie placée en soute est inaccessible en vol : si elle entre en surchauffe, l'équipage ne peut ni la voir ni intervenir. En cabine, un incident peut être détecté et traité immédiatement.</p>
+
+<h3>La capacité en mAh suffit-elle pour savoir si ma batterie est acceptée ?</h3>
+<p>Non. Les seuils sont exprimés en watts-heures, et la conversion dépend de la tension de la batterie. Cherchez la valeur en Wh sur l'appareil ou dans sa notice, et reportez-vous à la fiche produit si elle n'y figure pas.</p>
+
+<h3>Peut-on recharger son téléphone pendant le vol ?</h3>
+<p>Cela dépend entièrement de la compagnie. Certaines l'autorisent, d'autres le restreignent ou l'interdisent, et plusieurs transporteurs demandent que la batterie reste rangée pendant tout le vol. Vérifiez leurs règles avant l'embarquement.</p>
+
+<h2>En résumé</h2>
+<p>Une batterie qui voyage bien est d'abord un appareil dont les caractéristiques sont claires : énergie en watts-heures lisible, format raisonnable, ports adaptés à vos usages. Le reste relève de la préparation : en cabine et non en soute, une valeur vérifiable sous la main, et un coup d'œil aux règles de votre compagnie avant de partir. Pour un usage courant, la <a href="https://mimistok.com/powerbank-baseus/">Power Bank Baseus 10000mAh Blanc</a> à 19,99 € reste une option cohérente, à condition de vérifier sur la fiche produit les points qui comptent pour votre voyage.</p></div><footer class="content__footer"><div class="content__last-updated">This article was updated on <time datetime="2026-09-23T00:30">sept. 23, 2026</time></div><div class="content__share"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmimistok.com%2Fbatterie-nomade%2F" class="js-share facebook tltp tltp--top" aria-label="Facebook" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmimistok.com%2Fbatterie-nomade%2F&amp;via=mimistok&amp;text=Batterie%20nomade%20en%20voyage%20et%20en%20avion%20%3A%20ce%20qu%27il%20faut%20savoir" class="js-share twitter tltp tltp--top" aria-label="Twitter" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fmimistok.com%2Fbatterie-nomade%2F&amp;media=https%3A%2F%2Fmimistok.com%2Fmedia%2Fposts%2F37%2Fimgi_6_f033e4a8f74b4c7981523a797485b478_image.webp&amp;description=Batterie%20nomade%20en%20voyage%20et%20en%20avion%20%3A%20ce%20qu%27il%20faut%20savoir" class="js-share pinterest tltp tltp--top" aria-label="Pinterest" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></footer></div></article><div class="content__section post__related"><div class="main__inner"><h3 class="content__section__title">Related post</h3><div class="post__related__wrap"><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2026-09-23T00:30">sept. 23, 2026</time><a href="https://mimistok.com/blog/baseus/" class="c-card-tag">Baseus</a></div><a href="https://mimistok.com/adaptateur-usb-c/" class="c-card__image"><img src="https://mimistok.com/media/posts/15/Baseus__Blade_H1_Digital_Display_Power_Bank_20000mAh_100W_01.webp" loading="lazy" height="600" width="1464" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/adaptateur-usb-c/">Adaptateur USB C : un connecteur, des capacités inégales</a></h2><p>Données, vidéo ou charge : comprendre ce qu'un adaptateur USB C sait réellement faire avant de l'acheter.</p></header></article><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2026-09-23T00:30">sept. 23, 2026</time><a href="https://mimistok.com/blog/baseus/" class="c-card-tag">Baseus</a></div><a href="https://mimistok.com/chargeur-iphone/" class="c-card__image"><img src="https://mimistok.com/media/posts/37/imgi_6_f033e4a8f74b4c7981523a797485b478_image.webp" loading="lazy" height="1500" width="1500" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/chargeur-iphone/">Chargeur iPhone : les trois éléments qui décident vraiment</a></h2><p>Puissance, câble et protocole : les trois éléments qui expliquent une charge lente, et comment y remédier.</p></header></article></div></div></div></main><div class="right-bar"><div class="right-bar__inner"><div class="sidebar"><div class="box follow"><a href="https://www.facebook.com/people/Mimistok/61582459216888/" class="tltp tltp--top" aria-label="Facebook"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://x.com/storemimistok" class="tltp tltp--top" aria-label="Twitter"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://www.instagram.com/storemimistok/" class="tltp tltp--top" aria-label="Instagram"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#instagram"/></svg> <span>Instagram</span> </a><a href="https://www.linkedin.com/company/mimistok/" class="tltp tltp--top" aria-label="LinkedIn"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#linkedin"/></svg> <span>LinkedIn</span> </a><a href="https://www.pinterest.com/storemimistok/" class="tltp tltp--top" aria-label="Pinterest"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></div></div></div></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script><style>#popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(22, 23, 24, 0.80);
+    backdrop-filter: blur(15px);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 99999;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding-top: 80px;
+  }
+  #popup.show {
+    display: flex;
+    opacity: 1;
+  }
+  body.no-scroll {
+    overflow: hidden;
+  }
+
+  #search-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  #search-input-popup {
+    padding: 13px 25px;
+    width: 100%;
+    max-width: 690px;
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    font-size: 18px;
+    background: rgba(30, 30, 30, 0.75);
+    color: #FFFFFF;
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transform: scale(1);
+  }
+
+  #search-input-popup::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+  }
+
+  #search-input-popup:focus {
+    outline: none;
+    border-color: #2196F3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.4), 0 6px 20px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02);
+  }
+
+  #search-results-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 690px;
+    max-height: 900px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 15px;
+    margin-right: -5px;
+    box-sizing: border-box;
+    padding-bottom: 400px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 35px;
+    margin: 300px 0;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb {
+    background: rgba(33, 150, 243, 0.6);
+    border-radius: 4px;
+    border: 2px solid rgba(22, 23, 24, 0.8);
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb:hover {
+    background: rgba(33, 150, 243, 0.8);
+  }
+
+  .result-item-popup {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    cursor: pointer;
+    background: rgba(50, 50, 50, 0.65);
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+  }
+
+  .result-item-popup:hover {
+    background: rgba(70, 70, 70, 0.75);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .result-img-popup {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .result-title-popup {
+    font-size: 18px;
+    color: #FFFFFF;
+    font-weight: 500;
+    flex: 1;
+  }
+
+  .result-price-popup {
+    background: #2196F3;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in-popup {
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  #popup-close {
+    position: fixed;
+    top: 25px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 100000;
+  }
+
+  @media (max-width: 768px) {
+    #popup {
+      padding-top: 100px;
+      align-items: flex-start;
+    }
+    
+    #search-container-popup {
+      padding: 0 15px;
+    }
+    
+    #search-input-popup {
+      padding: 15px 20px;
+      font-size: 16px;
+      max-width: 100%;
+      border-radius: 25px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    #search-results-container-popup {
+      max-width: 100%;
+      padding: 0 8px 900px 5px;
+      box-sizing: border-box;
+      max-height: 1200px;
+      margin-right: 0;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      margin: 8px 0;
+      width: calc(100% - 20px);
+    }
+    
+    .result-img-popup {
+      width: 45px;
+      height: 45px;
+      margin-right: 15px;
+    }
+    
+    .result-title-popup {
+      font-size: 16px;
+    }
+    
+    .result-price-popup {
+      font-size: 13px;
+      padding: 5px 12px;
+    }
+    
+    #popup-close {
+      top: 20px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #popup {
+      padding-top: 90px;
+    }
+    
+    #search-container-popup {
+      padding: 0 10px;
+    }
+    
+    #search-input-popup {
+      padding: 14px 18px;
+      font-size: 16px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      width: calc(100% - 10px);
+    }
+    
+    .result-img-popup {
+      width: 40px;
+      height: 40px;
+      margin-right: 12px;
+    }
+    
+    .result-title-popup {
+      font-size: 15px;
+    }
+    
+    .result-price-popup {
+      font-size: 12px;
+      padding: 4px 10px;
+    }
+    
+    #popup-close {
+      top: 15px;
+      right: 10px;
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    #search-input-popup {
+      font-size: 16px !important;
+      transform: scale(1) !important;
+    }
+  }</style><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div></div><script>// LOGIQUE DU POPUP
+const popup = document.getElementById('popup');
+const popupCloseBtn = document.getElementById('popup-close');
+const openSearchBtn = document.getElementById('open-search-btn');
+
+function showPopup() {
+  popup.style.display = 'flex';
+  setTimeout(() => {
+    popup.classList.add('show');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('no-scroll');
+    
+    setTimeout(() => {
+      const searchInput = document.getElementById('search-input-popup');
+      searchInput.focus();
+      
+      if (window.innerWidth <= 768) {
+        searchInput.style.fontSize = '16px';
+        searchInput.style.transform = 'scale(1)';
+      }
+    }, 300);
+  }, 10);
+}
+
+function hidePopup() {
+  popup.classList.remove('show');
+  popup.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+  
+  popup.addEventListener('transitionend', function handler() {
+    if (!popup.classList.contains('show')) {
+      popup.style.display = 'none';
+    }
+    popup.removeEventListener('transitionend', handler);
+  });
+}
+
+// Événements
+if (openSearchBtn) {
+  openSearchBtn.addEventListener('click', showPopup);
+}
+popupCloseBtn.addEventListener('click', hidePopup);
+
+// Fermer avec Échap
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && popup.classList.contains('show')) {
+    hidePopup();
+  }
+});
+
+// Fermer en cliquant en dehors
+popup.addEventListener('click', function(e) {
+  if (e.target === popup) {
+    hidePopup();
+  }
+});
+
+// SYSTÈME DE RECHERCHE
+let pagesIndex = [];
+
+fetch('/search02.json')
+  .then(response => response.json())
+  .then(data => {
+    pagesIndex = data;
+  });
+
+const inputPopup = document.getElementById('search-input-popup');
+const resultsContainerPopup = document.getElementById('search-results-container-popup');
+
+inputPopup.addEventListener('input', function() {
+  const query = inputPopup.value.trim().toLowerCase();
+  resultsContainerPopup.innerHTML = '';
+  
+  if (!query) return;
+
+  const matches = pagesIndex.filter(p => p.title.toLowerCase().includes(query));
+
+  matches.forEach((p, index) => {
+    const resultDiv = document.createElement('div');
+    resultDiv.className = 'result-item-popup fade-in-popup';
+    resultDiv.style.animationDelay = `${index * 0.05}s`;
+
+    const img = document.createElement('img');
+    img.src = p.image || '';
+    img.className = 'result-img-popup';
+    img.alt = p.title;
+    
+    const title = document.createElement('span');
+    title.textContent = p.title;
+    title.className = 'result-title-popup';
+
+    const price = document.createElement('span');
+    price.textContent = `${p.price}€`;
+    price.className = 'result-price-popup';
+
+    resultDiv.appendChild(img);
+    resultDiv.appendChild(title);
+    resultDiv.appendChild(price);
+
+    resultDiv.addEventListener('click', function() {
+      window.location.href = p.url;
+    });
+
+    resultsContainerPopup.appendChild(resultDiv);
+  });
+});
+
+// ENTREE = FERMER LE CLAVIER SEULEMENT
+inputPopup.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    this.blur();
+  }
+});
+
+// Empêcher le zoom sur l'input
+inputPopup.addEventListener('touchstart', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});
+
+inputPopup.addEventListener('focus', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});</script><script>// CODE CORRIGÉ POUR LE MENU - remplace l'ancien
+document.addEventListener('DOMContentLoaded', function() {
+  const menuItem = document.querySelector('.open-search-btn');
+  if (menuItem) {
+    menuItem.style.cursor = 'pointer';
+    menuItem.addEventListener('click', function(e) {
+      e.preventDefault();
+      const popup = document.getElementById('popup');
+      popup.style.display = 'flex';
+      setTimeout(() => {
+        popup.classList.add('show');
+        popup.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('no-scroll');
+        
+        setTimeout(() => {
+          const searchInput = document.getElementById('search-input-popup');
+          if (searchInput) searchInput.focus();
+        }, 300);
+      }, 10);
+    });
+  }
+});</script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-autolinker.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-show-invisibles.min.js"></script></body></html>

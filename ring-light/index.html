@@ -1,0 +1,641 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ring light : bien éclairer son visage en vidéo</title><meta name="description" content="Position, température de couleur, intensité : un ring light bien réglé transforme une image terne, mal réglé il aplatit le visage."><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="stylesheet" href="https://mimistok.com/media/plugins/syntaxHighlighter/prism-black.css"><link rel="stylesheet" href="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.css"><link rel="canonical" href="https://mimistok.com/ring-light/"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="Ring light : ce que cet éclairage change à votre image"><meta property="og:image" content="https://mimistok.com/media/posts/41/6528df32352d4b0ba049-2.png"><meta property="og:image:width" content="1500"><meta property="og:image:height" content="565"><meta property="og:site_name" content="mimistok"><meta property="og:description" content="Position, température de couleur, intensité : un ring light bien réglé transforme une image terne, mal réglé il aplatit le visage."><meta property="og:url" content="https://mimistok.com/ring-light/"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://mimistok.com/media/website/ICONMIMI.svg" type="image/x-icon"><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=ee05e1048288936916617ed6de72b720"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://mimistok.com/ring-light/"},"headline":"Ring light : ce que cet éclairage change à votre image","datePublished":"2026-09-23T00:30+02:00","dateModified":"2026-09-23T00:30+02:00","image":{"@type":"ImageObject","url":"https://mimistok.com/media/posts/41/6528df32352d4b0ba049-2.png","height":565,"width":1500},"description":"Position, température de couleur, intensité : un ring light bien réglé transforme une image terne, mal réglé il aplatit le visage.","author":{"@type":"Person","name":"mimistok","url":"https://mimistok.com/authors/mimistok/"},"publisher":{"@type":"Organization","name":"mimistok","logo":{"@type":"ImageObject","url":"https://mimistok.com/media/website/mimistoklogo.svg","height":50,"width":50}}}</script><noscript><style>img[loading] { opacity: 1; }</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=AW-17683532210"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-17683532210');</script><meta name="p:domain_verify" content="52ce14b83d0b84c3ea8a305787e16373"><script defer="defer" src="https://cloud.umami.is/script.js" data-website-id="42ea37ac-125a-4569-a4fb-b8c82dea3aeb"></script></head><body class="post-template"><script defer="defer" src="https://widget.senja.io/..."></script><a href="/panier" id="cart-button"><div class="cart-icon"><img src="https://image.mimistok.com/bag001.svg" alt="Panier"> <span id="cart-count">0</span></div></a><style>#cart-button {
+  position: fixed;
+  top: 8%;
+  right: 26px;
+  transform: translateY(-50%);
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #007BFF;
+  z-index: 99999;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+#cart-button:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Conteneur */
+.cart-icon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🛍️ Icône */
+.cart-icon img {
+  width: 18px;
+  height: 18px;
+  transform: translateY(-1px);
+}
+
+/* 🔴 Badge toujours visible */
+#cart-count {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  background: red;
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: bold;
+
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
+
+  transform: scale(1);
+}
+
+/* Mobile */
+@media (max-width: 1024px) {
+  #cart-button {
+    top: 36px;
+    right: 82px;
+  }
+
+  .cart-icon img {
+    transform: none;
+  }
+}</style><script>// 🔄 Badge panier en temps réel
+function updateCartBadge() {
+    const panier = JSON.parse(localStorage.getItem('panier')) || [];
+    const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
+
+    const badge = document.getElementById('cart-count');
+
+    if (badge) {
+        badge.textContent = totalItems;
+    }
+}
+
+// 🔌 Hook sur ton panier existant
+const oldUpdate = window.mettreAJourPanierFlottant;
+
+window.mettreAJourPanierFlottant = function() {
+    if (oldUpdate) oldUpdate();
+    updateCartBadge();
+};
+
+// 🚀 Init propre (sans fade-in)
+window.addEventListener('load', function() {
+    updateCartBadge();
+    setInterval(updateCartBadge, 500);
+});</script><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main post"><article class="content"><figure class="content__featured-image content__featured-image--attop"><img src="https://mimistok.com/media/posts/41/6528df32352d4b0ba049-2.png" srcset="https://mimistok.com/media/posts/41/responsive/6528df32352d4b0ba049-2-xs.png 320w, https://mimistok.com/media/posts/41/responsive/6528df32352d4b0ba049-2-sm.png 480w, https://mimistok.com/media/posts/41/responsive/6528df32352d4b0ba049-2-md.png 768w, https://mimistok.com/media/posts/41/responsive/6528df32352d4b0ba049-2-xl.png 1024w" sizes="(min-width: 1460px) 938px, (min-width: 1200px) calc(75.83vw - 139px), 100vw" loading="eager" height="565" width="1500" alt="Ring light : ce que cet éclairage change à votre image"></figure><div class="main__inner"><div class="content__meta"><div class="content__author"><div><a href="https://mimistok.com/authors/mimistok/" class="content__author__name">mimistok</a></div></div><div class="content__date"><time datetime="2026-09-23T00:30">sept. 23, 2026</time></div></div><header class="content__header"><h1 class="content__title">Ring light : ce que cet éclairage change à votre image</h1></header><div class="content__entry"><p>Vous avez investi dans une webcam correcte, mais votre image reste terne, avec des cernes marqués et un arrière-plan qui s'écrase dans l'ombre ? Le problème vient rarement de la caméra : il vient de la lumière. Un ring light bien placé et réglé à la bonne température corrige en dix minutes ce qu'aucun réglage logiciel ne rattrapera.</p>
+
+<h2>Ring light : ce que cet éclairage change vraiment à votre image</h2>
+<p>C'est une source lumineuse circulaire, installée autour de l'objectif ou juste derrière lui. Sa forme produit une lumière frontale, douce et centrée, qui remplit les zones d'ombre du visage : les traits sont lisibles et l'image paraît plus nette, sans toucher au moindre réglage de la caméra.</p>
+<p>Cette uniformité a un revers. Une lumière strictement frontale aplatit les volumes, et le rendu peut sembler artificiel si l'intensité est poussée au maximum. Ce type d'éclairage convient très bien à une présentation, à un tutoriel ou à une visioconférence ; il est moins adapté à un portrait que vous voudriez modelé.</p>
+<ul>
+<li>il remplit les ombres sous les yeux et sous le nez ;</li>
+<li>il rend le teint plus homogène ;</li>
+<li>il détache le sujet de l'arrière-plan ;</li>
+<li>il permet de filmer le soir sans dépendre de la fenêtre.</li>
+</ul>
+<p>En revanche, il ne rend pas une webcam mauvaise meilleure : il exploite ce que le capteur sait déjà faire lorsqu'il reçoit assez de lumière.</p>
+
+<h2>Températures de couleur : le réglage que presque tout le monde néglige</h2>
+<p>La température de couleur se mesure en kelvins. Plus la valeur est basse, plus la lumière tire vers l'orange ; plus elle monte, plus elle devient bleutée. C'est ce qui détermine si votre peau paraît naturelle ou malade à l'écran.</p>
+<table>
+<thead>
+<tr><th>Plage</th><th>Rendu</th><th>Usage typique</th></tr>
+</thead>
+<tbody>
+<tr><td>2 700 à 3 200 K</td><td>blanc chaud, orangé</td><td>intérieur du soir, ambiance détendue</td></tr>
+<tr><td>4 000 à 4 500 K</td><td>blanc neutre</td><td>présentations, tutoriels, visioconférences</td></tr>
+<tr><td>5 000 à 5 600 K</td><td>blanc légèrement froid</td><td>rendu proche du jour, produits, démonstrations</td></tr>
+<tr><td>6 000 K et plus</td><td>blanc bleuté</td><td>effets assumés, rarement flatteur</td></tr>
+</tbody>
+</table>
+<p>Si votre modèle ne propose qu'une seule température, vous devrez composer avec : filtre diffuseur, gélatine correctrice ou déplacement de la source. Une version réglable évite ce bricolage, et c'est l'un des rares arguments qui justifie de payer un peu plus cher.</p>
+
+<h3>Pourquoi mélanger deux températures se voit immédiatement</h3>
+<p>Le cas classique : votre éclairage à 5 600 K devant vous, une lampe de salon à 2 700 K dans votre dos. La caméra choisit une balance des blancs moyenne, votre visage devient bleu et le mur derrière vous jaune. Le correctif est simple : éteignez les autres sources, ou alignez-les sur la même température.</p>
+
+<h3>Et la lumière du jour par la fenêtre ?</h3>
+<p>Une fenêtre offre une lumière gratuite, large et flatteuse, mais elle change de couleur et d'intensité toute la journée. Un tournage à 9 h et une reprise à 17 h ne se ressembleront pas. Si vous filmez régulièrement, préférez une source artificielle constante, complétée par la fenêtre plutôt que dépendante d'elle.</p>
+
+<h2>Où placer la lumière : hauteur, distance, angle</h2>
+<p>Le placement compte davantage que la puissance : une lampe mal positionnée donne des ombres dures et un regard creusé.</p>
+
+<h3>La hauteur</h3>
+<p>Placez la source légèrement au-dessus de la ligne des yeux, jamais en dessous. Une lumière basse creuse les orbites et durcit les traits ; une lumière trop haute dépose des ombres sous les yeux et sous le nez. Le bon repère se situe entre dix et vingt centimètres au-dessus du regard.</p>
+
+<h3>La distance</h3>
+<p>Plus la source est loin, plus la lumière est dure et concentrée ; plus elle est proche, plus elle est douce, mais plus l'intensité grimpe vite au centre du visage. Commencez à environ un mètre, puis ajustez l'intensité plutôt que la distance. À moins de cinquante centimètres, vous obtiendrez une surexposition au centre et des bords sombres.</p>
+
+<h3>L'angle</h3>
+<p>Dans l'axe de la caméra, le rendu est neutre et symétrique. Un décalage de quinze à trente degrés sur le côté redonne un peu de volume au visage, et le léger halo circulaire visible dans les yeux devient plus discret.</p>
+<ul>
+<li>source au-dessus de la ligne des yeux, jamais sous le menton ;</li>
+<li>diffuseur pour adoucir la lumière ;</li>
+<li>un mètre environ entre la source et le visage ;</li>
+<li>aucune source plus froide ou plus chaude dans le champ ;</li>
+<li>vérification dans l'aperçu avant d'enregistrer.</li>
+</ul>
+
+<h2>Les erreurs qui trahissent une lumière mal réglée</h2>
+<ol>
+<li><strong>Éclairer uniquement de face, à pleine puissance.</strong> Le visage devient plat et brille sur le front.</li>
+<li><strong>Négliger l'arrière-plan.</strong> Un fond très sombre crée un contraste violent ; un fond légèrement éclairé détache mieux la silhouette.</li>
+<li><strong>Oublier la balance des blancs.</strong> En automatique, la caméra oscille dès qu'un objet coloré entre dans le cadre.</li>
+<li><strong>Se placer devant une fenêtre non traitée.</strong> Contre-jour garanti : le visage s'assombrit, le fond est brûlé.</li>
+<li><strong>Laisser des reflets dans les lunettes.</strong> Décaler la source de quelques degrés suffit généralement à les supprimer.</li>
+<li><strong>Confondre intensité et qualité.</strong> Doubler la puissance ne remplace pas un bon placement.</li>
+</ol>
+<p>Une seule habitude élimine la plupart de ces erreurs : vérifier votre image dans l'aperçu, à la taille réelle, avant chaque enregistrement.</p>
+
+<h2>Ring light, panneau LED ou lumière naturelle : quel choix selon l'usage</h2>
+<table>
+<thead>
+<tr><th>Type</th><th>Points forts</th><th>Limites</th><th>Pour qui</th></tr>
+</thead>
+<tbody>
+<tr><td>Ring light</td><td>lumière frontale régulière, format compact</td><td>aplatit les volumes, halo dans les yeux</td><td>visios, tutoriels, poste de travail fixe</td></tr>
+<tr><td>Panneau LED</td><td>source large, orientable</td><td>encombrant, plus cher, pied souvent séparé</td><td>portraits, interviews, décors fixes</td></tr>
+<tr><td>Lumière naturelle</td><td>gratuite, large, flatteuse</td><td>variable selon l'heure et la météo</td><td>tournages occasionnels en journée</td></tr>
+<tr><td>Lampe de bureau</td><td>déjà disponible, orientable</td><td>souvent trop dure et trop chaude</td><td>dépannage, premiers essais</td></tr>
+</tbody>
+</table>
+<p>Aucune de ces solutions n'est mauvaise en soi : elles ne répondent pas au même besoin. Et si votre objectif réel est de surveiller une pièce plutôt que de vous filmer, le matériel n'a rien à voir : une <a href="https://mimistok.com/camera-surveillance/">caméra de surveillance</a> répond à des contraintes de champ, d'enregistrement et de vision nocturne sans rapport avec l'éclairage d'un visage.</p>
+
+<h2>Les critères à vérifier avant d'acheter</h2>
+<ul>
+<li><strong>Température réglable</strong> : au minimum deux valeurs, idéalement une plage continue.</li>
+<li><strong>Intensité variable</strong> : indispensable pour s'adapter à la distance.</li>
+<li><strong>Diffusion</strong> : une source nue éblouit.</li>
+<li><strong>Alimentation</strong> : USB ou secteur, à vérifier sur la fiche produit.</li>
+<li><strong>Fixation</strong> : pince, pas de vis ou pied, selon l'épaisseur de votre bureau.</li>
+<li><strong>Encombrement</strong> : un grand modèle éclaire plus large mais prend de la place.</li>
+</ul>
+<p>Les fiches produit sont souvent plus vagues que les photos. Lorsqu'une caractéristique n'est pas indiquée clairement, considérez-la comme à vérifier sur la fiche produit avant de commander.</p>
+
+<h2>Compléter l'éclairage avec une webcam au cadrage automatique</h2>
+<p>Une bonne lumière ne sert à rien si le cadrage vous oblige à rester immobile. C'est le rôle de l'<a href="https://mimistok.com/obsbot-meet-se-blanc-nuage/">OBSBOT Meet SE Blanc Nuage - Webcam AI Cadrage Auto</a>, proposée à 79,99 € sur mimistok.com. Comme sa désignation l'indique, elle mise sur le cadrage automatique assisté par intelligence artificielle : vous pouvez bouger, vous lever, vous déplacer dans la pièce, l'image se recadre sans intervention.</p>
+<p>Elle ne remplace pas un éclairage, elle travaille avec lui. Son intérêt tient au confort de tournage, avec moins de repositionnements au millimètre entre deux prises. Pour le reste, résolution, compatibilité ou fixation, les caractéristiques complètes sont à vérifier sur la fiche produit.</p>
+<p>Si vous comparez plusieurs modèles, notre <a href="https://mimistok.com/webcam/">guide des webcams</a> détaille les critères qui font la différence à l'usage, et la <a href="https://mimistok.com/accueil/categorie-obsbot/">catégorie Obsbot</a> regroupe les références disponibles.</p>
+
+<h2>Questions fréquentes</h2>
+<h3>Faut-il un ring light pour se filmer correctement ?</h3>
+<p>Non. Une fenêtre bien utilisée, avec le sujet face à elle et non dos à elle, suffit pour débuter. Cet éclairage devient utile dès que vous filmez le soir, dans une pièce sombre, ou que vous voulez un rendu constant d'une session à l'autre.</p>
+<h3>Quelle température de couleur choisir pour une vidéo ?</h3>
+<p>Entre 4 000 et 5 600 K dans la majorité des cas : c'est la plage qui reste crédible pour une carnation, sans virer à l'orange ni au bleu.</p>
+<h3>Un ring light suffit-il à rendre une image professionnelle ?</h3>
+<p>Il y contribue, mais il ne compense ni une caméra limitée, ni un son médiocre, ni un arrière-plan encombré. Traitez la lumière en premier, parce que c'est le réglage le plus rentable, puis le cadrage, puis le son.</p>
+<h3>Peut-on utiliser une lampe de bureau ordinaire ?</h3>
+<p>Oui, à condition de la diffuser et de la placer correctement. Une lampe articulée équipée d'un diffuseur, positionnée au-dessus de la ligne des yeux, donne souvent un meilleur résultat qu'un éclairage circulaire mal réglé.</p>
+
+<h2>Ce qu'il faut retenir</h2>
+<p>Le réglage qui pèse le plus sur la qualité perçue de votre image tient en trois priorités : une source au-dessus des yeux, une température alignée sur le reste de la pièce, une intensité ajustée dans l'aperçu plutôt que poussée au maximum. Le choix du matériel découle ensuite de ces principes, sans qu'il soit nécessaire de dépenser beaucoup. Pour aller plus loin, parcourez le <a href="https://mimistok.com/blog/obsbot/">blog Obsbot</a>.</p></div><footer class="content__footer"><div class="content__last-updated">This article was updated on <time datetime="2026-09-23T00:30">sept. 23, 2026</time></div><div class="content__share"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmimistok.com%2Fring-light%2F" class="js-share facebook tltp tltp--top" aria-label="Facebook" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmimistok.com%2Fring-light%2F&amp;via=mimistok&amp;text=Ring%20light%20%3A%20ce%20que%20cet%20%C3%A9clairage%20change%20%C3%A0%20votre%20image" class="js-share twitter tltp tltp--top" aria-label="Twitter" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fmimistok.com%2Fring-light%2F&amp;media=https%3A%2F%2Fmimistok.com%2Fmedia%2Fposts%2F41%2F6528df32352d4b0ba049-2.png&amp;description=Ring%20light%20%3A%20ce%20que%20cet%20%C3%A9clairage%20change%20%C3%A0%20votre%20image" class="js-share pinterest tltp tltp--top" aria-label="Pinterest" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></footer></div></article><div class="content__section post__related"><div class="main__inner"><h3 class="content__section__title">Related post</h3><div class="post__related__wrap"><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2026-09-23T00:30">sept. 23, 2026</time><a href="https://mimistok.com/blog/obsbot/" class="c-card-tag">Obsbot</a></div><a href="https://mimistok.com/micro-cravate/" class="c-card__image"><img src="https://mimistok.com/media/posts/41/6528df32352d4b0ba049-2.png" loading="lazy" height="565" width="1500" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/micro-cravate/">Micro cravate : pourquoi le son pèse plus que l'image</a></h2><p>Pourquoi le son pèse plus que l'image en visio, et comment placer un micro cravate pour être bien entendu.</p></header></article><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2026-09-23T00:05">sept. 23, 2026</time><a href="https://mimistok.com/blog/obsbot/" class="c-card-tag">Obsbot</a></div><a href="https://mimistok.com/webcam/" class="c-card__image"><img src="https://mimistok.com/media/posts/41/6528df32352d4b0ba049-2.png" loading="lazy" height="565" width="1500" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/webcam/">Webcam : comment choisir pour la visio, le télétravail et le streaming</a></h2><p>Résolution, autofocus, cadrage automatique, lumière, son&hellip; les critères pour choisir une webcam adaptée à votre usage, du télétravail au live.</p></header></article></div></div></div></main><div class="right-bar"><div class="right-bar__inner"><div class="sidebar"><div class="box follow"><a href="https://www.facebook.com/people/Mimistok/61582459216888/" class="tltp tltp--top" aria-label="Facebook"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://x.com/storemimistok" class="tltp tltp--top" aria-label="Twitter"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://www.instagram.com/storemimistok/" class="tltp tltp--top" aria-label="Instagram"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#instagram"/></svg> <span>Instagram</span> </a><a href="https://www.linkedin.com/company/mimistok/" class="tltp tltp--top" aria-label="LinkedIn"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#linkedin"/></svg> <span>LinkedIn</span> </a><a href="https://www.pinterest.com/storemimistok/" class="tltp tltp--top" aria-label="Pinterest"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></div></div></div></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script><style>#popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(22, 23, 24, 0.80);
+    backdrop-filter: blur(15px);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 99999;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding-top: 80px;
+  }
+  #popup.show {
+    display: flex;
+    opacity: 1;
+  }
+  body.no-scroll {
+    overflow: hidden;
+  }
+
+  #search-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  #search-input-popup {
+    padding: 13px 25px;
+    width: 100%;
+    max-width: 690px;
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    font-size: 18px;
+    background: rgba(30, 30, 30, 0.75);
+    color: #FFFFFF;
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transform: scale(1);
+  }
+
+  #search-input-popup::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+  }
+
+  #search-input-popup:focus {
+    outline: none;
+    border-color: #2196F3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.4), 0 6px 20px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02);
+  }
+
+  #search-results-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 690px;
+    max-height: 900px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 15px;
+    margin-right: -5px;
+    box-sizing: border-box;
+    padding-bottom: 400px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 35px;
+    margin: 300px 0;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb {
+    background: rgba(33, 150, 243, 0.6);
+    border-radius: 4px;
+    border: 2px solid rgba(22, 23, 24, 0.8);
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb:hover {
+    background: rgba(33, 150, 243, 0.8);
+  }
+
+  .result-item-popup {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    cursor: pointer;
+    background: rgba(50, 50, 50, 0.65);
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+  }
+
+  .result-item-popup:hover {
+    background: rgba(70, 70, 70, 0.75);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .result-img-popup {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .result-title-popup {
+    font-size: 18px;
+    color: #FFFFFF;
+    font-weight: 500;
+    flex: 1;
+  }
+
+  .result-price-popup {
+    background: #2196F3;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in-popup {
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  #popup-close {
+    position: fixed;
+    top: 25px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 100000;
+  }
+
+  @media (max-width: 768px) {
+    #popup {
+      padding-top: 100px;
+      align-items: flex-start;
+    }
+    
+    #search-container-popup {
+      padding: 0 15px;
+    }
+    
+    #search-input-popup {
+      padding: 15px 20px;
+      font-size: 16px;
+      max-width: 100%;
+      border-radius: 25px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    #search-results-container-popup {
+      max-width: 100%;
+      padding: 0 8px 900px 5px;
+      box-sizing: border-box;
+      max-height: 1200px;
+      margin-right: 0;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      margin: 8px 0;
+      width: calc(100% - 20px);
+    }
+    
+    .result-img-popup {
+      width: 45px;
+      height: 45px;
+      margin-right: 15px;
+    }
+    
+    .result-title-popup {
+      font-size: 16px;
+    }
+    
+    .result-price-popup {
+      font-size: 13px;
+      padding: 5px 12px;
+    }
+    
+    #popup-close {
+      top: 20px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #popup {
+      padding-top: 90px;
+    }
+    
+    #search-container-popup {
+      padding: 0 10px;
+    }
+    
+    #search-input-popup {
+      padding: 14px 18px;
+      font-size: 16px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      width: calc(100% - 10px);
+    }
+    
+    .result-img-popup {
+      width: 40px;
+      height: 40px;
+      margin-right: 12px;
+    }
+    
+    .result-title-popup {
+      font-size: 15px;
+    }
+    
+    .result-price-popup {
+      font-size: 12px;
+      padding: 4px 10px;
+    }
+    
+    #popup-close {
+      top: 15px;
+      right: 10px;
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    #search-input-popup {
+      font-size: 16px !important;
+      transform: scale(1) !important;
+    }
+  }</style><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div></div><script>// LOGIQUE DU POPUP
+const popup = document.getElementById('popup');
+const popupCloseBtn = document.getElementById('popup-close');
+const openSearchBtn = document.getElementById('open-search-btn');
+
+function showPopup() {
+  popup.style.display = 'flex';
+  setTimeout(() => {
+    popup.classList.add('show');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('no-scroll');
+    
+    setTimeout(() => {
+      const searchInput = document.getElementById('search-input-popup');
+      searchInput.focus();
+      
+      if (window.innerWidth <= 768) {
+        searchInput.style.fontSize = '16px';
+        searchInput.style.transform = 'scale(1)';
+      }
+    }, 300);
+  }, 10);
+}
+
+function hidePopup() {
+  popup.classList.remove('show');
+  popup.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+  
+  popup.addEventListener('transitionend', function handler() {
+    if (!popup.classList.contains('show')) {
+      popup.style.display = 'none';
+    }
+    popup.removeEventListener('transitionend', handler);
+  });
+}
+
+// Événements
+if (openSearchBtn) {
+  openSearchBtn.addEventListener('click', showPopup);
+}
+popupCloseBtn.addEventListener('click', hidePopup);
+
+// Fermer avec Échap
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && popup.classList.contains('show')) {
+    hidePopup();
+  }
+});
+
+// Fermer en cliquant en dehors
+popup.addEventListener('click', function(e) {
+  if (e.target === popup) {
+    hidePopup();
+  }
+});
+
+// SYSTÈME DE RECHERCHE
+let pagesIndex = [];
+
+fetch('/search02.json')
+  .then(response => response.json())
+  .then(data => {
+    pagesIndex = data;
+  });
+
+const inputPopup = document.getElementById('search-input-popup');
+const resultsContainerPopup = document.getElementById('search-results-container-popup');
+
+inputPopup.addEventListener('input', function() {
+  const query = inputPopup.value.trim().toLowerCase();
+  resultsContainerPopup.innerHTML = '';
+  
+  if (!query) return;
+
+  const matches = pagesIndex.filter(p => p.title.toLowerCase().includes(query));
+
+  matches.forEach((p, index) => {
+    const resultDiv = document.createElement('div');
+    resultDiv.className = 'result-item-popup fade-in-popup';
+    resultDiv.style.animationDelay = `${index * 0.05}s`;
+
+    const img = document.createElement('img');
+    img.src = p.image || '';
+    img.className = 'result-img-popup';
+    img.alt = p.title;
+    
+    const title = document.createElement('span');
+    title.textContent = p.title;
+    title.className = 'result-title-popup';
+
+    const price = document.createElement('span');
+    price.textContent = `${p.price}€`;
+    price.className = 'result-price-popup';
+
+    resultDiv.appendChild(img);
+    resultDiv.appendChild(title);
+    resultDiv.appendChild(price);
+
+    resultDiv.addEventListener('click', function() {
+      window.location.href = p.url;
+    });
+
+    resultsContainerPopup.appendChild(resultDiv);
+  });
+});
+
+// ENTREE = FERMER LE CLAVIER SEULEMENT
+inputPopup.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    this.blur();
+  }
+});
+
+// Empêcher le zoom sur l'input
+inputPopup.addEventListener('touchstart', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});
+
+inputPopup.addEventListener('focus', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});</script><script>// CODE CORRIGÉ POUR LE MENU - remplace l'ancien
+document.addEventListener('DOMContentLoaded', function() {
+  const menuItem = document.querySelector('.open-search-btn');
+  if (menuItem) {
+    menuItem.style.cursor = 'pointer';
+    menuItem.addEventListener('click', function(e) {
+      e.preventDefault();
+      const popup = document.getElementById('popup');
+      popup.style.display = 'flex';
+      setTimeout(() => {
+        popup.classList.add('show');
+        popup.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('no-scroll');
+        
+        setTimeout(() => {
+          const searchInput = document.getElementById('search-input-popup');
+          if (searchInput) searchInput.focus();
+        }, 300);
+      }, 10);
+    });
+  }
+});</script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-autolinker.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-show-invisibles.min.js"></script></body></html>

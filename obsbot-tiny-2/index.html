@@ -1,0 +1,647 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OBSBOT Tiny 2 Lite : la webcam à rotule motorisée</title><meta name="description" content="L'OBSBOT Tiny 2 Lite est une webcam compacte à rotule motorisée, pensée pour les lives et les réunions. Usages concrets et points à vérifier."><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="stylesheet" href="https://mimistok.com/media/plugins/syntaxHighlighter/prism-black.css"><link rel="stylesheet" href="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.css"><link rel="canonical" href="https://mimistok.com/obsbot-tiny-2/"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="L'OBSBOT Tiny 2 Lite : une webcam compacte à rotule motorisée"><meta property="og:image" content="https://mimistok.com/media/posts/19/videoframe_3360-1.webp"><meta property="og:image:width" content="1359"><meta property="og:image:height" content="570"><meta property="og:site_name" content="mimistok"><meta property="og:description" content="L'OBSBOT Tiny 2 Lite est une webcam compacte à rotule motorisée, pensée pour les lives et les réunions. Usages concrets et points à vérifier."><meta property="og:url" content="https://mimistok.com/obsbot-tiny-2/"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://mimistok.com/media/website/ICONMIMI.svg" type="image/x-icon"><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=ee05e1048288936916617ed6de72b720"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://mimistok.com/obsbot-tiny-2/"},"headline":"L'OBSBOT Tiny 2 Lite : une webcam compacte à rotule motorisée","datePublished":"2026-09-23T00:30+02:00","dateModified":"2026-09-23T00:30+02:00","image":{"@type":"ImageObject","url":"https://mimistok.com/media/posts/19/videoframe_3360-1.webp","height":570,"width":1359},"description":"L'OBSBOT Tiny 2 Lite est une webcam compacte à rotule motorisée, pensée pour les lives et les réunions. Usages concrets et points à vérifier.","author":{"@type":"Person","name":"mimistok","url":"https://mimistok.com/authors/mimistok/"},"publisher":{"@type":"Organization","name":"mimistok","logo":{"@type":"ImageObject","url":"https://mimistok.com/media/website/mimistoklogo.svg","height":50,"width":50}}}</script><noscript><style>img[loading] { opacity: 1; }</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=AW-17683532210"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-17683532210');</script><meta name="p:domain_verify" content="52ce14b83d0b84c3ea8a305787e16373"><script defer="defer" src="https://cloud.umami.is/script.js" data-website-id="42ea37ac-125a-4569-a4fb-b8c82dea3aeb"></script></head><body class="post-template"><script defer="defer" src="https://widget.senja.io/..."></script><a href="/panier" id="cart-button"><div class="cart-icon"><img src="https://image.mimistok.com/bag001.svg" alt="Panier"> <span id="cart-count">0</span></div></a><style>#cart-button {
+  position: fixed;
+  top: 8%;
+  right: 26px;
+  transform: translateY(-50%);
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #007BFF;
+  z-index: 99999;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+#cart-button:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Conteneur */
+.cart-icon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🛍️ Icône */
+.cart-icon img {
+  width: 18px;
+  height: 18px;
+  transform: translateY(-1px);
+}
+
+/* 🔴 Badge toujours visible */
+#cart-count {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  background: red;
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: bold;
+
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
+
+  transform: scale(1);
+}
+
+/* Mobile */
+@media (max-width: 1024px) {
+  #cart-button {
+    top: 36px;
+    right: 82px;
+  }
+
+  .cart-icon img {
+    transform: none;
+  }
+}</style><script>// 🔄 Badge panier en temps réel
+function updateCartBadge() {
+    const panier = JSON.parse(localStorage.getItem('panier')) || [];
+    const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
+
+    const badge = document.getElementById('cart-count');
+
+    if (badge) {
+        badge.textContent = totalItems;
+    }
+}
+
+// 🔌 Hook sur ton panier existant
+const oldUpdate = window.mettreAJourPanierFlottant;
+
+window.mettreAJourPanierFlottant = function() {
+    if (oldUpdate) oldUpdate();
+    updateCartBadge();
+};
+
+// 🚀 Init propre (sans fade-in)
+window.addEventListener('load', function() {
+    updateCartBadge();
+    setInterval(updateCartBadge, 500);
+});</script><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main post"><article class="content"><figure class="content__featured-image content__featured-image--attop"><img src="https://mimistok.com/media/posts/19/videoframe_3360-1.webp" srcset="https://mimistok.com/media/posts/19/responsive/videoframe_3360-1-xs.webp 320w, https://mimistok.com/media/posts/19/responsive/videoframe_3360-1-sm.webp 480w, https://mimistok.com/media/posts/19/responsive/videoframe_3360-1-md.webp 768w, https://mimistok.com/media/posts/19/responsive/videoframe_3360-1-xl.webp 1024w" sizes="(min-width: 1460px) 938px, (min-width: 1200px) calc(75.83vw - 139px), 100vw" loading="eager" height="570" width="1359" alt="L'OBSBOT Tiny 2 Lite : une webcam compacte à rotule motorisée"></figure><div class="main__inner"><div class="content__meta"><div class="content__author"><div><a href="https://mimistok.com/authors/mimistok/" class="content__author__name">mimistok</a></div></div><div class="content__date"><time datetime="2026-09-23T00:30">sept. 23, 2026</time></div></div><header class="content__header"><h1 class="content__title">L'OBSBOT Tiny 2 Lite : une webcam compacte à rotule motorisée</h1></header><div class="content__entry"><p>Vous animez des lives, vous enchaînez les visioconférences, et vous passez vos appels à vous recadrer à la main toutes les dix minutes. Une webcam fixe vous oblige à rester dans son champ ; une caméra à rotule motorisée déplace le cadre à votre place. C'est exactement le terrain de jeu de l'OBSBOT Tiny 2 Lite, une caméra compacte et motorisée pensée pour le streaming comme pour les réunions en ligne.</p>
+
+<h2>L'OBSBOT Tiny 2 Lite : une webcam compacte à rotule motorisée</h2>
+<p>La désignation officielle du produit résume déjà l'essentiel : OBSBOT Tiny 2 Lite, caméra PTZ 4K AI ultra-compacte pour streaming. Vous y trouvez trois promesses concrètes : un module vidéo, une intelligence embarquée qui décide du cadrage, et un support motorisé qui exécute cette décision. Le reste tient dans l'usage.</p>
+
+<h3>Ce que signifie PTZ, en clair</h3>
+<p>PTZ désigne un appareil capable de pivoter, d'incliner et de zoomer. Sur une caméra classique, ces réglages se font une fois pour toutes, à la main, avant l'appel. Sur un modèle à rotule motorisée, ils deviennent dynamiques : la caméra ajuste son orientation pendant que vous bougez, parlez ou vous levez. La différence ne se voit pas sur une fiche technique, elle se voit à la troisième réunion.</p>
+
+<h3>Compacte, donc discrète sur le bureau</h3>
+<p>Un format réduit change deux choses : la place occupée et le poids à supporter pour le support qui la porte. Une caméra légère se fixe plus facilement et se déplace d'un poste à l'autre. En contrepartie, les modèles compacts offrent souvent un champ de vision plus étroit qu'une caméra d'installation fixe.</p>
+
+<ul>
+<li>vous n'avez plus à vous recentrer pendant un appel ;</li>
+<li>la caméra reste utilisable en paysage comme en orientation verticale, selon le réglage retenu ;</li>
+<li>le montage et le démontage deviennent rapides si vous changez souvent de poste.</li>
+</ul>
+
+<h2>En live : quand la caméra suit le mouvement</h2>
+<p>En direct, un cadre qui bouge mal se remarque immédiatement. Le suivi automatique ne sert pas à faire un effet spectaculaire : il sert à garder l'image stable et lisible pendant que vous travaillez. Vous pouvez montrer un objet, vous lever pour écrire au tableau, revenir vous asseoir, sans qu'un opérateur recadre à votre place.</p>
+<p>Cela suppose quelques réglages. La vitesse de suivi, la zone de détection et la sensibilité du zoom déterminent si l'image reste naturelle ou si elle donne une impression de caméra qui cherche son sujet. Un suivi rapide convient à une démonstration dynamique ; un suivi lent, presque imperceptible, passe mieux sur un live commenté où vous restez assis.</p>
+<ul>
+<li>une démonstration produit : vous vous déplacez, la caméra vous suit au lieu de vous perdre hors du cadre ;</li>
+<li>un live commenté : un suivi discret évite les mouvements parasites en arrière-plan ;</li>
+<li>un tutoriel : vous pouvez vous écarter pour montrer un geste, puis revenir au centre.</li>
+</ul>
+
+<h2>En réunion : le confort discret qui change les journées</h2>
+<p>En visioconférence, l'enjeu est moins esthétique que pratique. Un participant qui sort du cadre, qui se penche vers un document ou qui se lève pour fermer une porte donne une image flottante. Une caméra motorisée corrige ces situations sans que vos interlocuteurs aient à le remarquer.</p>
+<ol>
+<li>Vous vous levez pendant un appel : le cadre suit au lieu de filmer une chaise vide.</li>
+<li>Une deuxième personne entre dans la pièce : le plan peut s'élargir pour l'inclure.</li>
+<li>Vous prenez des notes hors champ : la caméra revient sur vous quand vous reprenez la parole.</li>
+<li>Vous changez de côté du bureau : le cadrage se replace sans manipulation.</li>
+</ol>
+<p>Deux réserves, honnêtes. D'abord, le suivi automatique n'est pas toujours souhaitable : dans une réunion très formelle, un cadre parfaitement fixe est parfois préférable, et la plupart des logiciels permettent de le désactiver. Ensuite, aucune motorisation ne compense un mauvais éclairage ou une pièce trop sombre ; c'est le premier point à régler avant de changer de matériel. Pour creuser les critères de base, notre dossier sur le choix d'une <a href="https://mimistok.com/webcam/">webcam</a> complète utilement cette lecture.</p>
+
+<h2>Les limites à connaître avant de s'équiper</h2>
+<p>Une caméra motorisée apporte un confort réel, mais elle ne convient pas à tout le monde. Mieux vaut le savoir avant l'achat que le découvrir après.</p>
+<ul>
+<li>Si votre poste est parfaitement fixe et votre lumière maîtrisée, l'avantage du suivi est plus limité.</li>
+<li>La mécanique embarquée ajoute une pièce mobile : une caméra fixe garde un avantage de simplicité sur la durée.</li>
+<li>Certaines plateformes de visioconférence recompressent fortement le flux : la définition annoncée n'est pas toujours visible chez votre interlocuteur.</li>
+<li>Un micro intégré dépanne, mais pour un live régulier, un micro externe reste la meilleure amélioration possible.</li>
+</ul>
+
+<h2>Live ou réunion : ce qui compte selon votre usage</h2>
+<p>Le bon critère n'est pas la fiche technique la plus longue, mais l'usage que vous en ferez. Ce tableau résume les priorités selon votre situation.</p>
+<table>
+<thead>
+<tr>
+<th>Usage</th>
+<th>Ce qui pèse le plus</th>
+<th>Ce qu'une rotule motorisée apporte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Live et streaming</td>
+<td>Stabilité du cadre, réglages fins du suivi</td>
+<td>Vous restez dans l'image même en vous déplaçant</td>
+</tr>
+<tr>
+<td>Réunion professionnelle</td>
+<td>Discrétion, compatibilité logicielle</td>
+<td>Un cadrage propre sans manipulation pendant l'appel</td>
+</tr>
+<tr>
+<td>Cours en ligne et tutoriels</td>
+<td>Champ de vision, netteté de près</td>
+<td>Vous pouvez vous écarter pour montrer un geste</td>
+</tr>
+<tr>
+<td>Appels occasionnels</td>
+<td>Prix, simplicité</td>
+<td>Peu d'intérêt si vous ne bougez jamais</td>
+</tr>
+</tbody>
+</table>
+<p>Autrement dit : plus vous bougez et plus vous produisez de contenu, plus la motorisation se justifie. Pour un usage ponctuel, un modèle simple suffit et laisse du budget pour l'éclairage.</p>
+
+<h2>L'OBSBOT Tiny 2 Lite, à 169,99 €</h2>
+<p>La <a href="https://mimistok.com/camera-obsbot-tiny-2-lite/">OBSBOT Tiny 2 Lite : Caméra PTZ 4K AI Ultra-Compacte pour Streaming</a> est proposée à 169,99 €. Ce positionnement la place dans la catégorie des caméras motorisées accessibles, ni dans l'entrée de gamme des webcams fixes, ni dans le haut de gamme des solutions de studio.</p>
+<p>Pour ce budget, vous payez d'abord la mécanique et le traitement du suivi. Les autres caractéristiques du modèle — champ de vision, cadence d'images, connectique, type de fixation, micro intégré — sont à vérifier sur la fiche produit, car elles déterminent la compatibilité avec votre installation. Si vous voulez comparer plusieurs approches avant de trancher, parcourez la <a href="https://mimistok.com/accueil/categorie-obsbot/">catégorie Obsbot</a>, et retrouvez les conseils de mise en œuvre sur le <a href="https://mimistok.com/blog/obsbot/">blog Obsbot</a>.</p>
+
+<h2>Les critères à vérifier avant l'achat</h2>
+<p>Quelques questions suffisent à éviter la mauvaise surprise.</p>
+
+<h3>Le champ de vision</h3>
+<p>Un champ large englobe la pièce mais éloigne votre visage et dévoile votre intérieur ; un champ serré vous met en valeur dans un décor plus étroit. Vérifiez la valeur exacte sur la fiche produit et comparez-la à la taille de votre bureau.</p>
+
+<h3>La fixation et le support</h3>
+<p>Pince d'écran, trépied de bureau ou filetage standard : les trois solutions n'ont pas les mêmes contraintes. Sur une caméra motorisée, le support doit rester parfaitement stable, sinon chaque mouvement de la rotule fait bouger l'image. Vérifiez le poids de l'appareil et l'épaisseur de votre écran.</p>
+
+<h3>Le logiciel et la compatibilité</h3>
+<p>Les réglages de suivi, de cadrage et de qualité d'image passent souvent par une application dédiée. Assurez-vous qu'elle existe pour votre système, et que la caméra est reconnue comme un périphérique standard par vos outils habituels. Ce point est à vérifier sur la fiche produit ou auprès du fabricant.</p>
+
+<h2>Questions fréquentes</h2>
+
+<h3>Une caméra à rotule motorisée est-elle utile si je reste toujours assis ?</h3>
+<p>Elle reste utile dès que votre position change, même légèrement : vous vous penchez vers un document, vous reculez, vous vous tournez vers un second écran. Si votre poste est totalement figé et bien éclairé, l'avantage devient marginal et une caméra fixe fera le travail pour moins cher.</p>
+
+<h3>Peut-on l'utiliser pour de la visioconférence classique ?</h3>
+<p>Oui, une caméra motorisée fonctionne comme n'importe quelle webcam : elle est reconnue comme un périphérique vidéo par les logiciels de réunion. Le suivi automatique peut être désactivé si vous préférez un cadre fixe, ce qui est souvent plus sobre en réunion formelle.</p>
+
+<h3>Faut-il une résolution très élevée pour être crédible en ligne ?</h3>
+<p>Pas nécessairement. Les plateformes recompressent le flux et la qualité perçue dépend surtout de l'éclairage et de la netteté du visage. Un capteur bien exposé donne de meilleurs résultats qu'une définition élevée mal éclairée.</p>
+
+<h3>Le suivi automatique remplace-t-il un bon éclairage ?</h3>
+<p>Non. Une caméra motorisée améliore le cadrage, pas la lumière. Dans une pièce sombre, l'image restera bruitée et le suivi moins fiable, car la détection du sujet devient plus difficile. Réglez d'abord l'éclairage, ensuite le matériel.</p>
+
+<h2>En résumé</h2>
+<p>Une webcam compacte à rotule motorisée répond à un problème précis : rester bien cadré sans y penser, en live comme en réunion. L'OBSBOT Tiny 2 Lite vise cet usage à 169,99 €, avec l'intelligence de cadrage et la motorisation comme arguments principaux. Avant de vous décider, hiérarchisez vos priorités : lumière, son, puis cadrage automatique. Si votre usage est occasionnel, une caméra fixe suffira.</p></div><footer class="content__footer"><div class="content__last-updated">This article was updated on <time datetime="2026-09-23T00:30">sept. 23, 2026</time></div><div class="content__share"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmimistok.com%2Fobsbot-tiny-2%2F" class="js-share facebook tltp tltp--top" aria-label="Facebook" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmimistok.com%2Fobsbot-tiny-2%2F&amp;via=mimistok&amp;text=L%27OBSBOT%20Tiny%202%20Lite%20%3A%20une%20webcam%20compacte%20%C3%A0%20rotule%20motoris%C3%A9e" class="js-share twitter tltp tltp--top" aria-label="Twitter" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fmimistok.com%2Fobsbot-tiny-2%2F&amp;media=https%3A%2F%2Fmimistok.com%2Fmedia%2Fposts%2F19%2Fvideoframe_3360-1.webp&amp;description=L%27OBSBOT%20Tiny%202%20Lite%20%3A%20une%20webcam%20compacte%20%C3%A0%20rotule%20motoris%C3%A9e" class="js-share pinterest tltp tltp--top" aria-label="Pinterest" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></footer></div></article><div class="content__section post__related"><div class="main__inner"><h3 class="content__section__title">Related post</h3><div class="post__related__wrap"><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2026-09-23T00:30">sept. 23, 2026</time><a href="https://mimistok.com/blog/obsbot/" class="c-card-tag">Obsbot</a></div><a href="https://mimistok.com/webcam-pc/" class="c-card__image"><img src="https://mimistok.com/media/posts/41/6528df32352d4b0ba049-2.png" loading="lazy" height="565" width="1500" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/webcam-pc/">Webcam pc : équiper son poste de travail en trois questions</a></h2><p>Placement, fixation et réglages : trois questions pour équiper correctement son poste de travail.</p></header></article><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2026-09-23T00:30">sept. 23, 2026</time><a href="https://mimistok.com/blog/obsbot/" class="c-card-tag">Obsbot</a></div><a href="https://mimistok.com/webcam-logitech/" class="c-card__image"><img src="https://mimistok.com/media/posts/41/6528df32352d4b0ba049-2.png" loading="lazy" height="565" width="1500" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/webcam-logitech/">Webcam Logitech ou suivi automatique : poser la bonne question</a></h2><p>Les bonnes questions avant de comparer une webcam classique et une webcam à suivi automatique.</p></header></article></div></div></div></main><div class="right-bar"><div class="right-bar__inner"><div class="sidebar"><div class="box follow"><a href="https://www.facebook.com/people/Mimistok/61582459216888/" class="tltp tltp--top" aria-label="Facebook"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://x.com/storemimistok" class="tltp tltp--top" aria-label="Twitter"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://www.instagram.com/storemimistok/" class="tltp tltp--top" aria-label="Instagram"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#instagram"/></svg> <span>Instagram</span> </a><a href="https://www.linkedin.com/company/mimistok/" class="tltp tltp--top" aria-label="LinkedIn"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#linkedin"/></svg> <span>LinkedIn</span> </a><a href="https://www.pinterest.com/storemimistok/" class="tltp tltp--top" aria-label="Pinterest"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></div></div></div></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script><style>#popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(22, 23, 24, 0.80);
+    backdrop-filter: blur(15px);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 99999;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding-top: 80px;
+  }
+  #popup.show {
+    display: flex;
+    opacity: 1;
+  }
+  body.no-scroll {
+    overflow: hidden;
+  }
+
+  #search-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  #search-input-popup {
+    padding: 13px 25px;
+    width: 100%;
+    max-width: 690px;
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    font-size: 18px;
+    background: rgba(30, 30, 30, 0.75);
+    color: #FFFFFF;
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transform: scale(1);
+  }
+
+  #search-input-popup::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+  }
+
+  #search-input-popup:focus {
+    outline: none;
+    border-color: #2196F3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.4), 0 6px 20px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02);
+  }
+
+  #search-results-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 690px;
+    max-height: 900px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 15px;
+    margin-right: -5px;
+    box-sizing: border-box;
+    padding-bottom: 400px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 35px;
+    margin: 300px 0;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb {
+    background: rgba(33, 150, 243, 0.6);
+    border-radius: 4px;
+    border: 2px solid rgba(22, 23, 24, 0.8);
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb:hover {
+    background: rgba(33, 150, 243, 0.8);
+  }
+
+  .result-item-popup {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    cursor: pointer;
+    background: rgba(50, 50, 50, 0.65);
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+  }
+
+  .result-item-popup:hover {
+    background: rgba(70, 70, 70, 0.75);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .result-img-popup {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .result-title-popup {
+    font-size: 18px;
+    color: #FFFFFF;
+    font-weight: 500;
+    flex: 1;
+  }
+
+  .result-price-popup {
+    background: #2196F3;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in-popup {
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  #popup-close {
+    position: fixed;
+    top: 25px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 100000;
+  }
+
+  @media (max-width: 768px) {
+    #popup {
+      padding-top: 100px;
+      align-items: flex-start;
+    }
+    
+    #search-container-popup {
+      padding: 0 15px;
+    }
+    
+    #search-input-popup {
+      padding: 15px 20px;
+      font-size: 16px;
+      max-width: 100%;
+      border-radius: 25px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    #search-results-container-popup {
+      max-width: 100%;
+      padding: 0 8px 900px 5px;
+      box-sizing: border-box;
+      max-height: 1200px;
+      margin-right: 0;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      margin: 8px 0;
+      width: calc(100% - 20px);
+    }
+    
+    .result-img-popup {
+      width: 45px;
+      height: 45px;
+      margin-right: 15px;
+    }
+    
+    .result-title-popup {
+      font-size: 16px;
+    }
+    
+    .result-price-popup {
+      font-size: 13px;
+      padding: 5px 12px;
+    }
+    
+    #popup-close {
+      top: 20px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #popup {
+      padding-top: 90px;
+    }
+    
+    #search-container-popup {
+      padding: 0 10px;
+    }
+    
+    #search-input-popup {
+      padding: 14px 18px;
+      font-size: 16px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      width: calc(100% - 10px);
+    }
+    
+    .result-img-popup {
+      width: 40px;
+      height: 40px;
+      margin-right: 12px;
+    }
+    
+    .result-title-popup {
+      font-size: 15px;
+    }
+    
+    .result-price-popup {
+      font-size: 12px;
+      padding: 4px 10px;
+    }
+    
+    #popup-close {
+      top: 15px;
+      right: 10px;
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    #search-input-popup {
+      font-size: 16px !important;
+      transform: scale(1) !important;
+    }
+  }</style><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div></div><script>// LOGIQUE DU POPUP
+const popup = document.getElementById('popup');
+const popupCloseBtn = document.getElementById('popup-close');
+const openSearchBtn = document.getElementById('open-search-btn');
+
+function showPopup() {
+  popup.style.display = 'flex';
+  setTimeout(() => {
+    popup.classList.add('show');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('no-scroll');
+    
+    setTimeout(() => {
+      const searchInput = document.getElementById('search-input-popup');
+      searchInput.focus();
+      
+      if (window.innerWidth <= 768) {
+        searchInput.style.fontSize = '16px';
+        searchInput.style.transform = 'scale(1)';
+      }
+    }, 300);
+  }, 10);
+}
+
+function hidePopup() {
+  popup.classList.remove('show');
+  popup.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+  
+  popup.addEventListener('transitionend', function handler() {
+    if (!popup.classList.contains('show')) {
+      popup.style.display = 'none';
+    }
+    popup.removeEventListener('transitionend', handler);
+  });
+}
+
+// Événements
+if (openSearchBtn) {
+  openSearchBtn.addEventListener('click', showPopup);
+}
+popupCloseBtn.addEventListener('click', hidePopup);
+
+// Fermer avec Échap
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && popup.classList.contains('show')) {
+    hidePopup();
+  }
+});
+
+// Fermer en cliquant en dehors
+popup.addEventListener('click', function(e) {
+  if (e.target === popup) {
+    hidePopup();
+  }
+});
+
+// SYSTÈME DE RECHERCHE
+let pagesIndex = [];
+
+fetch('/search02.json')
+  .then(response => response.json())
+  .then(data => {
+    pagesIndex = data;
+  });
+
+const inputPopup = document.getElementById('search-input-popup');
+const resultsContainerPopup = document.getElementById('search-results-container-popup');
+
+inputPopup.addEventListener('input', function() {
+  const query = inputPopup.value.trim().toLowerCase();
+  resultsContainerPopup.innerHTML = '';
+  
+  if (!query) return;
+
+  const matches = pagesIndex.filter(p => p.title.toLowerCase().includes(query));
+
+  matches.forEach((p, index) => {
+    const resultDiv = document.createElement('div');
+    resultDiv.className = 'result-item-popup fade-in-popup';
+    resultDiv.style.animationDelay = `${index * 0.05}s`;
+
+    const img = document.createElement('img');
+    img.src = p.image || '';
+    img.className = 'result-img-popup';
+    img.alt = p.title;
+    
+    const title = document.createElement('span');
+    title.textContent = p.title;
+    title.className = 'result-title-popup';
+
+    const price = document.createElement('span');
+    price.textContent = `${p.price}€`;
+    price.className = 'result-price-popup';
+
+    resultDiv.appendChild(img);
+    resultDiv.appendChild(title);
+    resultDiv.appendChild(price);
+
+    resultDiv.addEventListener('click', function() {
+      window.location.href = p.url;
+    });
+
+    resultsContainerPopup.appendChild(resultDiv);
+  });
+});
+
+// ENTREE = FERMER LE CLAVIER SEULEMENT
+inputPopup.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    this.blur();
+  }
+});
+
+// Empêcher le zoom sur l'input
+inputPopup.addEventListener('touchstart', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});
+
+inputPopup.addEventListener('focus', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});</script><script>// CODE CORRIGÉ POUR LE MENU - remplace l'ancien
+document.addEventListener('DOMContentLoaded', function() {
+  const menuItem = document.querySelector('.open-search-btn');
+  if (menuItem) {
+    menuItem.style.cursor = 'pointer';
+    menuItem.addEventListener('click', function(e) {
+      e.preventDefault();
+      const popup = document.getElementById('popup');
+      popup.style.display = 'flex';
+      setTimeout(() => {
+        popup.classList.add('show');
+        popup.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('no-scroll');
+        
+        setTimeout(() => {
+          const searchInput = document.getElementById('search-input-popup');
+          if (searchInput) searchInput.focus();
+        }, 300);
+      }, 10);
+    });
+  }
+});</script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-autolinker.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-show-invisibles.min.js"></script></body></html>

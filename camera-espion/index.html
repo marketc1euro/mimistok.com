@@ -1,0 +1,627 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Caméra espion : usages, limites et cadre légal</title><meta name="description" content="Ce que filme une caméra discrète, où se situe la limite légale en France, et par quel matériel de surveillance la remplacer légalement."><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="stylesheet" href="https://mimistok.com/media/plugins/syntaxHighlighter/prism-black.css"><link rel="stylesheet" href="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.css"><link rel="canonical" href="https://mimistok.com/camera-espion/"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="Caméra espion : un terme qui recouvre des usages très différents"><meta property="og:image" content="https://mimistok.com/media/posts/14/Baseus_Security_N1_Outdoor_Camera_8_home_protection_1200x-copie.webp"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="450"><meta property="og:site_name" content="mimistok"><meta property="og:description" content="Ce que filme une caméra discrète, où se situe la limite légale en France, et par quel matériel de surveillance la remplacer légalement."><meta property="og:url" content="https://mimistok.com/camera-espion/"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://mimistok.com/media/website/ICONMIMI.svg" type="image/x-icon"><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=ee05e1048288936916617ed6de72b720"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://mimistok.com/camera-espion/"},"headline":"Caméra espion : un terme qui recouvre des usages très différents","datePublished":"2026-09-23T00:30+02:00","dateModified":"2026-09-23T00:30+02:00","image":{"@type":"ImageObject","url":"https://mimistok.com/media/posts/14/Baseus_Security_N1_Outdoor_Camera_8_home_protection_1200x-copie.webp","height":450,"width":1200},"description":"Ce que filme une caméra discrète, où se situe la limite légale en France, et par quel matériel de surveillance la remplacer légalement.","author":{"@type":"Person","name":"mimistok","url":"https://mimistok.com/authors/mimistok/"},"publisher":{"@type":"Organization","name":"mimistok","logo":{"@type":"ImageObject","url":"https://mimistok.com/media/website/mimistoklogo.svg","height":50,"width":50}}}</script><noscript><style>img[loading] { opacity: 1; }</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=AW-17683532210"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-17683532210');</script><meta name="p:domain_verify" content="52ce14b83d0b84c3ea8a305787e16373"><script defer="defer" src="https://cloud.umami.is/script.js" data-website-id="42ea37ac-125a-4569-a4fb-b8c82dea3aeb"></script></head><body class="post-template"><script defer="defer" src="https://widget.senja.io/..."></script><a href="/panier" id="cart-button"><div class="cart-icon"><img src="https://image.mimistok.com/bag001.svg" alt="Panier"> <span id="cart-count">0</span></div></a><style>#cart-button {
+  position: fixed;
+  top: 8%;
+  right: 26px;
+  transform: translateY(-50%);
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #007BFF;
+  z-index: 99999;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+#cart-button:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Conteneur */
+.cart-icon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🛍️ Icône */
+.cart-icon img {
+  width: 18px;
+  height: 18px;
+  transform: translateY(-1px);
+}
+
+/* 🔴 Badge toujours visible */
+#cart-count {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  background: red;
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: bold;
+
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
+
+  transform: scale(1);
+}
+
+/* Mobile */
+@media (max-width: 1024px) {
+  #cart-button {
+    top: 36px;
+    right: 82px;
+  }
+
+  .cart-icon img {
+    transform: none;
+  }
+}</style><script>// 🔄 Badge panier en temps réel
+function updateCartBadge() {
+    const panier = JSON.parse(localStorage.getItem('panier')) || [];
+    const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
+
+    const badge = document.getElementById('cart-count');
+
+    if (badge) {
+        badge.textContent = totalItems;
+    }
+}
+
+// 🔌 Hook sur ton panier existant
+const oldUpdate = window.mettreAJourPanierFlottant;
+
+window.mettreAJourPanierFlottant = function() {
+    if (oldUpdate) oldUpdate();
+    updateCartBadge();
+};
+
+// 🚀 Init propre (sans fade-in)
+window.addEventListener('load', function() {
+    updateCartBadge();
+    setInterval(updateCartBadge, 500);
+});</script><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main post"><article class="content"><figure class="content__featured-image content__featured-image--attop"><img src="https://mimistok.com/media/posts/14/Baseus_Security_N1_Outdoor_Camera_8_home_protection_1200x-copie.webp" srcset="https://mimistok.com/media/posts/14/responsive/Baseus_Security_N1_Outdoor_Camera_8_home_protection_1200x-copie-xs.webp 320w, https://mimistok.com/media/posts/14/responsive/Baseus_Security_N1_Outdoor_Camera_8_home_protection_1200x-copie-sm.webp 480w, https://mimistok.com/media/posts/14/responsive/Baseus_Security_N1_Outdoor_Camera_8_home_protection_1200x-copie-md.webp 768w, https://mimistok.com/media/posts/14/responsive/Baseus_Security_N1_Outdoor_Camera_8_home_protection_1200x-copie-xl.webp 1024w" sizes="(min-width: 1460px) 938px, (min-width: 1200px) calc(75.83vw - 139px), 100vw" loading="eager" height="450" width="1200" alt="Caméra espion : un terme qui recouvre des usages très différents"></figure><div class="main__inner"><div class="content__meta"><div class="content__author"><div><a href="https://mimistok.com/authors/mimistok/" class="content__author__name">mimistok</a></div></div><div class="content__date"><time datetime="2026-09-23T00:30">sept. 23, 2026</time></div></div><header class="content__header"><h1 class="content__title">Caméra espion : un terme qui recouvre des usages très différents</h1></header><div class="content__entry"><p>Vous cherchez une caméra espion pour surveiller discrètement votre logement, votre commerce ou un proche, et vous voulez savoir où se situe la limite. La loi française n'interdit pas de filmer ce qui vous appartient, mais elle encadre précisément les personnes filmées, les lieux et les sons captés, avec des sanctions réelles. Voici ce qui est autorisé, ce qui ne l'est pas, et par quoi remplacer une caméra cachée quand la discrétion devient juridiquement risquée.</p>
+
+<h2>Caméra espion : un terme qui recouvre des usages très différents</h2>
+<p>L'expression désigne aussi bien une mini-caméra posée dans un coin de pièce pour garder un œil sur une baby-sitter que l'objectif dissimulé dans un objet anodin, ou la caméra extérieure installée pour voir arriver les visiteurs. Le matériel est souvent identique : ce qui change tout, c'est l'usage que vous en faites et l'information que vous donnez aux personnes filmées. Acheter une caméra miniature n'est pas illégal en soi, mais filmer quelqu'un à son insu dans un lieu où il a une attente légitime de vie privée l'est, tout comme enregistrer ses conversations.</p>
+
+<h2>Ce que la loi française autorise</h2>
+<p>Plusieurs situations sont clairement permises, à condition de rester proportionné.</p>
+<ul>
+<li>Filmer l'intérieur de votre propre logement, y compris en votre absence.</li>
+<li>Surveiller votre jardin, votre cour ou votre garage, dans la limite de votre propriété.</li>
+<li>Installer une caméra extérieure visible pour protéger une entrée ou un véhicule.</li>
+<li>Consulter les images à distance et conserver les séquences pour vous-même.</li>
+</ul>
+<p>Deux nuances comptent. Les adultes qui vivent sous votre toit, conjoint, colocataires, famille hébergée, doivent être informés : filmer quelqu'un chez lui à son insu reste une atteinte à sa vie privée. Ensuite, la caméra ne doit pas capter durablement la voie publique, le palier d'un immeuble ou la propriété voisine, sous peine de litige de voisinage. Si vous employez du personnel, une aide à domicile par exemple, l'information préalable est obligatoire et la surveillance doit rester justifiée : contrôler le travail fourni est admis, pister les allées et venues ne l'est pas.</p>
+
+<h2>Ce qui est interdit, et ce que vous risquez</h2>
+<p>L'article 226-1 du Code pénal punit d'un an d'emprisonnement et de 45 000 euros d'amende le fait de porter atteinte à l'intimité de la vie privée d'autrui, notamment en captant l'image d'une personne se trouvant dans un lieu privé sans son consentement. L'article 226-2 vise la conservation et la diffusion de ces enregistrements. C'est donc rarement la caméra qui pose problème, mais ce que vous en faites.</p>
+<ul>
+<li>Filmer l'intérieur du logement d'un voisin, d'un locataire ou d'un proche sans son accord.</li>
+<li>Dissimuler une caméra dans une chambre d'hôtel, un vestiaire, des toilettes ou une salle de bain.</li>
+<li>Enregistrer les conversations privées d'autrui, ce qui inclut l'audio capté par beaucoup de caméras intérieures.</li>
+<li>Surveiller des salariés sans les informer ni déclarer le dispositif.</li>
+<li>Diffuser des images prises dans un lieu privé, même sans mauvaise intention.</li>
+</ul>
+<p>S'ajoutent les conséquences civiles : la personne filmée peut réclamer des dommages et intérêts, exiger la suppression des images, voire obtenir la saisie du matériel. Une caméra espion mal utilisée coûte donc bien plus cher que l'appareil lui-même.</p>
+
+<h2>Ce qui change selon la situation</h2>
+<p>Le même appareil peut être légal dans un cas et condamnable dans un autre.</p>
+<table>
+<thead>
+<tr><th>Situation</th><th>Ce que dit le droit</th><th>Ce qu'il faut faire</th></tr>
+</thead>
+<tbody>
+<tr><td>Caméra dans votre salon, vous vivez seul</td><td>Autorisé</td><td>Aucune formalité</td></tr>
+<tr><td>Caméra dans votre salon, un conjoint vit là</td><td>Autorisé sous réserve d'information</td><td>Prévenez les occupants</td></tr>
+<tr><td>Caméra extérieure filmant votre portail</td><td>Autorisé</td><td>Vérifiez que l'angle ne déborde pas sur la rue</td></tr>
+<tr><td>Caméra pointée vers le jardin du voisin</td><td>Interdit</td><td>Réorientez l'appareil ou masquez la zone</td></tr>
+<tr><td>Caméra cachée chez un tiers</td><td>Interdit</td><td>Aucune justification possible</td></tr>
+<tr><td>Enregistrement audio de conversations privées</td><td>Interdit sans consentement</td><td>Coupez le micro</td></tr>
+<tr><td>Surveillance de salariés</td><td>Encadré</td><td>Information et déclaration préalables</td></tr>
+</tbody>
+</table>
+
+<h2>Le micro et le stockage : les deux oublis les plus fréquents</h2>
+<p>Deux fonctions sont systématiquement négligées à l'achat. Le micro, d'abord : une caméra intérieure qui enregistre le son capte des conversations privées, et la réglementation sur le son est plus stricte que celle sur l'image. Une caméra extérieure peut aussi capter des échanges sur la voie publique. Si vous n'êtes pas certain de pouvoir justifier cette captation, désactivez l'audio ; la présence d'un micro et la possibilité de le couper sont à vérifier sur la fiche produit.</p>
+<p>Le stockage, ensuite : les séquences conservées engagent votre responsabilité et doivent rester protégées, accessibles à vous seul et supprimées quand elles ne servent plus. Le stockage local évite de confier vos images à un tiers ; le cloud facilite l'accès après un vol, mais suppose de vérifier la politique de conservation du fournisseur.</p>
+
+<h2>Par quoi remplacer une caméra espion</h2>
+<p>Dans la grande majorité des cas, une caméra cachée n'apporte rien de plus qu'une caméra visible, tout en vous plaçant en zone grise. Une caméra de surveillance assumée dissuade davantage, se défend juridiquement et se revend si vous déménagez.</p>
+<p>Les critères à examiner avant l'achat, dans l'ordre où ils comptent :</p>
+<ol>
+<li>La définition des images, suffisante pour identifier une personne et non seulement constater un passage.</li>
+<li>La détection, avec des zones paramétrables pour limiter les alertes inutiles.</li>
+<li>L'alimentation, secteur, batterie ou solaire, qui détermine les emplacements possibles et l'entretien.</li>
+<li>Le stockage, local ou cloud, et le coût des abonnements éventuels.</li>
+<li>Le traitement du son, à activer ou non selon votre situation.</li>
+<li>La résistance aux intempéries, l'indice de protection étant à vérifier sur la fiche produit.</li>
+<li>Le suivi des mises à jour par le fabricant, trop souvent ignoré.</li>
+</ol>
+<p>Une caméra bien choisie et bien placée couvre mieux un point d'entrée qu'un modèle coûteux installé de travers. Pour l'angle de vue, l'emplacement et l'éclairage nocturne, notre guide de la <a href="https://mimistok.com/camera-surveillance/">caméra de surveillance</a> détaille chaque étape.</p>
+
+<h2>Le choix Baseus N1 : Caméra de Sécurité Extérieure 2K</h2>
+<p>Si vous cherchez une alternative concrète à la caméra cachée, la Baseus N1 : Caméra de Sécurité Extérieure 2K est une caméra de surveillance extérieure proposée à 119,99 €. Sa définition 2K correspond au niveau de détail généralement attendu pour distinguer une personne sur une séquence, ce qui est précisément l'usage dans lequel un appareil dissimulé se révèle inutile et risqué.</p>
+<p>Nous ne citons ici que ce qui est vérifiable : la marque, la désignation, la définition annoncée et le prix. Les autres caractéristiques, autonomie, indice d'étanchéité, stockage, présence d'un micro ou abonnement, sont à vérifier sur la <a href="https://mimistok.com/baseus-n1-outdoor-security-camera/">fiche produit</a> avant l'achat : ce sont elles qui déterminent si l'appareil convient à votre configuration.</p>
+<p>À qui elle ne convient pas : si votre besoin est de surveiller une pièce sans que personne ne le sache, aucun modèle ne réglera le problème juridique. Mieux vaut alors informer les occupants et poser une caméra visible. La marque Baseus couvre <a href="https://mimistok.com/accueil/categorie-baseus/">d'autres produits high-tech</a>, et le <a href="https://mimistok.com/blog/baseus/">blog Baseus</a> revient sur les usages et les nouveautés de la marque.</p>
+
+<h2>Installer sans se mettre en tort : la liste à suivre</h2>
+<ol>
+<li>Définissez ce que vous voulez protéger, et non ce que vous voulez voir.</li>
+<li>Vérifiez que le champ de vision s'arrête aux limites de votre propriété.</li>
+<li>Informez les personnes concernées : occupants, salariés, prestataires.</li>
+<li>Coupez l'audio si vous ne pouvez pas justifier l'enregistrement des conversations.</li>
+<li>Protégez l'accès à l'application par un mot de passe long et unique.</li>
+<li>Installez les mises à jour du fabricant dès leur publication.</li>
+<li>Fixez une durée de conservation des images et supprimez ce qui n'a plus d'utilité.</li>
+</ol>
+
+<h2>Questions fréquentes</h2>
+
+<h3>Une caméra espion est-elle illégale en France ?</h3>
+<p>Acheter et posséder ce type d'appareil n'est pas interdit : c'est l'usage qui fait la différence. Filmer une personne dans un lieu privé sans son consentement, ou enregistrer ses conversations, tombe sous le coup de l'article 226-1 du Code pénal, passible d'un an d'emprisonnement et de 45 000 euros d'amende. Une caméra cachée dans votre propre logement, où vous vivez seul, ne pose pas de difficulté tant que rien ne déborde sur l'extérieur.</p>
+
+<h3>Puis-je filmer mon jardin et ma porte d'entrée ?</h3>
+<p>Oui, c'est l'usage le plus courant et le mieux admis, à condition de ne pas capter durablement l'espace public ni la propriété voisine. Réglez l'angle et les zones de détection ; si votre caméra surplombe la rue, masquez cette portion de l'image. Une pose sur le domaine public nécessite en revanche une autorisation.</p>
+
+<h3>Ai-je le droit d'enregistrer le son avec une caméra ?</h3>
+<p>L'enregistrement de conversations privées sans le consentement des personnes concernées est interdit, et cette règle est plus stricte que celle qui s'applique à l'image. Beaucoup de caméras intérieures intègrent un micro : si vous ne pouvez ni justifier cette captation ni informer les personnes présentes, désactivez l'audio et vérifiez dans l'application que le micro se coupe réellement.</p>
+
+<h3>Faut-il déclarer sa caméra à la CNIL ?</h3>
+<p>Pour un particulier qui filme uniquement son domicile et ses extérieurs privés, dans un cadre strictement personnel, aucune déclaration n'est requise. Pour un professionnel, un commerce ou un employeur, les obligations sont réelles : information des personnes filmées, base légale, durée de conservation limitée, et déclaration ou registre selon les cas. Le cadre exact dépend de votre activité : renseignez-vous avant l'installation.</p>
+
+<p>La discrétion d'une caméra n'a de valeur que si elle reste dans les clous. Retenez trois règles : filmez ce qui vous appartient, informez les personnes concernées, et coupez ce que vous ne pouvez pas justifier, à commencer par le son. Une caméra de surveillance visible et correctement orientée protège mieux qu'un appareil dissimulé qui vous expose à une plainte. Si vous visez une pose en extérieur, la Baseus N1 à 119,99 € reste une option à examiner de près, fiche produit en main.</p></div><footer class="content__footer"><div class="content__last-updated">This article was updated on <time datetime="2026-09-23T00:30">sept. 23, 2026</time></div><div class="content__share"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmimistok.com%2Fcamera-espion%2F" class="js-share facebook tltp tltp--top" aria-label="Facebook" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmimistok.com%2Fcamera-espion%2F&amp;via=mimistok&amp;text=Cam%C3%A9ra%20espion%20%3A%20un%20terme%20qui%20recouvre%20des%20usages%20tr%C3%A8s%20diff%C3%A9rents" class="js-share twitter tltp tltp--top" aria-label="Twitter" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fmimistok.com%2Fcamera-espion%2F&amp;media=https%3A%2F%2Fmimistok.com%2Fmedia%2Fposts%2F14%2FBaseus_Security_N1_Outdoor_Camera_8_home_protection_1200x-copie.webp&amp;description=Cam%C3%A9ra%20espion%20%3A%20un%20terme%20qui%20recouvre%20des%20usages%20tr%C3%A8s%20diff%C3%A9rents" class="js-share pinterest tltp tltp--top" aria-label="Pinterest" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></footer></div></article><div class="content__section post__related"><div class="main__inner"><h3 class="content__section__title">Related post</h3><div class="post__related__wrap"><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2026-09-23T00:30">sept. 23, 2026</time><a href="https://mimistok.com/blog/baseus/" class="c-card-tag">Baseus</a></div><a href="https://mimistok.com/batterie-nomade/" class="c-card__image"><img src="https://mimistok.com/media/posts/37/imgi_6_f033e4a8f74b4c7981523a797485b478_image.webp" loading="lazy" height="1500" width="1500" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/batterie-nomade/">Batterie nomade en voyage et en avion : ce qu'il faut savoir</a></h2><p>Règles en cabine et en soute, critères à vérifier et bonnes pratiques : l'essentiel pour choisir et transporter une batterie nomade en voyage.</p></header></article><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2026-09-23T00:30">sept. 23, 2026</time><a href="https://mimistok.com/blog/baseus/" class="c-card-tag">Baseus</a></div><a href="https://mimistok.com/adaptateur-usb-c/" class="c-card__image"><img src="https://mimistok.com/media/posts/15/Baseus__Blade_H1_Digital_Display_Power_Bank_20000mAh_100W_01.webp" loading="lazy" height="600" width="1464" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/adaptateur-usb-c/">Adaptateur USB C : un connecteur, des capacités inégales</a></h2><p>Données, vidéo ou charge : comprendre ce qu'un adaptateur USB C sait réellement faire avant de l'acheter.</p></header></article></div></div></div></main><div class="right-bar"><div class="right-bar__inner"><div class="sidebar"><div class="box follow"><a href="https://www.facebook.com/people/Mimistok/61582459216888/" class="tltp tltp--top" aria-label="Facebook"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://x.com/storemimistok" class="tltp tltp--top" aria-label="Twitter"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://www.instagram.com/storemimistok/" class="tltp tltp--top" aria-label="Instagram"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#instagram"/></svg> <span>Instagram</span> </a><a href="https://www.linkedin.com/company/mimistok/" class="tltp tltp--top" aria-label="LinkedIn"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#linkedin"/></svg> <span>LinkedIn</span> </a><a href="https://www.pinterest.com/storemimistok/" class="tltp tltp--top" aria-label="Pinterest"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></div></div></div></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script><style>#popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(22, 23, 24, 0.80);
+    backdrop-filter: blur(15px);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 99999;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding-top: 80px;
+  }
+  #popup.show {
+    display: flex;
+    opacity: 1;
+  }
+  body.no-scroll {
+    overflow: hidden;
+  }
+
+  #search-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  #search-input-popup {
+    padding: 13px 25px;
+    width: 100%;
+    max-width: 690px;
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    font-size: 18px;
+    background: rgba(30, 30, 30, 0.75);
+    color: #FFFFFF;
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transform: scale(1);
+  }
+
+  #search-input-popup::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+  }
+
+  #search-input-popup:focus {
+    outline: none;
+    border-color: #2196F3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.4), 0 6px 20px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02);
+  }
+
+  #search-results-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 690px;
+    max-height: 900px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 15px;
+    margin-right: -5px;
+    box-sizing: border-box;
+    padding-bottom: 400px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 35px;
+    margin: 300px 0;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb {
+    background: rgba(33, 150, 243, 0.6);
+    border-radius: 4px;
+    border: 2px solid rgba(22, 23, 24, 0.8);
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb:hover {
+    background: rgba(33, 150, 243, 0.8);
+  }
+
+  .result-item-popup {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    cursor: pointer;
+    background: rgba(50, 50, 50, 0.65);
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+  }
+
+  .result-item-popup:hover {
+    background: rgba(70, 70, 70, 0.75);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .result-img-popup {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .result-title-popup {
+    font-size: 18px;
+    color: #FFFFFF;
+    font-weight: 500;
+    flex: 1;
+  }
+
+  .result-price-popup {
+    background: #2196F3;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in-popup {
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  #popup-close {
+    position: fixed;
+    top: 25px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 100000;
+  }
+
+  @media (max-width: 768px) {
+    #popup {
+      padding-top: 100px;
+      align-items: flex-start;
+    }
+    
+    #search-container-popup {
+      padding: 0 15px;
+    }
+    
+    #search-input-popup {
+      padding: 15px 20px;
+      font-size: 16px;
+      max-width: 100%;
+      border-radius: 25px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    #search-results-container-popup {
+      max-width: 100%;
+      padding: 0 8px 900px 5px;
+      box-sizing: border-box;
+      max-height: 1200px;
+      margin-right: 0;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      margin: 8px 0;
+      width: calc(100% - 20px);
+    }
+    
+    .result-img-popup {
+      width: 45px;
+      height: 45px;
+      margin-right: 15px;
+    }
+    
+    .result-title-popup {
+      font-size: 16px;
+    }
+    
+    .result-price-popup {
+      font-size: 13px;
+      padding: 5px 12px;
+    }
+    
+    #popup-close {
+      top: 20px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #popup {
+      padding-top: 90px;
+    }
+    
+    #search-container-popup {
+      padding: 0 10px;
+    }
+    
+    #search-input-popup {
+      padding: 14px 18px;
+      font-size: 16px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      width: calc(100% - 10px);
+    }
+    
+    .result-img-popup {
+      width: 40px;
+      height: 40px;
+      margin-right: 12px;
+    }
+    
+    .result-title-popup {
+      font-size: 15px;
+    }
+    
+    .result-price-popup {
+      font-size: 12px;
+      padding: 4px 10px;
+    }
+    
+    #popup-close {
+      top: 15px;
+      right: 10px;
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    #search-input-popup {
+      font-size: 16px !important;
+      transform: scale(1) !important;
+    }
+  }</style><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div></div><script>// LOGIQUE DU POPUP
+const popup = document.getElementById('popup');
+const popupCloseBtn = document.getElementById('popup-close');
+const openSearchBtn = document.getElementById('open-search-btn');
+
+function showPopup() {
+  popup.style.display = 'flex';
+  setTimeout(() => {
+    popup.classList.add('show');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('no-scroll');
+    
+    setTimeout(() => {
+      const searchInput = document.getElementById('search-input-popup');
+      searchInput.focus();
+      
+      if (window.innerWidth <= 768) {
+        searchInput.style.fontSize = '16px';
+        searchInput.style.transform = 'scale(1)';
+      }
+    }, 300);
+  }, 10);
+}
+
+function hidePopup() {
+  popup.classList.remove('show');
+  popup.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+  
+  popup.addEventListener('transitionend', function handler() {
+    if (!popup.classList.contains('show')) {
+      popup.style.display = 'none';
+    }
+    popup.removeEventListener('transitionend', handler);
+  });
+}
+
+// Événements
+if (openSearchBtn) {
+  openSearchBtn.addEventListener('click', showPopup);
+}
+popupCloseBtn.addEventListener('click', hidePopup);
+
+// Fermer avec Échap
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && popup.classList.contains('show')) {
+    hidePopup();
+  }
+});
+
+// Fermer en cliquant en dehors
+popup.addEventListener('click', function(e) {
+  if (e.target === popup) {
+    hidePopup();
+  }
+});
+
+// SYSTÈME DE RECHERCHE
+let pagesIndex = [];
+
+fetch('/search02.json')
+  .then(response => response.json())
+  .then(data => {
+    pagesIndex = data;
+  });
+
+const inputPopup = document.getElementById('search-input-popup');
+const resultsContainerPopup = document.getElementById('search-results-container-popup');
+
+inputPopup.addEventListener('input', function() {
+  const query = inputPopup.value.trim().toLowerCase();
+  resultsContainerPopup.innerHTML = '';
+  
+  if (!query) return;
+
+  const matches = pagesIndex.filter(p => p.title.toLowerCase().includes(query));
+
+  matches.forEach((p, index) => {
+    const resultDiv = document.createElement('div');
+    resultDiv.className = 'result-item-popup fade-in-popup';
+    resultDiv.style.animationDelay = `${index * 0.05}s`;
+
+    const img = document.createElement('img');
+    img.src = p.image || '';
+    img.className = 'result-img-popup';
+    img.alt = p.title;
+    
+    const title = document.createElement('span');
+    title.textContent = p.title;
+    title.className = 'result-title-popup';
+
+    const price = document.createElement('span');
+    price.textContent = `${p.price}€`;
+    price.className = 'result-price-popup';
+
+    resultDiv.appendChild(img);
+    resultDiv.appendChild(title);
+    resultDiv.appendChild(price);
+
+    resultDiv.addEventListener('click', function() {
+      window.location.href = p.url;
+    });
+
+    resultsContainerPopup.appendChild(resultDiv);
+  });
+});
+
+// ENTREE = FERMER LE CLAVIER SEULEMENT
+inputPopup.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    this.blur();
+  }
+});
+
+// Empêcher le zoom sur l'input
+inputPopup.addEventListener('touchstart', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});
+
+inputPopup.addEventListener('focus', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});</script><script>// CODE CORRIGÉ POUR LE MENU - remplace l'ancien
+document.addEventListener('DOMContentLoaded', function() {
+  const menuItem = document.querySelector('.open-search-btn');
+  if (menuItem) {
+    menuItem.style.cursor = 'pointer';
+    menuItem.addEventListener('click', function(e) {
+      e.preventDefault();
+      const popup = document.getElementById('popup');
+      popup.style.display = 'flex';
+      setTimeout(() => {
+        popup.classList.add('show');
+        popup.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('no-scroll');
+        
+        setTimeout(() => {
+          const searchInput = document.getElementById('search-input-popup');
+          if (searchInput) searchInput.focus();
+        }, 300);
+      }, 10);
+    });
+  }
+});</script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-autolinker.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-show-invisibles.min.js"></script></body></html>

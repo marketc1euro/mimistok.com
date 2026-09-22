@@ -1,0 +1,624 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Micro cravate : pourquoi le son prime sur l'image</title><meta name="description" content="En visio comme en live, un mauvais son fait plus de dégâts qu'une image moyenne. Placement du micro et réglages qui changent tout."><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="stylesheet" href="https://mimistok.com/media/plugins/syntaxHighlighter/prism-black.css"><link rel="stylesheet" href="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.css"><link rel="canonical" href="https://mimistok.com/micro-cravate/"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="Micro cravate : pourquoi le son pèse plus que l'image"><meta property="og:image" content="https://mimistok.com/media/posts/41/6528df32352d4b0ba049-2.png"><meta property="og:image:width" content="1500"><meta property="og:image:height" content="565"><meta property="og:site_name" content="mimistok"><meta property="og:description" content="En visio comme en live, un mauvais son fait plus de dégâts qu'une image moyenne. Placement du micro et réglages qui changent tout."><meta property="og:url" content="https://mimistok.com/micro-cravate/"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://mimistok.com/media/website/ICONMIMI.svg" type="image/x-icon"><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=ee05e1048288936916617ed6de72b720"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://mimistok.com/micro-cravate/"},"headline":"Micro cravate : pourquoi le son pèse plus que l'image","datePublished":"2026-09-23T00:30+02:00","dateModified":"2026-09-23T00:30+02:00","image":{"@type":"ImageObject","url":"https://mimistok.com/media/posts/41/6528df32352d4b0ba049-2.png","height":565,"width":1500},"description":"En visio comme en live, un mauvais son fait plus de dégâts qu'une image moyenne. Placement du micro et réglages qui changent tout.","author":{"@type":"Person","name":"mimistok","url":"https://mimistok.com/authors/mimistok/"},"publisher":{"@type":"Organization","name":"mimistok","logo":{"@type":"ImageObject","url":"https://mimistok.com/media/website/mimistoklogo.svg","height":50,"width":50}}}</script><noscript><style>img[loading] { opacity: 1; }</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=AW-17683532210"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-17683532210');</script><meta name="p:domain_verify" content="52ce14b83d0b84c3ea8a305787e16373"><script defer="defer" src="https://cloud.umami.is/script.js" data-website-id="42ea37ac-125a-4569-a4fb-b8c82dea3aeb"></script></head><body class="post-template"><script defer="defer" src="https://widget.senja.io/..."></script><a href="/panier" id="cart-button"><div class="cart-icon"><img src="https://image.mimistok.com/bag001.svg" alt="Panier"> <span id="cart-count">0</span></div></a><style>#cart-button {
+  position: fixed;
+  top: 8%;
+  right: 26px;
+  transform: translateY(-50%);
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #007BFF;
+  z-index: 99999;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+#cart-button:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Conteneur */
+.cart-icon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🛍️ Icône */
+.cart-icon img {
+  width: 18px;
+  height: 18px;
+  transform: translateY(-1px);
+}
+
+/* 🔴 Badge toujours visible */
+#cart-count {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  background: red;
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: bold;
+
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
+
+  transform: scale(1);
+}
+
+/* Mobile */
+@media (max-width: 1024px) {
+  #cart-button {
+    top: 36px;
+    right: 82px;
+  }
+
+  .cart-icon img {
+    transform: none;
+  }
+}</style><script>// 🔄 Badge panier en temps réel
+function updateCartBadge() {
+    const panier = JSON.parse(localStorage.getItem('panier')) || [];
+    const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
+
+    const badge = document.getElementById('cart-count');
+
+    if (badge) {
+        badge.textContent = totalItems;
+    }
+}
+
+// 🔌 Hook sur ton panier existant
+const oldUpdate = window.mettreAJourPanierFlottant;
+
+window.mettreAJourPanierFlottant = function() {
+    if (oldUpdate) oldUpdate();
+    updateCartBadge();
+};
+
+// 🚀 Init propre (sans fade-in)
+window.addEventListener('load', function() {
+    updateCartBadge();
+    setInterval(updateCartBadge, 500);
+});</script><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main post"><article class="content"><figure class="content__featured-image content__featured-image--attop"><img src="https://mimistok.com/media/posts/41/6528df32352d4b0ba049-2.png" srcset="https://mimistok.com/media/posts/41/responsive/6528df32352d4b0ba049-2-xs.png 320w, https://mimistok.com/media/posts/41/responsive/6528df32352d4b0ba049-2-sm.png 480w, https://mimistok.com/media/posts/41/responsive/6528df32352d4b0ba049-2-md.png 768w, https://mimistok.com/media/posts/41/responsive/6528df32352d4b0ba049-2-xl.png 1024w" sizes="(min-width: 1460px) 938px, (min-width: 1200px) calc(75.83vw - 139px), 100vw" loading="eager" height="565" width="1500" alt="Micro cravate : pourquoi le son pèse plus que l'image"></figure><div class="main__inner"><div class="content__meta"><div class="content__author"><div><a href="https://mimistok.com/authors/mimistok/" class="content__author__name">mimistok</a></div></div><div class="content__date"><time datetime="2026-09-23T00:30">sept. 23, 2026</time></div></div><header class="content__header"><h1 class="content__title">Micro cravate : pourquoi le son pèse plus que l'image</h1></header><div class="content__entry"><p>Cinq minutes après le début de votre réunion, personne ne se souvient de la définition de votre caméra. En revanche, tout le monde a entendu ce souffle continu, ces fins de phrases avalées et ce bruit de clavier. En visio comme en direct, le son décide de la crédibilité bien avant l'image, et c'est presque toujours lui que l'on néglige. Un micro cravate bien choisi corrige ce déséquilibre pour un budget sans rapport avec celui d'une caméra.</p>
+
+<h2>Pourquoi le micro cravate pèse plus lourd que l'image en visio et en live</h2>
+<p>Une image imparfaite se pardonne. Un son médiocre, beaucoup moins. Votre interlocuteur accepte sans peine un cadrage approximatif ou un arrière-plan encombré : son cerveau reconstitue ce qu'il voit. Pour la voix, c'est l'inverse. Dès que le signal est dégradé, l'effort d'écoute devient conscient, la compréhension baisse et l'attention décroche.</p>
+<p>Les plateformes de visioconférence appliquent toutes des traitements agressifs au son : réduction de bruit, compression, coupure automatique des silences. Ces algorithmes fonctionnent d'autant mieux que le signal d'entrée est propre. Un micro placé à quelques centimètres de la bouche leur donne de la matière exploitable ; le micro intégré d'un ordinateur portable, à un mètre de distance, leur envoie surtout l'acoustique de la pièce.</p>
+<ul>
+<li>une voix qui résonne et paraît lointaine, comme si vous parliez depuis un couloir ;</li>
+<li>le ventilateur, le clavier ou la rue captés avec la même énergie que vos mots ;</li>
+<li>des fins de phrases qui disparaissent dès que vous baissez la voix ;</li>
+<li>une fatigue d'écoute qui s'installe chez vos interlocuteurs au bout d'un quart d'heure.</li>
+</ul>
+<p>En direct, l'enjeu change de nature sans changer d'ampleur. Un spectateur qui entend mal ne demande pas de répéter : il ferme l'onglet. Le son est donc la variable la plus rentable à traiter en premier, avant la caméra, avant l'éclairage, avant le décor.</p>
+
+<h2>Ce que le son dégrade concrètement dans un échange professionnel</h2>
+<p>Les défauts audio ne se contentent pas de rendre l'écoute pénible. Ils modifient la perception que vos interlocuteurs ont de vous.</p>
+<ol>
+<li>La réverbération donne une impression d'improvisation, comme si vous appeliez d'une pièce vide.</li>
+<li>Le bruit de fond permanent suggère un environnement mal préparé.</li>
+<li>Le niveau irrégulier oblige l'autre à monter puis à baisser le volume sans arrêt.</li>
+<li>Une coupure ou une latence casse le rythme de la conversation et vous fait perdre la parole.</li>
+</ol>
+<p>Aucun de ces problèmes ne se règle avec une meilleure caméra. Tous dépendent de la distance entre votre bouche et le micro, et de l'acoustique de la pièce. C'est pourquoi un micro externe, même modeste, produit souvent un gain plus audible qu'un changement de webcam.</p>
+
+<h2>Les critères à vérifier avant d'acheter un micro cravate</h2>
+<p>Un micro cravate n'est pas un accessoire interchangeable : chaque conception vise un usage précis. Quatre familles de critères suffisent à trier les modèles.</p>
+<h3>La connexion</h3>
+<p>Le jack 3,5 mm se branche sur un appareil photo, un camescope ou une carte son ; l'USB s'adresse à un ordinateur ; le sans-fil libère des câbles mais impose une alimentation. Vérifiez ce que votre matériel accepte avant tout le reste : un connecteur inadapté rend le meilleur micro inutilisable.</p>
+<h3>La directivité</h3>
+<p>Un modèle omnidirectionnel capte large et pardonne les erreurs de placement ; un modèle cardioïde isole mieux la voix mais demande d'être orienté avec soin. Pour une personne qui parle face à une caméra, les deux approches se défendent.</p>
+<h3>L'alimentation et les accessoires</h3>
+<p>Un micro qui fonctionne sur pile ou sur batterie implique de penser à son autonomie avant chaque session : une donnée à vérifier sur la fiche produit plutôt qu'à supposer. La bonnette anti-vent, une pince solide et un câble de longueur suffisante comptent autant que la capsule.</p>
+<h3>La fixation au vêtement</h3>
+<p>Un clip trop faible glisse, un câble trop court vous oblige à vous pencher. Sur un vêtement fin, le poids du micro tire le tissu et fait bouger la capsule. Ces détails s'évaluent en lisant les avis d'utilisateurs, pas la fiche technique.</p>
+
+<h2>Micro cravate, micro-casque ou micro intégré : quel choix selon l'usage</h2>
+<p>Il n'existe pas de solution universelle. Le bon choix dépend de votre position devant l'écran et de la durée de vos interventions.</p>
+<table>
+<thead>
+<tr><th>Usage</th><th>Solution adaptée</th><th>Ce qu'il faut savoir</th></tr>
+</thead>
+<tbody>
+<tr><td>Réunions assises à domicile</td><td>Micro cravate filaire</td><td>Voix proche, mains libres, budget contenu ; le câble reste à gérer</td></tr>
+<tr><td>Visio longue avec beaucoup d'écoute</td><td>Micro-casque</td><td>Isole mieux de la pièce, mais marque le visage</td></tr>
+<tr><td>Appel imprévu depuis un téléphone</td><td>Micro intégré</td><td>Acceptable dans une pièce calme, insuffisant dès qu'il y a du bruit</td></tr>
+<tr><td>Tutoriels et voix off enregistrées</td><td>Micro cravate</td><td>Niveau constant sur de longues prises et timbre régulier</td></tr>
+<tr><td>Direct avec déplacements</td><td>Micro cravate sans fil</td><td>Aucun câble à surveiller ; autonomie à vérifier sur la fiche produit</td></tr>
+<tr><td>Enregistrement en extérieur</td><td>Micro cravate avec bonnette</td><td>Le vent reste l'ennemi principal, la bonnette est indispensable</td></tr>
+</tbody>
+</table>
+<p>Deux constats se dégagent. Le micro-casque reste imbattable pour écouter et parler longtemps, mais il occupe le visage : en visio client, ce n'est pas neutre. Le micro intégré, lui, ne convient que dans un environnement silencieux. Entre les deux, le micro cravate offre le meilleur compromis entre qualité de voix et liberté de mouvement.</p>
+
+<h2>Le cadrage automatique, le complément côté image</h2>
+<p>Soigner le son ne dispense pas de soigner l'image, à condition de viser le bon problème. En visio, la difficulté n'est pas la netteté mais le cadre : on se penche vers l'écran, on sort du champ, on se recentre à la main toutes les cinq minutes. C'est exactement ce que vise l'<strong>OBSBOT Meet SE Blanc Nuage - Webcam AI Cadrage Auto</strong>, disponible à <strong>79,99 €</strong> sur <a href="https://mimistok.com/obsbot-meet-se-blanc-nuage/">sa fiche produit</a>. Comme sa désignation l'indique, elle mise sur le cadrage automatique assisté par intelligence artificielle : la caméra ajuste le cadre à votre place pendant que vous parlez.</p>
+<p>Soyons précis sur son rôle. Cette webcam agit sur l'image, pas sur le son : elle ne remplace pas un micro cravate et ne dispensera pas d'un micro externe pour un direct exigeant. Elle répond à un besoin complémentaire, celui de rester cadré sans y penser, pour un budget contenu. Si votre priorité est la voix, commencez par le micro ; si votre problème est le cadre, cette référence mérite un examen attentif. Le reste de ses caractéristiques techniques est à vérifier sur la fiche produit.</p>
+<p>Pour situer ce modèle dans la gamme, parcourez la <a href="https://mimistok.com/accueil/categorie-obsbot/">catégorie Obsbot</a> et les analyses du <a href="https://mimistok.com/blog/obsbot/">blog Obsbot</a>. Si votre sujet est plutôt l'image, notre article sur le choix d'une <a href="https://mimistok.com/webcam/">webcam</a> détaille les critères de capteur et de cadrage.</p>
+
+<h2>Bien placer et régler son micro cravate</h2>
+<p>Le placement pèse souvent plus lourd que le prix du matériel. Cinq réflexes suffisent à transformer une prise de son.</p>
+<ol>
+<li>Fixez la capsule à une largeur de main sous le menton, légèrement de côté, jamais devant la bouche.</li>
+<li>Accrochez le micro sur le bord d'un vêtement épais : une chemise ou une veste tient mieux qu'un t-shirt fin.</li>
+<li>Évitez de frotter le câble contre le tissu : faites-le passer sous le vêtement et laissez une boucle de détente.</li>
+<li>Utilisez la bonnette anti-vent même en intérieur, contre les souffles et les plosives.</li>
+<li>Enregistrez trente secondes de test au casque, puis ajustez la distance avant de lancer la réunion.</li>
+</ol>
+<p>Ce dernier point est celui que l'on saute le plus souvent. Un test court permet de repérer une saturation, un bruit de fond oublié ou un niveau trop bas, trois défauts que vos interlocuteurs n'oseront pas toujours vous signaler.</p>
+
+<h2>Les erreurs qui ruinent une bonne prise de son</h2>
+<ul>
+<li>choisir un micro sans vérifier la connectique de son ordinateur ;</li>
+<li>placer la capsule trop loin de la bouche, ce qui annule l'avantage d'un micro externe ;</li>
+<li>laisser une notification, un ventilateur ou une climatisation tourner pendant l'enregistrement ;</li>
+<li>monter le gain pour compenser un mauvais placement, ce qui amplifie aussi le bruit de fond ;</li>
+<li>acheter un micro sans bonnette ni câble de rechange, puis découvrir le problème en pleine réunion.</li>
+</ul>
+<p>Ces erreurs n'ont rien à voir avec le budget. La plupart du temps, elles se corrigent avec de la méthode plutôt qu'avec du matériel supplémentaire.</p>
+
+<h2>Questions fréquentes sur le micro cravate</h2>
+<h3>Un micro cravate est-il nécessaire pour des visios régulières ?</h3>
+<p>Dès que vous passez plus d'une heure par semaine en réunion, oui. Le gain porte moins sur la fidélité de la voix que sur la constance : plus de bruit de pièce, plus de niveau qui s'effondre en fin de phrase. Si vous appelez rarement depuis une pièce calme, le micro intégré peut suffire.</p>
+<h3>Faut-il préférer un micro cravate filaire ou sans fil ?</h3>
+<p>Le filaire est plus simple, sans alimentation ni appairage, et souvent moins cher. Le sans-fil se justifie si vous vous déplacez ou si vous ne voulez aucun câble visible à l'image. Dans ce cas, vérifiez l'autonomie et la portée sur la fiche produit.</p>
+<h3>Peut-on brancher un micro cravate sur un ordinateur portable ?</h3>
+<p>Cela dépend uniquement de la connectique. Un modèle jack 3,5 mm suppose une entrée micro compatible, ce qui n'est pas garanti sur toutes les machines ; un modèle USB se branche directement. Vérifiez les ports de votre ordinateur avant de commander.</p>
+<h3>Le micro cravate remplace-t-il une caméra ?</h3>
+<p>Non, ce sont deux métiers distincts : le micro traite la voix, la caméra traite l'image. Si votre image souffre d'un cadrage instable, une webcam à cadrage automatique comme l'Obsbot Meet SE répond à ce besoin précis, mais elle ne corrigera rien du côté du son.</p>
+
+<h2>En résumé</h2>
+<p>Le son n'est pas un détail réservé aux podcasteurs : c'est la première chose que vos interlocuteurs perçoivent et la dernière qu'ils pardonnent. Un micro cravate bien placé et testé avant chaque session corrige l'essentiel pour un budget raisonnable. L'image vient ensuite, et une webcam au cadrage automatique comme l'OBSBOT Meet SE à 79,99 € règle la question du cadre sans que vous ayez à y penser.</p></div><footer class="content__footer"><div class="content__last-updated">This article was updated on <time datetime="2026-09-23T00:30">sept. 23, 2026</time></div><div class="content__share"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmimistok.com%2Fmicro-cravate%2F" class="js-share facebook tltp tltp--top" aria-label="Facebook" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmimistok.com%2Fmicro-cravate%2F&amp;via=mimistok&amp;text=Micro%20cravate%20%3A%20pourquoi%20le%20son%20p%C3%A8se%20plus%20que%20l%27image" class="js-share twitter tltp tltp--top" aria-label="Twitter" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fmimistok.com%2Fmicro-cravate%2F&amp;media=https%3A%2F%2Fmimistok.com%2Fmedia%2Fposts%2F41%2F6528df32352d4b0ba049-2.png&amp;description=Micro%20cravate%20%3A%20pourquoi%20le%20son%20p%C3%A8se%20plus%20que%20l%27image" class="js-share pinterest tltp tltp--top" aria-label="Pinterest" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></footer></div></article><div class="content__section post__related"><div class="main__inner"><h3 class="content__section__title">Related post</h3><div class="post__related__wrap"><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2026-09-23T00:05">sept. 23, 2026</time><a href="https://mimistok.com/blog/obsbot/" class="c-card-tag">Obsbot</a></div><a href="https://mimistok.com/webcam/" class="c-card__image"><img src="https://mimistok.com/media/posts/41/6528df32352d4b0ba049-2.png" loading="lazy" height="565" width="1500" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/webcam/">Webcam : comment choisir pour la visio, le télétravail et le streaming</a></h2><p>Résolution, autofocus, cadrage automatique, lumière, son&hellip; les critères pour choisir une webcam adaptée à votre usage, du télétravail au live.</p></header></article><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2026-09-23T00:30">sept. 23, 2026</time><a href="https://mimistok.com/blog/laifen/" class="c-card-tag">Laifen</a></div><a href="https://mimistok.com/seche-cheveux-dyson/" class="c-card__image"><img src="https://mimistok.com/media/posts/6/Capture-decran-2025-10-03-a-11.03.05.webp" loading="lazy" height="1072" width="2546" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/seche-cheveux-dyson/">Sèche-cheveux Dyson et haut de gamme : ce que vous payez</a></h2><p>Ce qui distingue réellement un sèche-cheveux haut de gamme, et à quelles conditions l'écart de prix se justifie.</p></header></article></div></div></div></main><div class="right-bar"><div class="right-bar__inner"><div class="sidebar"><div class="box follow"><a href="https://www.facebook.com/people/Mimistok/61582459216888/" class="tltp tltp--top" aria-label="Facebook"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://x.com/storemimistok" class="tltp tltp--top" aria-label="Twitter"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://www.instagram.com/storemimistok/" class="tltp tltp--top" aria-label="Instagram"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#instagram"/></svg> <span>Instagram</span> </a><a href="https://www.linkedin.com/company/mimistok/" class="tltp tltp--top" aria-label="LinkedIn"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#linkedin"/></svg> <span>LinkedIn</span> </a><a href="https://www.pinterest.com/storemimistok/" class="tltp tltp--top" aria-label="Pinterest"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></div></div></div></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script><style>#popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(22, 23, 24, 0.80);
+    backdrop-filter: blur(15px);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 99999;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding-top: 80px;
+  }
+  #popup.show {
+    display: flex;
+    opacity: 1;
+  }
+  body.no-scroll {
+    overflow: hidden;
+  }
+
+  #search-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  #search-input-popup {
+    padding: 13px 25px;
+    width: 100%;
+    max-width: 690px;
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    font-size: 18px;
+    background: rgba(30, 30, 30, 0.75);
+    color: #FFFFFF;
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transform: scale(1);
+  }
+
+  #search-input-popup::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+  }
+
+  #search-input-popup:focus {
+    outline: none;
+    border-color: #2196F3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.4), 0 6px 20px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02);
+  }
+
+  #search-results-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 690px;
+    max-height: 900px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 15px;
+    margin-right: -5px;
+    box-sizing: border-box;
+    padding-bottom: 400px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 35px;
+    margin: 300px 0;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb {
+    background: rgba(33, 150, 243, 0.6);
+    border-radius: 4px;
+    border: 2px solid rgba(22, 23, 24, 0.8);
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb:hover {
+    background: rgba(33, 150, 243, 0.8);
+  }
+
+  .result-item-popup {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    cursor: pointer;
+    background: rgba(50, 50, 50, 0.65);
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+  }
+
+  .result-item-popup:hover {
+    background: rgba(70, 70, 70, 0.75);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .result-img-popup {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .result-title-popup {
+    font-size: 18px;
+    color: #FFFFFF;
+    font-weight: 500;
+    flex: 1;
+  }
+
+  .result-price-popup {
+    background: #2196F3;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in-popup {
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  #popup-close {
+    position: fixed;
+    top: 25px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 100000;
+  }
+
+  @media (max-width: 768px) {
+    #popup {
+      padding-top: 100px;
+      align-items: flex-start;
+    }
+    
+    #search-container-popup {
+      padding: 0 15px;
+    }
+    
+    #search-input-popup {
+      padding: 15px 20px;
+      font-size: 16px;
+      max-width: 100%;
+      border-radius: 25px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    #search-results-container-popup {
+      max-width: 100%;
+      padding: 0 8px 900px 5px;
+      box-sizing: border-box;
+      max-height: 1200px;
+      margin-right: 0;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      margin: 8px 0;
+      width: calc(100% - 20px);
+    }
+    
+    .result-img-popup {
+      width: 45px;
+      height: 45px;
+      margin-right: 15px;
+    }
+    
+    .result-title-popup {
+      font-size: 16px;
+    }
+    
+    .result-price-popup {
+      font-size: 13px;
+      padding: 5px 12px;
+    }
+    
+    #popup-close {
+      top: 20px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #popup {
+      padding-top: 90px;
+    }
+    
+    #search-container-popup {
+      padding: 0 10px;
+    }
+    
+    #search-input-popup {
+      padding: 14px 18px;
+      font-size: 16px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      width: calc(100% - 10px);
+    }
+    
+    .result-img-popup {
+      width: 40px;
+      height: 40px;
+      margin-right: 12px;
+    }
+    
+    .result-title-popup {
+      font-size: 15px;
+    }
+    
+    .result-price-popup {
+      font-size: 12px;
+      padding: 4px 10px;
+    }
+    
+    #popup-close {
+      top: 15px;
+      right: 10px;
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    #search-input-popup {
+      font-size: 16px !important;
+      transform: scale(1) !important;
+    }
+  }</style><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div></div><script>// LOGIQUE DU POPUP
+const popup = document.getElementById('popup');
+const popupCloseBtn = document.getElementById('popup-close');
+const openSearchBtn = document.getElementById('open-search-btn');
+
+function showPopup() {
+  popup.style.display = 'flex';
+  setTimeout(() => {
+    popup.classList.add('show');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('no-scroll');
+    
+    setTimeout(() => {
+      const searchInput = document.getElementById('search-input-popup');
+      searchInput.focus();
+      
+      if (window.innerWidth <= 768) {
+        searchInput.style.fontSize = '16px';
+        searchInput.style.transform = 'scale(1)';
+      }
+    }, 300);
+  }, 10);
+}
+
+function hidePopup() {
+  popup.classList.remove('show');
+  popup.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+  
+  popup.addEventListener('transitionend', function handler() {
+    if (!popup.classList.contains('show')) {
+      popup.style.display = 'none';
+    }
+    popup.removeEventListener('transitionend', handler);
+  });
+}
+
+// Événements
+if (openSearchBtn) {
+  openSearchBtn.addEventListener('click', showPopup);
+}
+popupCloseBtn.addEventListener('click', hidePopup);
+
+// Fermer avec Échap
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && popup.classList.contains('show')) {
+    hidePopup();
+  }
+});
+
+// Fermer en cliquant en dehors
+popup.addEventListener('click', function(e) {
+  if (e.target === popup) {
+    hidePopup();
+  }
+});
+
+// SYSTÈME DE RECHERCHE
+let pagesIndex = [];
+
+fetch('/search02.json')
+  .then(response => response.json())
+  .then(data => {
+    pagesIndex = data;
+  });
+
+const inputPopup = document.getElementById('search-input-popup');
+const resultsContainerPopup = document.getElementById('search-results-container-popup');
+
+inputPopup.addEventListener('input', function() {
+  const query = inputPopup.value.trim().toLowerCase();
+  resultsContainerPopup.innerHTML = '';
+  
+  if (!query) return;
+
+  const matches = pagesIndex.filter(p => p.title.toLowerCase().includes(query));
+
+  matches.forEach((p, index) => {
+    const resultDiv = document.createElement('div');
+    resultDiv.className = 'result-item-popup fade-in-popup';
+    resultDiv.style.animationDelay = `${index * 0.05}s`;
+
+    const img = document.createElement('img');
+    img.src = p.image || '';
+    img.className = 'result-img-popup';
+    img.alt = p.title;
+    
+    const title = document.createElement('span');
+    title.textContent = p.title;
+    title.className = 'result-title-popup';
+
+    const price = document.createElement('span');
+    price.textContent = `${p.price}€`;
+    price.className = 'result-price-popup';
+
+    resultDiv.appendChild(img);
+    resultDiv.appendChild(title);
+    resultDiv.appendChild(price);
+
+    resultDiv.addEventListener('click', function() {
+      window.location.href = p.url;
+    });
+
+    resultsContainerPopup.appendChild(resultDiv);
+  });
+});
+
+// ENTREE = FERMER LE CLAVIER SEULEMENT
+inputPopup.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    this.blur();
+  }
+});
+
+// Empêcher le zoom sur l'input
+inputPopup.addEventListener('touchstart', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});
+
+inputPopup.addEventListener('focus', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});</script><script>// CODE CORRIGÉ POUR LE MENU - remplace l'ancien
+document.addEventListener('DOMContentLoaded', function() {
+  const menuItem = document.querySelector('.open-search-btn');
+  if (menuItem) {
+    menuItem.style.cursor = 'pointer';
+    menuItem.addEventListener('click', function(e) {
+      e.preventDefault();
+      const popup = document.getElementById('popup');
+      popup.style.display = 'flex';
+      setTimeout(() => {
+        popup.classList.add('show');
+        popup.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('no-scroll');
+        
+        setTimeout(() => {
+          const searchInput = document.getElementById('search-input-popup');
+          if (searchInput) searchInput.focus();
+        }, 300);
+      }, 10);
+    });
+  }
+});</script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-autolinker.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-show-invisibles.min.js"></script></body></html>

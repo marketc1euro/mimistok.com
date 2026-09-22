@@ -1,0 +1,622 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aspirateur laveur : ce qu'il fait bien, et ses limites</title><meta name="description" content="Un aspirateur laveur aspire et lave en un passage, mais ne remplace pas tout. Ce qu'il fait bien, ses limites et pour quels foyers il est fait."><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="stylesheet" href="https://mimistok.com/media/plugins/syntaxHighlighter/prism-black.css"><link rel="stylesheet" href="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.css"><link rel="canonical" href="https://mimistok.com/aspirateur-laveur/"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="Ce qu'un aspirateur laveur fait vraiment bien"><meta property="og:image" content="https://mimistok.com/media/posts/34/imgi_7_249280795.webp"><meta property="og:image:width" content="800"><meta property="og:image:height" content="800"><meta property="og:site_name" content="mimistok"><meta property="og:description" content="Un aspirateur laveur aspire et lave en un passage, mais ne remplace pas tout. Ce qu'il fait bien, ses limites et pour quels foyers il est fait."><meta property="og:url" content="https://mimistok.com/aspirateur-laveur/"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://mimistok.com/media/website/ICONMIMI.svg" type="image/x-icon"><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=ee05e1048288936916617ed6de72b720"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://mimistok.com/aspirateur-laveur/"},"headline":"Ce qu'un aspirateur laveur fait vraiment bien","datePublished":"2026-09-23T00:30+02:00","dateModified":"2026-09-23T00:30+02:00","image":{"@type":"ImageObject","url":"https://mimistok.com/media/posts/34/imgi_7_249280795.webp","height":800,"width":800},"description":"Un aspirateur laveur aspire et lave en un passage, mais ne remplace pas tout. Ce qu'il fait bien, ses limites et pour quels foyers il est fait.","author":{"@type":"Person","name":"mimistok","url":"https://mimistok.com/authors/mimistok/"},"publisher":{"@type":"Organization","name":"mimistok","logo":{"@type":"ImageObject","url":"https://mimistok.com/media/website/mimistoklogo.svg","height":50,"width":50}}}</script><noscript><style>img[loading] { opacity: 1; }</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=AW-17683532210"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-17683532210');</script><meta name="p:domain_verify" content="52ce14b83d0b84c3ea8a305787e16373"><script defer="defer" src="https://cloud.umami.is/script.js" data-website-id="42ea37ac-125a-4569-a4fb-b8c82dea3aeb"></script></head><body class="post-template"><script defer="defer" src="https://widget.senja.io/..."></script><a href="/panier" id="cart-button"><div class="cart-icon"><img src="https://image.mimistok.com/bag001.svg" alt="Panier"> <span id="cart-count">0</span></div></a><style>#cart-button {
+  position: fixed;
+  top: 8%;
+  right: 26px;
+  transform: translateY(-50%);
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #007BFF;
+  z-index: 99999;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+#cart-button:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Conteneur */
+.cart-icon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🛍️ Icône */
+.cart-icon img {
+  width: 18px;
+  height: 18px;
+  transform: translateY(-1px);
+}
+
+/* 🔴 Badge toujours visible */
+#cart-count {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  background: red;
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: bold;
+
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
+
+  transform: scale(1);
+}
+
+/* Mobile */
+@media (max-width: 1024px) {
+  #cart-button {
+    top: 36px;
+    right: 82px;
+  }
+
+  .cart-icon img {
+    transform: none;
+  }
+}</style><script>// 🔄 Badge panier en temps réel
+function updateCartBadge() {
+    const panier = JSON.parse(localStorage.getItem('panier')) || [];
+    const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
+
+    const badge = document.getElementById('cart-count');
+
+    if (badge) {
+        badge.textContent = totalItems;
+    }
+}
+
+// 🔌 Hook sur ton panier existant
+const oldUpdate = window.mettreAJourPanierFlottant;
+
+window.mettreAJourPanierFlottant = function() {
+    if (oldUpdate) oldUpdate();
+    updateCartBadge();
+};
+
+// 🚀 Init propre (sans fade-in)
+window.addEventListener('load', function() {
+    updateCartBadge();
+    setInterval(updateCartBadge, 500);
+});</script><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main post"><article class="content"><figure class="content__featured-image content__featured-image--attop"><img src="https://mimistok.com/media/posts/34/imgi_7_249280795.webp" srcset="https://mimistok.com/media/posts/34/responsive/imgi_7_249280795-xs.webp 320w, https://mimistok.com/media/posts/34/responsive/imgi_7_249280795-sm.webp 480w, https://mimistok.com/media/posts/34/responsive/imgi_7_249280795-md.webp 768w, https://mimistok.com/media/posts/34/responsive/imgi_7_249280795-xl.webp 1024w" sizes="(min-width: 1460px) 938px, (min-width: 1200px) calc(75.83vw - 139px), 100vw" loading="eager" height="800" width="800" alt="Ce qu'un aspirateur laveur fait vraiment bien"></figure><div class="main__inner"><div class="content__meta"><div class="content__author"><div><a href="https://mimistok.com/authors/mimistok/" class="content__author__name">mimistok</a></div></div><div class="content__date"><time datetime="2026-09-23T00:30">sept. 23, 2026</time></div></div><header class="content__header"><h1 class="content__title">Ce qu'un aspirateur laveur fait vraiment bien</h1></header><div class="content__entry"><p>Un aspirateur laveur promet de régler deux corvées en un seul passage : aspirer et laver. La promesse séduit, surtout dans un foyer avec des enfants, un animal ou des sols durs partout. Encore faut-il savoir ce qu'il fait réellement bien et ce qu'il ne remplace pas : l'écart entre la démonstration et l'usage quotidien est souvent plus large qu'annoncé.</p>
+
+<h2>Ce qu'un aspirateur laveur fait vraiment bien</h2>
+<p>Le principe est simple : l'appareil aspire les miettes sèches, projette une solution d'eau et de détergent sur le sol dur, puis récupère le liquide sale dans un réservoir distinct de celui de l'eau propre. Vous avancez, vous repassez une fois, et le sol est lavé sans seau ni serpillière à tordre.</p>
+
+<h3>Un seul passage sur les sols durs</h3>
+<p>C'est là que l'appareil justifie son prix. Sur du carrelage, du grès cérame ou un parquet vitrifié, il remplace le duo balai puis serpillière par un geste unique. Dans une cuisine ou un séjour traversant, la différence se compte en minutes gagnées chaque semaine.</p>
+
+<h3>Les taches fraîches</h3>
+<p>Un verre renversé, une trace de boue à l'entrée, des céréales écrasées dans un fond de lait : sur une saleté encore humide, l'aspiration du liquide évite d'étaler la tache avec un chiffon. Aucun balai ne sait traiter ce cas de figure.</p>
+
+<h3>Un mouillage mieux dosé</h3>
+<p>Contrairement à une serpillière saturée, l'appareil dépose peu d'eau puis la reprend aussitôt. Sur un parquet ou un stratifié sensible à l'humidité, ce dosage réduit le risque de lames gonflées et de traces blanches. Vérifiez tout de même que le fabricant autorise votre revêtement : certains parquets huilés restent à entretenir à la main.</p>
+
+<h2>Ce qu'un aspirateur laveur ne remplace pas</h2>
+<p>Un aspirateur laveur ne fait pas tout, et lui demander davantage que sa fonction première mène droit à la déception. Quatre limites reviennent sur tous les modèles.</p>
+<ul>
+<li><strong>Un nettoyage en profondeur</strong> : joints de carrelage noircis, calcaire incrusté et graisse cuite exigent un produit spécifique, un temps de pose et souvent une brosse.</li>
+<li><strong>Le lavage des textiles</strong> : moquette, tapis, canapé ou matelas réclament un appareil d'injection-extraction, avec un débit pensé pour les fibres.</li>
+<li><strong>Les recoins</strong> : marches d'escalier, intérieur de voiture, claviers, tiroirs et plinthes restent hors de portée d'un appareil à manche et à cuve.</li>
+<li><strong>Le grand nettoyage à sec</strong> : débris volumineux et grosses quantités de liquide dépassent ce type d'appareil.</li>
+</ul>
+<p>Ajoutez une contrainte d'entretien : après chaque lavage, il faut vider l'eau sale, rincer les bacs et laisser sécher le filtre, sous peine d'odeurs persistantes. Pour l'entretien courant d'un logement entier, un <a href="https://mimistok.com/aspirateur-sans-fil/">aspirateur sans fil</a> classique reste plus léger à sortir au quotidien, le laveur prenant le relais une à deux fois par semaine.</p>
+
+<h2>Les critères à vérifier avant l'achat</h2>
+<p>Les fiches techniques se ressemblent, mais les appareils ne se valent pas. Huit points méritent votre attention.</p>
+<ol>
+<li><strong>La puissance d'aspiration</strong>, en kilopascals ou en watts selon les marques : comparez des valeurs mesurées dans les mêmes conditions, jamais une valeur de pointe isolée.</li>
+<li><strong>L'autonomie en mode lavage</strong>, toujours plus courte qu'en aspiration seule : une grande surface demande une batterie amovible ou un appareil filaire.</li>
+<li><strong>La capacité des réservoirs</strong> d'eau propre et d'eau sale, qui se remplissent vite et obligent à interrompre le nettoyage.</li>
+<li><strong>Le poids réservoirs pleins</strong> : un appareil lourd devient pénible dès la deuxième pièce.</li>
+<li><strong>La brosse et son accès</strong> : démontable sans outil, elle se nettoie en deux minutes ; vissée, elle ne l'est jamais.</li>
+<li><strong>La filtration</strong> : un filtre de type HEPA limite le rejet de particules fines, un point important en cas d'allergie.</li>
+<li><strong>Le bruit</strong> : un appareil très sonore décourage l'usage régulier en appartement.</li>
+<li><strong>Les pièces détachées</strong> : filtres, brosses et joints doivent rester disponibles après l'achat.</li>
+</ol>
+<p>Ces critères ne dispensent pas de lire la fiche produit ligne à ligne : les valeurs annoncées correspondent souvent au mode le plus favorable. Lorsqu'une donnée manque, considérez-la comme <em>à vérifier sur la fiche produit</em>.</p>
+
+<h2>Quel appareil pour quelle situation</h2>
+<table>
+<thead>
+<tr><th>Situation</th><th>Appareil adapté</th><th>Pourquoi ce choix</th></tr>
+</thead>
+<tbody>
+<tr><td>Sols durs de plusieurs pièces</td><td>Laveur de sols</td><td>Un seul passage, eau dosée puis reprise aussitôt</td></tr>
+<tr><td>Moquette, tapis, canapé, matelas</td><td>Injecteur-extracteur textile</td><td>Débit et succion pensés pour les fibres</td></tr>
+<tr><td>Joints noircis, calcaire, graisse cuite</td><td>Nettoyeur vapeur ou produit spécifique</td><td>La vapeur et le temps de pose agissent sur l'incrusté</td></tr>
+<tr><td>Escaliers, voiture, clavier, tiroirs</td><td>Mini aspirateur portable</td><td>Léger et précis, il passe où un manche ne va pas</td></tr>
+<tr><td>Gros débris, grand volume de liquide</td><td>Aspirateur filaire à grand bac</td><td>Cuve large, puissance sans limite de batterie</td></tr>
+<tr><td>Entretien quotidien sans intervention</td><td>Robot aspirateur</td><td>Travaille seul sur les sols dégagés</td></tr>
+</tbody>
+</table>
+<p>Il n'existe pas d'appareil universel : les foyers satisfaits combinent presque toujours deux formats, un pour les sols et un pour les recoins.</p>
+
+<h2>Un format compact qui n'est pas un aspirateur laveur : le mini aspirateur Xiaomi</h2>
+<p>Soyons clairs, car la confusion est fréquente : l'<a href="https://mimistok.com/xiaomi-aspirateur-portable/">Aspirateur Portable Xiaomi Sans Fil - Mini Aspirateur Multiusage</a>, proposé à 39,99 €, n'est pas un aspirateur laveur. Il n'injecte pas d'eau et ne lave aucun sol ; rien n'indique qu'il soit conçu pour récupérer des liquides, un point <em>à vérifier sur la fiche produit</em> si cela compte pour vous. L'acheter pour laver un carrelage serait donc une erreur.</p>
+<p>Ce qu'il fait, en revanche, il le fait dans un encombrement que les autres n'atteignent pas. C'est un mini aspirateur sans fil multiusage, autrement dit un appareil portatif à garder à portée de main pour les saletés sèches et localisées : miettes sous les sièges de voiture, tapis de coffre, canapé, interstices, tiroirs, clavier d'ordinateur, plan de bureau. Là où un aspirateur à manche ne se glisse pas et où un laveur de sols n'a rien à faire, il règle le problème en quelques secondes, sans fil à dérouler.</p>
+<p>À 39,99 €, il s'agit d'un appareil d'appoint, à considérer comme un complément et non comme l'unique aspirateur d'un logement. Plusieurs caractéristiques restent <em>à vérifier sur la fiche produit</em> : autonomie, capacité du bac, filtration, poids et accessoires fournis. Pour situer cette référence dans la gamme, consultez la <a href="https://mimistok.com/accueil/categorie-xiaomi/">catégorie Xiaomi</a> et les articles du <a href="https://mimistok.com/blog/xiaomi/">blog Xiaomi</a>.</p>
+
+<h2>Entretien : les gestes qui prolongent l'appareil</h2>
+<h3>Du côté d'un laveur de sols</h3>
+<ul>
+<li><strong>Videz l'eau sale après chaque usage</strong>, puis rincez les deux bacs et laissez-les sécher ouverts.</li>
+<li><strong>Démontez la brosse</strong> pour retirer cheveux et fils, qui freinent la rotation et laissent des traces.</li>
+<li><strong>Faites sécher le filtre complètement</strong>, au moins vingt-quatre heures : humide, il favorise les moisissures.</li>
+<li><strong>Respectez le dosage de détergent</strong> : un produit trop moussant peut endommager la turbine.</li>
+</ul>
+<h3>Du côté d'un mini aspirateur portable</h3>
+<ul>
+<li><strong>Videz le bac après chaque utilisation</strong> : plein, il réduit le flux d'air et fatigue le moteur.</li>
+<li><strong>Brossez ou lavez le filtre</strong> régulièrement, selon les indications du fabricant.</li>
+<li><strong>Ne stockez pas la batterie à plat</strong> pendant des semaines : elle perdrait durablement de sa capacité.</li>
+<li><strong>Évitez les débris trop gros</strong>, qui peuvent bloquer la turbine ou percer le bac.</li>
+</ul>
+
+<h2>Questions fréquentes</h2>
+<h3>Un aspirateur laveur remplace-t-il un balai et une serpillière ?</h3>
+<p>Pour les sols durs et le nettoyage courant, oui, dans la plupart des cas. Il ne remplace pas un balai pour les textiles, les escaliers et les recoins, et il ne dispense pas d'un nettoyage en profondeur des joints et des zones incrustées.</p>
+<h3>Peut-on l'utiliser sur de la moquette ou un tapis ?</h3>
+<p>Non, pas pour laver. Un tapis absorbe l'eau et sèche lentement : ce type de surface réclame un appareil d'injection-extraction prévu pour les fibres. Un laveur de sols dur risque de détremper le textile et d'y laisser des auréoles.</p>
+<h3>Faut-il préférer un modèle filaire ou sur batterie ?</h3>
+<p>Cela dépend de la surface. Le sans-fil est plus commode pour une pièce ou un étage, mais son autonomie en mode lavage reste limitée. Pour une grande maison ou un lavage de fond régulier, le filaire évite toute interruption.</p>
+<h3>Peut-on aspirer des liquides avec un aspirateur portable classique ?</h3>
+<p>Uniquement si l'appareil est explicitement conçu pour cela, ce qui reste rare sur les modèles domestiques. Dans le doute, abstenez-vous : un liquide aspiré par un appareil non prévu peut atteindre le moteur et l'endommager.</p>
+
+<h2>En résumé</h2>
+<p>Un aspirateur laveur est un bon outil pour laver les sols durs au quotidien, mais ce n'est ni un nettoyeur de textiles, ni un détartrant, ni un aspirateur de recoins. Définissez votre tâche principale, vérifiez l'autonomie, les réservoirs et la brosse, puis complétez avec un appareil dédié : un mini aspirateur portable comme le modèle Xiaomi à 39,99 € pour la voiture, le canapé et le clavier, un modèle filaire à grand bac pour les gros volumes. C'est la combinaison de deux appareils simples qui donne le meilleur résultat, pas l'attente d'un appareil universel.</p></div><footer class="content__footer"><div class="content__last-updated">This article was updated on <time datetime="2026-09-23T00:30">sept. 23, 2026</time></div><div class="content__share"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmimistok.com%2Faspirateur-laveur%2F" class="js-share facebook tltp tltp--top" aria-label="Facebook" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmimistok.com%2Faspirateur-laveur%2F&amp;via=mimistok&amp;text=Ce%20qu%27un%20aspirateur%20laveur%20fait%20vraiment%20bien" class="js-share twitter tltp tltp--top" aria-label="Twitter" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fmimistok.com%2Faspirateur-laveur%2F&amp;media=https%3A%2F%2Fmimistok.com%2Fmedia%2Fposts%2F34%2Fimgi_7_249280795.webp&amp;description=Ce%20qu%27un%20aspirateur%20laveur%20fait%20vraiment%20bien" class="js-share pinterest tltp tltp--top" aria-label="Pinterest" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></footer></div></article><div class="content__section post__related"><div class="main__inner"><h3 class="content__section__title">Related post</h3><div class="post__related__wrap"><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2026-09-23T00:30">sept. 23, 2026</time><a href="https://mimistok.com/blog/xiaomi/" class="c-card-tag">Xiaomi</a></div><a href="https://mimistok.com/xiaomi/" class="c-card__image"><img src="https://mimistok.com/media/posts/34/imgi_7_249280795.webp" loading="lazy" height="800" width="800" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/xiaomi/">Xiaomi et Mijia : comprendre l'écosystème avant d'acheter</a></h2><p>Xiaomi et Mijia expliqués simplement : par où commencer pour équiper son logement sans se disperser.</p></header></article><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2026-09-22T23:50">sept. 22, 2026</time><a href="https://mimistok.com/blog/xiaomi/" class="c-card-tag">Xiaomi</a></div><a href="https://mimistok.com/aspirateur-sans-fil/" class="c-card__image"><img src="https://mimistok.com/media/posts/34/imgi_7_249280795.webp" loading="lazy" height="800" width="800" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/aspirateur-sans-fil/">Aspirateur sans fil : balai, portable ou robot, comment choisir</a></h2><p>Autonomie, aspiration, poids, filtration&hellip; comment choisir un aspirateur sans fil selon votre besoin, et ce qu'un format portable ne remplace pas.</p></header></article></div></div></div></main><div class="right-bar"><div class="right-bar__inner"><div class="sidebar"><div class="box follow"><a href="https://www.facebook.com/people/Mimistok/61582459216888/" class="tltp tltp--top" aria-label="Facebook"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://x.com/storemimistok" class="tltp tltp--top" aria-label="Twitter"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://www.instagram.com/storemimistok/" class="tltp tltp--top" aria-label="Instagram"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#instagram"/></svg> <span>Instagram</span> </a><a href="https://www.linkedin.com/company/mimistok/" class="tltp tltp--top" aria-label="LinkedIn"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#linkedin"/></svg> <span>LinkedIn</span> </a><a href="https://www.pinterest.com/storemimistok/" class="tltp tltp--top" aria-label="Pinterest"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></div></div></div></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script><style>#popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(22, 23, 24, 0.80);
+    backdrop-filter: blur(15px);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 99999;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding-top: 80px;
+  }
+  #popup.show {
+    display: flex;
+    opacity: 1;
+  }
+  body.no-scroll {
+    overflow: hidden;
+  }
+
+  #search-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  #search-input-popup {
+    padding: 13px 25px;
+    width: 100%;
+    max-width: 690px;
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    font-size: 18px;
+    background: rgba(30, 30, 30, 0.75);
+    color: #FFFFFF;
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transform: scale(1);
+  }
+
+  #search-input-popup::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+  }
+
+  #search-input-popup:focus {
+    outline: none;
+    border-color: #2196F3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.4), 0 6px 20px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02);
+  }
+
+  #search-results-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 690px;
+    max-height: 900px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 15px;
+    margin-right: -5px;
+    box-sizing: border-box;
+    padding-bottom: 400px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 35px;
+    margin: 300px 0;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb {
+    background: rgba(33, 150, 243, 0.6);
+    border-radius: 4px;
+    border: 2px solid rgba(22, 23, 24, 0.8);
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb:hover {
+    background: rgba(33, 150, 243, 0.8);
+  }
+
+  .result-item-popup {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    cursor: pointer;
+    background: rgba(50, 50, 50, 0.65);
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+  }
+
+  .result-item-popup:hover {
+    background: rgba(70, 70, 70, 0.75);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .result-img-popup {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .result-title-popup {
+    font-size: 18px;
+    color: #FFFFFF;
+    font-weight: 500;
+    flex: 1;
+  }
+
+  .result-price-popup {
+    background: #2196F3;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in-popup {
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  #popup-close {
+    position: fixed;
+    top: 25px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 100000;
+  }
+
+  @media (max-width: 768px) {
+    #popup {
+      padding-top: 100px;
+      align-items: flex-start;
+    }
+    
+    #search-container-popup {
+      padding: 0 15px;
+    }
+    
+    #search-input-popup {
+      padding: 15px 20px;
+      font-size: 16px;
+      max-width: 100%;
+      border-radius: 25px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    #search-results-container-popup {
+      max-width: 100%;
+      padding: 0 8px 900px 5px;
+      box-sizing: border-box;
+      max-height: 1200px;
+      margin-right: 0;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      margin: 8px 0;
+      width: calc(100% - 20px);
+    }
+    
+    .result-img-popup {
+      width: 45px;
+      height: 45px;
+      margin-right: 15px;
+    }
+    
+    .result-title-popup {
+      font-size: 16px;
+    }
+    
+    .result-price-popup {
+      font-size: 13px;
+      padding: 5px 12px;
+    }
+    
+    #popup-close {
+      top: 20px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #popup {
+      padding-top: 90px;
+    }
+    
+    #search-container-popup {
+      padding: 0 10px;
+    }
+    
+    #search-input-popup {
+      padding: 14px 18px;
+      font-size: 16px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      width: calc(100% - 10px);
+    }
+    
+    .result-img-popup {
+      width: 40px;
+      height: 40px;
+      margin-right: 12px;
+    }
+    
+    .result-title-popup {
+      font-size: 15px;
+    }
+    
+    .result-price-popup {
+      font-size: 12px;
+      padding: 4px 10px;
+    }
+    
+    #popup-close {
+      top: 15px;
+      right: 10px;
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    #search-input-popup {
+      font-size: 16px !important;
+      transform: scale(1) !important;
+    }
+  }</style><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div></div><script>// LOGIQUE DU POPUP
+const popup = document.getElementById('popup');
+const popupCloseBtn = document.getElementById('popup-close');
+const openSearchBtn = document.getElementById('open-search-btn');
+
+function showPopup() {
+  popup.style.display = 'flex';
+  setTimeout(() => {
+    popup.classList.add('show');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('no-scroll');
+    
+    setTimeout(() => {
+      const searchInput = document.getElementById('search-input-popup');
+      searchInput.focus();
+      
+      if (window.innerWidth <= 768) {
+        searchInput.style.fontSize = '16px';
+        searchInput.style.transform = 'scale(1)';
+      }
+    }, 300);
+  }, 10);
+}
+
+function hidePopup() {
+  popup.classList.remove('show');
+  popup.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+  
+  popup.addEventListener('transitionend', function handler() {
+    if (!popup.classList.contains('show')) {
+      popup.style.display = 'none';
+    }
+    popup.removeEventListener('transitionend', handler);
+  });
+}
+
+// Événements
+if (openSearchBtn) {
+  openSearchBtn.addEventListener('click', showPopup);
+}
+popupCloseBtn.addEventListener('click', hidePopup);
+
+// Fermer avec Échap
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && popup.classList.contains('show')) {
+    hidePopup();
+  }
+});
+
+// Fermer en cliquant en dehors
+popup.addEventListener('click', function(e) {
+  if (e.target === popup) {
+    hidePopup();
+  }
+});
+
+// SYSTÈME DE RECHERCHE
+let pagesIndex = [];
+
+fetch('/search02.json')
+  .then(response => response.json())
+  .then(data => {
+    pagesIndex = data;
+  });
+
+const inputPopup = document.getElementById('search-input-popup');
+const resultsContainerPopup = document.getElementById('search-results-container-popup');
+
+inputPopup.addEventListener('input', function() {
+  const query = inputPopup.value.trim().toLowerCase();
+  resultsContainerPopup.innerHTML = '';
+  
+  if (!query) return;
+
+  const matches = pagesIndex.filter(p => p.title.toLowerCase().includes(query));
+
+  matches.forEach((p, index) => {
+    const resultDiv = document.createElement('div');
+    resultDiv.className = 'result-item-popup fade-in-popup';
+    resultDiv.style.animationDelay = `${index * 0.05}s`;
+
+    const img = document.createElement('img');
+    img.src = p.image || '';
+    img.className = 'result-img-popup';
+    img.alt = p.title;
+    
+    const title = document.createElement('span');
+    title.textContent = p.title;
+    title.className = 'result-title-popup';
+
+    const price = document.createElement('span');
+    price.textContent = `${p.price}€`;
+    price.className = 'result-price-popup';
+
+    resultDiv.appendChild(img);
+    resultDiv.appendChild(title);
+    resultDiv.appendChild(price);
+
+    resultDiv.addEventListener('click', function() {
+      window.location.href = p.url;
+    });
+
+    resultsContainerPopup.appendChild(resultDiv);
+  });
+});
+
+// ENTREE = FERMER LE CLAVIER SEULEMENT
+inputPopup.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    this.blur();
+  }
+});
+
+// Empêcher le zoom sur l'input
+inputPopup.addEventListener('touchstart', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});
+
+inputPopup.addEventListener('focus', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});</script><script>// CODE CORRIGÉ POUR LE MENU - remplace l'ancien
+document.addEventListener('DOMContentLoaded', function() {
+  const menuItem = document.querySelector('.open-search-btn');
+  if (menuItem) {
+    menuItem.style.cursor = 'pointer';
+    menuItem.addEventListener('click', function(e) {
+      e.preventDefault();
+      const popup = document.getElementById('popup');
+      popup.style.display = 'flex';
+      setTimeout(() => {
+        popup.classList.add('show');
+        popup.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('no-scroll');
+        
+        setTimeout(() => {
+          const searchInput = document.getElementById('search-input-popup');
+          if (searchInput) searchInput.focus();
+        }, 300);
+      }, 10);
+    });
+  }
+});</script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-autolinker.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-show-invisibles.min.js"></script></body></html>
