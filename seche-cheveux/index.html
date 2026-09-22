@@ -1,0 +1,643 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sèche-cheveux : comment choisir sans abîmer ses cheveux</title><meta name="description" content="Température, débit d'air, poids, bruit : les critères pour choisir un sèche-cheveux adapté à vos cheveux, et la bonne méthode de séchage."><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="stylesheet" href="https://mimistok.com/media/plugins/syntaxHighlighter/prism-black.css"><link rel="stylesheet" href="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.css"><link rel="canonical" href="https://mimistok.com/seche-cheveux/"><link rel="alternate" type="application/atom+xml" href="https://mimistok.com/feed.xml" title="mimistok - RSS"><link rel="alternate" type="application/json" href="https://mimistok.com/feed.json" title="mimistok - JSON"><meta property="og:title" content="Sèche-cheveux : comment choisir sans abîmer vos cheveux"><meta property="og:image" content="https://mimistok.com/media/posts/6/Capture-decran-2025-10-03-a-11.03.05.webp"><meta property="og:image:width" content="2546"><meta property="og:image:height" content="1072"><meta property="og:site_name" content="mimistok"><meta property="og:description" content="Température, débit d'air, poids, bruit : les critères pour choisir un sèche-cheveux adapté à vos cheveux, et la bonne méthode de séchage."><meta property="og:url" content="https://mimistok.com/seche-cheveux/"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://mimistok.com/media/website/ICONMIMI.svg" type="image/x-icon"><link rel="stylesheet" href="https://mimistok.com/assets/css/style.css?v=ee05e1048288936916617ed6de72b720"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://mimistok.com/seche-cheveux/"},"headline":"Sèche-cheveux : comment choisir sans abîmer vos cheveux","datePublished":"2026-09-23T00:00+02:00","dateModified":"2026-09-23T00:00+02:00","image":{"@type":"ImageObject","url":"https://mimistok.com/media/posts/6/Capture-decran-2025-10-03-a-11.03.05.webp","height":1072,"width":2546},"description":"Température, débit d'air, poids, bruit : les critères pour choisir un sèche-cheveux adapté à vos cheveux, et la bonne méthode de séchage.","author":{"@type":"Person","name":"mimistok","url":"https://mimistok.com/authors/mimistok/"},"publisher":{"@type":"Organization","name":"mimistok","logo":{"@type":"ImageObject","url":"https://mimistok.com/media/website/mimistoklogo.svg","height":50,"width":50}}}</script><noscript><style>img[loading] { opacity: 1; }</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=AW-17683532210"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-17683532210');</script><meta name="p:domain_verify" content="52ce14b83d0b84c3ea8a305787e16373"><script defer="defer" src="https://cloud.umami.is/script.js" data-website-id="42ea37ac-125a-4569-a4fb-b8c82dea3aeb"></script></head><body class="post-template"><script defer="defer" src="https://widget.senja.io/..."></script><a href="/panier" id="cart-button"><div class="cart-icon"><img src="https://image.mimistok.com/bag001.svg" alt="Panier"> <span id="cart-count">0</span></div></a><style>#cart-button {
+  position: fixed;
+  top: 8%;
+  right: 26px;
+  transform: translateY(-50%);
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #007BFF;
+  z-index: 99999;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+#cart-button:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Conteneur */
+.cart-icon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🛍️ Icône */
+.cart-icon img {
+  width: 18px;
+  height: 18px;
+  transform: translateY(-1px);
+}
+
+/* 🔴 Badge toujours visible */
+#cart-count {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  background: red;
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: bold;
+
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
+
+  transform: scale(1);
+}
+
+/* Mobile */
+@media (max-width: 1024px) {
+  #cart-button {
+    top: 36px;
+    right: 82px;
+  }
+
+  .cart-icon img {
+    transform: none;
+  }
+}</style><script>// 🔄 Badge panier en temps réel
+function updateCartBadge() {
+    const panier = JSON.parse(localStorage.getItem('panier')) || [];
+    const totalItems = panier.reduce((t, i) => t + i.quantite, 0);
+
+    const badge = document.getElementById('cart-count');
+
+    if (badge) {
+        badge.textContent = totalItems;
+    }
+}
+
+// 🔌 Hook sur ton panier existant
+const oldUpdate = window.mettreAJourPanierFlottant;
+
+window.mettreAJourPanierFlottant = function() {
+    if (oldUpdate) oldUpdate();
+    updateCartBadge();
+};
+
+// 🚀 Init propre (sans fade-in)
+window.addEventListener('load', function() {
+    updateCartBadge();
+    setInterval(updateCartBadge, 500);
+});</script><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main post"><article class="content"><figure class="content__featured-image content__featured-image--attop"><img src="https://mimistok.com/media/posts/6/Capture-decran-2025-10-03-a-11.03.05.webp" srcset="https://mimistok.com/media/posts/6/responsive/Capture-decran-2025-10-03-a-11.03.05-xs.webp 320w, https://mimistok.com/media/posts/6/responsive/Capture-decran-2025-10-03-a-11.03.05-sm.webp 480w, https://mimistok.com/media/posts/6/responsive/Capture-decran-2025-10-03-a-11.03.05-md.webp 768w, https://mimistok.com/media/posts/6/responsive/Capture-decran-2025-10-03-a-11.03.05-xl.webp 1024w" sizes="(min-width: 1460px) 938px, (min-width: 1200px) calc(75.83vw - 139px), 100vw" loading="eager" height="1072" width="2546" alt="Sèche-cheveux Laifen Swift haute vitesse"></figure><div class="main__inner"><div class="content__meta"><div class="content__author"><div><a href="https://mimistok.com/authors/mimistok/" class="content__author__name">mimistok</a></div></div><div class="content__date"><time datetime="2026-09-23T00:00">sept. 23, 2026</time></div></div><header class="content__header"><h1 class="content__title">Sèche-cheveux : comment choisir sans abîmer vos cheveux</h1></header><div class="content__entry"><p>Un sèche-cheveux mal utilisé peut abîmer la fibre capillaire plus vite qu'on ne le croit. La chaleur, la distance de séchage et la façon de manipuler l'appareil pèsent souvent plus lourd que la marque ou le prix affiché. Bien choisir son sèche-cheveux, puis l'utiliser avec méthode, suffit dans la plupart des cas à préserver brillance, souplesse et couleur.</p>
+<h2>Sèche-cheveux et dommages capillaires : pourquoi la température passe avant tout</h2>
+<p>Le cheveu est composé d'une tige de kératine entourée d'écailles superposées, la cuticule. Lorsque le cheveu est mouillé, ces écailles se soulèvent : c'est le moment où la fibre est la plus vulnérable. Ajoutez une chaleur élevée, et l'eau retenue à l'intérieur se transforme en vapeur qui pousse vers l'extérieur. Les écailles s'écartent, la surface devient rugueuse et la couleur s'échappe plus vite à chaque lavage.</p>
+<p>Un séchage trop chaud abîme donc davantage qu'un séchage un peu plus long. De nombreux professionnels conseillent de rester autour de 50 à 60 °C, puis de terminer par un jet d'air froid pour aider la cuticule à se refermer. Un appareil qui tient une position tiède précise et propose un vrai air ambiant est plus utile qu'un appareil qui chauffe très fort.</p>
+<p>Le second facteur compte tout autant : l'air. Plus le débit est généreux, moins il faut monter en température, puisque l'eau s'évacue par le flux. C'est cet équilibre qui protège le cheveu, plus que la puissance brute affichée sur l'emballage.</p>
+<h2>Les critères de choix d'un sèche-cheveux</h2>
+<p>Six critères suffisent à faire le tri entre deux appareils au prix proche.</p>
+<h3>Puissance et débit d'air</h3>
+<p>La puissance en watts donne une idée de la réserve disponible, mais ne dit rien de l'efficacité du séchage. Ce qui compte, c'est le débit d'air : un flux régulier évacue l'eau sans exiger une température élevée.</p>
+<h3>Température réglable et repères visuels</h3>
+<p>Un sèche-cheveux devrait proposer au minimum trois positions : air ambiant, tiède et chaud. Les modèles les plus pratiques ajoutent un repère visuel, par exemple une lumière de couleur, qui indique la température choisie. Pour un usage quotidien, la position tiède suffit le plus souvent.</p>
+<h3>Poids et équilibre</h3>
+<p>Un appareil lourd fatigue le bras : on séche alors plus vite, donc plus chaud. Un poids contenu et un centre de gravité placé dans la poignée changent le confort d'un séchage de dix minutes.</p>
+<h3>Niveau sonore</h3>
+<p>Le bruit n'abîme pas le cheveu, mais il influence la façon de sécher : un appareil très bruyant incite à travailler au plus près de la tête, ce qui concentre la chaleur. La valeur en décibels annoncée par le fabricant permet une comparaison approximative entre modèles.</p>
+<h3>Accessoires : concentrateur et diffuseur</h3>
+<p>Le concentrateur resserre le flux d'air sur une zone précise : il aide à lisser les racines et à travailler au rond-brosse. Le diffuseur répartit l'air sur une plus grande surface et convient aux boucles. Vérifiez que les embouts se clipsent fermement.</p>
+<h3>Longueur de câble</h3>
+<p>Un câble trop court oblige à se contorsionner devant le miroir, un câble trop long s'emmêle. Comptez au minimum deux mètres, et privilégiez une attache rotative qui limite les torsions à la base de la poignée.</p>
+
+<h2>Ionique ou pas : ce que cela change réellement</h2>
+<p>La technologie ionique diffuse des ions négatifs dans le flux d'air. En pratique, elle réduit l'électricité statique, ce qui limite les cheveux qui se dressent et les frisottis sur les cheveux secs ou abîmés. L'effet est réel mais modéré : il porte sur l'aspect et la tenue, jamais sur la réparation de la fibre.</p>
+<p>L'ionique est donc un confort appréciable, pas une protection. Un appareil sans ionique mais avec une température bien maîtrisée protège davantage qu'un appareil ionique utilisé en position maximale.</p>
+<h2>Choisir son sèche-cheveux selon son type de cheveux</h2>
+<p>Le bon réglage dépend surtout de la finesse et de l'état de la fibre, pas de la longueur. Le tableau ci-dessous donne un point de départ à ajuster selon votre ressenti.</p>
+<table>
+<thead>
+<tr>
+<th>Type de cheveux</th>
+<th>Température conseillée</th>
+<th>Accessoire</th>
+<th>Astuce</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fins et fragiles</td>
+<td>Tiède, puis air ambiant pour finir</td>
+<td>Concentrateur</td>
+<td>Sécher à 20 cm, en mouvement continu</td>
+</tr>
+<tr>
+<td>Normaux</td>
+<td>Tiède, chaud pour le finissage seul</td>
+<td>Concentrateur</td>
+<td>Démêler avant, jamais pendant</td>
+</tr>
+<tr>
+<td>Épais et denses</td>
+<td>Chaud en début de séchage, tiède ensuite</td>
+<td>Concentrateur large</td>
+<td>Séparer en mèches pour laisser passer l'air</td>
+</tr>
+<tr>
+<td>Bouclés et frisés</td>
+<td>Tiède ou air ambiant, jamais chaud</td>
+<td>Diffuseur</td>
+<td>Froisser sans tirer, tête en bas par moments</td>
+</tr>
+<tr>
+<td>Colorés, décolorés ou lissés</td>
+<td>Tiède strictement, air ambiant pour fixer</td>
+<td>Concentrateur</td>
+<td>Réduire le temps de contact au minimum</td>
+</tr>
+</tbody>
+</table>
+<h2>Le Laifen Swift, un sèche-cheveux haute vitesse à 79,00 €</h2>
+<p>Si vous cherchez un appareil qui réunit les critères précédents sans grimper en gamme de prix, le <a href="https://mimistok.com/laifen-swift/">Laifen Swift</a> est une option cohérente. Ce <strong>sèche-cheveux haute vitesse</strong> embarque un <strong>moteur numérique haute vitesse</strong> : le flux d'air assure l'essentiel du séchage, ce qui permet de rester sur des températures modérées.</p>
+<p>Il propose <strong>trois niveaux de température</strong> : air ambiant, tiède à 50 °C et chaud. Un <strong>code couleur lumineux</strong>, bleu, jaune ou rouge, indique d'un coup d'œil le réglage sélectionné. Deux autres points comptent au quotidien : il est <strong>silencieux</strong>, avec un niveau sonore annoncé de 59 dB, et <strong>léger</strong>, ce qui limite la fatigue du bras.</p>
+<p>Il est proposé à <strong>79,00 €</strong>. Pour comparer avec d'autres modèles, la <a href="https://mimistok.com/accueil/categorie-laifen/">catégorie Laifen</a> regroupe la gamme, et le <a href="https://mimistok.com/blog/laifen/">blog Laifen</a> détaille les usages et réglages conseillés.</p>
+<h2>Les erreurs de séchage qui abîment, et la bonne méthode</h2>
+<p>Un bon appareil mal utilisé abîme plus qu'un appareil moyen bien utilisé. Quatre erreurs reviennent souvent.</p>
+<ol>
+<li><strong>Sécher trop près.</strong> À moins de dix centimètres, la chaleur se concentre sur une petite zone. Tenez l'appareil à environ vingt centimètres, en mouvement.</li>
+<li><strong>Rester en température maximale.</strong> La position chaude sert à démarrer sur cheveux épais ou à finir vite, pas à sécher toute la chevelure.</li>
+<li><strong>Sécher des cheveux trempés.</strong> Un cheveu gorgé d'eau est plus fragile et sèche plus lentement. Épongez-le sans frotter avant d'allumer l'appareil.</li>
+<li><strong>Sécher à l'envers.</strong> En remontant le flux des pointes vers les racines, on soulève la cuticule et on crée des frisottis. L'air doit descendre.</li>
+</ol>
+<h3>La bonne méthode, étape par étape</h3>
+<ol>
+<li>Démêlez les cheveux mouillés au peigne à dents larges, puis appliquez un protecteur thermique.</li>
+<li>Épongez à la serviette par pressions, sans frotter la fibre.</li>
+<li>Séchez d'abord racines et nuque, zones les plus longues à sécher, air dirigé vers les pointes.</li>
+<li>Travaillez par mèches, en gardant la main en mouvement constant.</li>
+<li>Passez en position tiède dès que le cheveu est à moitié sec.</li>
+<li>Terminez par un jet d'air ambiant pour fixer la forme et refermer la cuticule.</li>
+<li>Laissez les pointes fragiles finir de sécher à l'air libre.</li>
+</ol>
+<h2>Entretien : filtre, grille et câble</h2>
+<p>Un filtre encrassé réduit le débit d'air et oblige à monter la température pour obtenir le même résultat : c'est la cause la plus fréquente d'un appareil qui semble soudain moins efficace.</p>
+<ul>
+<li><strong>Filtre arrière</strong> : ôtez poussières et cheveux toutes les deux à quatre semaines, à la main ou avec une brosse souple.</li>
+<li><strong>Grille et corps</strong> : essuyez avec un chiffon légèrement humide, appareil débranché et refroidi. N'immergez jamais l'appareil.</li>
+<li><strong>Câble et prise</strong> : vérifiez l'absence de pliure marquée ou d'échauffement à la base de la poignée.</li>
+<li><strong>Rangement</strong> : enroulez le câble sans le serrer et rangez l'appareil au sec, débranché.</li>
+</ul>
+<h2>Questions fréquentes</h2>
+<h3>Peut-on utiliser un sèche-cheveux tous les jours ?</h3>
+<p>Oui, à condition de rester en position tiède, de garder ses distances et d'appliquer un protecteur thermique. Un séchage quotidien à température modérée abîme moins qu'un séchage hebdomadaire en température maximale.</p>
+<h3>Vaut-il mieux laisser sécher à l'air libre ou finir au sèche-cheveux ?</h3>
+<p>Un séchage partiel à l'air libre suivi d'un finissage tiède est souvent le meilleur compromis : il réduit le temps d'exposition à la chaleur. Veillez simplement à ne pas laisser un cheveu bouclé sécher sans forme.</p>
+<h3>Le sèche-cheveux abîme-t-il moins que le lisseur ?</h3>
+<p>En règle générale, oui : l'air chaud reste bien en dessous des températures atteintes par les plaques d'un lisseur. Le risque vient surtout du séchage prolongé en température maximale.</p>
+<h3>Faut-il choisir un concentrateur ou un diffuseur ?</h3>
+<p>Le concentrateur convient aux cheveux raides, qu'il aide à discipliner. Le diffuseur est destiné aux boucles, qu'il sèche sans les déformer. Un appareil fournissant les deux s'adapte à tous les cas.</p>
+<h2>En résumé</h2>
+<p>Le choix d'un sèche-cheveux se joue sur trois éléments : un débit d'air généreux, une température réellement modulable et un poids qui permet de travailler sans précipitation. Le reste, ionique compris, est secondaire. Une fois l'appareil choisi, ce sont la distance, la température et le sens du flux qui protègent vos cheveux. Si vous voulez un modèle qui coche ces cases à 79,00 €, le <a href="https://mimistok.com/laifen-swift/">Laifen Swift</a> est à considérer, dans la <a href="https://mimistok.com/accueil/categorie-laifen/">catégorie Laifen</a>.</p></div><footer class="content__footer"><div class="content__last-updated">This article was updated on <time datetime="2026-09-23T00:00">sept. 23, 2026</time></div><div class="content__share"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmimistok.com%2Fseche-cheveux%2F" class="js-share facebook tltp tltp--top" aria-label="Facebook" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmimistok.com%2Fseche-cheveux%2F&amp;via=mimistok&amp;text=S%C3%A8che-cheveux%20%3A%20comment%20choisir%20sans%20ab%C3%AEmer%20vos%20cheveux" class="js-share twitter tltp tltp--top" aria-label="Twitter" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fmimistok.com%2Fseche-cheveux%2F&amp;media=https%3A%2F%2Fmimistok.com%2Fmedia%2Fposts%2F6%2FCapture-decran-2025-10-03-a-11.03.05.webp&amp;description=S%C3%A8che-cheveux%20%3A%20comment%20choisir%20sans%20ab%C3%AEmer%20vos%20cheveux" class="js-share pinterest tltp tltp--top" aria-label="Pinterest" rel="nofollow noopener noreferrer"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></footer></div></article><div class="content__section post__related"><div class="main__inner"><h3 class="content__section__title">Related post</h3><div class="post__related__wrap"><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2026-09-22T23:55">sept. 22, 2026</time><a href="https://mimistok.com/blog/baseus/" class="c-card-tag">Baseus</a></div><a href="https://mimistok.com/camera-surveillance/" class="c-card__image"><img src="https://mimistok.com/media/posts/14/Baseus_Security_N1_Outdoor_Camera_8_home_protection_1200x-copie.webp" loading="lazy" height="450" width="1200" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/camera-surveillance/">Caméra de surveillance : le guide pour choisir et installer la vôtre</a></h2><p>Résolution, détection, stockage, cadre légal&hellip; les critères pour choisir une caméra de surveillance extérieure et l'installer correctement.</p></header></article><article class="c-card"><div class="c-card__meta"><div class="c-card__author"><a href="https://mimistok.com/authors/mimistok/">mimistok</a></div><time datetime="2026-09-22T23:50">sept. 22, 2026</time><a href="https://mimistok.com/blog/xiaomi/" class="c-card-tag">Xiaomi</a></div><a href="https://mimistok.com/aspirateur-sans-fil/" class="c-card__image"><img src="https://mimistok.com/media/posts/34/imgi_7_249280795.webp" loading="lazy" height="800" width="800" alt=""></a><header class="c-card__header"><h2 class="c-card__title"><a href="https://mimistok.com/aspirateur-sans-fil/">Aspirateur sans fil : balai, portable ou robot, comment choisir</a></h2><p>Autonomie, aspiration, poids, filtration&hellip; comment choisir un aspirateur sans fil selon votre besoin, et ce qu'un format portable ne remplace pas.</p></header></article></div></div></div></main><div class="right-bar"><div class="right-bar__inner"><div class="sidebar"><div class="box follow"><a href="https://www.facebook.com/people/Mimistok/61582459216888/" class="tltp tltp--top" aria-label="Facebook"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#facebook"/></svg> <span>Facebook</span> </a><a href="https://x.com/storemimistok" class="tltp tltp--top" aria-label="Twitter"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#twitter"/></svg> <span>Twitter</span> </a><a href="https://www.instagram.com/storemimistok/" class="tltp tltp--top" aria-label="Instagram"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#instagram"/></svg> <span>Instagram</span> </a><a href="https://www.linkedin.com/company/mimistok/" class="tltp tltp--top" aria-label="LinkedIn"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#linkedin"/></svg> <span>LinkedIn</span> </a><a href="https://www.pinterest.com/storemimistok/" class="tltp tltp--top" aria-label="Pinterest"><svg><use xlink:href="https://mimistok.com/assets/svg/svg-map.svg#pinterest"/></svg> <span>Pinterest</span></a></div></div></div></div></div><script defer="defer" src="https://mimistok.com/assets/js/scripts.min.js?v=b2d91bcadbf5db401b76eb5bb3092eb7"></script><script>var images = document.querySelectorAll('img[loading]');
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script><style>#popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(22, 23, 24, 0.80);
+    backdrop-filter: blur(15px);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 99999;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding-top: 80px;
+  }
+  #popup.show {
+    display: flex;
+    opacity: 1;
+  }
+  body.no-scroll {
+    overflow: hidden;
+  }
+
+  #search-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  #search-input-popup {
+    padding: 13px 25px;
+    width: 100%;
+    max-width: 690px;
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    font-size: 18px;
+    background: rgba(30, 30, 30, 0.75);
+    color: #FFFFFF;
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transform: scale(1);
+  }
+
+  #search-input-popup::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+  }
+
+  #search-input-popup:focus {
+    outline: none;
+    border-color: #2196F3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.4), 0 6px 20px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02);
+  }
+
+  #search-results-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 690px;
+    max-height: 900px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 15px;
+    margin-right: -5px;
+    box-sizing: border-box;
+    padding-bottom: 400px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 35px;
+    margin: 300px 0;
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb {
+    background: rgba(33, 150, 243, 0.6);
+    border-radius: 4px;
+    border: 2px solid rgba(22, 23, 24, 0.8);
+  }
+
+  #search-results-container-popup::-webkit-scrollbar-thumb:hover {
+    background: rgba(33, 150, 243, 0.8);
+  }
+
+  .result-item-popup {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    cursor: pointer;
+    background: rgba(50, 50, 50, 0.65);
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+  }
+
+  .result-item-popup:hover {
+    background: rgba(70, 70, 70, 0.75);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .result-img-popup {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .result-title-popup {
+    font-size: 18px;
+    color: #FFFFFF;
+    font-weight: 500;
+    flex: 1;
+  }
+
+  .result-price-popup {
+    background: #2196F3;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in-popup {
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  #popup-close {
+    position: fixed;
+    top: 25px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 100000;
+  }
+
+  @media (max-width: 768px) {
+    #popup {
+      padding-top: 100px;
+      align-items: flex-start;
+    }
+    
+    #search-container-popup {
+      padding: 0 15px;
+    }
+    
+    #search-input-popup {
+      padding: 15px 20px;
+      font-size: 16px;
+      max-width: 100%;
+      border-radius: 25px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    #search-results-container-popup {
+      max-width: 100%;
+      padding: 0 8px 900px 5px;
+      box-sizing: border-box;
+      max-height: 1200px;
+      margin-right: 0;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      margin: 8px 0;
+      width: calc(100% - 20px);
+    }
+    
+    .result-img-popup {
+      width: 45px;
+      height: 45px;
+      margin-right: 15px;
+    }
+    
+    .result-title-popup {
+      font-size: 16px;
+    }
+    
+    .result-price-popup {
+      font-size: 13px;
+      padding: 5px 12px;
+    }
+    
+    #popup-close {
+      top: 20px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #popup {
+      padding-top: 90px;
+    }
+    
+    #search-container-popup {
+      padding: 0 10px;
+    }
+    
+    #search-input-popup {
+      padding: 14px 18px;
+      font-size: 16px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    
+    #search-input-popup::placeholder {
+      font-size: 16px;
+    }
+    
+    .result-item-popup {
+      padding: 12px;
+      width: calc(100% - 10px);
+    }
+    
+    .result-img-popup {
+      width: 40px;
+      height: 40px;
+      margin-right: 12px;
+    }
+    
+    .result-title-popup {
+      font-size: 15px;
+    }
+    
+    .result-price-popup {
+      font-size: 12px;
+      padding: 4px 10px;
+    }
+    
+    #popup-close {
+      top: 15px;
+      right: 10px;
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    #search-input-popup {
+      font-size: 16px !important;
+      transform: scale(1) !important;
+    }
+  }</style><div id="popup" aria-hidden="true" role="dialog" aria-modal="true"><button id="popup-close" title="Fermer" aria-label="Fermer"><svg width="100%" height="100%" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.05)"/><path d="M25 15L15 25M15 15L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></button><div id="search-container-popup"><input id="search-input-popup" type="text" placeholder="Tapez un mot-clé..."><div id="search-results-container-popup"></div></div></div><script>// LOGIQUE DU POPUP
+const popup = document.getElementById('popup');
+const popupCloseBtn = document.getElementById('popup-close');
+const openSearchBtn = document.getElementById('open-search-btn');
+
+function showPopup() {
+  popup.style.display = 'flex';
+  setTimeout(() => {
+    popup.classList.add('show');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('no-scroll');
+    
+    setTimeout(() => {
+      const searchInput = document.getElementById('search-input-popup');
+      searchInput.focus();
+      
+      if (window.innerWidth <= 768) {
+        searchInput.style.fontSize = '16px';
+        searchInput.style.transform = 'scale(1)';
+      }
+    }, 300);
+  }, 10);
+}
+
+function hidePopup() {
+  popup.classList.remove('show');
+  popup.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+  
+  popup.addEventListener('transitionend', function handler() {
+    if (!popup.classList.contains('show')) {
+      popup.style.display = 'none';
+    }
+    popup.removeEventListener('transitionend', handler);
+  });
+}
+
+// Événements
+if (openSearchBtn) {
+  openSearchBtn.addEventListener('click', showPopup);
+}
+popupCloseBtn.addEventListener('click', hidePopup);
+
+// Fermer avec Échap
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && popup.classList.contains('show')) {
+    hidePopup();
+  }
+});
+
+// Fermer en cliquant en dehors
+popup.addEventListener('click', function(e) {
+  if (e.target === popup) {
+    hidePopup();
+  }
+});
+
+// SYSTÈME DE RECHERCHE
+let pagesIndex = [];
+
+fetch('/search02.json')
+  .then(response => response.json())
+  .then(data => {
+    pagesIndex = data;
+  });
+
+const inputPopup = document.getElementById('search-input-popup');
+const resultsContainerPopup = document.getElementById('search-results-container-popup');
+
+inputPopup.addEventListener('input', function() {
+  const query = inputPopup.value.trim().toLowerCase();
+  resultsContainerPopup.innerHTML = '';
+  
+  if (!query) return;
+
+  const matches = pagesIndex.filter(p => p.title.toLowerCase().includes(query));
+
+  matches.forEach((p, index) => {
+    const resultDiv = document.createElement('div');
+    resultDiv.className = 'result-item-popup fade-in-popup';
+    resultDiv.style.animationDelay = `${index * 0.05}s`;
+
+    const img = document.createElement('img');
+    img.src = p.image || '';
+    img.className = 'result-img-popup';
+    img.alt = p.title;
+    
+    const title = document.createElement('span');
+    title.textContent = p.title;
+    title.className = 'result-title-popup';
+
+    const price = document.createElement('span');
+    price.textContent = `${p.price}€`;
+    price.className = 'result-price-popup';
+
+    resultDiv.appendChild(img);
+    resultDiv.appendChild(title);
+    resultDiv.appendChild(price);
+
+    resultDiv.addEventListener('click', function() {
+      window.location.href = p.url;
+    });
+
+    resultsContainerPopup.appendChild(resultDiv);
+  });
+});
+
+// ENTREE = FERMER LE CLAVIER SEULEMENT
+inputPopup.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    this.blur();
+  }
+});
+
+// Empêcher le zoom sur l'input
+inputPopup.addEventListener('touchstart', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});
+
+inputPopup.addEventListener('focus', function(e) {
+  if (window.innerWidth <= 768) {
+    this.style.fontSize = '16px';
+  }
+});</script><script>// CODE CORRIGÉ POUR LE MENU - remplace l'ancien
+document.addEventListener('DOMContentLoaded', function() {
+  const menuItem = document.querySelector('.open-search-btn');
+  if (menuItem) {
+    menuItem.style.cursor = 'pointer';
+    menuItem.addEventListener('click', function(e) {
+      e.preventDefault();
+      const popup = document.getElementById('popup');
+      popup.style.display = 'flex';
+      setTimeout(() => {
+        popup.classList.add('show');
+        popup.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('no-scroll');
+        
+        setTimeout(() => {
+          const searchInput = document.getElementById('search-input-popup');
+          if (searchInput) searchInput.focus();
+        }, 300);
+      }, 10);
+    });
+  }
+});</script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-inline-color.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-autolinker.min.js"></script><script defer="defer" src="https://mimistok.com/media/plugins/syntaxHighlighter/prism-show-invisibles.min.js"></script></body></html>
