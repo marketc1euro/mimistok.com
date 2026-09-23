@@ -109,7 +109,7 @@
 .art-contenu .art-steps{counter-reset:artstep;margin-left:0;padding-left:0;list-style:none}
 .art-contenu .art-steps>li{counter-increment:artstep;display:flex;gap:10px;align-items:flex-start;padding:0 0 11px}
 .art-contenu .art-steps>li::before{content:counter(artstep);flex:0 0 auto;width:25px;height:25px;border-radius:50%;background:hsla(256,91%,59%,.14);color:var(--accent-medium);display:inline-flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:650;line-height:1}
-.art-contenu table{width:100%;border-radius:12px;overflow:hidden}
+.art-contenu table{width:100%;border-radius:12px;overflow:hidden}.art-contenu .art-fig{margin:0 0 18px;padding:14px 16px 8px;background:rgba(127,127,127,.055);border:1px solid rgba(127,127,127,.16);border-radius:14px;color:var(--color-darker);text-align:center}.art-contenu .art-fig svg{display:block;width:100%;height:auto;max-width:100%;margin:0 auto;overflow:visible}.art-contenu .art-fig figcaption{margin-top:6px;font-size:.86em;line-height:1.45;color:var(--color-dark);text-align:center}
 .art-contenu th{background:var(--color-lighter);text-align:left}
 .art-contenu th,.art-contenu td{overflow-wrap:anywhere;word-break:normal}
 @media (max-width:768px){
@@ -121,7 +121,7 @@
 .art-contenu .art-ic svg{width:16px;height:16px}
 .art-contenu p,.art-contenu h2,.art-contenu h3,.art-contenu li,.art-contenu td,.art-contenu th{text-align:left}
 .art-contenu table,.art-contenu tbody,.art-contenu tr,.art-contenu td{display:block;width:100%;max-width:100%}
-.art-contenu table{border:0;background:none}
+.art-contenu table{border:0;background:none}.art-contenu .art-fig{padding:11px 10px 6px;border-radius:12px}
 .art-contenu thead{display:none}
 .art-contenu tr{background:var(--color-medium);border:1px solid rgba(127,127,127,.25);border-radius:12px;padding:10px 12px;margin:0 0 10px}
 .art-contenu td{border:0;padding:5px 0}
@@ -234,7 +234,53 @@ en moins d'une minute et défroisse une chemise en trois passages. Pourtant, bea
 foyers en achètent un… puis le laissent au fond d'un placard, faute d'avoir compris
 comment s'en servir. Ce guide couvre les deux aspects : <strong>comment choisir</strong>
 l'appareil adapté à vos vêtements, et <strong>comment l'utiliser</strong> sans risquer
-d'abîmer un tissu délicat.</p>
+d'abîmer un tissu délicat.</p><figure class="art-fig">
+<svg viewBox="0 0 640 240" role="img" aria-label="Schéma du geste de défroissage vertical : un vêtement suspendu sur un cintre, une main posée sur le défroisseur, une autre main qui tend le tissu, la vapeur passant de haut en bas sans contact avec le tissu." xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+
+  <g>
+    <path d="M230 36v-8a7 7 0 1 1 7-7" opacity="0.75"/>
+    <path d="M188 40h84" opacity="0.75"/>
+    <path d="M196 44L172 78L186 84L196 62V204H264V62L274 84L288 78L264 44L230 58Z"/>
+    <path d="M202 152q11-8 22 0q11 8 22 0M202 176q11-8 22 0q11 8 22 0M214 196q11-8 22 0" opacity="0.55"/>
+    <path d="M198 134H262" stroke-dasharray="4 4" opacity="0.45"/>
+
+    <rect x="340" y="86" width="52" height="36" rx="10"/>
+    <rect x="316" y="95" width="26" height="18" rx="4"/>
+    <path d="M314 96q-9 5-17 1M314 112q-9 5-17 1" opacity="0.55"/>
+    <path d="M297 104h14" stroke-dasharray="3 3" opacity="0.6"/>
+    <path d="M299 104l5-4M299 104l5 4M309 100l-5 4M309 108l-5-4" opacity="0.75"/>
+
+    <path d="M444 56v132m0 0l-6-9m6 9l6-9"/>
+
+    <circle cx="182" cy="198" r="9"/>
+    <path d="M190 192h7M191 198h7M190 204h7" opacity="0.75"/>
+    <path d="M184 210L158 219m0 0l9-5m-9 5l4 7" opacity="0.75"/>
+
+    <circle cx="366" cy="142" r="9"/>
+    <path d="M360 132v-9M366 133v-10M372 132v-9" opacity="0.75"/>
+
+    <circle cx="168" cy="26" r="11" fill="currentColor" fill-opacity="0.08" stroke-opacity="0.7"/>
+    <circle cx="146" cy="170" r="11" fill="currentColor" fill-opacity="0.08" stroke-opacity="0.7"/>
+    <circle cx="444" cy="40" r="11" fill="currentColor" fill-opacity="0.08" stroke-opacity="0.7"/>
+  </g>
+
+  <g fill="currentColor" stroke="none" font-size="11" font-weight="600" text-anchor="middle">
+    <text x="168" y="30">3</text>
+    <text x="146" y="174">4</text>
+    <text x="444" y="44">5</text>
+  </g>
+
+  <g fill="currentColor" stroke="none" font-size="11">
+    <text x="156" y="30" text-anchor="end">Suspendre le vêtement</text>
+    <text x="128" y="174" text-anchor="end">Tendre le tissu</text>
+    <text x="462" y="44">Passer de haut en bas</text>
+    <text x="326" y="74" text-anchor="middle">Sans contact</text>
+    <text x="366" y="168" text-anchor="middle">Une main sur l'appareil</text>
+  </g>
+
+</svg>
+<figcaption>Le geste du défroissage vertical : vêtement suspendu, tissu tendu d'une main, vapeur passée de haut en bas sans contact avec le tissu (étapes 3 à 5 du guide).</figcaption>
+</figure>
 
 <nav class="art-toc"><p class="art-toc-t">Au sommaire</p><ul><li><a href="#sec-qu-est-ce-qu-un-defroisseur-vapeur-et-comment-ca"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.3v5"/><circle cx="12" cy="8" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Qu'est-ce qu'un défroisseur vapeur, et comment ça marche&nbsp;?</span></a></li><li><a href="#sec-defroisseur-ou-fer-a-repasser-nbsp-lequel-choisi"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7.5h8M17 7.5h3M4 16.5h3M12 16.5h8"/><circle cx="14.5" cy="7.5" r="2.2"/><circle cx="9.5" cy="16.5" r="2.2"/></svg></span><span>Défroisseur ou fer à repasser&nbsp;: lequel choisir&nbsp;?</span></a></li><li><a href="#sec-les-6-criteres-pour-bien-choisir"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7.5h8M17 7.5h3M4 16.5h3M12 16.5h8"/><circle cx="14.5" cy="7.5" r="2.2"/><circle cx="9.5" cy="16.5" r="2.2"/></svg></span><span>Les 6 critères pour bien choisir</span></a></li><li><a href="#sec-quels-tissus-pouvez-vous-defroisser-nbsp"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.3v5"/><circle cx="12" cy="8" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Quels tissus pouvez-vous défroisser&nbsp;?</span></a></li><li><a href="#sec-comment-utiliser-un-defroisseur-vapeur-nbsp-6-et"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.3v5"/><circle cx="12" cy="8" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Comment utiliser un défroisseur vapeur&nbsp;: 6 étapes</span></a></li><li><a href="#sec-notre-recommandation-nbsp-le-defroisseur-vapeur-"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.3v5"/><circle cx="12" cy="8" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Notre recommandation&nbsp;: le défroisseur vapeur Xiaomi</span></a></li><li><a href="#sec-entretien-nbsp-4-gestes-pour-qu-il-dure-des-anne"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5c3.6 4 5.6 6.7 5.6 9.3A5.6 5.6 0 0 1 12 18.4a5.6 5.6 0 0 1-5.6-5.6c0-2.6 2-5.3 5.6-9.3z"/><path d="M9.6 13.4a2.6 2.6 0 0 0 2.6 2.6"/></svg></span><span>Entretien&nbsp;: 4 gestes pour qu'il dure des années</span></a></li><li><a href="#sec-questions-frequentes"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.7a2.5 2.5 0 1 1 3.3 2.4c-.8.3-1.3 1-1.3 1.9v.2"/><circle cx="12" cy="16.6" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Questions fréquentes</span></a></li><li><a href="#sec-en-resume"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l1.9 5.3L19 11l-5.1 1.7L12 18l-1.9-5.3L5 11l5.1-1.7z"/></svg></span><span>En résumé</span></a></li></ul></nav><section class="art-sec"><h2 id="sec-qu-est-ce-qu-un-defroisseur-vapeur-et-comment-ca"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.3v5"/><circle cx="12" cy="8" r=".9" fill="currentColor" stroke="none"/></svg></span><span class="art-t">Qu'est-ce qu'un défroisseur vapeur, et comment ça marche&nbsp;?</span></h2>
 
