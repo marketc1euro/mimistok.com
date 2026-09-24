@@ -83,22 +83,23 @@
   ]
 }</script><script defer="defer" src="https://cloud.umami.is/script.js" data-website-id="42ea37ac-125a-4569-a4fb-b8c82dea3aeb"></script><style>
 .art-contenu{text-align:left;max-width:100%}
-.art-contenu .art-sec{background:rgba(127,127,127,.055);border:1px solid rgba(127,127,127,.16);border-radius:14px;padding:20px 22px;margin:0 0 16px}
-.art-contenu .art-sec>h2{display:flex;align-items:center;gap:10px;text-align:left;margin:0 0 10px;font-size:1.12rem;line-height:1.3;scroll-margin-top:96px}
+.art-contenu .art-sec{background:none;border:0;padding:0;margin:0 0 26px}
+.art-contenu .art-sec>h2{display:flex;align-items:flex-start;gap:9px;text-align:left;margin:0 0 10px;font-size:1.12rem;line-height:1.3;scroll-margin-top:96px}
 .art-contenu .art-sec>h2 .art-t{display:block}
-.art-contenu .art-ic{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:hsla(256,91%,59%,.14);color:var(--accent-medium)}
-.art-contenu .art-ic--warn{background:hsla(334,100%,56%,.13);color:hsl(334,100%,56%)}
-.art-contenu .art-ic--ok{background:hsla(166,100%,34%,.13);color:hsl(166,100%,34%)}
-.art-contenu .art-sec h3{text-align:left;margin:14px 0 6px;font-size:1rem}
+.art-contenu .art-ic{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;margin-top:.18em;background:none;color:var(--accent-medium)}
+.art-contenu .art-ic svg{width:19px;height:19px}
+.art-contenu .art-ic--warn{color:hsl(334,100%,56%)}
+.art-contenu .art-ic--ok{color:hsl(166,100%,34%)}
+.art-contenu .art-sec h3{text-align:left;margin:16px 0 6px;font-size:1rem}
 .art-contenu .art-sec p{text-align:left}
 .art-contenu .art-sec>:last-child{margin-bottom:0}
-.art-contenu .art-toc{background:rgba(127,127,127,.055);border:1px solid rgba(127,127,127,.16);border-radius:14px;padding:15px 18px;margin:0 0 18px}
+.art-contenu .art-toc{background:none;border:0;border-top:1px solid rgba(127,127,127,.18);border-bottom:1px solid rgba(127,127,127,.18);border-radius:0;padding:14px 0;margin:0 0 26px}
 .art-contenu .art-toc p.art-toc-t{font-weight:650;margin:0 0 9px;text-align:left}
 .art-contenu .art-toc ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:2px 18px}
 .art-contenu .art-toc li{margin:0;padding:0;display:block}
 .art-contenu .art-toc a{display:flex;align-items:center;gap:8px;text-decoration:none;padding:3px 0;font-size:.94em}
-.art-contenu .art-toc .art-ic{width:22px;height:22px;border-radius:7px}
-.art-contenu .art-toc .art-ic svg{width:13px;height:13px}
+.art-contenu .art-toc .art-ic{width:18px;height:18px;margin-top:0}
+.art-contenu .art-toc .art-ic svg{width:15px;height:15px}
 .art-contenu .art-sec ul,.art-contenu .art-sec ol{margin-left:0;padding-left:0;list-style:none}
 .art-contenu .art-sec li{display:flex;gap:9px;align-items:flex-start;padding:0 0 9px}
 .art-contenu .art-sec li>:not(.art-b){min-width:0}
@@ -109,19 +110,22 @@
 .art-contenu .art-steps{counter-reset:artstep;margin-left:0;padding-left:0;list-style:none}
 .art-contenu .art-steps>li{counter-increment:artstep;display:flex;gap:10px;align-items:flex-start;padding:0 0 11px}
 .art-contenu .art-steps>li::before{content:counter(artstep);flex:0 0 auto;width:25px;height:25px;border-radius:50%;background:hsla(256,91%,59%,.14);color:var(--accent-medium);display:inline-flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:650;line-height:1}
-.art-contenu table{width:100%;border-radius:12px;overflow:hidden}.art-contenu .art-fig{margin:0 0 18px;padding:14px 16px 8px;background:rgba(127,127,127,.055);border:1px solid rgba(127,127,127,.16);border-radius:14px;color:var(--color-darker);text-align:center}.art-contenu .art-fig svg{display:block;width:100%;height:auto;max-width:100%;margin:0 auto;overflow:visible}.art-contenu .art-fig figcaption{margin-top:6px;font-size:.86em;line-height:1.45;color:var(--color-dark);text-align:center}
+.art-contenu .art-fig{margin:0 0 28px;padding:16px 14px 10px;background:rgba(127,127,127,.045);border:1px solid rgba(127,127,127,.13);border-radius:14px;color:var(--color-darker);text-align:center}
+.art-contenu .art-fig svg{display:block;width:100%;max-width:430px;height:auto;margin:0 auto;overflow:visible}
+.art-contenu .art-fig figcaption{margin-top:8px;font-size:.87em;line-height:1.45;color:var(--color-dark);text-align:center;max-width:520px;margin-left:auto;margin-right:auto}
+.art-contenu table{width:100%;border-radius:12px;overflow:hidden}
 .art-contenu th{background:var(--color-lighter);text-align:left}
 .art-contenu th,.art-contenu td{overflow-wrap:anywhere;word-break:normal}
 @media (max-width:768px){
-.art-contenu .art-sec{padding:15px 14px;border-radius:12px}
-.art-contenu .art-toc{padding:13px 14px}
+.art-contenu .art-sec{margin:0 0 22px}
+.art-contenu .art-ic{width:20px;height:20px}
+.art-contenu .art-ic svg{width:18px;height:18px}
+.art-contenu .art-fig{padding:12px 10px 8px;border-radius:12px}
+.art-contenu .art-fig svg{max-width:100%}
 .art-contenu .art-toc ul{grid-template-columns:1fr}
-.art-contenu .art-sec>h2{font-size:1.02rem;gap:8px}
-.art-contenu .art-ic{width:26px;height:26px;border-radius:8px}
-.art-contenu .art-ic svg{width:16px;height:16px}
 .art-contenu p,.art-contenu h2,.art-contenu h3,.art-contenu li,.art-contenu td,.art-contenu th{text-align:left}
 .art-contenu table,.art-contenu tbody,.art-contenu tr,.art-contenu td{display:block;width:100%;max-width:100%}
-.art-contenu table{border:0;background:none}.art-contenu .art-fig{padding:11px 10px 6px;border-radius:12px}
+.art-contenu table{border:0;background:none}
 .art-contenu thead{display:none}
 .art-contenu tr{background:var(--color-medium);border:1px solid rgba(127,127,127,.25);border-radius:12px;padding:10px 12px;margin:0 0 10px}
 .art-contenu td{border:0;padding:5px 0}
@@ -228,117 +232,63 @@ window.mettreAJourPanierFlottant = function() {
 window.addEventListener('load', function() {
     updateCartBadge();
     setInterval(updateCartBadge, 500);
-});</script><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main post"><article class="content"><figure class="content__featured-image content__featured-image--attop"><img src="https://mimistok.com/media/posts/35/imgi_90_b5821b3f1217179ce1bff67067517947.webp" srcset="https://mimistok.com/media/posts/35/responsive/imgi_90_b5821b3f1217179ce1bff67067517947-xs.webp 320w, https://mimistok.com/media/posts/35/responsive/imgi_90_b5821b3f1217179ce1bff67067517947-sm.webp 480w, https://mimistok.com/media/posts/35/responsive/imgi_90_b5821b3f1217179ce1bff67067517947-md.webp 768w, https://mimistok.com/media/posts/35/responsive/imgi_90_b5821b3f1217179ce1bff67067517947-xl.webp 1024w" sizes="(min-width: 1460px) 938px, (min-width: 1200px) calc(75.83vw - 139px), 100vw" loading="eager" height="794" width="2560" alt="Eau chaude instantanée : ce qu'un petit appareil peut faire" fetchpriority="high"></figure><div class="main__inner"><div class="content__meta"><div class="content__author"><div><a href="https://mimistok.com/authors/mimistok/" class="content__author__name">mimistok</a></div></div><div class="content__date"><time datetime="2026-09-23T00:30">sept. 23, 2026</time></div></div><header class="content__header"><h1 class="content__title">Eau chaude instantanée : ce qu'un petit appareil peut faire</h1></header><div class="content__entry art-contenu"><p>Vous cherchez de l'eau chaude tout de suite, sans attendre qu'un réservoir monte en température. C'est exactement le besoin que vise l'eau chaude instantanée : quelques décilitres brûlants au moment où vous en avez besoin, pour un thé, une tisane ou un biberon. Mais attention au malentendu le plus fréquent : un chauffe eau electrique de maison et un petit appareil de comptoir ne jouent pas dans la même catégorie.</p><figure class="art-fig">
-<svg viewBox="0 0 640 240" role="img" aria-label="Comparaison en deux colonnes : à gauche, un chauffe-eau de maison avec son ballon alimente en continu la douche et le linge ; à droite, un distributeur d'eau chaude instantanée de comptoir remplit un verre en trois secondes mais ne peut alimenter ni une douche ni un lave-linge." xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-
-  <line x1="320" y1="16" x2="320" y2="224" stroke-dasharray="4 6" opacity="0.35"/>
-
-  <g>
-    <text x="166" y="24" fill="currentColor" stroke="none" font-size="12" font-weight="600" text-anchor="middle">Chauffe-eau de maison</text>
-
-    <rect x="128" y="44" width="60" height="84" rx="9"/>
-    <rect x="134" y="70" width="48" height="52" rx="6" fill="currentColor" fill-opacity="0.16" stroke="none"/>
-    <path d="M200 72h44" opacity="0.8"/>
-    <path d="M236 66l8 6-8 6" opacity="0.8"/>
-
-    <path d="M88 176h36"/>
-    <path d="M106 162v14"/>
-    <path d="M92 186l-3 8M106 186v8M120 186l3 8" opacity="0.8"/>
-
-    <rect x="206" y="162" width="40" height="34" rx="6"/>
-    <path d="M206 172h40" opacity="0.6"/>
-    <circle cx="226" cy="186" r="9"/>
-  </g>
-
-  <g>
-    <text x="474" y="24" fill="currentColor" stroke="none" font-size="12" font-weight="600" text-anchor="middle">Distributeur de comptoir</text>
-
-    <rect x="436" y="34" width="76" height="56" rx="8"/>
-    <rect x="442" y="58" width="64" height="26" rx="6" fill="currentColor" fill-opacity="0.16" stroke="none"/>
-    <path d="M452 90v12" opacity="0.8"/>
-    <path d="M439 104L444 130H460L465 104Z"/>
-
-    <path d="M500 118H540L535 132H505Z"/>
-    <path d="M506 104V118H518V112"/>
-
-    <path d="M396 176h36"/>
-    <path d="M414 162v14"/>
-    <path d="M400 186l-3 8M414 186v8M428 186l3 8" opacity="0.8"/>
-
-    <rect x="514" y="162" width="40" height="34" rx="6"/>
-    <path d="M514 172h40" opacity="0.6"/>
-    <circle cx="534" cy="186" r="9"/>
-
-    <path d="M392 156L436 200" opacity="0.55"/>
-    <path d="M510 156L558 200" opacity="0.55"/>
-  </g>
-
-  <g fill="currentColor" stroke="none" font-size="11" text-anchor="middle">
-    <text x="166" y="150">plusieurs litres par minute</text>
-    <text x="474" y="150">3 secondes : verre, tasse, évier</text>
-    <text x="166" y="224">Douche, linge : oui</text>
-    <text x="474" y="224">Douche, linge : non</text>
-  </g>
-
-</svg>
-<figcaption>À gauche, le chauffe-eau de maison travaille en volume et en continu pour la douche et le linge ; à droite, le distributeur d'eau chaude instantanée de petit volume se limite à quelques décilitres très chauds, au verre, à la tasse ou pour l'évier.</figcaption>
-</figure><figure class="art-fig">
-<svg viewBox="0 0 640 240" role="img" aria-label="Comparaison en deux colonnes : à gauche, un chauffe-eau de maison avec son ballon alimente en continu la douche et le linge ; à droite, un distributeur d'eau chaude instantanée de comptoir remplit un verre en trois secondes mais ne peut alimenter ni une douche ni un lave-linge." xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-
-  <line x1="320" y1="16" x2="320" y2="224" stroke-dasharray="4 6" opacity="0.35"/>
-
-  <g>
-    <text x="166" y="24" fill="currentColor" stroke="none" font-size="12" font-weight="600" text-anchor="middle">Chauffe-eau de maison</text>
-
-    <rect x="128" y="44" width="60" height="84" rx="9"/>
-    <rect x="134" y="70" width="48" height="52" rx="6" fill="currentColor" fill-opacity="0.16" stroke="none"/>
-    <path d="M200 72h44" opacity="0.8"/>
-    <path d="M236 66l8 6-8 6" opacity="0.8"/>
-
-    <path d="M88 176h36"/>
-    <path d="M106 162v14"/>
-    <path d="M92 186l-3 8M106 186v8M120 186l3 8" opacity="0.8"/>
-
-    <rect x="206" y="162" width="40" height="34" rx="6"/>
-    <path d="M206 172h40" opacity="0.6"/>
-    <circle cx="226" cy="186" r="9"/>
-  </g>
-
-  <g>
-    <text x="474" y="24" fill="currentColor" stroke="none" font-size="12" font-weight="600" text-anchor="middle">Distributeur de comptoir</text>
-
-    <rect x="436" y="34" width="76" height="56" rx="8"/>
-    <rect x="442" y="58" width="64" height="26" rx="6" fill="currentColor" fill-opacity="0.16" stroke="none"/>
-    <path d="M452 90v12" opacity="0.8"/>
-    <path d="M439 104L444 130H460L465 104Z"/>
-
-    <path d="M500 118H540L535 132H505Z"/>
-    <path d="M506 104V118H518V112"/>
-
-    <path d="M396 176h36"/>
-    <path d="M414 162v14"/>
-    <path d="M400 186l-3 8M414 186v8M428 186l3 8" opacity="0.8"/>
-
-    <rect x="514" y="162" width="40" height="34" rx="6"/>
-    <path d="M514 172h40" opacity="0.6"/>
-    <circle cx="534" cy="186" r="9"/>
-
-    <path d="M392 156L436 200" opacity="0.55"/>
-    <path d="M510 156L558 200" opacity="0.55"/>
-  </g>
-
-  <g fill="currentColor" stroke="none" font-size="11" text-anchor="middle">
-    <text x="166" y="150">plusieurs litres par minute</text>
-    <text x="474" y="150">3 secondes : verre, tasse, évier</text>
-    <text x="166" y="224">Douche, linge : oui</text>
-    <text x="474" y="224">Douche, linge : non</text>
-  </g>
-
-</svg>
-<figcaption>À gauche, le chauffe-eau de maison travaille en volume et en continu pour la douche et le linge ; à droite, le distributeur d'eau chaude instantanée de petit volume se limite à quelques décilitres très chauds, au verre, à la tasse ou pour l'évier.</figcaption>
-</figure>
+});</script><div class="container"><div class="left-bar"><div class="left-bar__inner"><header class="header"><a class="logo" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle__box"><span class="navbar__toggle__inner">Menu</span></span></button><ul class="navbar__menu"><li><a class="tltp" href="https://mimistok.com/" target="_self" aria-label="Accueil"><svg class="fi fi-home" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#home"/></svg> <span>Accueil</span></a></li><li class="open-search-btn"><span class="tltp" aria-label="Rechercher un produit"><svg class="fi fi-search" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#search"/></svg> <span>Rechercher un produit</span></span></li><li><a class="tltp" href="https://mimistok.com/panier/" target="_self" aria-label="Votre panier"><svg class="fi fi-shopping-cart" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#shopping-cart"/></svg> <span>Votre panier</span></a></li><li><a class="tltp" href="https://mimistok.com/notre-concept/" target="_self" aria-label="Le concept"><svg class="fi fi-coffee" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#coffee"/></svg> <span>Le concept</span></a></li><li><a class="tltp" href="https://mimistok.com/contactez-nous/" target="_self" aria-label="Contact"><svg class="fi fi-mail" width="32px" height="32px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="https://mimistok.com/media/plugins/featherIcons/feather-sprite.svg#mail"/></svg> <span>Contact</span></a></li></ul></nav><a class="logo logo--atbottom" href="https://mimistok.com/"><img src="https://mimistok.com/media/website/mimistoklogo.svg" alt="mimistok" width="50" height="50"></a></header></div></div><main class="main post"><article class="content"><figure class="content__featured-image content__featured-image--attop"><img src="https://mimistok.com/media/posts/35/imgi_90_b5821b3f1217179ce1bff67067517947.webp" srcset="https://mimistok.com/media/posts/35/responsive/imgi_90_b5821b3f1217179ce1bff67067517947-xs.webp 320w, https://mimistok.com/media/posts/35/responsive/imgi_90_b5821b3f1217179ce1bff67067517947-sm.webp 480w, https://mimistok.com/media/posts/35/responsive/imgi_90_b5821b3f1217179ce1bff67067517947-md.webp 768w, https://mimistok.com/media/posts/35/responsive/imgi_90_b5821b3f1217179ce1bff67067517947-xl.webp 1024w" sizes="(min-width: 1460px) 938px, (min-width: 1200px) calc(75.83vw - 139px), 100vw" loading="eager" height="794" width="2560" alt="Eau chaude instantanée : ce qu'un petit appareil peut faire" fetchpriority="high"></figure><div class="main__inner"><div class="content__meta"><div class="content__author"><div><a href="https://mimistok.com/authors/mimistok/" class="content__author__name">mimistok</a></div></div><div class="content__date"><time datetime="2026-09-23T00:30">sept. 23, 2026</time></div></div><header class="content__header"><h1 class="content__title">Eau chaude instantanée : ce qu'un petit appareil peut faire</h1></header><div class="content__entry art-contenu"><p>Vous cherchez de l'eau chaude tout de suite, sans attendre qu'un réservoir monte en température. C'est exactement le besoin que vise l'eau chaude instantanée : quelques décilitres brûlants au moment où vous en avez besoin, pour un thé, une tisane ou un biberon. Mais attention au malentendu le plus fréquent : un chauffe eau electrique de maison et un petit appareil de comptoir ne jouent pas dans la même catégorie.</p>
 <p>Avant d'acheter, il faut donc savoir ce que l'appareil peut réellement faire, et surtout ce qu'il ne fera pas. Ce guide fait le tri entre usage, débit et points à vérifier sur la fiche technique.</p>
-<nav class="art-toc"><p class="art-toc-t">Au sommaire</p><ul><li><a href="#sec-chauffe-eau-electrique-et-eau-chaude-instantanee"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.3v5"/><circle cx="12" cy="8" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Chauffe eau electrique et eau chaude instantanée : ce dont on parle vraiment</span></a></li><li><a href="#sec-comment-fonctionne-un-distributeur-d-eau-chaude-"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.3v5"/><circle cx="12" cy="8" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Comment fonctionne un distributeur d'eau chaude instantanée</span></a></li><li><a href="#sec-le-delai-de-trois-secondes-ce-que-cette-promesse"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.3v5"/><circle cx="12" cy="8" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Le délai de trois secondes : ce que cette promesse signifie</span></a></li><li><a href="#sec-debit-et-temperature-les-deux-chiffres-qui-decid"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="9" r="3.2"/><path d="M3.6 19.2c0-3.2 2.6-5.2 5.8-5.2s5.8 2 5.8 5.2"/><path d="M16.4 6.4a3 3 0 0 1 0 5.6"/><path d="M17.6 14.4c2 .6 3.4 2.2 3.4 4.6"/></svg></span><span>Débit et température : les deux chiffres qui décident de tout</span></a></li><li><a href="#sec-usages-ou-l-eau-chaude-instantanee-rend-service"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="12" cy="12" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Usages où l'eau chaude instantanée rend service</span></a></li><li><a href="#sec-ce-qu-il-faut-verifier-avant-d-acheter"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.3v5"/><circle cx="12" cy="8" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Ce qu'il faut vérifier avant d'acheter</span></a></li><li><a href="#sec-le-distributeur-d-eau-chaude-instantanee-xiaomi-"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.3v5"/><circle cx="12" cy="8" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Le distributeur d'eau chaude instantanée Xiaomi à 59,99 €</span></a></li><li><a href="#sec-questions-frequentes"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.7a2.5 2.5 0 1 1 3.3 2.4c-.8.3-1.3 1-1.3 1.9v.2"/><circle cx="12" cy="16.6" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Questions fréquentes</span></a></li><li><a href="#sec-en-resume"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l1.9 5.3L19 11l-5.1 1.7L12 18l-1.9-5.3L5 11l5.1-1.7z"/></svg></span><span>En résumé</span></a></li></ul></nav><section class="art-sec"><h2 id="sec-chauffe-eau-electrique-et-eau-chaude-instantanee"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.3v5"/><circle cx="12" cy="8" r=".9" fill="currentColor" stroke="none"/></svg></span><span class="art-t">Chauffe eau electrique et eau chaude instantanée : ce dont on parle vraiment</span></h2>
+<nav class="art-toc"><p class="art-toc-t">Au sommaire</p><ul><li><a href="#sec-chauffe-eau-electrique-et-eau-chaude-instantanee"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.3v5"/><circle cx="12" cy="8" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Chauffe eau electrique et eau chaude instantanée : ce dont on parle vraiment</span></a></li><li><a href="#sec-comment-fonctionne-un-distributeur-d-eau-chaude-"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.3v5"/><circle cx="12" cy="8" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Comment fonctionne un distributeur d'eau chaude instantanée</span></a></li><li><a href="#sec-le-delai-de-trois-secondes-ce-que-cette-promesse"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.3v5"/><circle cx="12" cy="8" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Le délai de trois secondes : ce que cette promesse signifie</span></a></li><li><a href="#sec-debit-et-temperature-les-deux-chiffres-qui-decid"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="9" r="3.2"/><path d="M3.6 19.2c0-3.2 2.6-5.2 5.8-5.2s5.8 2 5.8 5.2"/><path d="M16.4 6.4a3 3 0 0 1 0 5.6"/><path d="M17.6 14.4c2 .6 3.4 2.2 3.4 4.6"/></svg></span><span>Débit et température : les deux chiffres qui décident de tout</span></a></li><li><a href="#sec-usages-ou-l-eau-chaude-instantanee-rend-service"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="12" cy="12" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Usages où l'eau chaude instantanée rend service</span></a></li><li><a href="#sec-ce-qu-il-faut-verifier-avant-d-acheter"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.3v5"/><circle cx="12" cy="8" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Ce qu'il faut vérifier avant d'acheter</span></a></li><li><a href="#sec-le-distributeur-d-eau-chaude-instantanee-xiaomi-"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.3v5"/><circle cx="12" cy="8" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Le distributeur d'eau chaude instantanée Xiaomi à 59,99 €</span></a></li><li><a href="#sec-questions-frequentes"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.7a2.5 2.5 0 1 1 3.3 2.4c-.8.3-1.3 1-1.3 1.9v.2"/><circle cx="12" cy="16.6" r=".9" fill="currentColor" stroke="none"/></svg></span><span>Questions fréquentes</span></a></li><li><a href="#sec-en-resume"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l1.9 5.3L19 11l-5.1 1.7L12 18l-1.9-5.3L5 11l5.1-1.7z"/></svg></span><span>En résumé</span></a></li></ul></nav><figure class="art-fig">
+<svg viewBox="0 0 640 240" role="img" aria-label="Comparaison en deux colonnes : à gauche, un chauffe-eau de maison avec son ballon alimente en continu la douche et le linge ; à droite, un distributeur d'eau chaude instantanée de comptoir remplit un verre en trois secondes mais ne peut alimenter ni une douche ni un lave-linge." xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+
+  <line x1="320" y1="16" x2="320" y2="224" stroke-dasharray="4 6" opacity="0.35"/>
+
+  <g>
+    <text x="166" y="24" fill="currentColor" stroke="none" font-size="12" font-weight="600" text-anchor="middle">Chauffe-eau de maison</text>
+
+    <rect x="128" y="44" width="60" height="84" rx="9"/>
+    <rect x="134" y="70" width="48" height="52" rx="6" fill="currentColor" fill-opacity="0.16" stroke="none"/>
+    <path d="M200 72h44" opacity="0.8"/>
+    <path d="M236 66l8 6-8 6" opacity="0.8"/>
+
+    <path d="M88 176h36"/>
+    <path d="M106 162v14"/>
+    <path d="M92 186l-3 8M106 186v8M120 186l3 8" opacity="0.8"/>
+
+    <rect x="206" y="162" width="40" height="34" rx="6"/>
+    <path d="M206 172h40" opacity="0.6"/>
+    <circle cx="226" cy="186" r="9"/>
+  </g>
+
+  <g>
+    <text x="474" y="24" fill="currentColor" stroke="none" font-size="12" font-weight="600" text-anchor="middle">Distributeur de comptoir</text>
+
+    <rect x="436" y="34" width="76" height="56" rx="8"/>
+    <rect x="442" y="58" width="64" height="26" rx="6" fill="currentColor" fill-opacity="0.16" stroke="none"/>
+    <path d="M452 90v12" opacity="0.8"/>
+    <path d="M439 104L444 130H460L465 104Z"/>
+
+    <path d="M500 118H540L535 132H505Z"/>
+    <path d="M506 104V118H518V112"/>
+
+    <path d="M396 176h36"/>
+    <path d="M414 162v14"/>
+    <path d="M400 186l-3 8M414 186v8M428 186l3 8" opacity="0.8"/>
+
+    <rect x="514" y="162" width="40" height="34" rx="6"/>
+    <path d="M514 172h40" opacity="0.6"/>
+    <circle cx="534" cy="186" r="9"/>
+
+    <path d="M392 156L436 200" opacity="0.55"/>
+    <path d="M510 156L558 200" opacity="0.55"/>
+  </g>
+
+  <g fill="currentColor" stroke="none" font-size="11" text-anchor="middle">
+    <text x="166" y="150">plusieurs litres par minute</text>
+    <text x="474" y="150">3 secondes : verre, tasse, évier</text>
+    <text x="166" y="224">Douche, linge : oui</text>
+    <text x="474" y="224">Douche, linge : non</text>
+  </g>
+
+</svg>
+<figcaption>À gauche, le chauffe-eau de maison travaille en volume et en continu pour la douche et le linge ; à droite, le distributeur d'eau chaude instantanée de petit volume se limite à quelques décilitres très chauds, au verre, à la tasse ou pour l'évier.</figcaption>
+</figure><section class="art-sec"><h2 id="sec-chauffe-eau-electrique-et-eau-chaude-instantanee"><span class="art-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.3v5"/><circle cx="12" cy="8" r=".9" fill="currentColor" stroke="none"/></svg></span><span class="art-t">Chauffe eau electrique et eau chaude instantanée : ce dont on parle vraiment</span></h2>
 <p>Un chauffe-eau électrique est un appareil de production d'eau chaude sanitaire. Il chauffe l'eau destinée à la douche, à la baignoire, à l'évier ou au lave-linge, avec une capacité de stockage ou une puissance instantanée capable d'alimenter un point de puisage entier. Il est raccordé à l'installation d'eau de la maison et travaille en volume, plusieurs litres par minute, en continu.</p>
 <p>Un distributeur d'eau chaude instantanée de petits volumes ne fait pas ce travail. Il chauffe à la demande de très petites quantités d'eau, dans un réservoir interne de faible contenance, et les distribue au verre ou à la tasse. Autrement dit : il ne remplace ni un chauffe-eau, ni un chauffe-eau instantané de salle de bains. Il complète la cuisine ou le bureau.</p>
 <ul>
