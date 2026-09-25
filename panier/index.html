@@ -87,7 +87,17 @@
       }
     }
   ]
-}</script><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style></head><body class="page-template"><script fetchpriority="low" defer="defer" src="https://widget.senja.io/..."></script><a href="/panier" id="cart-button"><div class="cart-icon"><img src="https://image.mimistok.com/bag001.svg" alt="Panier"> <span id="cart-count">0</span></div></a><style>#cart-button {
+}</script><style>.fi{fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}*{vector-effect: non-scaling-stroke; }</style><style>
+/* Vignette produit dans le panier — ajoute par Frank, ne touche a rien d'autre */
+.cell-produit{display:flex;align-items:center;gap:12px;min-width:0;padding-left:10px}
+.cell-produit .vignette{width:56px;height:56px;flex:0 0 auto;border-radius:9px;object-fit:cover;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.cell-produit .nom-produit{color:#fff;font-weight:bold;min-width:0;overflow-wrap:anywhere}
+@media (max-width:768px){
+  .cell-produit{flex-direction:column;justify-content:center;gap:8px;padding-left:0}
+  .cell-produit .vignette{width:84px;height:84px;border-radius:12px}
+}
+</style></head><body class="page-template"><script fetchpriority="low" defer="defer" src="https://widget.senja.io/..."></script><a href="/panier" id="cart-button"><div class="cart-icon"><img src="https://image.mimistok.com/bag001.svg" alt="Panier"> <span id="cart-count">0</span></div></a><style>#cart-button {
   position: fixed;
   top: 8%;
   right: 26px;
@@ -210,6 +220,50 @@ class PanierPage {
 
 let panierPage;
 
+// --- Photos des produits (ajout Frank) -------------------------------------
+// Le panier ne contient que { priceId, nom, prix, quantite } : on retrouve la
+// photo par le priceId. Table construite depuis les 27 fiches produit.
+// ATTENTION : ceci ne modifie NI le panier NI son envoi au Worker de paiement.
+const IMAGES_PRODUITS = {
+  "price_1SDpcpD6lZh6qlT1RAs8qsxL": "https://mimistok.com/media/posts/9/laifen-p3-pro-color-option-alliage-daluminium-gris-espace.webp",
+  "price_1SDpcwD6lZh6qlT1WRtPPfRG": "https://mimistok.com/media/posts/10//Group_917_0caf8787-d89b-455f-8aa4-aeeece3cbc38_1440x_crop_center.png",
+  "price_1SDqBXD6lZh6qlT15OwTA5Re": "https://mimistok.com/media/posts/11/Group_925_89ce4f68-cb9d-49eb-b997-2aeca0a54cc0_1440x_crop_center.png",
+  "price_1SDqBeD6lZh6qlT1EQZfd1Ja": "https://mimistok.com/media/posts/12//Group_924_0bc244e8-b79f-4708-a219-e7b447b33805_1440x_crop_center.png",
+  "price_1SDrZDD6lZh6qlT13CZMAt0R": "https://mimistok.com/media/posts/13//laifen-t1-pro-electric-shaver-gray-space-aluminum-alloy-white-backrgound-front-stubble-edition.png",
+  "price_1SDrZJD6lZh6qlT1wa4AKR4k": "https://mimistok.com/media/posts/14/Baseus_Security_N1_Outdoor_Camera_1_2-Cam_Kit_3000x.jpg",
+  "price_1SDrb5D6lZh6qlT1JvjGheWU": "https://mimistok.com/media/posts/15//Baseus__Blade_H1_Digital_Display_Power_Bank_20000mAh_100W_3_1200x.jpg",
+  "price_1SDw8BD6lZh6qlT1drLHbVLt": "https://mimistok.com/media/posts/6/Group_902_a7f4ccfd-d452-4ec4-a375-4698ed7b3dc9-1.webp",
+  "price_1SEYrYD6lZh6qlT1lu1Razuu": "https://mimistok.com/media/posts/19/cec04a0aa5ef45d2a1a9.png",
+  "price_1SEZyWD6lZh6qlT1R9RwRNkY": "https://mimistok.com/media/posts/20//6528df32352d4b0ba049.png",
+  "price_1SG5OfD6lZh6qlT1iD5Axtnt": "https://mimistok.com/media/posts/24/imgi_83_EDA00791601A_2.webp",
+  "price_1SH7mvD6lZh6qlT1EscedVMv": "https://mimistok.com/media/posts/26//c1ff8f88a7c94ef17518cd4951f11f2f.png",
+  "price_1SH9KuD6lZh6qlT1WCbEWaSw": "https://mimistok.com/media/posts/31/imgi_11_S0d6f4286cd2943fbb29e1e992e365689j.jpg_960x960q75.jpg_.webp",
+  "price_1SH9L0D6lZh6qlT1vcVNKcH1": "https://mimistok.com/media/posts/30//imgi_26_857952067950e486f121b3d97bdcb60d6573a87e_original.webp",
+  "price_1SH9L6D6lZh6qlT1wCad8vZo": "https://mimistok.com/media/posts/29//imgi_164_51jexv2fneL._AC_SL1200_.webp",
+  "price_1SH9LCD6lZh6qlT1003h6psb": "https://mimistok.com/media/posts/28/imgi_130_51xQ6999wjL._AC_SL1500_.webp",
+  "price_1SH9LJD6lZh6qlT1k6fmtB1q": "https://mimistok.com/media/posts/27/imgi_24_secador-de-cabelo-xiaomi-mi-high-speed-ionic-1600w-branco.webp",
+  "price_1SHMnAD6lZh6qlT1KdNVMvTq": "https://mimistok.com/media/posts/32//imgi_109_513GwPWnZL._AC_.webp",
+  "price_1SHNxTD6lZh6qlT1bxDN4tqb": "https://mimistok.com/media/posts/33/imgi_143_s-l960.webp",
+  "price_1SHQzvD6lZh6qlT1ZkPo15Tk": "https://mimistok.com/media/posts/35/imgi_5_93b9d82b8dbda3502c55ea93be524835.webp",
+  "price_1SHR01D6lZh6qlT1CFhteBca": "https://mimistok.com/media/posts/34//imgi_7_249280795.webp",
+  "price_1SI3MJD6lZh6qlT1kJwN1JDj": "https://mimistok.com/media/posts/39//6953156210561-baseus-mini-marteau-de-securite-voiture-fenetre-verre-disjoncteur-ceinture-de-securite-cutter-sauvetage-escape-marteau-1-1.jpg",
+  "price_1SI3MPD6lZh6qlT1sr6WUoTW": "https://mimistok.com/media/posts/38//imgi_9_Baseus_Bowie_D05_Bluetooth_Headphone_Grey_side_04_5e8ce348-d3b7-4b16-8984-22ba4fb9720b_1200x.webp",
+  "price_1SI3MVD6lZh6qlT1PPTdmgQm": "https://mimistok.com/media/posts/37//imgi_6_f033e4a8f74b4c7981523a797485b478_image.webp",
+  "price_1SIOrAD6lZh6qlT1ZCtiqc4y": "https://mimistok.com/media/posts/41/imgi_17_8c51fe8b14ee4f2bb507.webp",
+  "price_1SIPTtD6lZh6qlT1K7ThYsl7": "https://mimistok.com/media/posts/42/imgi_17_2594116cd5bf4c48afdb-2.webp",
+  "price_1SQ4QBD6lZh6qlT1B7XqvqHG": "https://mimistok.com/media/posts/8/Group_905_207ddddd-b98d-4cbb-acc1-21085b37b08a-2.webp",
+};
+
+function imageDuProduit(produit) {
+  if (!produit) return null;
+  if (produit.image) return produit.image;                       // 1. deja dans le panier
+  if (produit.priceId && IMAGES_PRODUITS[produit.priceId]) {     // 2. table par priceId
+    return IMAGES_PRODUITS[produit.priceId];
+  }
+  return null;                                                   // 3. pas d'image plutot qu'une cassee
+}
+// --------------------------------------------------------------------------
+
 function afficherPanier() {
   const panier = JSON.parse(localStorage.getItem('panier')) || [];
   const contenu = document.getElementById('contenu-panier');
@@ -286,10 +340,16 @@ function afficherPanier() {
       produitHTML.style.borderBottom = 'none';
     }
 
+    const photo = imageDuProduit(produit);
+    const vignette = photo
+      ? `<img class="vignette" src="${photo}" alt="${produit.nom}">`
+      : '';
+
     produitHTML.innerHTML = `
-      <!-- Nom du produit -->
-      <div style="color: white; font-weight: bold; min-width: 0; padding-left: 10px;">
-        <div>${produit.nom}</div>
+      <!-- Photo + nom du produit -->
+      <div class="cell-produit">
+        ${vignette}
+        <div class="nom-produit">${produit.nom}</div>
       </div>
 
       <!-- Prix unitaire -->
