@@ -389,20 +389,23 @@
   <script fetchpriority="low" defer="defer" src="https://widget.senja.io/widget/b8c3f55d-7e53-4979-b2b2-15f4112bbcce/platform.js"></script>
   <script fetchpriority="low" defer="defer" src="https://widget.senja.io/widget/8c58a8dd-e980-482c-bff0-611f5c61687a/platform.js" onload="document.querySelectorAll('iframe[src*=&quot;senja.io&quot;]').forEach(e=>e.style.bottom='150px');"></script>
 <script>
-/* Senja ajoute une pastille « Collect testimonials with Senja » sous le
-   carrousel. Elle est demandee par le client : on la masque, dans l'ombre du
-   widget (le contenu du widget vit dans un shadow DOM, inaccessible au CSS de
-   la page). Rien d'autre du widget n'est touche. */
+/* Senja ajoute sous le carrousel sa signature : une pastille avec un coeur et
+   le texte « Collect testimonials with Senja ». Le client la veut enlevee :
+   on masque la rangee entiere (`sj-powered-by`) et son enveloppe (`mt-4`, qui
+   ne contient qu'elle), sans quoi il resterait 30 px de vide et une marge.
+   Tout se passe dans l'ombre du widget (shadow DOM), inaccessible au CSS de
+   la page. Rien d'autre du widget n'est touche. */
 (function () {
   var cible = document.querySelector('.senja-embed[data-id="b8c3f55d-7e53-4979-b2b2-15f4112bbcce"]');
   if (!cible) { return; }
   function masquer() {
     var ombre = cible.shadowRoot;
     if (!ombre) { return; }
-    ombre.querySelectorAll("div, a, span").forEach(function (e) {
-      if (/Collect testimonials with Senja/i.test(e.textContent || "")
-          && e.children.length === 0) {
-        e.style.display = "none";
+    ombre.querySelectorAll(".sj-powered-by").forEach(function (rangee) {
+      rangee.style.display = "none";
+      var enveloppe = rangee.parentElement;
+      if (enveloppe && enveloppe !== ombre && enveloppe.children.length === 1) {
+        enveloppe.style.display = "none";
       }
     });
   }
