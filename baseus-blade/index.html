@@ -1081,6 +1081,13 @@
 
   function demarrer() {
     badge();
+
+    /* Retour depuis Stripe sans payer : le Worker renvoie sur
+       « /?panier=ouvert », on rouvre alors le tiroir du panier avec les
+       articles deja choisis. */
+    var params = new URLSearchParams(window.location.search);
+    if (params.get("panier") === "ouvert") { ouvrir(); }
+
     var ouvrirBtn = document.getElementById("ouvrir-panier");
     if (ouvrirBtn) { ouvrirBtn.addEventListener("click", ouvrir); }
     var fermerBtn = document.getElementById("fermer-panier");
