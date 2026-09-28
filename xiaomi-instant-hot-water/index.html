@@ -856,6 +856,11 @@
       video.classList.remove("hidden");
     } else {
       if (video) { video.pause(); video.classList.add("hidden"); }
+      /* On met AUSSI le srcset : quand une image en a un, le navigateur
+         choisit dedans et ignore le `src`. Sans cette ligne, la photo
+         principale ne changeait jamais de vignette. */
+      image.srcset = photos[actif].replace(".webp", "-640.webp") + " 640w, "
+        + photos[actif] + " 1200w";
       image.src = photos[actif];
       image.classList.remove("hidden");
     }
