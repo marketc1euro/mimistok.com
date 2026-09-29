@@ -5,8 +5,8 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Guides et comparatifs high-tech | Blog Mimistok</title>
-<meta name="description" content="Tous les guides et comparatifs Mimistok, ranges par marque : Baseus (13 articles), Xiaomi (13 articles), Laifen (12 articles), Obsbot (12 articles)">
+<title>Xiaomi : tous les produits | Mimistok</title>
+<meta name="description" content="Les 10 produits Xiaomi selectionnes par Mimistok, a prix d'usine, avec leur fiche detaillee.">
 <style>
 {{CSS}}
 <link rel="preload" as="font" type="font/woff2" href="fonts/inter-var.woff2" crossorigin>
@@ -17,29 +17,40 @@
 @font-face { font-family: 'anton'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/anton-400.woff2') format('woff2'); }
 </style>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ItemList","name":"Blog Mimistok","url":"https://mimistok.com/blog/","numberOfItems":4,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://mimistok.com/blog/baseus/","name":"Baseus"},{"@type":"ListItem","position":2,"url":"https://mimistok.com/blog/xiaomi/","name":"Xiaomi"},{"@type":"ListItem","position":3,"url":"https://mimistok.com/blog/laifen/","name":"Laifen"},{"@type":"ListItem","position":4,"url":"https://mimistok.com/blog/obsbot/","name":"Obsbot"}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://mimistok.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://mimistok.com/blog/"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ItemList","name":"Produits Xiaomi","url":"https://mimistok.com/produits/xiaomi/","numberOfItems":10,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://mimistok.com/mi-smart-clock/","name":"Mi Smart Clock"},{"@type":"ListItem","position":2,"url":"https://mimistok.com/mijia-brosse-a-dents/","name":"MIJIA-Brosse à dents"},{"@type":"ListItem","position":3,"url":"https://mimistok.com/mijia-de-xiaomi/","name":"Mijia de Xiaomi"},{"@type":"ListItem","position":4,"url":"https://mimistok.com/seche-cheveux-xiaomi-mi/","name":"Sèche-Cheveux Xiaomi Mi"},{"@type":"ListItem","position":5,"url":"https://mimistok.com/xiaomi-aspirateur-portable/","name":"Xiaomi-Aspirateur portable"},{"@type":"ListItem","position":6,"url":"https://mimistok.com/xiaomi-handheld-garment-steamer/","name":"Xiaomi Handheld Garment Steamer"},{"@type":"ListItem","position":7,"url":"https://mimistok.com/xiaomi-instant-hot-water/","name":"Xiaomi Instant Hot Water"},{"@type":"ListItem","position":8,"url":"https://mimistok.com/xiaomi-mijia-coupe-ongles/","name":"Xiaomi Mijia coupe-ongles"},{"@type":"ListItem","position":9,"url":"https://mimistok.com/xiaomi-mijia-induction-cooker/","name":"Xiaomi Mijia Induction Cooker"},{"@type":"ListItem","position":10,"url":"https://mimistok.com/xiaomi-smart-kettle-2-pro/","name":"Xiaomi Smart Kettle 2 Pro"}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://mimistok.com/"},{"@type":"ListItem","position":2,"name":"Tous les produits","item":"https://mimistok.com/produits"},{"@type":"ListItem","position":3,"name":"Xiaomi","item":"https://mimistok.com/produits/xiaomi/"}]}]}</script>
 
-<link rel="canonical" href="https://mimistok.com/blog/">
+<link rel="canonical" href="https://mimistok.com/produits/xiaomi/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Mimistok">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:title" content="Blog Mimistok">
-<meta property="og:description" content="Tous les guides et comparatifs Mimistok, ranges par marque : Baseus (13 articles), Xiaomi (13 articles), Laifen (12 articles), Obsbot (12 articles)">
-<meta property="og:url" content="https://mimistok.com/blog/">
+<meta property="og:title" content="Xiaomi : tous les produits">
+<meta property="og:description" content="Les 10 produits Xiaomi selectionnes par Mimistok, a prix d&#x27;usine, avec leur fiche detaillee.">
+<meta property="og:url" content="https://mimistok.com/produits/xiaomi/">
 <meta property="og:image" content="https://mimistok.com/illustrations/hero.webp">
-<meta property="og:image:alt" content="Blog Mimistok">
+<meta property="og:image:alt" content="Xiaomi : tous les produits">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Blog Mimistok">
-<meta name="twitter:description" content="Tous les guides et comparatifs Mimistok, ranges par marque : Baseus (13 articles), Xiaomi (13 articles), Laifen (12 articles), Obsbot (12 articles)">
+<meta name="twitter:title" content="Xiaomi : tous les produits">
+<meta name="twitter:description" content="Les 10 produits Xiaomi selectionnes par Mimistok, a prix d&#x27;usine, avec leur fiche detaillee.">
 <meta name="twitter:image" content="https://mimistok.com/illustrations/hero.webp">
 </head>
 
 <!--
-  Page CATEGORIE du blog (Mimistok) montee sur le theme officiel
-  vercel/commerce. La grille reprend exactement le composant `Grid` du theme
-  (`grid grid-flow-row gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3`) et
-  ses tuiles `GridTileImage` + `Label`, sans la pastille de prix : un article
-  n'en a pas.
+  CATALOGUE monte sur la structure EXACTE de la page recherche du theme
+  vercel/commerce (`app/search/layout.tsx` + `app/search/[collection]/page.tsx`) :
+
+    <div class="mx-auto flex max-w-(--breakpoint-2xl) flex-col gap-8 px-4 pb-4
+                text-black md:flex-row dark:text-white">
+      <div class="order-first w-full flex-none md:max-w-[125px]">  Collections
+      <div class="order-last min-h-screen w-full md:order-none">   la grille
+      <div class="order-none flex-none md:order-last md:w-[125px]"> Trier par
+    </div>
+
+  - la grille est le composant `Grid` du theme (grid-cols-1 sm:grid-cols-2
+    lg:grid-cols-3) avec ses tuiles `GridTileImage` + `Label` ;
+  - les listes laterales reprennent `FilterList` : titres en `text-xs
+    text-neutral-500`, entrees `mt-2 flex text-sm`, lien actif souligne ;
+  - sur mobile, le theme remplace les listes par des menus deroulants
+    (`md:hidden`) : repris ici en <details> natifs.
 -->
 
 <body class="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
@@ -126,67 +137,214 @@
 </nav>
 
 <main>
+  <div class="mx-auto flex max-w-(--breakpoint-2xl) flex-col gap-8 px-4 pb-4 text-black md:flex-row dark:text-white">
 
-<!-- ============================ CATEGORIE ============================ -->
-<div class="mx-auto max-w-(--breakpoint-2xl) px-4">
-  <div class="py-6">
-    <p class="mb-2 text-sm uppercase tracking-wide text-neutral-500 dark:text-neutral-400">Blog</p>
-    <nav aria-label="Fil d'Ariane" class="mb-3"><ol class="flex flex-wrap items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400"><li><a class="underline-offset-4 hover:text-black hover:underline dark:hover:text-white" href="index.html">Accueil</a></li><li aria-hidden="true">/</li><li aria-current="page">Blog</li></ol></nav>
-    <h1 class="mb-2 text-4xl font-semibold md:text-5xl">Blog Mimistok</h1>
-    <p class="text-sm text-neutral-500 dark:text-neutral-400">50 articles</p>
+    <!-- ---------------------- Collections (gauche) ---------------------- -->
+    <div class="order-first w-full flex-none md:max-w-[125px]">
+      <nav>
+        <h3 class="hidden text-xs text-neutral-500 md:block dark:text-neutral-400">Catégories</h3>
+        <ul class="hidden md:block">
+            <li class="mt-2 flex text-black dark:text-white"><a href="produits/xiaomi/" class="text-neutral-500 underline underline-offset-4">Xiaomi<span class="ml-1.5 text-blue-600">(10)</span></a></li>
+            <li class="mt-2 flex text-black dark:text-white"><a href="produits/baseus/" class="text-neutral-500 hover:text-black dark:hover:text-white">Baseus<span class="ml-1.5 text-blue-600">(6)</span></a></li>
+            <li class="mt-2 flex text-black dark:text-white"><a href="produits/laifen/" class="text-neutral-500 hover:text-black dark:hover:text-white">Laifen<span class="ml-1.5 text-blue-600">(7)</span></a></li>
+            <li class="mt-2 flex text-black dark:text-white"><a href="produits/obsbot/" class="text-neutral-500 hover:text-black dark:hover:text-white">Obsbot<span class="ml-1.5 text-blue-600">(4)</span></a></li>
+        </ul>
+        <details class="relative md:hidden">
+          <summary class="flex w-full cursor-pointer list-none items-center justify-between rounded-sm border border-black/30 px-4 py-2 text-sm dark:border-white/30">
+            <span>Catégories</span>
+            <span class="text-neutral-400"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="h-3 w-3">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+    </svg></span>
+          </summary>
+          <ul class="absolute z-40 w-full rounded-b-md bg-white p-4 shadow-md dark:bg-black">
+            <li class="mt-2 flex text-black dark:text-white"><a href="produits/xiaomi/" class="text-neutral-500 underline underline-offset-4">Xiaomi<span class="ml-1.5 text-blue-600">(10)</span></a></li>
+            <li class="mt-2 flex text-black dark:text-white"><a href="produits/baseus/" class="text-neutral-500 hover:text-black dark:hover:text-white">Baseus<span class="ml-1.5 text-blue-600">(6)</span></a></li>
+            <li class="mt-2 flex text-black dark:text-white"><a href="produits/laifen/" class="text-neutral-500 hover:text-black dark:hover:text-white">Laifen<span class="ml-1.5 text-blue-600">(7)</span></a></li>
+            <li class="mt-2 flex text-black dark:text-white"><a href="produits/obsbot/" class="text-neutral-500 hover:text-black dark:hover:text-white">Obsbot<span class="ml-1.5 text-blue-600">(4)</span></a></li>
+          </ul>
+        </details>
+      </nav>
+    </div>
+
+    <!-- ------------------------- la grille (centre) ------------------------- -->
+    <div class="order-last min-h-screen w-full md:order-none">
+      <!-- titre de page : le theme n'en a pas (c'est une page de recherche),
+           mais un catalogue sans <h1> est faible pour Google -->
+      <div class="pb-6">
+        <p class="mb-2 text-sm uppercase tracking-wide text-neutral-500 dark:text-neutral-400">Boutique</p>
+        <h1 class="mb-2 text-4xl font-semibold md:text-5xl">Xiaomi</h1>
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          <span data-compteur>10</span> produits
+        </p>
+      </div>
+      <section>
+        <ul data-grille class="grid grid-flow-row grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <li class="aspect-square transition-opacity" data-marque="Xiaomi"
+        data-prix="49.99" data-nom="Mi Smart Clock">
+      <a class="relative block h-full w-full" href="mi-smart-clock/">
+        <div class="group flex h-full w-full items-center justify-center overflow-hidden rounded-[15px] border bg-white p-5 hover:border-blue-600 md:p-7 dark:bg-black relative border-neutral-200 dark:border-neutral-800">
+          <img class="relative max-h-full max-w-full rounded-[15px] object-contain transition duration-300 ease-in-out group-hover:scale-105" src="produit-mimistok/media/mi-smart-clock-1.webp" srcset="produit-mimistok/media/mi-smart-clock-1-640.webp 640w, produit-mimistok/media/mi-smart-clock-1.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw" alt="Mi Smart Clock" decoding="async" loading="lazy">
+          <div class="absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label">
+            <div class="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
+              <h3 class="mr-4 line-clamp-2 grow pl-2 leading-none tracking-tight">Mi Smart Clock</h3>
+              <p class="flex-none rounded-full bg-blue-600 px-2 py-1 text-[11px] leading-tight text-white">49,99&nbsp;€</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="aspect-square transition-opacity" data-marque="Xiaomi"
+        data-prix="39.99" data-nom="MIJIA-Brosse à dents">
+      <a class="relative block h-full w-full" href="mijia-brosse-a-dents/">
+        <div class="group flex h-full w-full items-center justify-center overflow-hidden rounded-[15px] border bg-white p-5 hover:border-blue-600 md:p-7 dark:bg-black relative border-neutral-200 dark:border-neutral-800">
+          <img class="relative max-h-full max-w-full rounded-[15px] object-contain transition duration-300 ease-in-out group-hover:scale-105" src="produit-mimistok/media/mijia-brosse-a-dents-1.webp" srcset="produit-mimistok/media/mijia-brosse-a-dents-1-640.webp 640w, produit-mimistok/media/mijia-brosse-a-dents-1.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw" alt="MIJIA-Brosse à dents" decoding="async" loading="lazy">
+          <div class="absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label">
+            <div class="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
+              <h3 class="mr-4 line-clamp-2 grow pl-2 leading-none tracking-tight">MIJIA-Brosse à dents</h3>
+              <p class="flex-none rounded-full bg-blue-600 px-2 py-1 text-[11px] leading-tight text-white">39,99&nbsp;€</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="aspect-square transition-opacity" data-marque="Xiaomi"
+        data-prix="79.99" data-nom="Mijia de Xiaomi">
+      <a class="relative block h-full w-full" href="mijia-de-xiaomi/">
+        <div class="group flex h-full w-full items-center justify-center overflow-hidden rounded-[15px] border bg-white p-5 hover:border-blue-600 md:p-7 dark:bg-black relative border-neutral-200 dark:border-neutral-800">
+          <img class="relative max-h-full max-w-full rounded-[15px] object-contain transition duration-300 ease-in-out group-hover:scale-105" src="produit-mimistok/media/mijia-de-xiaomi-1.webp" srcset="produit-mimistok/media/mijia-de-xiaomi-1-640.webp 640w, produit-mimistok/media/mijia-de-xiaomi-1.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw" alt="Mijia de Xiaomi" decoding="async" loading="lazy">
+          <div class="absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label">
+            <div class="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
+              <h3 class="mr-4 line-clamp-2 grow pl-2 leading-none tracking-tight">Mijia de Xiaomi</h3>
+              <p class="flex-none rounded-full bg-blue-600 px-2 py-1 text-[11px] leading-tight text-white">79,99&nbsp;€</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="aspect-square transition-opacity" data-marque="Xiaomi"
+        data-prix="49.99" data-nom="Sèche-Cheveux Xiaomi Mi">
+      <a class="relative block h-full w-full" href="seche-cheveux-xiaomi-mi/">
+        <div class="group flex h-full w-full items-center justify-center overflow-hidden rounded-[15px] border bg-white p-5 hover:border-blue-600 md:p-7 dark:bg-black relative border-neutral-200 dark:border-neutral-800">
+          <img class="relative max-h-full max-w-full rounded-[15px] object-contain transition duration-300 ease-in-out group-hover:scale-105" src="produit-mimistok/media/seche-cheveux-xiaomi-mi-1.webp" srcset="produit-mimistok/media/seche-cheveux-xiaomi-mi-1-640.webp 640w, produit-mimistok/media/seche-cheveux-xiaomi-mi-1.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw" alt="Sèche-Cheveux Xiaomi Mi" decoding="async" loading="lazy">
+          <div class="absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label">
+            <div class="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
+              <h3 class="mr-4 line-clamp-2 grow pl-2 leading-none tracking-tight">Sèche-Cheveux Xiaomi Mi</h3>
+              <p class="flex-none rounded-full bg-blue-600 px-2 py-1 text-[11px] leading-tight text-white">49,99&nbsp;€</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="aspect-square transition-opacity" data-marque="Xiaomi"
+        data-prix="39.99" data-nom="Xiaomi-Aspirateur portable">
+      <a class="relative block h-full w-full" href="xiaomi-aspirateur-portable/">
+        <div class="group flex h-full w-full items-center justify-center overflow-hidden rounded-[15px] border bg-white p-5 hover:border-blue-600 md:p-7 dark:bg-black relative border-neutral-200 dark:border-neutral-800">
+          <img class="relative max-h-full max-w-full rounded-[15px] object-contain transition duration-300 ease-in-out group-hover:scale-105" src="produit-mimistok/media/xiaomi-aspirateur-portable-1.webp" srcset="produit-mimistok/media/xiaomi-aspirateur-portable-1-640.webp 640w, produit-mimistok/media/xiaomi-aspirateur-portable-1.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw" alt="Xiaomi-Aspirateur portable" decoding="async" loading="lazy">
+          <div class="absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label">
+            <div class="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
+              <h3 class="mr-4 line-clamp-2 grow pl-2 leading-none tracking-tight">Xiaomi-Aspirateur portable</h3>
+              <p class="flex-none rounded-full bg-blue-600 px-2 py-1 text-[11px] leading-tight text-white">39,99&nbsp;€</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="aspect-square transition-opacity" data-marque="Xiaomi"
+        data-prix="25.99" data-nom="Xiaomi Handheld Garment Steamer">
+      <a class="relative block h-full w-full" href="xiaomi-handheld-garment-steamer/">
+        <div class="group flex h-full w-full items-center justify-center overflow-hidden rounded-[15px] border bg-white p-5 hover:border-blue-600 md:p-7 dark:bg-black relative border-neutral-200 dark:border-neutral-800">
+          <img class="relative max-h-full max-w-full rounded-[15px] object-contain transition duration-300 ease-in-out group-hover:scale-105" src="produit-mimistok/media/xiaomi-handheld-garment-steamer-1.webp" srcset="produit-mimistok/media/xiaomi-handheld-garment-steamer-1-640.webp 640w, produit-mimistok/media/xiaomi-handheld-garment-steamer-1.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw" alt="Xiaomi Handheld Garment Steamer" decoding="async" loading="lazy">
+          <div class="absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label">
+            <div class="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
+              <h3 class="mr-4 line-clamp-2 grow pl-2 leading-none tracking-tight">Xiaomi Handheld Garment Steamer</h3>
+              <p class="flex-none rounded-full bg-blue-600 px-2 py-1 text-[11px] leading-tight text-white">25,99&nbsp;€</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="aspect-square transition-opacity" data-marque="Xiaomi"
+        data-prix="59.99" data-nom="Xiaomi Instant Hot Water">
+      <a class="relative block h-full w-full" href="xiaomi-instant-hot-water/">
+        <div class="group flex h-full w-full items-center justify-center overflow-hidden rounded-[15px] border bg-white p-5 hover:border-blue-600 md:p-7 dark:bg-black relative border-neutral-200 dark:border-neutral-800">
+          <img class="relative max-h-full max-w-full rounded-[15px] object-contain transition duration-300 ease-in-out group-hover:scale-105" src="produit-mimistok/media/xiaomi-instant-hot-water-1.webp" srcset="produit-mimistok/media/xiaomi-instant-hot-water-1-640.webp 640w, produit-mimistok/media/xiaomi-instant-hot-water-1.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw" alt="Xiaomi Instant Hot Water" decoding="async" loading="lazy">
+          <div class="absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label">
+            <div class="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
+              <h3 class="mr-4 line-clamp-2 grow pl-2 leading-none tracking-tight">Xiaomi Instant Hot Water</h3>
+              <p class="flex-none rounded-full bg-blue-600 px-2 py-1 text-[11px] leading-tight text-white">59,99&nbsp;€</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="aspect-square transition-opacity" data-marque="Xiaomi"
+        data-prix="12.99" data-nom="Xiaomi Mijia coupe-ongles">
+      <a class="relative block h-full w-full" href="xiaomi-mijia-coupe-ongles/">
+        <div class="group flex h-full w-full items-center justify-center overflow-hidden rounded-[15px] border bg-white p-5 hover:border-blue-600 md:p-7 dark:bg-black relative border-neutral-200 dark:border-neutral-800">
+          <img class="relative max-h-full max-w-full rounded-[15px] object-contain transition duration-300 ease-in-out group-hover:scale-105" src="produit-mimistok/media/xiaomi-mijia-coupe-ongles-1.webp" srcset="produit-mimistok/media/xiaomi-mijia-coupe-ongles-1-640.webp 640w, produit-mimistok/media/xiaomi-mijia-coupe-ongles-1.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw" alt="Xiaomi Mijia coupe-ongles" decoding="async" loading="lazy">
+          <div class="absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label">
+            <div class="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
+              <h3 class="mr-4 line-clamp-2 grow pl-2 leading-none tracking-tight">Xiaomi Mijia coupe-ongles</h3>
+              <p class="flex-none rounded-full bg-blue-600 px-2 py-1 text-[11px] leading-tight text-white">12,99&nbsp;€</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="aspect-square transition-opacity" data-marque="Xiaomi"
+        data-prix="56.99" data-nom="Xiaomi Mijia Induction Cooker">
+      <a class="relative block h-full w-full" href="xiaomi-mijia-induction-cooker/">
+        <div class="group flex h-full w-full items-center justify-center overflow-hidden rounded-[15px] border bg-white p-5 hover:border-blue-600 md:p-7 dark:bg-black relative border-neutral-200 dark:border-neutral-800">
+          <img class="relative max-h-full max-w-full rounded-[15px] object-contain transition duration-300 ease-in-out group-hover:scale-105" src="produit-mimistok/media/xiaomi-mijia-induction-cooker-1.webp" srcset="produit-mimistok/media/xiaomi-mijia-induction-cooker-1-640.webp 640w, produit-mimistok/media/xiaomi-mijia-induction-cooker-1.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw" alt="Xiaomi Mijia Induction Cooker" decoding="async" loading="lazy">
+          <div class="absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label">
+            <div class="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
+              <h3 class="mr-4 line-clamp-2 grow pl-2 leading-none tracking-tight">Xiaomi Mijia Induction Cooker</h3>
+              <p class="flex-none rounded-full bg-blue-600 px-2 py-1 text-[11px] leading-tight text-white">56,99&nbsp;€</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="aspect-square transition-opacity" data-marque="Xiaomi"
+        data-prix="49.99" data-nom="Xiaomi Smart Kettle 2 Pro">
+      <a class="relative block h-full w-full" href="xiaomi-smart-kettle-2-pro/">
+        <div class="group flex h-full w-full items-center justify-center overflow-hidden rounded-[15px] border bg-white p-5 hover:border-blue-600 md:p-7 dark:bg-black relative border-neutral-200 dark:border-neutral-800">
+          <img class="relative max-h-full max-w-full rounded-[15px] object-contain transition duration-300 ease-in-out group-hover:scale-105" src="produit-mimistok/media/xiaomi-smart-kettle-2-pro-1.webp" srcset="produit-mimistok/media/xiaomi-smart-kettle-2-pro-1-640.webp 640w, produit-mimistok/media/xiaomi-smart-kettle-2-pro-1.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw" alt="Xiaomi Smart Kettle 2 Pro" decoding="async" loading="lazy">
+          <div class="absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label">
+            <div class="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
+              <h3 class="mr-4 line-clamp-2 grow pl-2 leading-none tracking-tight">Xiaomi Smart Kettle 2 Pro</h3>
+              <p class="flex-none rounded-full bg-blue-600 px-2 py-1 text-[11px] leading-tight text-white">49,99&nbsp;€</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- --------------------------- Trier (droite) --------------------------- -->
+    <div class="order-none flex-none md:order-last md:w-[125px]">
+      <nav>
+        <h3 class="hidden text-xs text-neutral-500 md:block dark:text-neutral-400">Trier par</h3>
+        <ul class="hidden md:block">
+
+        </ul>
+        <details class="relative md:hidden">
+          <summary class="flex w-full cursor-pointer list-none items-center justify-between rounded-sm border border-black/30 px-4 py-2 text-sm dark:border-white/30">
+            <span>Trier par</span>
+            <span class="text-neutral-400"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="h-3 w-3">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+    </svg></span>
+          </summary>
+          <ul class="absolute z-40 w-full rounded-b-md bg-white p-4 shadow-md dark:bg-black">
+
+          </ul>
+        </details>
+      </nav>
+    </div>
   </div>
-
-  <ul class="grid grid-flow-row grid-cols-1 gap-4 pb-8 sm:grid-cols-2 lg:grid-cols-3">
-    <li class="aspect-square transition-opacity">
-      <a class="relative block h-full w-full" href="blog/baseus/">
-        <div class="group flex h-full w-full items-center justify-center overflow-hidden rounded-[15px] border bg-white hover:border-blue-600 dark:bg-black relative border-neutral-200 dark:border-neutral-800">
-          <img class="relative h-full w-full rounded-[15px] object-cover transition duration-300 ease-in-out group-hover:scale-105" src="blog-mimistok/media/batterie-externe-solaire.webp" alt="Baseus — 13 articles">
-          <div class="absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label">
-            <div class="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
-              <h3 class="line-clamp-2 grow px-2 leading-none tracking-tight">Baseus — 13 articles</h3>
-            </div>
-          </div>
-        </div>
-      </a>
-    </li>
-    <li class="aspect-square transition-opacity">
-      <a class="relative block h-full w-full" href="blog/xiaomi/">
-        <div class="group flex h-full w-full items-center justify-center overflow-hidden rounded-[15px] border bg-white hover:border-blue-600 dark:bg-black relative border-neutral-200 dark:border-neutral-800">
-          <img class="relative h-full w-full rounded-[15px] object-cover transition duration-300 ease-in-out group-hover:scale-105" src="blog-mimistok/media/chauffe-eau-electrique.webp" alt="Xiaomi — 13 articles">
-          <div class="absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label">
-            <div class="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
-              <h3 class="line-clamp-2 grow px-2 leading-none tracking-tight">Xiaomi — 13 articles</h3>
-            </div>
-          </div>
-        </div>
-      </a>
-    </li>
-    <li class="aspect-square transition-opacity">
-      <a class="relative block h-full w-full" href="blog/laifen/">
-        <div class="group flex h-full w-full items-center justify-center overflow-hidden rounded-[15px] border bg-white hover:border-blue-600 dark:bg-black relative border-neutral-200 dark:border-neutral-800">
-          <img class="relative h-full w-full rounded-[15px] object-cover transition duration-300 ease-in-out group-hover:scale-105" src="blog-mimistok/media/seche-cheveux-dyson.webp" alt="Laifen — 12 articles">
-          <div class="absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label">
-            <div class="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
-              <h3 class="line-clamp-2 grow px-2 leading-none tracking-tight">Laifen — 12 articles</h3>
-            </div>
-          </div>
-        </div>
-      </a>
-    </li>
-    <li class="aspect-square transition-opacity">
-      <a class="relative block h-full w-full" href="blog/obsbot/">
-        <div class="group flex h-full w-full items-center justify-center overflow-hidden rounded-[15px] border bg-white hover:border-blue-600 dark:bg-black relative border-neutral-200 dark:border-neutral-800">
-          <img class="relative h-full w-full rounded-[15px] object-cover transition duration-300 ease-in-out group-hover:scale-105" src="blog-mimistok/media/webcam-streaming.webp" alt="Obsbot — 12 articles">
-          <div class="absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label">
-            <div class="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
-              <h3 class="line-clamp-2 grow px-2 leading-none tracking-tight">Obsbot — 12 articles</h3>
-            </div>
-          </div>
-        </div>
-      </a>
-    </li>
-  </ul>
-</div>
+</main>
 
 <!-- ============================== FOOTER ============================== -->
 <footer class="text-sm text-neutral-500 dark:text-neutral-400">
@@ -321,44 +479,6 @@
   </div>
 </footer>
 
-</main>
-
-<!-- ====================== MENU MOBILE (simplifié) ====================== -->
-<div id="panneau-mobile" class="fixed inset-0 z-50 hidden">
-  <div class="absolute inset-0 bg-black/30 backdrop-blur-[.5px]"></div>
-  <div class="relative flex h-full w-full max-w-xs flex-col bg-white p-6 dark:bg-black">
-    <div class="mb-6 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2 text-black dark:text-white">
-        <div class="flex flex-none items-center justify-center h-[40px] w-[40px]">
-          <img src="mimistoklogo.svg" class="logo-site h-full w-full object-contain" alt="Mimistok">
-        </div>
-        <span class="anton text-sm uppercase">Mimistok</span>
-      </a>
-      <button id="btn-fermer-mobile" aria-label="Fermer le menu" class="flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black dark:border-neutral-700 dark:text-white">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="h-4">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/>
-    </svg>
-      </button>
-    </div>
-    <ul class="flex flex-col gap-1">
-      <li><a href="index.html" class="block p-2 text-lg underline-offset-4 hover:text-black hover:underline dark:hover:text-neutral-300">Accueil</a></li>
-      <li><a href="produits.html" class="block p-2 text-lg underline-offset-4 hover:text-black hover:underline dark:hover:text-neutral-300">Catalogue</a></li>
-      <li class="px-2 pt-4 text-xs uppercase tracking-wide text-neutral-400">Catégories</li>
-      <li><a href="produits/baseus/" class="block p-2 text-lg underline-offset-4 hover:text-black hover:underline dark:hover:text-neutral-300">Baseus <span class="ml-1.5 text-blue-600">(6)</span></a></li>
-      <li><a href="produits/laifen/" class="block p-2 text-lg underline-offset-4 hover:text-black hover:underline dark:hover:text-neutral-300">Laifen <span class="ml-1.5 text-blue-600">(7)</span></a></li>
-      <li><a href="produits/obsbot/" class="block p-2 text-lg underline-offset-4 hover:text-black hover:underline dark:hover:text-neutral-300">Obsbot <span class="ml-1.5 text-blue-600">(4)</span></a></li>
-      <li><a href="produits/xiaomi/" class="block p-2 text-lg underline-offset-4 hover:text-black hover:underline dark:hover:text-neutral-300">Xiaomi <span class="ml-1.5 text-blue-600">(10)</span></a></li>
-      <li><a href="produits.html" class="block p-2 text-lg underline-offset-4 hover:text-black hover:underline dark:hover:text-neutral-300">Tous les produits</a></li>
-      <li class="px-2 pt-4 text-xs uppercase tracking-wide text-neutral-400">Blog</li>
-      <li><a href="blog/" class="block p-2 text-lg underline-offset-4 hover:text-black hover:underline dark:hover:text-neutral-300">Tous les articles</a></li>
-      <li><a href="blog/baseus/" class="block p-2 text-lg underline-offset-4 hover:text-black hover:underline dark:hover:text-neutral-300">Baseus <span class="ml-1.5 text-blue-600">(13)</span></a></li>
-      <li><a href="blog/xiaomi/" class="block p-2 text-lg underline-offset-4 hover:text-black hover:underline dark:hover:text-neutral-300">Xiaomi <span class="ml-1.5 text-blue-600">(13)</span></a></li>
-      <li><a href="blog/laifen/" class="block p-2 text-lg underline-offset-4 hover:text-black hover:underline dark:hover:text-neutral-300">Laifen <span class="ml-1.5 text-blue-600">(12)</span></a></li>
-      <li><a href="blog/obsbot/" class="block p-2 text-lg underline-offset-4 hover:text-black hover:underline dark:hover:text-neutral-300">Obsbot <span class="ml-1.5 text-blue-600">(12)</span></a></li>
-    </ul>
-  </div>
-</div>
-
 
 <!-- ===================== PANIER LATERAL =====================
      Reproduction du tiroir du theme (components/cart/modal.tsx) : memes
@@ -405,26 +525,7 @@
 </div>
 
 <script>
-/* Menu mobile + menu Blog de la barre de navigation.
-   Version simplifiee du composant Headless UI d'origine. */
-(function () {
-  var panneau = document.getElementById("panneau-mobile");
-  document.getElementById("btn-menu-mobile").addEventListener("click", function () { panneau.classList.remove("hidden"); });
-  document.getElementById("btn-fermer-mobile").addEventListener("click", function () { panneau.classList.add("hidden"); });
-  panneau.querySelector(".absolute").addEventListener("click", function () { panneau.classList.add("hidden"); });
 
-  /* Le menu « Blog » est un <details> natif : aucun script pour l'ouvrir.
-     En revanche le navigateur ne le referme pas quand on clique a cote. */
-  var blog = document.getElementById("menu-blog");
-  if (blog) {
-    document.addEventListener("click", function (e) {
-      if (blog.open && !blog.contains(e.target)) { blog.open = false; }
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && blog.open) { blog.open = false; }
-    });
-  }
-})();
 /* Panier lateral — meme comportement que Mimistok.
 
    Le panier vit dans localStorage sous la cle `panier`, au format exact du
