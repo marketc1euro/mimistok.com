@@ -1,0 +1,29 @@
+# Mimistok
+
+> Boutique francaise de high-tech chinois a prix d'usine : Baseus, Xiaomi,
+> Laifen et Obsbot. 27 produits, chacun avec sa fiche detaillee (description,
+> caracteristiques, photos, video), et 47 guides d'achat en francais.
+
+## Pages principales
+- [Accueil](https://mimistok.com/) : la selection, les nouveautes, les guides.
+- [Tous les produits](https://mimistok.com/produits) : le catalogue complet.
+- [Avis clients](https://mimistok.com/avis/) : les avis verifies de la boutique.
+
+## Le blog, par marque
+- [Blog Baseus](https://mimistok.com/accueil/categorie-baseus/)
+- [Blog Xiaomi](https://mimistok.com/accueil/categorie-xiaomi/)
+- [Blog Laifen](https://mimistok.com/accueil/categorie-laifen/)
+- [Blog Obsbot](https://mimistok.com/accueil/categorie-obsbot/)
+
+## Informations pratiques
+- [Livraison](https://mimistok.com/livraison/)
+- [Retours et remboursements](https://mimistok.com/retours/)
+- [Conditions generales de vente](https://mimistok.com/cgv/)
+- [Mentions legales](https://mimistok.com/mentions-legales/)
+- [Politique de confidentialite](https://mimistok.com/confidentialite/)
+- [Nous contacter](https://mimistok.com/contact/)
+
+## A propos du contenu
+Les prix sont en euros, TTC. Les fiches produit sont ecrites a partir des
+caracteristiques des fabricants ; les avis affiches viennent de clients
+verifies (widget Senja).

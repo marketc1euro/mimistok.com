@@ -20,6 +20,19 @@
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Product","name":"Mi Smart Clock","image":["https://mimistok.com/produit-mimistok/media/mi-smart-clock-1.webp","https://mimistok.com/produit-mimistok/media/mi-smart-clock-2.webp","https://mimistok.com/produit-mimistok/media/mi-smart-clock-3.webp","https://mimistok.com/produit-mimistok/media/mi-smart-clock-4.webp"],"description":"Réveil connecté Mi avec Google Assistant. Agenda, météo, trafic et infos sur son écran. Améliorez votre routine matinale. Achetez !","brand":{"@type":"Brand","name":"Xiaomi"},"offers":{"@type":"Offer","url":"https://mimistok.com/mi-smart-clock/","priceCurrency":"EUR","price":"49.99","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","seller":{"@type":"Organization","name":"Mimistok","url":"https://mimistok.com"}},"sku":"price_1SH9KuD6lZh6qlT1WCbEWaSw"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://mimistok.com/"},{"@type":"ListItem","position":2,"name":"Tous les produits","item":"https://mimistok.com/produits"},{"@type":"ListItem","position":3,"name":"Mi Smart Clock","item":"https://mimistok.com/mi-smart-clock/"}]}]}</script>
 
+<link rel="canonical" href="https://mimistok.com/mi-smart-clock/">
+<meta property="og:type" content="product">
+<meta property="og:site_name" content="Mimistok">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Mi Smart Clock">
+<meta property="og:description" content="Réveil connecté Mi avec Google Assistant. Agenda, météo, trafic et infos sur son écran. Améliorez votre routine matinale. Achetez !">
+<meta property="og:url" content="https://mimistok.com/mi-smart-clock/">
+<meta property="og:image" content="https://mimistok.com/produit-mimistok/media/mi-smart-clock-1.webp">
+<meta property="og:image:alt" content="Mi Smart Clock">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mi Smart Clock">
+<meta name="twitter:description" content="Réveil connecté Mi avec Google Assistant. Agenda, météo, trafic et infos sur son écran. Améliorez votre routine matinale. Achetez !">
+<meta name="twitter:image" content="https://mimistok.com/produit-mimistok/media/mi-smart-clock-1.webp">
 </head>
 
 <!--
@@ -173,7 +186,18 @@
     <div class="basis-full lg:basis-[480px]">
       <div class="mb-6 flex flex-col border-b pb-6 dark:border-neutral-700">
         <p class="mb-2 text-sm uppercase tracking-wide text-neutral-500 dark:text-neutral-400">Xiaomi</p>
-                <h1 class="anton mb-2 text-[32px]">Mi Smart Clock</h1>
+                <!-- fil d'Ariane visible : Google demande que le balisage
+             BreadcrumbList corresponde a ce qui est affiche -->
+        <nav aria-label="Fil d'Ariane" class="mb-3">
+          <ol class="flex flex-wrap items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400">
+            <li><a class="underline-offset-4 hover:text-black hover:underline dark:hover:text-white" href="../index.html">Accueil</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a class="underline-offset-4 hover:text-black hover:underline dark:hover:text-white" href="../produits.html">Tous les produits</a></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page">Mi Smart Clock</li>
+          </ol>
+        </nav>
+        <h1 class="anton mb-2 text-[32px]">Mi Smart Clock</h1>
         <!-- pastille de prix : plus large (16 px de chaque cote au lieu de 8),
              texte centre -->
         <div class="mr-auto w-auto rounded-full bg-blue-600 px-4 py-2 text-center text-sm font-semibold text-white">
