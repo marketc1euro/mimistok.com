@@ -117,19 +117,19 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mimistok.com/accueil/categorie-baseus/</loc>
+    <loc>https://mimistok.com/blog/baseus/</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mimistok.com/accueil/categorie-xiaomi/</loc>
+    <loc>https://mimistok.com/blog/xiaomi/</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mimistok.com/accueil/categorie-laifen/</loc>
+    <loc>https://mimistok.com/blog/laifen/</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mimistok.com/accueil/categorie-obsbot/</loc>
+    <loc>https://mimistok.com/blog/obsbot/</loc>
     <priority>0.6</priority>
   </url>
   <url>
@@ -398,6 +398,26 @@
   <url>
     <loc>https://mimistok.com/contact/</loc>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://mimistok.com/blog/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mimistok.com/baseus/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mimistok.com/laifen/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mimistok.com/obsbot/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mimistok.com/xiaomi/</loc>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mimistok.com/avis/</loc>
