@@ -508,13 +508,6 @@
             e.style.bottom = "150px";
           });
         };
-          poser();
-          var essais = 0;
-          var minuteur = setInterval(function () {
-            poser();
-            if (++essais > 20) { clearInterval(minuteur); }
-          }, 500);
-        };
       }
       document.head.appendChild(s);
     });
