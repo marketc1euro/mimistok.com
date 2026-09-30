@@ -496,16 +496,10 @@
       s.setAttribute("fetchpriority", "low");
       if (rang === identifiants.length - 1) {
         s.onload = function () {
-          /* Le bandeau flottant des avis est pose en bas a gauche par Senja.
-             On le remonte juste sous la barre de menu : 76 px de barre + 18 px
-             d'espace. Toutes les 500 ms pendant 10 s, parce que l'iframe peut
-             etre repositionnee par le widget apres son chargement. */
-          var poser = function () {
-            document.querySelectorAll('iframe[src*="senja.io"]').forEach(function (e) {
-              e.style.bottom = "auto";
-              e.style.top = "94px";
-            });
-          };
+          document.querySelectorAll('iframe[src*="senja.io"]').forEach(function (e) {
+            e.style.bottom = "150px";
+          });
+        };
           poser();
           var essais = 0;
           var minuteur = setInterval(function () {
