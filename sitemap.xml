@@ -400,6 +400,10 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://mimistok.com/notre-concept/</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://mimistok.com/blog/</loc>
     <priority>0.6</priority>
   </url>
