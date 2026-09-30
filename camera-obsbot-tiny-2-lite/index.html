@@ -84,6 +84,7 @@
                 <li><a href="../categories/laifen/" class="flex items-center justify-between gap-6 px-4 py-2 text-sm text-neutral-500 hover:bg-neutral-50 hover:text-black dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-white">Laifen<span class="ml-1.5 text-blue-600">(7)</span></a></li>
                 <li><a href="../categories/obsbot/" class="flex items-center justify-between gap-6 px-4 py-2 text-sm text-neutral-500 hover:bg-neutral-50 hover:text-black dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-white">Obsbot<span class="ml-1.5 text-blue-600">(4)</span></a></li>
                 <li><a href="../categories/xiaomi/" class="flex items-center justify-between gap-6 px-4 py-2 text-sm text-neutral-500 hover:bg-neutral-50 hover:text-black dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-white">Xiaomi<span class="ml-1.5 text-blue-600">(10)</span></a></li>
+                <li><a href="../categories/citycoco/" class="flex items-center justify-between gap-6 px-4 py-2 text-sm text-neutral-500 hover:bg-neutral-50 hover:text-black dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-white">Citycoco<span class="ml-1.5 text-blue-600">(4)</span></a></li>
               <li><a href="../produits.html" class="flex items-center justify-between gap-6 px-4 py-2 text-sm text-neutral-500 hover:bg-neutral-50 hover:text-black dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-white">Tous les produits</a></li>
             </ul>
           </details>
@@ -261,7 +262,10 @@
 <p>Proposée à 169,99 €, la caméra OBSBOT Tiny 2 Lite est la webcam PTZ 4K qui convient autant pour un usage professionnel que pour un usage plus créatif. Pour situer ce modèle, lisez notre article sur le choix d'une <a href="https://mimistok.com/webcam/">webcam</a> et notre définition d'une <a href="https://mimistok.com/webcam-4k/">webcam 4K</a>.</p>
       </div>
 
-      <button type="button" id="btn-ajouter" data-priceid="price_1SEYrYD6lZh6qlT1lu1Razuu" data-nom="Caméra OBSBOT Tiny 2 Lite" data-prix="169.99" aria-label="Ajouter au panier"
+      <!-- Bouton d'achat : le panier du site, ou le lien de paiement Stripe
+           de la fiche quand elle n'a pas d'identifiant de panier (les
+           scooters Citycoco). Voir `bouton_achat` dans build.py. -->
+<button type="button" id="btn-ajouter" data-priceid="price_1SEYrYD6lZh6qlT1lu1Razuu" data-nom="Caméra OBSBOT Tiny 2 Lite" data-prix="169.99" aria-label="Ajouter au panier"
         class="relative flex w-full items-center justify-center rounded-full bg-blue-600 p-4 tracking-wide text-white hover:opacity-90">
         <div class="absolute left-0 ml-4">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="h-5">
@@ -484,7 +488,7 @@
       <p class="truncate text-sm font-medium md:text-base">Caméra OBSBOT Tiny 2 Lite</p>
       <p class="mt-1"><span class="inline-block rounded-full bg-blue-600 px-3 py-1 text-[11px] font-semibold leading-tight text-white md:text-xs">169,99&nbsp;€</span></p>
     </div>
-    <button type="button" id="btn-ajouter-bas" data-priceid="price_1SEYrYD6lZh6qlT1lu1Razuu" data-nom="Caméra OBSBOT Tiny 2 Lite" data-prix="169.99" aria-label="Ajouter au panier"
+<button type="button" id="btn-ajouter-bas" data-priceid="price_1SEYrYD6lZh6qlT1lu1Razuu" data-nom="Caméra OBSBOT Tiny 2 Lite" data-prix="169.99" aria-label="Ajouter au panier"
       class="flex flex-none items-center justify-center gap-2 rounded-full bg-blue-600 px-5 py-3 text-sm tracking-wide text-white hover:opacity-90 md:px-8 md:py-4 md:text-base">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="h-5">
       <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
@@ -500,7 +504,9 @@
    qu'elle ne recouvre pas le pied de page. */
 (function () {
   var barre = document.getElementById("barre-achat");
-  var bouton = document.getElementById("btn-ajouter");
+  /* le bouton du panier, ou le lien de paiement des fiches Citycoco */
+  var bouton = document.getElementById("btn-ajouter")
+    || document.getElementById("btn-acheter");
   if (!barre || !bouton) { return; }
   var nav = document.querySelector("body > nav");
   function maj() {
@@ -732,7 +738,8 @@
           <li><a href="../categories/laifen/" class="block p-2 text-base text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300">Laifen<span class="ml-1.5 text-blue-600">(7)</span></a></li>
           <li><a href="../categories/obsbot/" class="block p-2 text-base text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300">Obsbot<span class="ml-1.5 text-blue-600">(4)</span></a></li>
           <li><a href="../categories/xiaomi/" class="block p-2 text-base text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300">Xiaomi<span class="ml-1.5 text-blue-600">(10)</span></a></li>
-          <li><a href="../produits.html" class="block p-2 text-base text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300">Voir tout<span class="ml-1.5 text-blue-600">(27)</span></a></li>
+          <li><a href="../categories/citycoco/" class="block p-2 text-base text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300">Citycoco<span class="ml-1.5 text-blue-600">(4)</span></a></li>
+          <li><a href="../produits.html" class="block p-2 text-base text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300">Voir tout<span class="ml-1.5 text-blue-600">(31)</span></a></li>
           </ul>
         </details>
       </li>

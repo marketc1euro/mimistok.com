@@ -117,6 +117,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://mimistok.com/citycoco-super-701/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mimistok.com/citycoco-super-701-bleu/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mimistok.com/citycoco-super-701-rouge/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mimistok.com/citycoco-super-701-jaune/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://mimistok.com/blog/baseus/</loc>
     <priority>0.6</priority>
   </url>
@@ -421,6 +437,10 @@
   </url>
   <url>
     <loc>https://mimistok.com/categories/xiaomi/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mimistok.com/categories/citycoco/</loc>
     <priority>0.8</priority>
   </url>
   <url>
