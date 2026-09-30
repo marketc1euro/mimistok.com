@@ -11,6 +11,7 @@
 <meta name="google-site-verification" content="SQepQ09B3ICoZuJOaxyJ4J00BU_6kEBYD_sYoTxS4CE">
 <link rel="preload" as="font" type="font/woff2" href="../fonts/inter-var.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="../fonts/anton-400.woff2" crossorigin>
+<link rel="preload" as="image" imagesrcset="illustrations/hero-520.webp 520w, illustrations/hero-760.webp 760w, illustrations/hero.webp 1000w" imagesizes="(min-width: 768px) 560px, 420px" href="illustrations/hero-760.webp" fetchpriority="high">
 <link rel="preconnect" href="https://widget.senja.io" crossorigin>
 <link rel="dns-prefetch" href="https://image.mux.com">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -566,7 +567,15 @@
   } else {
     charger();
   }
-  setTimeout(charger, 6000);
+  /* Surtout pas de minuterie courte : le chargement des widgets de Senja
+     occupe le fil principal, et s'il tombe pendant l'affichage de la page il
+     retarde le plus grand element (le LCP). On attend donc que la page soit
+     au repos, ou que le visiteur approche du bas. */
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(charger, { timeout: 8000 });
+  } else {
+    setTimeout(charger, 4000);
+  }
 })();
 </script><script>
 /* Senja ajoute sous le carrousel sa signature : une pastille avec un coeur et
