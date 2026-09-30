@@ -526,5 +526,240 @@
 
 </script>
 
+<script>
+/* Menu mobile + menu Blog de la barre de navigation.
+   Version simplifiee du composant Headless UI d'origine. */
+(function () {
+  var panneau = document.getElementById("panneau-mobile");
+  document.getElementById("btn-menu-mobile").addEventListener("click", function () { panneau.classList.remove("hidden"); });
+  document.getElementById("btn-fermer-mobile").addEventListener("click", function () { panneau.classList.add("hidden"); });
+  panneau.querySelector(".absolute").addEventListener("click", function () { panneau.classList.add("hidden"); });
+
+  /* Le menu « Blog » est un <details> natif : aucun script pour l'ouvrir.
+     En revanche le navigateur ne le referme pas quand on clique a cote. */
+  var blog = document.getElementById("menu-blog");
+  if (blog) {
+    document.addEventListener("click", function (e) {
+      if (blog.open && !blog.contains(e.target)) { blog.open = false; }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && blog.open) { blog.open = false; }
+    });
+  }
+})();
+/* Panier lateral — meme comportement que Mimistok.
+
+   Le panier vit dans localStorage sous la cle `panier`, au format exact du
+   site : [{priceId, nom, prix, quantite}]. C'est CE format que le Worker
+   attend, donc on ne le change pas.
+
+   « Proceder au paiement » envoie ce tableau au Worker Cloudflare de Mimistok
+   et suit l'URL Stripe renvoyee, exactement comme la page /panier/ du site. */
+(function () {
+  var PRODUITS = {"price_1SDrb5D6lZh6qlT1JvjGheWU": {"photo": "produit-mimistok/media/baseus-blade-1-640.webp", "lien": "baseus-blade/", "nom": "Baseus Blade"}, "price_1SI3MPD6lZh6qlT1sr6WUoTW": {"photo": "produit-mimistok/media/baseus-bowie-d05-1-640.webp", "lien": "baseus-bowie-d05/", "nom": "Baseus Bowie D05"}, "price_1SG5OfD6lZh6qlT1iD5Axtnt": {"photo": "produit-mimistok/media/baseus-c2-mini-aspirateur-1-640.webp", "lien": "baseus-c2-mini-aspirateur/", "nom": "Baseus C2 Mini aspirateur"}, "price_1SI3MJD6lZh6qlT1kJwN1JDj": {"photo": "produit-mimistok/media/baseus-car-safety-1-640.webp", "lien": "baseus-car-safety/", "nom": "Baseus Car Safety"}, "price_1SDrZJD6lZh6qlT1wa4AKR4k": {"photo": "produit-mimistok/media/baseus-n1-outdoor-security-camera-1-640.webp", "lien": "baseus-n1-outdoor-security-camera/", "nom": "Baseus N1 Outdoor Security Camera"}, "price_1SI3MVD6lZh6qlT1PPTdmgQm": {"photo": "produit-mimistok/media/powerbank-baseus-1-640.webp", "lien": "powerbank-baseus/", "nom": "Powerbank Baseus"}, "price_1SDpcpD6lZh6qlT1RAs8qsxL": {"photo": "produit-mimistok/media/laifen-p3-pro-1-640.webp", "lien": "laifen-p3-pro/", "nom": "Laifen P3 Pro"}, "price_1SQ4QBD6lZh6qlT1B7XqvqHG": {"photo": "produit-mimistok/media/laifen-swift-matte-black-1-640.webp", "lien": "laifen-swift-matte-black/", "nom": "Laifen Swift Matte Black"}, "price_1SDw8BD6lZh6qlT1drLHbVLt": {"photo": "produit-mimistok/media/laifen-swift-1-640.webp", "lien": "laifen-swift/", "nom": "Laifen Swift · Sèche-cheveux haute vitesse"}, "price_1SDrZDD6lZh6qlT13CZMAt0R": {"photo": "produit-mimistok/media/laifen-t1-pro-1-640.webp", "lien": "laifen-t1-pro/", "nom": "Laifen T1 Pro"}, "price_1SDqBXD6lZh6qlT15OwTA5Re": {"photo": "produit-mimistok/media/laifen-wave-blue-aluminum-alloy-1-640.webp", "lien": "laifen-wave-blue-aluminum-alloy/", "nom": "Laifen Wave Blue Aluminum Alloy"}, "price_1SDqBeD6lZh6qlT1EQZfd1Ja": {"photo": "produit-mimistok/media/laifen-wave-pink-aluminum-alloy-1-640.webp", "lien": "laifen-wave-pink-aluminum-alloy/", "nom": "Laifen Wave Pink Aluminum Alloy"}, "price_1SDpcwD6lZh6qlT1WRtPPfRG": {"photo": "produit-mimistok/media/laifen-wave-1-640.webp", "lien": "laifen-wave/", "nom": "Laifen Wave"}, "price_1SEYrYD6lZh6qlT1lu1Razuu": {"photo": "produit-mimistok/media/camera-obsbot-tiny-2-lite-1-640.webp", "lien": "camera-obsbot-tiny-2-lite/", "nom": "Caméra OBSBOT Tiny 2 Lite"}, "price_1SIOrAD6lZh6qlT1ZCtiqc4y": {"photo": "produit-mimistok/media/obsbot-meet-se-blanc-nuage-1-640.webp", "lien": "obsbot-meet-se-blanc-nuage/", "nom": "OBSBOT Meet SE - Blanc Nuage"}, "price_1SEZyWD6lZh6qlT1R9RwRNkY": {"photo": "produit-mimistok/media/obsbot-meet-se-gris-spatial-1-640.webp", "lien": "obsbot-meet-se-gris-spatial/", "nom": "OBSBOT Meet SE - Gris Spatial"}, "price_1SIPTtD6lZh6qlT1K7ThYsl7": {"photo": "produit-mimistok/media/obsbot-meet-se-vert-aurore-1-640.webp", "lien": "obsbot-meet-se-vert-aurore/", "nom": "OBSBOT Meet SE - Vert Aurore"}, "price_1SH9KuD6lZh6qlT1WCbEWaSw": {"photo": "produit-mimistok/media/mi-smart-clock-1-640.webp", "lien": "mi-smart-clock/", "nom": "Mi Smart Clock"}, "price_1SHNxTD6lZh6qlT1bxDN4tqb": {"photo": "produit-mimistok/media/mijia-brosse-a-dents-1-640.webp", "lien": "mijia-brosse-a-dents/", "nom": "MIJIA-Brosse à dents"}, "price_1SHMnAD6lZh6qlT1KdNVMvTq": {"photo": "produit-mimistok/media/mijia-de-xiaomi-1-640.webp", "lien": "mijia-de-xiaomi/", "nom": "Mijia de Xiaomi"}, "price_1SH9LJD6lZh6qlT1k6fmtB1q": {"photo": "produit-mimistok/media/seche-cheveux-xiaomi-mi-1-640.webp", "lien": "seche-cheveux-xiaomi-mi/", "nom": "Sèche-Cheveux Xiaomi Mi"}, "price_1SHR01D6lZh6qlT1CFhteBca": {"photo": "produit-mimistok/media/xiaomi-aspirateur-portable-1-640.webp", "lien": "xiaomi-aspirateur-portable/", "nom": "Xiaomi-Aspirateur portable"}, "price_1SH9LCD6lZh6qlT1003h6psb": {"photo": "produit-mimistok/media/xiaomi-handheld-garment-steamer-1-640.webp", "lien": "xiaomi-handheld-garment-steamer/", "nom": "Xiaomi Handheld Garment Steamer"}, "price_1SHQzvD6lZh6qlT1ZkPo15Tk": {"photo": "produit-mimistok/media/xiaomi-instant-hot-water-1-640.webp", "lien": "xiaomi-instant-hot-water/", "nom": "Xiaomi Instant Hot Water"}, "price_1SH9L0D6lZh6qlT1vcVNKcH1": {"photo": "produit-mimistok/media/xiaomi-mijia-coupe-ongles-1-640.webp", "lien": "xiaomi-mijia-coupe-ongles/", "nom": "Xiaomi Mijia coupe-ongles"}, "price_1SH9L6D6lZh6qlT1wCad8vZo": {"photo": "produit-mimistok/media/xiaomi-mijia-induction-cooker-1-640.webp", "lien": "xiaomi-mijia-induction-cooker/", "nom": "Xiaomi Mijia Induction Cooker"}, "price_1SH7mvD6lZh6qlT1EscedVMv": {"photo": "produit-mimistok/media/xiaomi-smart-kettle-2-pro-1-640.webp", "lien": "xiaomi-smart-kettle-2-pro/", "nom": "Xiaomi Smart Kettle 2 Pro"}};
+  var WORKER = "https://mimistok.marketc1euro.workers.dev/";
+  var ICONE_MOINS = "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" aria-hidden=\"true\" data-slot=\"icon\" class=\"h-4 w-4 dark:text-neutral-500\">\n      <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M5 12h14\"/>\n    </svg>";
+  var ICONE_PLUS = "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" aria-hidden=\"true\" data-slot=\"icon\" class=\"h-4 w-4 dark:text-neutral-500\">\n      <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 4.5v15m7.5-7.5h-15\"/>\n    </svg>";
+  var ICONE_CROIX = "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" aria-hidden=\"true\" data-slot=\"icon\" class=\"mx-[1px] h-4 w-4 text-white\">\n      <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6 18 18 6M6 6l12 12\"/>\n    </svg>";
+  var CLE = "panier";
+
+  function lire() {
+    try { return JSON.parse(localStorage.getItem(CLE)) || []; }
+    catch (e) { return []; }
+  }
+  function ecrire(p) { localStorage.setItem(CLE, JSON.stringify(p)); }
+  function nombre(v) {
+    /* Les prix viennent du catalogue en chaines FRANCAISES (« 59,99 ») :
+       Number("59,99") vaut NaN, d'ou un affichage « NaN EUR ». On normalise. */
+    if (typeof v === "number") { return v; }
+    return parseFloat(String(v).replace(/[^0-9,.-]/g, "").replace(",", "."));
+  }
+  function euros(v) {
+    var n = nombre(v);
+    if (!isFinite(n)) { return ""; }
+    return n.toFixed(2).replace(".", ",") + "\u00a0\u20ac";
+  }
+  function infos(priceId) {
+    return PRODUITS[priceId] || { photo: "", lien: "#", nom: "" };
+  }
+
+  function badge() {
+    var n = lire().reduce(function (t, i) { return t + i.quantite; }, 0);
+    var b = document.getElementById("badge-panier");
+    if (!b) { return; }
+    b.textContent = n;
+    b.classList.toggle("hidden", n === 0);
+    b.classList.toggle("flex", n > 0);
+  }
+
+  function ouvrir() {
+    var panneau = document.getElementById("panneau-panier");
+    var voile = document.getElementById("voile-panier");
+    if (!panneau) { return; }
+    afficher();
+    panneau.classList.remove("hidden");
+    panneau.classList.add("flex");
+    voile.classList.remove("hidden");
+  }
+
+  function fermer() {
+    var panneau = document.getElementById("panneau-panier");
+    var voile = document.getElementById("voile-panier");
+    if (!panneau) { return; }
+    panneau.classList.add("hidden");
+    panneau.classList.remove("flex");
+    voile.classList.add("hidden");
+  }
+
+  function afficher() {
+    var panier = lire();
+    var vide = document.getElementById("panier-vide");
+    var plein = document.getElementById("panier-rempli");
+    var liste = document.getElementById("lignes-panier");
+    if (!liste) { return; }
+
+    if (!panier.length) {
+      liste.innerHTML = "";
+      vide.classList.remove("hidden");
+      plein.classList.add("hidden");
+      plein.classList.remove("flex");
+      return;
+    }
+    vide.classList.add("hidden");
+    plein.classList.remove("hidden");
+    plein.classList.add("flex");
+
+    var total = 0;
+    liste.innerHTML = panier.map(function (item, i) {
+      var p = infos(item.priceId);
+      total += item.prix * item.quantite;
+      return '<li class="flex w-full flex-col border-b border-neutral-300 dark:border-neutral-700">'
+        + '<div class="relative flex w-full flex-row justify-between px-1 py-4">'
+        + '<div class="absolute z-40 -ml-1 -mt-2">'
+        + '<button type="button" data-retirer="' + i + '" aria-label="Retirer du panier"'
+        + ' class="flex h-[24px] w-[24px] items-center justify-center rounded-full bg-[#ff7675]">'
+        + ICONE_CROIX + '</button></div>'
+        + '<div class="flex flex-row">'
+        + /* flex-none : sans lui, un nom de produit long (Baseus N1 Outdoor Security
+             Camera) comprime la vignette, qui passe de 64 a 42 px de large et
+             ressemble a une gelule. Le cadre garde donc toujours 64 x 64. */
+        '<div class="relative h-16 w-16 flex-none overflow-hidden rounded-[15px] border border-neutral-300 bg-neutral-300 dark:border-neutral-700 dark:bg-neutral-900">'
+        + '<img class="h-full w-full rounded-[15px] object-cover" width="64" height="64" src="' + p.photo + '" alt="' + p.nom + '">'
+        + '</div>'
+        + '<a href="' + p.lien + '" class="z-30 ml-2 flex flex-row space-x-4">'
+        + '<div class="flex flex-1 flex-col text-base">'
+        + '<span class="leading-tight">' + p.nom + '</span></div></a></div>'
+        + '<div class="flex h-16 flex-col justify-between">'
+        + '<p class="flex justify-end space-y-2 text-right text-sm">' + euros(item.prix * item.quantite) + '</p>'
+        + '<div class="ml-auto flex h-9 flex-row items-center rounded-full border border-neutral-200 dark:border-neutral-700">'
+        + '<button type="button" data-moins="' + i + '" aria-label="Reduire la quantite"'
+        + ' class="ease ml-auto flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full p-2 transition-all duration-200 hover:opacity-80">'
+        + ICONE_MOINS + '</button>'
+        + '<p class="w-6 text-center"><span class="w-full text-sm">' + item.quantite + '</span></p>'
+        + '<button type="button" data-plus="' + i + '" aria-label="Augmenter la quantite"'
+        + ' class="ease flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full p-2 transition-all duration-200 hover:opacity-80">'
+        + ICONE_PLUS + '</button>'
+        + '</div></div></div></li>';
+    }).join("");
+
+    var t = document.getElementById("total-panier");
+    if (t) { t.innerHTML = euros(total); }
+  }
+
+  function ajouter(priceId, nom, prix, quantite) {
+    var panier = lire();
+    var existant = panier.filter(function (i) { return i.priceId === priceId; })[0];
+    if (existant) { existant.quantite += quantite; }
+    else { panier.push({ priceId: priceId, nom: nom, prix: prix, quantite: quantite }); }
+    ecrire(panier);
+    badge();
+    ouvrir();
+  }
+
+  function payer() {
+    var panier = lire();
+    var btn = document.getElementById("btn-payer");
+    var err = document.getElementById("erreur-paiement");
+    if (!panier.length) { alert("Votre panier est vide"); return; }
+
+    btn.disabled = true;
+    btn.textContent = "Redirection...";
+    err.classList.add("hidden");
+
+    fetch(WORKER, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ panier: panier })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.url) { window.location.href = data.url; return; }
+        throw new Error(data.error || data.details || "Reponse invalide");
+      })
+      .catch(function (e) {
+        err.textContent = "Erreur : " + e.message;
+        err.classList.remove("hidden");
+        btn.disabled = false;
+        btn.textContent = "Proceder au paiement";
+      });
+  }
+
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest) { return; }
+    var cible = e.target.closest("[data-retirer],[data-plus],[data-moins]");
+    if (!cible) { return; }
+    var panier = lire();
+    var i = Number(cible.dataset.retirer || cible.dataset.plus || cible.dataset.moins);
+    if (cible.hasAttribute("data-retirer")) { panier.splice(i, 1); }
+    else if (cible.hasAttribute("data-plus")) { panier[i].quantite += 1; }
+    else if (panier[i].quantite > 1) { panier[i].quantite -= 1; }
+    else { panier.splice(i, 1); }
+    ecrire(panier);
+    badge();
+    afficher();
+  });
+
+  function demarrer() {
+    badge();
+
+    /* Retour depuis Stripe sans payer : le Worker renvoie sur
+       « /?panier=ouvert », on rouvre alors le tiroir du panier avec les
+       articles deja choisis. */
+    var params = new URLSearchParams(window.location.search);
+    if (params.get("panier") === "ouvert") { ouvrir(); }
+
+    var ouvrirBtn = document.getElementById("ouvrir-panier");
+    if (ouvrirBtn) { ouvrirBtn.addEventListener("click", ouvrir); }
+    var fermerBtn = document.getElementById("fermer-panier");
+    if (fermerBtn) { fermerBtn.addEventListener("click", fermer); }
+    var voile = document.getElementById("voile-panier");
+    if (voile) { voile.addEventListener("click", fermer); }
+    var payerBtn = document.getElementById("btn-payer");
+    if (payerBtn) { payerBtn.addEventListener("click", payer); }
+
+    /* deux boutons « Ajouter au panier » : celui de la fiche, et celui de la
+       barre qui monte au defilement */
+    document.querySelectorAll("#btn-ajouter, #btn-ajouter-bas").forEach(function (b) {
+      b.addEventListener("click", function () {
+        ajouter(b.dataset.priceid, b.dataset.nom, parseFloat(b.dataset.prix), 1);
+      });
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { fermer(); }
+    });
+  }
+
+  /* DOMContentLoaded est parfois DEJA passe quand ce script s'execute (le
+     panneau est en fin de page) : dans ce cas l'ecouteur ne se declencherait
+     jamais et le panier resterait inerte. On regarde readyState. */
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", demarrer);
+  } else {
+    demarrer();
+  }
+})();
+
+</script>
 </body>
 </html>
