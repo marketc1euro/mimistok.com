@@ -274,7 +274,10 @@
       <nav>
         <h3 class="hidden text-xs text-neutral-500 md:block dark:text-neutral-400">Trier par</h3>
         <ul class="hidden md:block">
-
+          <li class="mt-2 flex text-black dark:text-white"><a href="#" data-tri="pertinence" class="w-full text-sm underline-offset-4 hover:underline dark:hover:text-neutral-100 underline underline-offset-4">Pertinence</a></li>
+          <li class="mt-2 flex text-black dark:text-white"><a href="#" data-tri="prix-asc" class="w-full text-sm underline-offset-4 hover:underline dark:hover:text-neutral-100">Prix : croissant</a></li>
+          <li class="mt-2 flex text-black dark:text-white"><a href="#" data-tri="prix-desc" class="w-full text-sm underline-offset-4 hover:underline dark:hover:text-neutral-100">Prix : décroissant</a></li>
+          <li class="mt-2 flex text-black dark:text-white"><a href="#" data-tri="marque-asc" class="w-full text-sm underline-offset-4 hover:underline dark:hover:text-neutral-100">Marque (A → Z)</a></li>
         </ul>
         <details class="relative md:hidden">
           <summary class="flex w-full cursor-pointer list-none items-center justify-between rounded-sm border border-black/30 px-4 py-2 text-sm dark:border-white/30">
@@ -284,7 +287,10 @@
     </svg></span>
           </summary>
           <ul class="absolute z-40 w-full rounded-b-md bg-white p-4 shadow-md dark:bg-black">
-
+            <li class="mt-2 flex text-black dark:text-white"><a href="#" data-tri="pertinence" class="w-full text-sm underline-offset-4 hover:underline dark:hover:text-neutral-100 underline underline-offset-4">Pertinence</a></li>
+            <li class="mt-2 flex text-black dark:text-white"><a href="#" data-tri="prix-asc" class="w-full text-sm underline-offset-4 hover:underline dark:hover:text-neutral-100">Prix : croissant</a></li>
+            <li class="mt-2 flex text-black dark:text-white"><a href="#" data-tri="prix-desc" class="w-full text-sm underline-offset-4 hover:underline dark:hover:text-neutral-100">Prix : décroissant</a></li>
+            <li class="mt-2 flex text-black dark:text-white"><a href="#" data-tri="marque-asc" class="w-full text-sm underline-offset-4 hover:underline dark:hover:text-neutral-100">Marque (A → Z)</a></li>
           </ul>
         </details>
       </nav>
@@ -471,7 +477,76 @@
 </div>
 
 <script>
+/* Filtre par categorie et tri par prix.
+   Le theme fait ce travail cote serveur (parametres d'URL). Ici tout est
+   statique : on reordonne et on masque les tuiles dans le navigateur, a partir
+   des attributs data-marque / data-prix poses sur chaque tuile. L'etat est
+   garde dans l'URL pour pouvoir partager ou recharger la vue. */
+(function () {
+  var grille = document.querySelector("[data-grille]");
+  if (!grille) { return; }
+  var tuiles = Array.prototype.slice.call(grille.children);
+  var compteur = document.querySelector("[data-compteur]");
+  var etat = { collection: "", tri: "pertinence" };
 
+  function nombre(t) { return parseFloat(t.dataset.prix) || 0; }
+
+  function appliquer() {
+    var visibles = tuiles.filter(function (t) {
+      return !etat.collection || t.dataset.marque === etat.collection;
+    });
+
+    visibles.sort(function (a, b) {
+      if (etat.tri === "prix-asc") { return nombre(a) - nombre(b); }
+      if (etat.tri === "prix-desc") { return nombre(b) - nombre(a); }
+      if (etat.tri === "marque-asc") {
+        return (a.dataset.marque + a.dataset.nom).localeCompare(b.dataset.marque + b.dataset.nom);
+      }
+      return tuiles.indexOf(a) - tuiles.indexOf(b);
+    });
+
+    tuiles.forEach(function (t) { t.hidden = true; });
+    visibles.forEach(function (t) { t.hidden = false; grille.appendChild(t); });
+
+    if (compteur) { compteur.textContent = visibles.length; }
+
+    document.querySelectorAll("[data-collection]").forEach(function (a) {
+      var actif = a.dataset.collection === etat.collection;
+      a.classList.toggle("underline", actif);
+      a.classList.toggle("underline-offset-4", actif);
+    });
+    document.querySelectorAll("[data-tri]").forEach(function (a) {
+      var actif = a.dataset.tri === etat.tri;
+      a.classList.toggle("underline", actif);
+      a.classList.toggle("underline-offset-4", actif);
+    });
+
+    var url = new URL(window.location.href);
+    if (etat.collection) { url.searchParams.set("collection", etat.collection); }
+    else { url.searchParams.delete("collection"); }
+    if (etat.tri !== "pertinence") { url.searchParams.set("tri", etat.tri); }
+    else { url.searchParams.delete("tri"); }
+    window.history.replaceState(null, "", url);
+  }
+
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest) { return; }
+    var cible = e.target.closest("[data-collection],[data-tri]");
+    if (!cible) { return; }
+    e.preventDefault();
+    if (cible.hasAttribute("data-collection")) {
+      etat.collection = cible.dataset.collection;
+    } else {
+      etat.tri = cible.dataset.tri;
+    }
+    appliquer();
+  });
+
+  var p = new URLSearchParams(window.location.search);
+  etat.collection = p.get("collection") || "";
+  etat.tri = p.get("tri") || "pertinence";
+  appliquer();
+})();
 /* Panier lateral — meme comportement que Mimistok.
 
    Le panier vit dans localStorage sous la cle `panier`, au format exact du
