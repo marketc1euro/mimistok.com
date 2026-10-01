@@ -185,6 +185,8 @@
         <a href="index.html" title="France" aria-label="France" class="inline-block h-4 w-6 flex-none overflow-hidden rounded-[3px] ring-1 ring-black/10 transition-opacity hover:opacity-80 dark:ring-white/20"><svg viewBox="0 0 3 2" class="h-full w-full" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></a>
         <a href="be/" title="Belgique" aria-label="Belgique" class="inline-block h-4 w-6 flex-none overflow-hidden rounded-[3px] ring-1 ring-black/10 transition-opacity hover:opacity-80 dark:ring-white/20"><svg viewBox="0 0 3 2" class="h-full w-full" aria-hidden="true"><rect width="1" height="2" fill="#000"/><rect x="1" width="1" height="2" fill="#FAE042"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></a>
         <a href="lu/" title="Luxembourg" aria-label="Luxembourg" class="inline-block h-4 w-6 flex-none overflow-hidden rounded-[3px] ring-1 ring-black/10 transition-opacity hover:opacity-80 dark:ring-white/20"><svg viewBox="0 0 3 2" class="h-full w-full" aria-hidden="true"><rect width="3" height="0.67" fill="#ED2939"/><rect y="0.67" width="3" height="0.66" fill="#fff"/><rect y="1.33" width="3" height="0.67" fill="#00A1DE"/></svg></a>
+        <a href="es/" title="Espagne" aria-label="Espagne" class="inline-block h-4 w-6 flex-none overflow-hidden rounded-[3px] ring-1 ring-black/10 transition-opacity hover:opacity-80 dark:ring-white/20"><svg viewBox="0 0 3 2" class="h-full w-full" aria-hidden="true"><rect width="3" height="2" fill="#AA151B"/><rect y="0.5" width="3" height="1" fill="#F1BF00"/></svg></a>
+        <a href="it/" title="Italie" aria-label="Italie" class="inline-block h-4 w-6 flex-none overflow-hidden rounded-[3px] ring-1 ring-black/10 transition-opacity hover:opacity-80 dark:ring-white/20"><svg viewBox="0 0 3 2" class="h-full w-full" aria-hidden="true"><rect width="1" height="2" fill="#008C45"/><rect x="1" width="1" height="2" fill="#F4F5F0"/><rect x="2" width="1" height="2" fill="#CD212A"/></svg></a>
       </div>
     </div>
   </div>
@@ -467,7 +469,7 @@
     fetch(WORKER, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ panier: panier })
+      body: JSON.stringify({ panier: panier, pays: "fr" })
     })
       .then(function (r) { return r.json(); })
       .then(function (data) {
@@ -730,7 +732,7 @@
     fetch(WORKER, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ panier: panier })
+      body: JSON.stringify({ panier: panier, pays: "fr" })
     })
       .then(function (r) { return r.json(); })
       .then(function (data) {
