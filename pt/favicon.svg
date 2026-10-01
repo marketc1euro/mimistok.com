@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_218" data-name="Rectangle 218" width="1000" height="1000" rx="500" transform="translate(-15914 11825)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_de_masques_42" data-name="Groupe de masques 42" transform="translate(15914 -11825)" clip-path="url(#clip-path)">
+    <g id="Groupe_3714" data-name="Groupe 3714" transform="translate(18406 241705)">
+      <rect id="Rectangle_3450" data-name="Rectangle 3450" width="1000" height="1000" rx="220" transform="translate(-34320 -229880)" fill="#4b4b4b"/>
+      <rect id="Rectangle_3451" data-name="Rectangle 3451" width="800" height="800" rx="400" transform="translate(-34220 -229780)"/>
+      <!-- le « m » est un TRACE, plus un caractere de police : sans Impact
+       (Android, Linux) le navigateur prenait une autre police et le
+       logo changeait d'aspect. Le trace est identique partout. -->
+  <path id="m" transform="translate(-34020 -229400) rotate(45.972)" fill="#fff" d="M91.99 -259.18 90.62 -234.57Q99.8 -249.22 112.5 -256.54Q125.2 -263.87 141.41 -263.87Q173.05 -263.87 191.21 -234.57Q201.17 -249.22 213.67 -256.54Q226.17 -263.87 241.41 -263.87Q261.52 -263.87 274.71 -254.1Q287.89 -244.34 291.6 -230.18Q295.31 -216.02 295.31 -184.18V0H218.75V-168.95Q218.75 -202.15 216.5 -210.06Q214.26 -217.97 206.05 -217.97Q197.66 -217.97 195.21 -210.16Q192.77 -202.34 192.77 -168.95V0H116.21V-164.65Q116.21 -202.73 114.36 -210.35Q112.5 -217.97 104.1 -217.97Q98.83 -217.97 95.12 -213.96Q91.41 -209.96 91.02 -204.2Q90.62 -198.44 90.62 -179.69V0H14.06V-259.18Z"/>
+    </g>
+  </g>
+</svg>
