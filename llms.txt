@@ -5,7 +5,7 @@
 > caracteristiques, photos, video), et 47 guides d'achat en francais.
 
 ## Pages principales
-- [Accueil](https://mimistok.com/) : la selection, les nouveautes, les guides.
+- [Accueil](https://mimistok.com/) : la selection et les nouveautes.
 - [Tous les produits](https://mimistok.com/produits) : le catalogue complet.
 - [Avis clients](https://mimistok.com/avis/) : les avis verifies de la boutique.
 
