@@ -166,7 +166,7 @@
       <g:brand>Laifen</g:brand>
       <g:google_product_category>532</g:google_product_category>
       <g:product_type>Rasoirs électriques</g:product_type>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6976973858242</g:gtin>
     </item>
     <item>
       <g:id>laifen-swift-matte-black</g:id>
@@ -191,7 +191,7 @@
       <g:product_type>Sèche-cheveux</g:product_type>
       <g:item_group_id>laifen-swift</g:item_group_id>
       <g:color>Noir</g:color>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6973833030411</g:gtin>
     </item>
     <item>
       <g:id>laifen-swift</g:id>
@@ -215,7 +215,7 @@
       <g:google_product_category>490</g:google_product_category>
       <g:product_type>Sèche-cheveux</g:product_type>
       <g:item_group_id>laifen-swift</g:item_group_id>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6973833030374</g:gtin>
     </item>
     <item>
       <g:id>laifen-t1-pro</g:id>
@@ -238,7 +238,7 @@
       <g:brand>Laifen</g:brand>
       <g:google_product_category>532</g:google_product_category>
       <g:product_type>Rasoirs électriques</g:product_type>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6976973858129</g:gtin>
     </item>
     <item>
       <g:id>laifen-wave-blue-aluminum-alloy</g:id>
