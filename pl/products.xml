@@ -16,14 +16,9 @@
       <g:price>59.99 EUR</g:price>
       <g:shipping_weight>0.45 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>4.15 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>7.49 EUR</g:price>
+        <g:price>7.20 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -44,14 +39,9 @@
       <g:price>32.99 EUR</g:price>
       <g:shipping_weight>0.21 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>4.15 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>4.99 EUR</g:price>
+        <g:price>7.20 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -72,14 +62,9 @@
       <g:price>12.99 EUR</g:price>
       <g:shipping_weight>0.60 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>5.99 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>9.49 EUR</g:price>
+        <g:price>10.40 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -100,14 +85,9 @@
       <g:price>14.99 EUR</g:price>
       <g:shipping_weight>0.60 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>5.99 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>9.49 EUR</g:price>
+        <g:price>10.40 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -131,14 +111,9 @@
       <g:price>119.99 EUR</g:price>
       <g:shipping_weight>0.70 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>5.99 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>9.49 EUR</g:price>
+        <g:price>10.40 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -159,14 +134,9 @@
       <g:price>19.99 EUR</g:price>
       <g:shipping_weight>0.27 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>4.15 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>7.49 EUR</g:price>
+        <g:price>7.20 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -187,14 +157,9 @@
       <g:price>199.99 EUR</g:price>
       <g:shipping_weight>0.18 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>4.15 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>4.99 EUR</g:price>
+        <g:price>7.20 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -215,14 +180,9 @@
       <g:price>79.99 EUR</g:price>
       <g:shipping_weight>0.41 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>4.15 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>7.49 EUR</g:price>
+        <g:price>7.20 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -245,14 +205,9 @@
       <g:price>79.00 EUR</g:price>
       <g:shipping_weight>0.41 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>4.15 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>7.49 EUR</g:price>
+        <g:price>7.20 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -274,14 +229,9 @@
       <g:price>109.99 EUR</g:price>
       <g:shipping_weight>0.09 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>4.15 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>4.99 EUR</g:price>
+        <g:price>7.20 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -302,14 +252,9 @@
       <g:price>79.99 EUR</g:price>
       <g:shipping_weight>0.60 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>5.99 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>9.49 EUR</g:price>
+        <g:price>10.40 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -332,14 +277,9 @@
       <g:price>79.99 EUR</g:price>
       <g:shipping_weight>0.60 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>5.99 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>9.49 EUR</g:price>
+        <g:price>10.40 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -362,14 +302,9 @@
       <g:price>59.99 EUR</g:price>
       <g:shipping_weight>0.14 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>4.15 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>4.99 EUR</g:price>
+        <g:price>7.20 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -391,14 +326,9 @@
       <g:price>169.99 EUR</g:price>
       <g:shipping_weight>0.09 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>4.15 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>4.99 EUR</g:price>
+        <g:price>7.20 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -419,14 +349,9 @@
       <g:price>79.99 EUR</g:price>
       <g:shipping_weight>0.06 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>4.15 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>4.99 EUR</g:price>
+        <g:price>7.20 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -449,14 +374,9 @@
       <g:price>79.99 EUR</g:price>
       <g:shipping_weight>0.06 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>4.15 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>4.99 EUR</g:price>
+        <g:price>7.20 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -479,14 +399,9 @@
       <g:price>79.99 EUR</g:price>
       <g:shipping_weight>0.06 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>4.15 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>4.99 EUR</g:price>
+        <g:price>7.20 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -509,14 +424,9 @@
       <g:price>49.99 EUR</g:price>
       <g:shipping_weight>0.27 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>4.15 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>7.49 EUR</g:price>
+        <g:price>7.20 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -537,14 +447,9 @@
       <g:price>39.99 EUR</g:price>
       <g:shipping_weight>0.15 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>4.15 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>4.99 EUR</g:price>
+        <g:price>7.20 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -565,14 +470,9 @@
       <g:price>79.99 EUR</g:price>
       <g:shipping_weight>1.60 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>7.99 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>10.99 EUR</g:price>
+        <g:price>10.90 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -593,14 +493,9 @@
       <g:price>49.99 EUR</g:price>
       <g:shipping_weight>0.60 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>5.99 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>9.49 EUR</g:price>
+        <g:price>10.40 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -621,14 +516,9 @@
       <g:price>39.99 EUR</g:price>
       <g:shipping_weight>0.50 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>4.15 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>7.49 EUR</g:price>
+        <g:price>7.20 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -649,14 +539,9 @@
       <g:price>25.99 EUR</g:price>
       <g:shipping_weight>0.78 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>5.99 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>9.49 EUR</g:price>
+        <g:price>10.40 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -677,14 +562,9 @@
       <g:price>59.99 EUR</g:price>
       <g:shipping_weight>1.75 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>7.99 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>10.99 EUR</g:price>
+        <g:price>10.90 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -705,14 +585,9 @@
       <g:price>12.99 EUR</g:price>
       <g:shipping_weight>0.60 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>5.99 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>9.49 EUR</g:price>
+        <g:price>10.40 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -733,14 +608,9 @@
       <g:price>56.99 EUR</g:price>
       <g:shipping_weight>2.10 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>7.99 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>16.39 EUR</g:price>
+        <g:price>13.40 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -761,14 +631,9 @@
       <g:price>49.99 EUR</g:price>
       <g:shipping_weight>1.20 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>7.99 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>10.99 EUR</g:price>
+        <g:price>10.90 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -790,14 +655,9 @@
       <g:price>2099.00 EUR</g:price>
       <g:shipping_weight>90.00 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>25.99 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>42.99 EUR</g:price>
+        <g:price>29.50 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -821,14 +681,9 @@
       <g:price>2099.00 EUR</g:price>
       <g:shipping_weight>90.00 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>25.99 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>42.99 EUR</g:price>
+        <g:price>29.50 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -852,14 +707,9 @@
       <g:price>2099.00 EUR</g:price>
       <g:shipping_weight>90.00 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>25.99 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>42.99 EUR</g:price>
+        <g:price>29.50 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
@@ -883,14 +733,9 @@
       <g:price>2099.00 EUR</g:price>
       <g:shipping_weight>90.00 kg</g:shipping_weight>
       <g:shipping>
-        <g:country>FR</g:country>
+        <g:country>PL</g:country>
         <g:service>Mondial Relay point relais</g:service>
-        <g:price>25.99 EUR</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Mondial Relay à domicile</g:service>
-        <g:price>42.99 EUR</g:price>
+        <g:price>29.50 EUR</g:price>
       </g:shipping>
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
