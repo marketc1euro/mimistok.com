@@ -71,7 +71,7 @@
       <g:brand>Baseus</g:brand>
       <g:google_product_category>619</g:google_product_category>
       <g:product_type>Aspirateurs</g:product_type>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6932172614041</g:gtin>
     </item>
     <item>
       <g:id>baseus-car-safety</g:id>
@@ -143,7 +143,7 @@
       <g:brand>Baseus</g:brand>
       <g:google_product_category>1745</g:google_product_category>
       <g:product_type>Batteries pour téléphones mobiles</g:product_type>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6932172663155</g:gtin>
     </item>
     <item>
       <g:id>laifen-p3-pro</g:id>
@@ -263,7 +263,7 @@
       <g:product_type>Brosses à dents</g:product_type>
       <g:item_group_id>laifen-wave</g:item_group_id>
       <g:color>Bleu</g:color>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6976973853698</g:gtin>
     </item>
     <item>
       <g:id>laifen-wave-pink-aluminum-alloy</g:id>
@@ -312,7 +312,7 @@
       <g:google_product_category>527</g:google_product_category>
       <g:product_type>Brosses à dents</g:product_type>
       <g:item_group_id>laifen-wave</g:item_group_id>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6976973854220</g:gtin>
     </item>
     <item>
       <g:id>camera-obsbot-tiny-2-lite</g:id>
@@ -456,7 +456,7 @@
       <g:brand>Xiaomi</g:brand>
       <g:google_product_category>527</g:google_product_category>
       <g:product_type>Brosses à dents</g:product_type>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6932554403904</g:gtin>
     </item>
     <item>
       <g:id>mijia-de-xiaomi</g:id>
@@ -571,7 +571,7 @@
       <g:brand>Xiaomi</g:brand>
       <g:google_product_category>621</g:google_product_category>
       <g:product_type>Chauffe-eau</g:product_type>
-      <g:mpn>MSYSJ03</g:mpn>
+      <g:gtin>6941812796467</g:gtin>
     </item>
     <item>
       <g:id>xiaomi-mijia-coupe-ongles</g:id>
