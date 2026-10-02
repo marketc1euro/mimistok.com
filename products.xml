@@ -17,7 +17,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Baseus</g:brand>
-      <g:product_type>Baseus</g:product_type>
+      <g:google_product_category>1745</g:google_product_category>
+      <g:product_type>Batteries pour téléphones mobiles</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -33,7 +34,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Baseus</g:brand>
-      <g:product_type>Baseus</g:product_type>
+      <g:google_product_category>543627</g:google_product_category>
+      <g:product_type>Casques</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -49,7 +51,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Baseus</g:brand>
-      <g:product_type>Baseus</g:product_type>
+      <g:google_product_category>619</g:google_product_category>
+      <g:product_type>Aspirateurs</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -65,7 +68,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Baseus</g:brand>
-      <g:product_type>Baseus</g:product_type>
+      <g:google_product_category>2879</g:google_product_category>
+      <g:product_type>Équipement de sécurité des véhicules</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -84,7 +88,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Baseus</g:brand>
-      <g:product_type>Baseus</g:product_type>
+      <g:google_product_category>362</g:google_product_category>
+      <g:product_type>Caméras de surveillance</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -100,7 +105,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Baseus</g:brand>
-      <g:product_type>Baseus</g:product_type>
+      <g:google_product_category>1745</g:google_product_category>
+      <g:product_type>Batteries pour téléphones mobiles</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -116,7 +122,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Laifen</g:brand>
-      <g:product_type>Laifen</g:product_type>
+      <g:google_product_category>532</g:google_product_category>
+      <g:product_type>Rasoirs électriques</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -132,7 +139,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Laifen</g:brand>
-      <g:product_type>Laifen</g:product_type>
+      <g:google_product_category>490</g:google_product_category>
+      <g:product_type>Sèche-cheveux</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -148,7 +156,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Laifen</g:brand>
-      <g:product_type>Laifen</g:product_type>
+      <g:google_product_category>490</g:google_product_category>
+      <g:product_type>Sèche-cheveux</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -164,7 +173,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Laifen</g:brand>
-      <g:product_type>Laifen</g:product_type>
+      <g:google_product_category>532</g:google_product_category>
+      <g:product_type>Rasoirs électriques</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -180,7 +190,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Laifen</g:brand>
-      <g:product_type>Laifen</g:product_type>
+      <g:google_product_category>527</g:google_product_category>
+      <g:product_type>Brosses à dents</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -196,7 +207,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Laifen</g:brand>
-      <g:product_type>Laifen</g:product_type>
+      <g:google_product_category>527</g:google_product_category>
+      <g:product_type>Brosses à dents</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -212,7 +224,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Laifen</g:brand>
-      <g:product_type>Laifen</g:product_type>
+      <g:google_product_category>527</g:google_product_category>
+      <g:product_type>Brosses à dents</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -228,7 +241,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Obsbot</g:brand>
-      <g:product_type>Obsbot</g:product_type>
+      <g:google_product_category>312</g:google_product_category>
+      <g:product_type>Webcams</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -244,7 +258,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Obsbot</g:brand>
-      <g:product_type>Obsbot</g:product_type>
+      <g:google_product_category>312</g:google_product_category>
+      <g:product_type>Webcams</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -260,7 +275,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Obsbot</g:brand>
-      <g:product_type>Obsbot</g:product_type>
+      <g:google_product_category>312</g:google_product_category>
+      <g:product_type>Webcams</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -276,7 +292,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Obsbot</g:brand>
-      <g:product_type>Obsbot</g:product_type>
+      <g:google_product_category>312</g:google_product_category>
+      <g:product_type>Webcams</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -292,7 +309,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Xiaomi</g:brand>
-      <g:product_type>Xiaomi</g:product_type>
+      <g:google_product_category>4546</g:google_product_category>
+      <g:product_type>Réveils</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -308,7 +326,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Xiaomi</g:brand>
-      <g:product_type>Xiaomi</g:product_type>
+      <g:google_product_category>527</g:google_product_category>
+      <g:product_type>Brosses à dents</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -324,7 +343,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Xiaomi</g:brand>
-      <g:product_type>Xiaomi</g:product_type>
+      <g:google_product_category>763</g:google_product_category>
+      <g:product_type>Emballages sous vide</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -340,7 +360,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Xiaomi</g:brand>
-      <g:product_type>Xiaomi</g:product_type>
+      <g:google_product_category>490</g:google_product_category>
+      <g:product_type>Sèche-cheveux</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -356,7 +377,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Xiaomi</g:brand>
-      <g:product_type>Xiaomi</g:product_type>
+      <g:google_product_category>619</g:google_product_category>
+      <g:product_type>Aspirateurs</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -372,7 +394,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Xiaomi</g:brand>
-      <g:product_type>Xiaomi</g:product_type>
+      <g:google_product_category>5138</g:google_product_category>
+      <g:product_type>Défroisseurs à vapeur</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -388,7 +411,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Xiaomi</g:brand>
-      <g:product_type>Xiaomi</g:product_type>
+      <g:google_product_category>621</g:google_product_category>
+      <g:product_type>Chauffe-eau</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -404,7 +428,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Xiaomi</g:brand>
-      <g:product_type>Xiaomi</g:product_type>
+      <g:google_product_category>2828</g:google_product_category>
+      <g:product_type>Coupe-ongles</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -420,7 +445,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Xiaomi</g:brand>
-      <g:product_type>Xiaomi</g:product_type>
+      <g:google_product_category>747</g:google_product_category>
+      <g:product_type>Plaques chauffantes</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -436,7 +462,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Xiaomi</g:brand>
-      <g:product_type>Xiaomi</g:product_type>
+      <g:google_product_category>751</g:google_product_category>
+      <g:product_type>Bouilloires électriques</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -453,7 +480,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Citycoco</g:brand>
-      <g:product_type>Citycoco</g:product_type>
+      <g:google_product_category>919</g:google_product_category>
+      <g:product_type>Motos et scooters</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -470,7 +498,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Citycoco</g:brand>
-      <g:product_type>Citycoco</g:product_type>
+      <g:google_product_category>919</g:google_product_category>
+      <g:product_type>Motos et scooters</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -487,7 +516,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Citycoco</g:brand>
-      <g:product_type>Citycoco</g:product_type>
+      <g:google_product_category>919</g:google_product_category>
+      <g:product_type>Motos et scooters</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
     <item>
@@ -504,7 +534,8 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Citycoco</g:brand>
-      <g:product_type>Citycoco</g:product_type>
+      <g:google_product_category>919</g:google_product_category>
+      <g:product_type>Motos et scooters</g:product_type>
       <g:identifier_exists>FALSE</g:identifier_exists>
     </item>
   </channel>
