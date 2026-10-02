@@ -25,7 +25,7 @@
       <g:brand>Baseus</g:brand>
       <g:google_product_category>1745</g:google_product_category>
       <g:product_type>Batteries pour téléphones mobiles</g:product_type>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6932172682446</g:gtin>
     </item>
     <item>
       <g:id>baseus-bowie-d05</g:id>
@@ -48,7 +48,7 @@
       <g:brand>Baseus</g:brand>
       <g:google_product_category>543627</g:google_product_category>
       <g:product_type>Casques</g:product_type>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6932172626037</g:gtin>
     </item>
     <item>
       <g:id>baseus-c2-mini-aspirateur</g:id>
@@ -94,7 +94,7 @@
       <g:brand>Baseus</g:brand>
       <g:google_product_category>2879</g:google_product_category>
       <g:product_type>Équipement de sécurité des véhicules</g:product_type>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6953156210561</g:gtin>
     </item>
     <item>
       <g:id>baseus-n1-outdoor-security-camera</g:id>
@@ -120,7 +120,7 @@
       <g:brand>Baseus</g:brand>
       <g:google_product_category>362</g:google_product_category>
       <g:product_type>Caméras de surveillance</g:product_type>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6932172661984</g:gtin>
     </item>
     <item>
       <g:id>powerbank-baseus</g:id>
@@ -335,7 +335,7 @@
       <g:brand>Obsbot</g:brand>
       <g:google_product_category>312</g:google_product_category>
       <g:product_type>Webcams</g:product_type>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6971889230441</g:gtin>
     </item>
     <item>
       <g:id>obsbot-meet-se-blanc-nuage</g:id>
@@ -360,7 +360,7 @@
       <g:product_type>Webcams</g:product_type>
       <g:item_group_id>obsbot-meet-se</g:item_group_id>
       <g:color>Blanc</g:color>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6971889230632</g:gtin>
     </item>
     <item>
       <g:id>obsbot-meet-se-gris-spatial</g:id>
@@ -385,7 +385,7 @@
       <g:product_type>Webcams</g:product_type>
       <g:item_group_id>obsbot-meet-se</g:item_group_id>
       <g:color>Gris</g:color>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6971889230649</g:gtin>
     </item>
     <item>
       <g:id>obsbot-meet-se-vert-aurore</g:id>
@@ -410,7 +410,7 @@
       <g:product_type>Webcams</g:product_type>
       <g:item_group_id>obsbot-meet-se</g:item_group_id>
       <g:color>Vert</g:color>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6971889230656</g:gtin>
     </item>
     <item>
       <g:id>mi-smart-clock</g:id>
@@ -433,7 +433,7 @@
       <g:brand>Xiaomi</g:brand>
       <g:google_product_category>4546</g:google_product_category>
       <g:product_type>Réveils</g:product_type>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6934177723384</g:gtin>
     </item>
     <item>
       <g:id>mijia-brosse-a-dents</g:id>
@@ -479,7 +479,7 @@
       <g:brand>Xiaomi</g:brand>
       <g:google_product_category>763</g:google_product_category>
       <g:product_type>Emballages sous vide</g:product_type>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:mpn>MJFKJ06XM</g:mpn>
     </item>
     <item>
       <g:id>seche-cheveux-xiaomi-mi</g:id>
@@ -502,7 +502,7 @@
       <g:brand>Xiaomi</g:brand>
       <g:google_product_category>490</g:google_product_category>
       <g:product_type>Sèche-cheveux</g:product_type>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6934177744259</g:gtin>
     </item>
     <item>
       <g:id>xiaomi-aspirateur-portable</g:id>
@@ -548,7 +548,7 @@
       <g:brand>Xiaomi</g:brand>
       <g:google_product_category>5138</g:google_product_category>
       <g:product_type>Défroisseurs à vapeur</g:product_type>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6941812774571</g:gtin>
     </item>
     <item>
       <g:id>xiaomi-instant-hot-water</g:id>
@@ -571,7 +571,7 @@
       <g:brand>Xiaomi</g:brand>
       <g:google_product_category>621</g:google_product_category>
       <g:product_type>Chauffe-eau</g:product_type>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:mpn>MSYSJ03</g:mpn>
     </item>
     <item>
       <g:id>xiaomi-mijia-coupe-ongles</g:id>
@@ -594,7 +594,7 @@
       <g:brand>Xiaomi</g:brand>
       <g:google_product_category>2828</g:google_product_category>
       <g:product_type>Coupe-ongles</g:product_type>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6934177713804</g:gtin>
     </item>
     <item>
       <g:id>xiaomi-mijia-induction-cooker</g:id>
@@ -617,7 +617,7 @@
       <g:brand>Xiaomi</g:brand>
       <g:google_product_category>747</g:google_product_category>
       <g:product_type>Plaques chauffantes</g:product_type>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:mpn>DCL01CM</g:mpn>
     </item>
     <item>
       <g:id>xiaomi-smart-kettle-2-pro</g:id>
@@ -640,7 +640,7 @@
       <g:brand>Xiaomi</g:brand>
       <g:google_product_category>751</g:google_product_category>
       <g:product_type>Bouilloires électriques</g:product_type>
-      <g:identifier_exists>FALSE</g:identifier_exists>
+      <g:gtin>6941812798041</g:gtin>
     </item>
     <item>
       <g:id>citycoco-super-701</g:id>
