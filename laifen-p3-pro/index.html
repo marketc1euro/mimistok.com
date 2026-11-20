@@ -1097,7 +1097,7 @@
     ouvrir();
   }
 
-  function payer() {
+  function payer() { window.location.href = "/panier/"; return;
     var panier = lire();
     var btn = document.getElementById("btn-payer");
     var err = document.getElementById("erreur-paiement");
